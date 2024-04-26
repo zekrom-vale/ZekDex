@@ -2,7 +2,7 @@
 % Please edit documentation in R/Stats.R
 \name{gen_stats}
 \alias{gen_stats}
-\title{Generate Pokémon Statistics}
+\title{Generate Pokemon Statistics}
 \usage{
 gen_stats(
   write = FALSE,
@@ -12,13 +12,14 @@ gen_stats(
 }
 \arguments{
 \item{write}{Logical, if \code{TRUE}, writes the data frames to csv files. Default is \code{FALSE}.}
+
+\item{path}{The path where the csv file will be written if \code{write = TRUE}. Default is \code{system.file("data/PokemonStats.csv", package = "ZekDex")}.}
+
+\item{pathWide}{The path where the wide format csv file will be written if \code{write = TRUE}. Default is \code{system.file("data/PokemonStatsWide.csv", package = "ZekDex")}.}
 }
 \value{
 A list of two data frames: PokemonStats (long format) and PokemonStatsWide (wide format).
 }
 \description{
-This function scrapes Pokémon statistics from Bulbapedia and returns a list of two data frames: one in long format and one in wide format. If \code{write = TRUE}, it also writes these data frames to csv files.
-}
-\examples{
-gen_stats()
+This function scrapes Pokemon statistics from Bulbapedia and returns a list of two data frames: one in long format and one in wide format. If \code{write = TRUE}, it also writes these data frames to csv files.
 }

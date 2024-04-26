@@ -2,16 +2,16 @@
 % Please edit documentation in R/Regional.R
 \name{gen_reginal}
 \alias{gen_reginal}
-\title{Generates regional dex from scratch}
+\title{Generate Regional Pokedex}
 \usage{
 gen_reginal(write = FALSE)
 }
 \arguments{
-\item{write}{Write the file to \code{data/PokemonRegional.csv}?}
+\item{write}{Logical, if \code{TRUE}, writes the tibble to a csv file. Default is \code{FALSE}.}
 }
 \value{
-A tibble with of regional dexes
+A tibble of regional dexes.
 }
 \description{
-Generates regional dex from scratch
+This function generates a tibble of the regional Pokedex by scraping data from Bulbapedia. It extracts the URLs of the regional Pokedex pages from the HTML, reads the HTML of each regional Pokedex page, and combines the regional Pokedex data with the national Pokedex data.
 }

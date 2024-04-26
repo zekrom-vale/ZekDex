@@ -2,22 +2,23 @@
 % Please edit documentation in R/Util.R
 \name{.recursive_wrap}
 \alias{.recursive_wrap}
-\title{All functions that start with . are not vectorised
-Recursively wraps a string with specified opening and closing characters}
+\title{Recursively wraps a string with specified opening and closing characters}
 \usage{
 .recursive_wrap(str, .open = "(", .close = ")?")
 }
 \arguments{
-\item{str}{The string to be wrapped}
+\item{str}{The string to be wrapped.}
 
-\item{.open}{The opening character(s) for wrapping, default is "("}
+\item{.open}{The opening character(s) for wrapping, default is "(".}
 
-\item{.close}{The closing character(s) for wrapping, default is ")?"}
+\item{.close}{The closing character(s) for wrapping, default is ")?".}
 }
 \value{
-A string that is recursively wrapped with the specified opening and closing characters
+A string that is recursively wrapped with the specified opening and closing characters.
 }
 \description{
-All functions that start with . are not vectorised
-Recursively wraps a string with specified opening and closing characters
+This function recursively wraps a string with specified opening and closing characters. It returns a string that is recursively wrapped with the specified opening and closing characters.
+}
+\examples{
+.recursive_wrap("Zekrom")
 }

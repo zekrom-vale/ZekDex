@@ -20,6 +20,3 @@ A tibble of the National Dex.
 \description{
 This function generates a tibble of the National Dex by reading the 'PokemonNational.csv' file and scraping data from Bulbapedia. It extracts the tables from the HTML content, cleans the column names of the dataframe, and combines all dataframes into one. If \code{write = TRUE}, it also writes the tibble to a csv file.
 }
-\examples{
-gen_national()
-}

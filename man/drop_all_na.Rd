@@ -7,13 +7,21 @@
 drop_all_na(df, ...)
 }
 \arguments{
-\item{df}{A dataframe to operate on}
+\item{df}{A dataframe to operate on.}
 
 \item{...}{Columns to check for NA values. If no columns are specified, all columns are checked.}
 }
 \value{
-A dataframe with rows containing NA values in the specified columns removed
+A dataframe with rows containing NA values in the specified columns removed.
 }
 \description{
-Drops all rows with NA values in specified columns
+This function drops all rows with NA values in specified columns from a dataframe. If no columns are specified, all columns are checked.
+}
+\examples{
+drop_all_na(tribble(
+  ~a, ~b,
+  1, 3,
+  2, NA,
+  NA, 5
+))
 }

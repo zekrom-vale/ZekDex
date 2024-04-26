@@ -20,6 +20,3 @@ A tibble with a single column named 'types' containing unique Pokémon types.
 \description{
 This function generates a tibble of Pokémon types by reading the 'PokemonNational.csv' file and extracting the 'type' and 'type2' columns. It removes duplicate and NA values to create a unique list of Pokémon types. If \code{write = TRUE}, it also writes the tibble to a csv file.
 }
-\examples{
-gen_type()
-}

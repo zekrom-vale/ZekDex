@@ -20,6 +20,3 @@ A tibble of the National Dex with language information.
 \description{
 This function generates a tibble of the National Dex with language information by reading the 'PokemonNational.csv' file and scraping data from Bulbapedia. It extracts language links and reads the HTML pages to compute the languages. It cleans the tables from each language and combines them into one dataframe. If \code{write = TRUE}, it also writes the tibble to a csv file.
 }
-\examples{
-gen_lang()
-}

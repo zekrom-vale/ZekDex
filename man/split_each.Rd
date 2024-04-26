@@ -7,13 +7,16 @@
 split_each(lst, tags = c("h2", "h3", "h4"))
 }
 \arguments{
-\item{lst}{A list to split}
+\item{lst}{A list to split.}
 
-\item{tags}{A vector of tags at which to split the list}
+\item{tags}{A vector of tags at which to split the list.}
 }
 \value{
-A list of lists, split at each specified tag
+A list of lists, split at each specified tag.
 }
 \description{
-Splits a list at each specified tag
+This function splits a list at each specified tag. It returns a list of lists, split at each specified tag.
+}
+\examples{
+split_each(list("h1", "h2", "h3", "h4"), c("h2", "h3", "h4"))
 }

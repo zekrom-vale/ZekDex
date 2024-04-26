@@ -20,6 +20,3 @@ A data frame of Pokémon evolution data.
 \description{
 This function scrapes Pokémon evolution data from Bulbapedia and returns a data frame. If \code{write = TRUE}, it also writes the data frame to a csv file.
 }
-\examples{
-gen_evos()
-}

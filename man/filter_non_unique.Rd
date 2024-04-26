@@ -7,13 +7,23 @@
 filter_non_unique(df, ...)
 }
 \arguments{
-\item{df}{A dataframe to operate on}
+\item{df}{A dataframe to operate on.}
 
 \item{...}{Columns to check for non-unique values. If no columns are specified, all columns are checked.}
 }
 \value{
-A dataframe with rows containing non-unique values in the specified columns
+A dataframe with rows containing non-unique values in the specified columns removed.
 }
 \description{
-Filters rows of a dataframe based on non-unique values in specified columns
+This function filters rows of a dataframe based on non-unique values in specified columns. If no columns are specified, all columns are checked.
+}
+\examples{
+filter_non_unique(
+  tribble(
+    ~a, ~b,
+    1, 3,
+    2, 4,
+    2, 4
+  )
+)
 }

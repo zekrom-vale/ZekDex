@@ -7,13 +7,16 @@
 str_longest_match(str, test, ..., .open = "(", .close = ")?")
 }
 \arguments{
-\item{str}{The string to resize}
+\item{str}{The string to resize.}
 
-\item{test}{The string to test}
+\item{test}{The string to test.}
 }
 \value{
-The shortest string not matching test
+The shortest string not matching test.
 }
 \description{
-Returns the shortest string before a match
+This function returns the shortest string not matching a test string. It uses a recursive wrap function to match the strings.
+}
+\examples{
+str_longest_match("Zekrom", "Zek")
 }
