@@ -1,0 +1,1181 @@
+Ndex,English,form,form2,type,type2
+#0001,Bulbasaur,,,Grass,Poison
+#0002,Ivysaur,,,Grass,Poison
+#0003,Venusaur,,,Grass,Poison
+#0004,Charmander,,,Fire,NA
+#0005,Charmeleon,,,Fire,NA
+#0006,Charizard,,,Fire,Flying
+#0007,Squirtle,,,Water,NA
+#0008,Wartortle,,,Water,NA
+#0009,Blastoise,,,Water,NA
+#0010,Caterpie,,,Bug,NA
+#0011,Metapod,,,Bug,NA
+#0012,Butterfree,,,Bug,Flying
+#0013,Weedle,,,Bug,Poison
+#0014,Kakuna,,,Bug,Poison
+#0015,Beedrill,,,Bug,Poison
+#0016,Pidgey,,,Normal,Flying
+#0017,Pidgeotto,,,Normal,Flying
+#0018,Pidgeot,,,Normal,Flying
+#0019,Rattata,,,Normal,NA
+#0019,Rattata,Alolan Form,,Dark,Normal
+#0020,Raticate,,,Normal,NA
+#0020,Raticate,Alolan Form,,Dark,Normal
+#0021,Spearow,,,Normal,Flying
+#0022,Fearow,,,Normal,Flying
+#0023,Ekans,,,Poison,NA
+#0024,Arbok,,,Poison,NA
+#0025,Pikachu,,,Electric,NA
+#0026,Raichu,,,Electric,NA
+#0026,Raichu,Alolan Form,,Electric,Psychic
+#0027,Sandshrew,,,Ground,NA
+#0027,Sandshrew,Alolan Form,,Ice,Steel
+#0028,Sandslash,,,Ground,NA
+#0028,Sandslash,Alolan Form,,Ice,Steel
+#0029,Nidoran,,,Poison,NA
+#0030,Nidorina,,,Poison,NA
+#0031,Nidoqueen,,,Poison,Ground
+#0032,Nidoran,,,Poison,NA
+#0033,Nidorino,,,Poison,NA
+#0034,Nidoking,,,Poison,Ground
+#0035,Clefairy,,,Fairy,NA
+#0036,Clefable,,,Fairy,NA
+#0037,Vulpix,,,Fire,NA
+#0037,Vulpix,Alolan Form,,Ice,NA
+#0038,Ninetales,,,Fire,NA
+#0038,Ninetales,Alolan Form,,Ice,Fairy
+#0039,Jigglypuff,,,Normal,Fairy
+#0040,Wigglytuff,,,Normal,Fairy
+#0041,Zubat,,,Poison,Flying
+#0042,Golbat,,,Poison,Flying
+#0043,Oddish,,,Grass,Poison
+#0044,Gloom,,,Grass,Poison
+#0045,Vileplume,,,Grass,Poison
+#0046,Paras,,,Bug,Grass
+#0047,Parasect,,,Bug,Grass
+#0048,Venonat,,,Bug,Poison
+#0049,Venomoth,,,Bug,Poison
+#0050,Diglett,,,Ground,NA
+#0050,Diglett,Alolan Form,,Ground,Steel
+#0051,Dugtrio,,,Ground,NA
+#0051,Dugtrio,Alolan Form,,Ground,Steel
+#0052,Meowth,,,Normal,NA
+#0052,Meowth,Alolan Form,,Dark,NA
+#0052,Meowth,Galarian Form,,Steel,NA
+#0053,Persian,,,Normal,NA
+#0053,Persian,Alolan Form,,Dark,NA
+#0054,Psyduck,,,Water,NA
+#0055,Golduck,,,Water,NA
+#0056,Mankey,,,Fighting,NA
+#0057,Primeape,,,Fighting,NA
+#0058,Growlithe,,,Fire,NA
+#0058,Growlithe,Hisuian Form,,Fire,Rock
+#0059,Arcanine,,,Fire,NA
+#0059,Arcanine,Hisuian Form,,Fire,Rock
+#0060,Poliwag,,,Water,NA
+#0061,Poliwhirl,,,Water,NA
+#0062,Poliwrath,,,Water,Fighting
+#0063,Abra,,,Psychic,NA
+#0064,Kadabra,,,Psychic,NA
+#0065,Alakazam,,,Psychic,NA
+#0066,Machop,,,Fighting,NA
+#0067,Machoke,,,Fighting,NA
+#0068,Machamp,,,Fighting,NA
+#0069,Bellsprout,,,Grass,Poison
+#0070,Weepinbell,,,Grass,Poison
+#0071,Victreebel,,,Grass,Poison
+#0072,Tentacool,,,Water,Poison
+#0073,Tentacruel,,,Water,Poison
+#0074,Geodude,,,Rock,Ground
+#0074,Geodude,Alolan Form,,Rock,Electric
+#0075,Graveler,,,Rock,Ground
+#0075,Graveler,Alolan Form,,Rock,Electric
+#0076,Golem,,,Rock,Ground
+#0076,Golem,Alolan Form,,Rock,Electric
+#0077,Ponyta,,,Fire,NA
+#0077,Ponyta,Galarian Form,,Psychic,NA
+#0078,Rapidash,,,Fire,NA
+#0078,Rapidash,Galarian Form,,Psychic,Fairy
+#0079,Slowpoke,,,Water,Psychic
+#0079,Slowpoke,Galarian Form,,Psychic,NA
+#0080,Slowbro,,,Water,Psychic
+#0080,Slowbro,Galarian Form,,Poison,Psychic
+#0081,Magnemite,,,Electric,Steel
+#0082,Magneton,,,Electric,Steel
+#0083,Farfetch,,,Normal,Flying
+#0083,Farfetch,,,Fighting,NA
+#0084,Doduo,,,Normal,Flying
+#0085,Dodrio,,,Normal,Flying
+#0086,Seel,,,Water,NA
+#0087,Dewgong,,,Water,Ice
+#0088,Grimer,,,Poison,NA
+#0088,Grimer,Alolan Form,,Poison,Dark
+#0089,Muk,,,Poison,NA
+#0089,Muk,Alolan Form,,Poison,Dark
+#0090,Shellder,,,Water,NA
+#0091,Cloyster,,,Water,Ice
+#0092,Gastly,,,Ghost,Poison
+#0093,Haunter,,,Ghost,Poison
+#0094,Gengar,,,Ghost,Poison
+#0095,Onix,,,Rock,Ground
+#0096,Drowzee,,,Psychic,NA
+#0097,Hypno,,,Psychic,NA
+#0098,Krabby,,,Water,NA
+#0099,Kingler,,,Water,NA
+#0100,Voltorb,,,Electric,NA
+#0100,Voltorb,Hisuian Form,,Electric,Grass
+#0101,Electrode,,,Electric,NA
+#0101,Electrode,Hisuian Form,,Electric,Grass
+#0102,Exeggcute,,,Grass,Psychic
+#0103,Exeggutor,,,Grass,Psychic
+#0103,Exeggutor,Alolan Form,,Grass,Dragon
+#0104,Cubone,,,Ground,NA
+#0105,Marowak,,,Ground,NA
+#0105,Marowak,Alolan Form,,Fire,Ghost
+#0106,Hitmonlee,,,Fighting,NA
+#0107,Hitmonchan,,,Fighting,NA
+#0108,Lickitung,,,Normal,NA
+#0109,Koffing,,,Poison,NA
+#0110,Weezing,,,Poison,NA
+#0110,Weezing,Galarian Form,,Poison,Fairy
+#0111,Rhyhorn,,,Ground,Rock
+#0112,Rhydon,,,Ground,Rock
+#0113,Chansey,,,Normal,NA
+#0114,Tangela,,,Grass,NA
+#0115,Kangaskhan,,,Normal,NA
+#0116,Horsea,,,Water,NA
+#0117,Seadra,,,Water,NA
+#0118,Goldeen,,,Water,NA
+#0119,Seaking,,,Water,NA
+#0120,Staryu,,,Water,NA
+#0121,Starmie,,,Water,Psychic
+#0122,Mr. Mime,,,Psychic,Fairy
+#0122,Mr. Mime,Galarian Form,,Ice,Psychic
+#0123,Scyther,,,Bug,Flying
+#0124,Jynx,,,Ice,Psychic
+#0125,Electabuzz,,,Electric,NA
+#0126,Magmar,,,Fire,NA
+#0127,Pinsir,,,Bug,NA
+#0128,Tauros,,,Normal,NA
+#0128,Tauros,Paldean Form,Combat Breed,Fighting,NA
+#0128,Tauros,Paldean Form,Blaze Breed,Fighting,Fire
+#0128,Tauros,Paldean Form,Aqua Breed,Fighting,Water
+#0129,Magikarp,,,Water,NA
+#0130,Gyarados,,,Water,Flying
+#0131,Lapras,,,Water,Ice
+#0132,Ditto,,,Normal,NA
+#0133,Eevee,,,Normal,NA
+#0134,Vaporeon,,,Water,NA
+#0135,Jolteon,,,Electric,NA
+#0136,Flareon,,,Fire,NA
+#0137,Porygon,,,Normal,NA
+#0138,Omanyte,,,Rock,Water
+#0139,Omastar,,,Rock,Water
+#0140,Kabuto,,,Rock,Water
+#0141,Kabutops,,,Rock,Water
+#0142,Aerodactyl,,,Rock,Flying
+#0143,Snorlax,,,Normal,NA
+#0144,Articuno,,,Ice,Flying
+#0144,Articuno,Galarian Form,,Psychic,Flying
+#0145,Zapdos,,,Electric,Flying
+#0145,Zapdos,Galarian Form,,Fighting,Flying
+#0146,Moltres,,,Fire,Flying
+#0146,Moltres,Galarian Form,,Dark,Flying
+#0147,Dratini,,,Dragon,NA
+#0148,Dragonair,,,Dragon,NA
+#0149,Dragonite,,,Dragon,Flying
+#0150,Mewtwo,,,Psychic,NA
+#0151,Mew,,,Psychic,NA
+#0152,Chikorita,,,Grass,NA
+#0153,Bayleef,,,Grass,NA
+#0154,Meganium,,,Grass,NA
+#0155,Cyndaquil,,,Fire,NA
+#0156,Quilava,,,Fire,NA
+#0157,Typhlosion,,,Fire,NA
+#0157,Typhlosion,Hisuian Form,,Fire,Ghost
+#0158,Totodile,,,Water,NA
+#0159,Croconaw,,,Water,NA
+#0160,Feraligatr,,,Water,NA
+#0161,Sentret,,,Normal,NA
+#0162,Furret,,,Normal,NA
+#0163,Hoothoot,,,Normal,Flying
+#0164,Noctowl,,,Normal,Flying
+#0165,Ledyba,,,Bug,Flying
+#0166,Ledian,,,Bug,Flying
+#0167,Spinarak,,,Bug,Poison
+#0168,Ariados,,,Bug,Poison
+#0169,Crobat,,,Poison,Flying
+#0170,Chinchou,,,Water,Electric
+#0171,Lanturn,,,Water,Electric
+#0172,Pichu,,,Electric,NA
+#0173,Cleffa,,,Fairy,NA
+#0174,Igglybuff,,,Normal,Fairy
+#0175,Togepi,,,Fairy,NA
+#0176,Togetic,,,Fairy,Flying
+#0177,Natu,,,Psychic,Flying
+#0178,Xatu,,,Psychic,Flying
+#0179,Mareep,,,Electric,NA
+#0180,Flaaffy,,,Electric,NA
+#0181,Ampharos,,,Electric,NA
+#0182,Bellossom,,,Grass,NA
+#0183,Marill,,,Water,Fairy
+#0184,Azumarill,,,Water,Fairy
+#0185,Sudowoodo,,,Rock,NA
+#0186,Politoed,,,Water,NA
+#0187,Hoppip,,,Grass,Flying
+#0188,Skiploom,,,Grass,Flying
+#0189,Jumpluff,,,Grass,Flying
+#0190,Aipom,,,Normal,NA
+#0191,Sunkern,,,Grass,NA
+#0192,Sunflora,,,Grass,NA
+#0193,Yanma,,,Bug,Flying
+#0194,Wooper,,,Water,Ground
+#0194,Wooper,Paldean Form,,Poison,Ground
+#0195,Quagsire,,,Water,Ground
+#0196,Espeon,,,Psychic,NA
+#0197,Umbreon,,,Dark,NA
+#0198,Murkrow,,,Dark,Flying
+#0199,Slowking,,,Water,Psychic
+#0199,Slowking,Galarian Form,,Poison,Psychic
+#0200,Misdreavus,,,Ghost,NA
+#0201,Unown,One form,,Psychic,NA
+#0202,Wobbuffet,,,Psychic,NA
+#0203,Girafarig,,,Normal,Psychic
+#0204,Pineco,,,Bug,NA
+#0205,Forretress,,,Bug,Steel
+#0206,Dunsparce,,,Normal,NA
+#0207,Gligar,,,Ground,Flying
+#0208,Steelix,,,Steel,Ground
+#0209,Snubbull,,,Fairy,NA
+#0210,Granbull,,,Fairy,NA
+#0211,Qwilfish,,,Water,Poison
+#0211,Qwilfish,Hisuian Form,,Dark,Poison
+#0212,Scizor,,,Bug,Steel
+#0213,Shuckle,,,Bug,Rock
+#0214,Heracross,,,Bug,Fighting
+#0215,Sneasel,,,Dark,Ice
+#0215,Sneasel,Hisuian Form,,Fighting,Poison
+#0216,Teddiursa,,,Normal,NA
+#0217,Ursaring,,,Normal,NA
+#0218,Slugma,,,Fire,NA
+#0219,Magcargo,,,Fire,Rock
+#0220,Swinub,,,Ice,Ground
+#0221,Piloswine,,,Ice,Ground
+#0222,Corsola,,,Water,Rock
+#0222,Corsola,Galarian Form,,Ghost,NA
+#0223,Remoraid,,,Water,NA
+#0224,Octillery,,,Water,NA
+#0225,Delibird,,,Ice,Flying
+#0226,Mantine,,,Water,Flying
+#0227,Skarmory,,,Steel,Flying
+#0228,Houndour,,,Dark,Fire
+#0229,Houndoom,,,Dark,Fire
+#0230,Kingdra,,,Water,Dragon
+#0231,Phanpy,,,Ground,NA
+#0232,Donphan,,,Ground,NA
+#0233,Porygon2,,,Normal,NA
+#0234,Stantler,,,Normal,NA
+#0235,Smeargle,,,Normal,NA
+#0236,Tyrogue,,,Fighting,NA
+#0237,Hitmontop,,,Fighting,NA
+#0238,Smoochum,,,Ice,Psychic
+#0239,Elekid,,,Electric,NA
+#0240,Magby,,,Fire,NA
+#0241,Miltank,,,Normal,NA
+#0242,Blissey,,,Normal,NA
+#0243,Raikou,,,Electric,NA
+#0244,Entei,,,Fire,NA
+#0245,Suicune,,,Water,NA
+#0246,Larvitar,,,Rock,Ground
+#0247,Pupitar,,,Rock,Ground
+#0248,Tyranitar,,,Rock,Dark
+#0249,Lugia,,,Psychic,Flying
+#0250,Ho-Oh,,,Fire,Flying
+#0251,Celebi,,,Psychic,Grass
+#0252,Treecko,,,Grass,NA
+#0253,Grovyle,,,Grass,NA
+#0254,Sceptile,,,Grass,NA
+#0255,Torchic,,,Fire,NA
+#0256,Combusken,,,Fire,Fighting
+#0257,Blaziken,,,Fire,Fighting
+#0258,Mudkip,,,Water,NA
+#0259,Marshtomp,,,Water,Ground
+#0260,Swampert,,,Water,Ground
+#0261,Poochyena,,,Dark,NA
+#0262,Mightyena,,,Dark,NA
+#0263,Zigzagoon,,,Normal,NA
+#0263,Zigzagoon,Galarian Form,,Dark,Normal
+#0264,Linoone,,,Normal,NA
+#0264,Linoone,Galarian Form,,Dark,Normal
+#0265,Wurmple,,,Bug,NA
+#0266,Silcoon,,,Bug,NA
+#0267,Beautifly,,,Bug,Flying
+#0268,Cascoon,,,Bug,NA
+#0269,Dustox,,,Bug,Poison
+#0270,Lotad,,,Water,Grass
+#0271,Lombre,,,Water,Grass
+#0272,Ludicolo,,,Water,Grass
+#0273,Seedot,,,Grass,NA
+#0274,Nuzleaf,,,Grass,Dark
+#0275,Shiftry,,,Grass,Dark
+#0276,Taillow,,,Normal,Flying
+#0277,Swellow,,,Normal,Flying
+#0278,Wingull,,,Water,Flying
+#0279,Pelipper,,,Water,Flying
+#0280,Ralts,,,Psychic,Fairy
+#0281,Kirlia,,,Psychic,Fairy
+#0282,Gardevoir,,,Psychic,Fairy
+#0283,Surskit,,,Bug,Water
+#0284,Masquerain,,,Bug,Flying
+#0285,Shroomish,,,Grass,NA
+#0286,Breloom,,,Grass,Fighting
+#0287,Slakoth,,,Normal,NA
+#0288,Vigoroth,,,Normal,NA
+#0289,Slaking,,,Normal,NA
+#0290,Nincada,,,Bug,Ground
+#0291,Ninjask,,,Bug,Flying
+#0292,Shedinja,,,Bug,Ghost
+#0293,Whismur,,,Normal,NA
+#0294,Loudred,,,Normal,NA
+#0295,Exploud,,,Normal,NA
+#0296,Makuhita,,,Fighting,NA
+#0297,Hariyama,,,Fighting,NA
+#0298,Azurill,,,Normal,Fairy
+#0299,Nosepass,,,Rock,NA
+#0300,Skitty,,,Normal,NA
+#0301,Delcatty,,,Normal,NA
+#0302,Sableye,,,Dark,Ghost
+#0303,Mawile,,,Steel,Fairy
+#0304,Aron,,,Steel,Rock
+#0305,Lairon,,,Steel,Rock
+#0306,Aggron,,,Steel,Rock
+#0307,Meditite,,,Fighting,Psychic
+#0308,Medicham,,,Fighting,Psychic
+#0309,Electrike,,,Electric,NA
+#0310,Manectric,,,Electric,NA
+#0311,Plusle,,,Electric,NA
+#0312,Minun,,,Electric,NA
+#0313,Volbeat,,,Bug,NA
+#0314,Illumise,,,Bug,NA
+#0315,Roselia,,,Grass,Poison
+#0316,Gulpin,,,Poison,NA
+#0317,Swalot,,,Poison,NA
+#0318,Carvanha,,,Water,Dark
+#0319,Sharpedo,,,Water,Dark
+#0320,Wailmer,,,Water,NA
+#0321,Wailord,,,Water,NA
+#0322,Numel,,,Fire,Ground
+#0323,Camerupt,,,Fire,Ground
+#0324,Torkoal,,,Fire,NA
+#0325,Spoink,,,Psychic,NA
+#0326,Grumpig,,,Psychic,NA
+#0327,Spinda,,,Normal,NA
+#0328,Trapinch,,,Ground,NA
+#0329,Vibrava,,,Ground,Dragon
+#0330,Flygon,,,Ground,Dragon
+#0331,Cacnea,,,Grass,NA
+#0332,Cacturne,,,Grass,Dark
+#0333,Swablu,,,Normal,Flying
+#0334,Altaria,,,Dragon,Flying
+#0335,Zangoose,,,Normal,NA
+#0336,Seviper,,,Poison,NA
+#0337,Lunatone,,,Rock,Psychic
+#0338,Solrock,,,Rock,Psychic
+#0339,Barboach,,,Water,Ground
+#0340,Whiscash,,,Water,Ground
+#0341,Corphish,,,Water,NA
+#0342,Crawdaunt,,,Water,Dark
+#0343,Baltoy,,,Ground,Psychic
+#0344,Claydol,,,Ground,Psychic
+#0345,Lileep,,,Rock,Grass
+#0346,Cradily,,,Rock,Grass
+#0347,Anorith,,,Rock,Bug
+#0348,Armaldo,,,Rock,Bug
+#0349,Feebas,,,Water,NA
+#0350,Milotic,,,Water,NA
+#0351,Castform,Normal,,Normal,NA
+#0351,Castform,Sunny Form,,Fire,NA
+#0351,Castform,Rainy Form,,Water,NA
+#0351,Castform,Snowy Form,,Ice,NA
+#0352,Kecleon,,,Normal,NA
+#0353,Shuppet,,,Ghost,NA
+#0354,Banette,,,Ghost,NA
+#0355,Duskull,,,Ghost,NA
+#0356,Dusclops,,,Ghost,NA
+#0357,Tropius,,,Grass,Flying
+#0358,Chimecho,,,Psychic,NA
+#0359,Absol,,,Dark,NA
+#0360,Wynaut,,,Psychic,NA
+#0361,Snorunt,,,Ice,NA
+#0362,Glalie,,,Ice,NA
+#0363,Spheal,,,Ice,Water
+#0364,Sealeo,,,Ice,Water
+#0365,Walrein,,,Ice,Water
+#0366,Clamperl,,,Water,NA
+#0367,Huntail,,,Water,NA
+#0368,Gorebyss,,,Water,NA
+#0369,Relicanth,,,Water,Rock
+#0370,Luvdisc,,,Water,NA
+#0371,Bagon,,,Dragon,NA
+#0372,Shelgon,,,Dragon,NA
+#0373,Salamence,,,Dragon,Flying
+#0374,Beldum,,,Steel,Psychic
+#0375,Metang,,,Steel,Psychic
+#0376,Metagross,,,Steel,Psychic
+#0377,Regirock,,,Rock,NA
+#0378,Regice,,,Ice,NA
+#0379,Registeel,,,Steel,NA
+#0380,Latias,,,Dragon,Psychic
+#0381,Latios,,,Dragon,Psychic
+#0382,Kyogre,Kyogre,,Water,NA
+#0383,Groudon,Groudon,,Ground,NA
+#0384,Rayquaza,,,Dragon,Flying
+#0385,Jirachi,,,Steel,Psychic
+#0386,Deoxys,Normal Forme,,Psychic,NA
+#0386,Deoxys,Attack Forme,,Psychic,NA
+#0386,Deoxys,Defense Forme,,Psychic,NA
+#0386,Deoxys,Speed Forme,,Psychic,NA
+#0387,Turtwig,,,Grass,NA
+#0388,Grotle,,,Grass,NA
+#0389,Torterra,,,Grass,Ground
+#0390,Chimchar,,,Fire,NA
+#0391,Monferno,,,Fire,Fighting
+#0392,Infernape,,,Fire,Fighting
+#0393,Piplup,,,Water,NA
+#0394,Prinplup,,,Water,NA
+#0395,Empoleon,,,Water,Steel
+#0396,Starly,,,Normal,Flying
+#0397,Staravia,,,Normal,Flying
+#0398,Staraptor,,,Normal,Flying
+#0399,Bidoof,,,Normal,NA
+#0400,Bibarel,,,Normal,Water
+#0401,Kricketot,,,Bug,NA
+#0402,Kricketune,,,Bug,NA
+#0403,Shinx,,,Electric,NA
+#0404,Luxio,,,Electric,NA
+#0405,Luxray,,,Electric,NA
+#0406,Budew,,,Grass,Poison
+#0407,Roserade,,,Grass,Poison
+#0408,Cranidos,,,Rock,NA
+#0409,Rampardos,,,Rock,NA
+#0410,Shieldon,,,Rock,Steel
+#0411,Bastiodon,,,Rock,Steel
+#0412,Burmy,Plant Cloak,,Bug,NA
+#0412,Burmy,Sandy Cloak,,Bug,NA
+#0412,Burmy,Trash Cloak,,Bug,NA
+#0413,Wormadam,Plant Cloak,,Bug,Grass
+#0413,Wormadam,Sandy Cloak,,Bug,Ground
+#0413,Wormadam,Trash Cloak,,Bug,Steel
+#0414,Mothim,,,Bug,Flying
+#0415,Combee,,,Bug,Flying
+#0416,Vespiquen,,,Bug,Flying
+#0417,Pachirisu,,,Electric,NA
+#0418,Buizel,,,Water,NA
+#0419,Floatzel,,,Water,NA
+#0420,Cherubi,,,Grass,NA
+#0421,Cherrim,Overcast Form,,Grass,NA
+#0421,Cherrim,Sunshine Form,,Grass,NA
+#0422,Shellos,West Sea,,Water,NA
+#0422,Shellos,East Sea,,Water,NA
+#0423,Gastrodon,West Sea,,Water,Ground
+#0423,Gastrodon,East Sea,,Water,Ground
+#0424,Ambipom,,,Normal,NA
+#0425,Drifloon,,,Ghost,Flying
+#0426,Drifblim,,,Ghost,Flying
+#0427,Buneary,,,Normal,NA
+#0428,Lopunny,,,Normal,NA
+#0429,Mismagius,,,Ghost,NA
+#0430,Honchkrow,,,Dark,Flying
+#0431,Glameow,,,Normal,NA
+#0432,Purugly,,,Normal,NA
+#0433,Chingling,,,Psychic,NA
+#0434,Stunky,,,Poison,Dark
+#0435,Skuntank,,,Poison,Dark
+#0436,Bronzor,,,Steel,Psychic
+#0437,Bronzong,,,Steel,Psychic
+#0438,Bonsly,,,Rock,NA
+#0439,Mime Jr,,,Psychic,Fairy
+#0440,Happiny,,,Normal,NA
+#0441,Chatot,,,Normal,Flying
+#0442,Spiritomb,,,Ghost,Dark
+#0443,Gible,,,Dragon,Ground
+#0444,Gabite,,,Dragon,Ground
+#0445,Garchomp,,,Dragon,Ground
+#0446,Munchlax,,,Normal,NA
+#0447,Riolu,,,Fighting,NA
+#0448,Lucario,,,Fighting,Steel
+#0449,Hippopotas,,,Ground,NA
+#0450,Hippowdon,,,Ground,NA
+#0451,Skorupi,,,Poison,Bug
+#0452,Drapion,,,Poison,Dark
+#0453,Croagunk,,,Poison,Fighting
+#0454,Toxicroak,,,Poison,Fighting
+#0455,Carnivine,,,Grass,NA
+#0456,Finneon,,,Water,NA
+#0457,Lumineon,,,Water,NA
+#0458,Mantyke,,,Water,Flying
+#0459,Snover,,,Grass,Ice
+#0460,Abomasnow,,,Grass,Ice
+#0461,Weavile,,,Dark,Ice
+#0462,Magnezone,,,Electric,Steel
+#0463,Lickilicky,,,Normal,NA
+#0464,Rhyperior,,,Ground,Rock
+#0465,Tangrowth,,,Grass,NA
+#0466,Electivire,,,Electric,NA
+#0467,Magmortar,,,Fire,NA
+#0468,Togekiss,,,Fairy,Flying
+#0469,Yanmega,,,Bug,Flying
+#0470,Leafeon,,,Grass,NA
+#0471,Glaceon,,,Ice,NA
+#0472,Gliscor,,,Ground,Flying
+#0473,Mamoswine,,,Ice,Ground
+#0474,Porygon-Z,,,Normal,NA
+#0475,Gallade,,,Psychic,Fighting
+#0476,Probopass,,,Rock,Steel
+#0477,Dusknoir,,,Ghost,NA
+#0478,Froslass,,,Ice,Ghost
+#0479,Rotom,Rotom,,Electric,Ghost
+#0479,Rotom,Heat Rotom,,Electric,Fire
+#0479,Rotom,Wash Rotom,,Electric,Water
+#0479,Rotom,Frost Rotom,,Electric,Ice
+#0479,Rotom,Fan Rotom,,Electric,Flying
+#0479,Rotom,Mow Rotom,,Electric,Grass
+#0480,Uxie,,,Psychic,NA
+#0481,Mesprit,,,Psychic,NA
+#0482,Azelf,,,Psychic,NA
+#0483,Dialga,,,Steel,Dragon
+#0483,Dialga,Origin Forme,,Steel,Dragon
+#0484,Palkia,,,Water,Dragon
+#0484,Palkia,Origin Forme,,Water,Dragon
+#0485,Heatran,,,Fire,Steel
+#0486,Regigigas,,,Normal,NA
+#0487,Giratina,Altered Forme,,Ghost,Dragon
+#0487,Giratina,Origin Forme,,Ghost,Dragon
+#0488,Cresselia,,,Psychic,NA
+#0489,Phione,,,Water,NA
+#0490,Manaphy,,,Water,NA
+#0491,Darkrai,,,Dark,NA
+#0492,Shaymin,Land Forme,,Grass,NA
+#0492,Shaymin,Sky Forme,,Grass,Flying
+#0493,Arceus,Arceus,,Normal,NA
+#0494,Victini,,,Psychic,Fire
+#0495,Snivy,,,Grass,NA
+#0496,Servine,,,Grass,NA
+#0497,Serperior,,,Grass,NA
+#0498,Tepig,,,Fire,NA
+#0499,Pignite,,,Fire,Fighting
+#0500,Emboar,,,Fire,Fighting
+#0501,Oshawott,,,Water,NA
+#0502,Dewott,,,Water,NA
+#0503,Samurott,,,Water,NA
+#0503,Samurott,Hisuian Form,,Water,Dark
+#0504,Patrat,,,Normal,NA
+#0505,Watchog,,,Normal,NA
+#0506,Lillipup,,,Normal,NA
+#0507,Herdier,,,Normal,NA
+#0508,Stoutland,,,Normal,NA
+#0509,Purrloin,,,Dark,NA
+#0510,Liepard,,,Dark,NA
+#0511,Pansage,,,Grass,NA
+#0512,Simisage,,,Grass,NA
+#0513,Pansear,,,Fire,NA
+#0514,Simisear,,,Fire,NA
+#0515,Panpour,,,Water,NA
+#0516,Simipour,,,Water,NA
+#0517,Munna,,,Psychic,NA
+#0518,Musharna,,,Psychic,NA
+#0519,Pidove,,,Normal,Flying
+#0520,Tranquill,,,Normal,Flying
+#0521,Unfezant,,,Normal,Flying
+#0522,Blitzle,,,Electric,NA
+#0523,Zebstrika,,,Electric,NA
+#0524,Roggenrola,,,Rock,NA
+#0525,Boldore,,,Rock,NA
+#0526,Gigalith,,,Rock,NA
+#0527,Woobat,,,Psychic,Flying
+#0528,Swoobat,,,Psychic,Flying
+#0529,Drilbur,,,Ground,NA
+#0530,Excadrill,,,Ground,Steel
+#0531,Audino,,,Normal,NA
+#0532,Timburr,,,Fighting,NA
+#0533,Gurdurr,,,Fighting,NA
+#0534,Conkeldurr,,,Fighting,NA
+#0535,Tympole,,,Water,NA
+#0536,Palpitoad,,,Water,Ground
+#0537,Seismitoad,,,Water,Ground
+#0538,Throh,,,Fighting,NA
+#0539,Sawk,,,Fighting,NA
+#0540,Sewaddle,,,Bug,Grass
+#0541,Swadloon,,,Bug,Grass
+#0542,Leavanny,,,Bug,Grass
+#0543,Venipede,,,Bug,Poison
+#0544,Whirlipede,,,Bug,Poison
+#0545,Scolipede,,,Bug,Poison
+#0546,Cottonee,,,Grass,Fairy
+#0547,Whimsicott,,,Grass,Fairy
+#0548,Petilil,,,Grass,NA
+#0549,Lilligant,,,Grass,NA
+#0549,Lilligant,Hisuian Form,,Grass,Fighting
+#0550,Basculin,Red-Striped Form,,Water,NA
+#0550,Basculin,Blue-Striped Form,,Water,NA
+#0550,Basculin,White-Striped Form,,Water,NA
+#0551,Sandile,,,Ground,Dark
+#0552,Krokorok,,,Ground,Dark
+#0553,Krookodile,,,Ground,Dark
+#0554,Darumaka,,,Fire,NA
+#0554,Darumaka,Galarian Form,,Ice,NA
+#0555,Darmanitan,Standard Mode,,Fire,NA
+#0555,Darmanitan,Zen Mode,,Fire,Psychic
+#0555,Darmanitan,Galarian Form,,Ice,NA
+#0555,Darmanitan,Zen Mode,Galarian Form,Ice,Fire
+#0556,Maractus,,,Grass,NA
+#0557,Dwebble,,,Bug,Rock
+#0558,Crustle,,,Bug,Rock
+#0559,Scraggy,,,Dark,Fighting
+#0560,Scrafty,,,Dark,Fighting
+#0561,Sigilyph,,,Psychic,Flying
+#0562,Yamask,,,Ghost,NA
+#0562,Yamask,Galarian Form,,Ground,Ghost
+#0563,Cofagrigus,,,Ghost,NA
+#0564,Tirtouga,,,Water,Rock
+#0565,Carracosta,,,Water,Rock
+#0566,Archen,,,Rock,Flying
+#0567,Archeops,,,Rock,Flying
+#0568,Trubbish,,,Poison,NA
+#0569,Garbodor,,,Poison,NA
+#0570,Zorua,,,Dark,NA
+#0570,Zorua,Hisuian Form,,Normal,Ghost
+#0571,Zoroark,,,Dark,NA
+#0571,Zoroark,Hisuian Form,,Normal,Ghost
+#0572,Minccino,,,Normal,NA
+#0573,Cinccino,,,Normal,NA
+#0574,Gothita,,,Psychic,NA
+#0575,Gothorita,,,Psychic,NA
+#0576,Gothitelle,,,Psychic,NA
+#0577,Solosis,,,Psychic,NA
+#0578,Duosion,,,Psychic,NA
+#0579,Reuniclus,,,Psychic,NA
+#0580,Ducklett,,,Water,Flying
+#0581,Swanna,,,Water,Flying
+#0582,Vanillite,,,Ice,NA
+#0583,Vanillish,,,Ice,NA
+#0584,Vanilluxe,,,Ice,NA
+#0585,Deerling,Spring Form,,Normal,Grass
+#0585,Deerling,Summer Form,,Normal,Grass
+#0585,Deerling,Autumn Form,,Normal,Grass
+#0585,Deerling,Winter Form,,Normal,Grass
+#0586,Sawsbuck,Spring Form,,Normal,Grass
+#0586,Sawsbuck,Summer Form,,Normal,Grass
+#0586,Sawsbuck,Autumn Form,,Normal,Grass
+#0586,Sawsbuck,Winter Form,,Normal,Grass
+#0587,Emolga,,,Electric,Flying
+#0588,Karrablast,,,Bug,NA
+#0589,Escavalier,,,Bug,Steel
+#0590,Foongus,,,Grass,Poison
+#0591,Amoonguss,,,Grass,Poison
+#0592,Frillish,,,Water,Ghost
+#0593,Jellicent,,,Water,Ghost
+#0594,Alomomola,,,Water,NA
+#0595,Joltik,,,Bug,Electric
+#0596,Galvantula,,,Bug,Electric
+#0597,Ferroseed,,,Grass,Steel
+#0598,Ferrothorn,,,Grass,Steel
+#0599,Klink,,,Steel,NA
+#0600,Klang,,,Steel,NA
+#0601,Klinklang,,,Steel,NA
+#0602,Tynamo,,,Electric,NA
+#0603,Eelektrik,,,Electric,NA
+#0604,Eelektross,,,Electric,NA
+#0605,Elgyem,,,Psychic,NA
+#0606,Beheeyem,,,Psychic,NA
+#0607,Litwick,,,Ghost,Fire
+#0608,Lampent,,,Ghost,Fire
+#0609,Chandelure,,,Ghost,Fire
+#0610,Axew,,,Dragon,NA
+#0611,Fraxure,,,Dragon,NA
+#0612,Haxorus,,,Dragon,NA
+#0613,Cubchoo,,,Ice,NA
+#0614,Beartic,,,Ice,NA
+#0615,Cryogonal,,,Ice,NA
+#0616,Shelmet,,,Bug,NA
+#0617,Accelgor,,,Bug,NA
+#0618,Stunfisk,,,Ground,Electric
+#0618,Stunfisk,Galarian Form,,Ground,Steel
+#0619,Mienfoo,,,Fighting,NA
+#0620,Mienshao,,,Fighting,NA
+#0621,Druddigon,,,Dragon,NA
+#0622,Golett,,,Ground,Ghost
+#0623,Golurk,,,Ground,Ghost
+#0624,Pawniard,,,Dark,Steel
+#0625,Bisharp,,,Dark,Steel
+#0626,Bouffalant,,,Normal,NA
+#0627,Rufflet,,,Normal,Flying
+#0628,Braviary,,,Normal,Flying
+#0628,Braviary,Hisuian Form,,Psychic,Flying
+#0629,Vullaby,,,Dark,Flying
+#0630,Mandibuzz,,,Dark,Flying
+#0631,Heatmor,,,Fire,NA
+#0632,Durant,,,Bug,Steel
+#0633,Deino,,,Dark,Dragon
+#0634,Zweilous,,,Dark,Dragon
+#0635,Hydreigon,,,Dark,Dragon
+#0636,Larvesta,,,Bug,Fire
+#0637,Volcarona,,,Bug,Fire
+#0638,Cobalion,,,Steel,Fighting
+#0639,Terrakion,,,Rock,Fighting
+#0640,Virizion,,,Grass,Fighting
+#0641,Tornadus,Incarnate Forme,,Flying,NA
+#0641,Tornadus,Therian Forme,,Flying,NA
+#0642,Thundurus,Incarnate Forme,,Electric,Flying
+#0642,Thundurus,Therian Forme,,Electric,Flying
+#0643,Reshiram,,,Dragon,Fire
+#0644,Zekrom,,,Dragon,Electric
+#0645,Landorus,Incarnate Forme,,Ground,Flying
+#0645,Landorus,Therian Forme,,Ground,Flying
+#0646,Kyurem,Kyurem,,Dragon,Ice
+#0646,Kyurem,White Kyurem,,Dragon,Ice
+#0646,Kyurem,Black Kyurem,,Dragon,Ice
+#0647,Keldeo,Ordinary Form,,Water,Fighting
+#0647,Keldeo,Resolute Form,,Water,Fighting
+#0648,Meloetta,Aria Forme,,Normal,Psychic
+#0648,Meloetta,Pirouette Forme,,Normal,Fighting
+#0649,Genesect,Genesect,no drive,Bug,Steel
+#0649,Genesect,Genesect,Douse Drive,Bug,Steel
+#0649,Genesect,Genesect,Shock Drive,Bug,Steel
+#0649,Genesect,Genesect,Burn Drive,Bug,Steel
+#0649,Genesect,Genesect,Chill Drive,Bug,Steel
+#0650,Chespin,,,Grass,NA
+#0651,Quilladin,,,Grass,NA
+#0652,Chesnaught,,,Grass,Fighting
+#0653,Fennekin,,,Fire,NA
+#0654,Braixen,,,Fire,NA
+#0655,Delphox,,,Fire,Psychic
+#0656,Froakie,,,Water,NA
+#0657,Frogadier,,,Water,NA
+#0658,Greninja,,,Water,Dark
+#0659,Bunnelby,,,Normal,NA
+#0660,Diggersby,,,Normal,Ground
+#0661,Fletchling,,,Normal,Flying
+#0662,Fletchinder,,,Fire,Flying
+#0663,Talonflame,,,Fire,Flying
+#0664,Scatterbug,,,Bug,NA
+#0665,Spewpa,,,Bug,NA
+#0666,Vivillon,Meadow Pattern,,Bug,Flying
+#0667,Litleo,,,Fire,Normal
+#0668,Pyroar,,,Fire,Normal
+#0669,Flab,,,Fairy,NA
+#0669,Flab,,,Fairy,NA
+#0669,Flab,,,Fairy,NA
+#0669,Flab,,,Fairy,NA
+#0669,Flab,,,Fairy,NA
+#0670,Floette,Red Flower,,Fairy,NA
+#0670,Floette,Yellow Flower,,Fairy,NA
+#0670,Floette,Orange Flower,,Fairy,NA
+#0670,Floette,Blue Flower,,Fairy,NA
+#0670,Floette,White Flower,,Fairy,NA
+#0671,Florges,Red Flower,,Fairy,NA
+#0671,Florges,Yellow Flower,,Fairy,NA
+#0671,Florges,Orange Flower,,Fairy,NA
+#0671,Florges,Blue Flower,,Fairy,NA
+#0671,Florges,White Flower,,Fairy,NA
+#0672,Skiddo,,,Grass,NA
+#0673,Gogoat,,,Grass,NA
+#0674,Pancham,,,Fighting,NA
+#0675,Pangoro,,,Fighting,Dark
+#0676,Furfrou,Natural Form,,Normal,NA
+#0677,Espurr,,,Psychic,NA
+#0678,Meowstic,Male,,Psychic,NA
+#0678,Meowstic,Female,,Psychic,NA
+#0679,Honedge,,,Steel,Ghost
+#0680,Doublade,,,Steel,Ghost
+#0681,Aegislash,Shield Forme,,Steel,Ghost
+#0681,Aegislash,Blade Forme,,Steel,Ghost
+#0682,Spritzee,,,Fairy,NA
+#0683,Aromatisse,,,Fairy,NA
+#0684,Swirlix,,,Fairy,NA
+#0685,Slurpuff,,,Fairy,NA
+#0686,Inkay,,,Dark,Psychic
+#0687,Malamar,,,Dark,Psychic
+#0688,Binacle,,,Rock,Water
+#0689,Barbaracle,,,Rock,Water
+#0690,Skrelp,,,Poison,Water
+#0691,Dragalge,,,Poison,Dragon
+#0692,Clauncher,,,Water,NA
+#0693,Clawitzer,,,Water,NA
+#0694,Helioptile,,,Electric,Normal
+#0695,Heliolisk,,,Electric,Normal
+#0696,Tyrunt,,,Rock,Dragon
+#0697,Tyrantrum,,,Rock,Dragon
+#0698,Amaura,,,Rock,Ice
+#0699,Aurorus,,,Rock,Ice
+#0700,Sylveon,,,Fairy,NA
+#0701,Hawlucha,,,Fighting,Flying
+#0702,Dedenne,,,Electric,Fairy
+#0703,Carbink,,,Rock,Fairy
+#0704,Goomy,,,Dragon,NA
+#0705,Sliggoo,,,Dragon,NA
+#0705,Sliggoo,Hisuian Form,,Steel,Dragon
+#0706,Goodra,,,Dragon,NA
+#0706,Goodra,Hisuian Form,,Steel,Dragon
+#0707,Klefki,,,Steel,Fairy
+#0708,Phantump,,,Ghost,Grass
+#0709,Trevenant,,,Ghost,Grass
+#0710,Pumpkaboo,,,Ghost,Grass
+#0711,Gourgeist,,,Ghost,Grass
+#0712,Bergmite,,,Ice,NA
+#0713,Avalugg,,,Ice,NA
+#0713,Avalugg,Hisuian Form,,Ice,Rock
+#0714,Noibat,,,Flying,Dragon
+#0715,Noivern,,,Flying,Dragon
+#0716,Xerneas,Neutral Mode,,Fairy,NA
+#0716,Xerneas,Active Mode,,Fairy,NA
+#0717,Yveltal,,,Dark,Flying
+#0718,Zygarde50,,,Dragon,Ground
+#0718,Zygarde10,,,Dragon,Ground
+#0718,Zygarde,Complete Forme,,Dragon,Ground
+#0719,Diancie,,,Rock,Fairy
+#0720,Hoopa,Hoopa Confined,,Psychic,Ghost
+#0720,Hoopa,Hoopa Unbound,,Psychic,Dark
+#0721,Volcanion,,,Fire,Water
+#0722,Rowlet,,,Grass,Flying
+#0723,Dartrix,,,Grass,Flying
+#0724,Decidueye,,,Grass,Ghost
+#0724,Decidueye,Hisuian Form,,Grass,Fighting
+#0725,Litten,,,Fire,NA
+#0726,Torracat,,,Fire,NA
+#0727,Incineroar,,,Fire,Dark
+#0728,Popplio,,,Water,NA
+#0729,Brionne,,,Water,NA
+#0730,Primarina,,,Water,Fairy
+#0731,Pikipek,,,Normal,Flying
+#0732,Trumbeak,,,Normal,Flying
+#0733,Toucannon,,,Normal,Flying
+#0734,Yungoos,,,Normal,NA
+#0735,Gumshoos,,,Normal,NA
+#0736,Grubbin,,,Bug,NA
+#0737,Charjabug,,,Bug,Electric
+#0738,Vikavolt,,,Bug,Electric
+#0739,Crabrawler,,,Fighting,NA
+#0740,Crabominable,,,Fighting,Ice
+#0741,Oricorio,Baile Style,,Fire,Flying
+#0741,Oricorio,Pom-Pom Style,,Electric,Flying
+#0741,Oricorio,Pa,,Psychic,Flying
+#0741,Oricorio,Sensu Style,,Ghost,Flying
+#0742,Cutiefly,,,Bug,Fairy
+#0743,Ribombee,,,Bug,Fairy
+#0744,Rockruff,,,Rock,NA
+#0745,Lycanroc,Midday Form,,Rock,NA
+#0745,Lycanroc,Midnight Form,,Rock,NA
+#0745,Lycanroc,Dusk Form,,Rock,NA
+#0746,Wishiwashi,Solo Form,,Water,NA
+#0746,Wishiwashi,School Form,,Water,NA
+#0747,Mareanie,,,Poison,Water
+#0748,Toxapex,,,Poison,Water
+#0749,Mudbray,,,Ground,NA
+#0750,Mudsdale,,,Ground,NA
+#0751,Dewpider,,,Water,Bug
+#0752,Araquanid,,,Water,Bug
+#0753,Fomantis,,,Grass,NA
+#0754,Lurantis,,,Grass,NA
+#0755,Morelull,,,Grass,Fairy
+#0756,Shiinotic,,,Grass,Fairy
+#0757,Salandit,,,Poison,Fire
+#0758,Salazzle,,,Poison,Fire
+#0759,Stufful,,,Normal,Fighting
+#0760,Bewear,,,Normal,Fighting
+#0761,Bounsweet,,,Grass,NA
+#0762,Steenee,,,Grass,NA
+#0763,Tsareena,,,Grass,NA
+#0764,Comfey,,,Fairy,NA
+#0765,Oranguru,,,Normal,Psychic
+#0766,Passimian,,,Fighting,NA
+#0767,Wimpod,,,Bug,Water
+#0768,Golisopod,,,Bug,Water
+#0769,Sandygast,,,Ghost,Ground
+#0770,Palossand,,,Ghost,Ground
+#0771,Pyukumuku,,,Water,NA
+#0772,Type: Null,,,Normal,NA
+#0773,Silvally,Type: Normal,,Normal,NA
+#0774,Minior,Meteor Form,,Rock,Flying
+#0774,Minior,Red Core,,Rock,Flying
+#0775,Komala,,,Normal,NA
+#0776,Turtonator,,,Fire,Dragon
+#0777,Togedemaru,,,Electric,Steel
+#0778,Mimikyu,Disguised Form,,Ghost,Fairy
+#0778,Mimikyu,Busted Form,,Ghost,Fairy
+#0779,Bruxish,,,Water,Psychic
+#0780,Drampa,,,Normal,Dragon
+#0781,Dhelmise,,,Ghost,Grass
+#0782,Jangmo-o,,,Dragon,NA
+#0783,Hakamo-o,,,Dragon,Fighting
+#0784,Kommo-o,,,Dragon,Fighting
+#0785,Tapu Koko,,,Electric,Fairy
+#0786,Tapu Lele,,,Psychic,Fairy
+#0787,Tapu Bulu,,,Grass,Fairy
+#0788,Tapu Fini,,,Water,Fairy
+#0789,Cosmog,,,Psychic,NA
+#0790,Cosmoem,,,Psychic,NA
+#0791,Solgaleo,,,Psychic,Steel
+#0792,Lunala,,,Psychic,Ghost
+#0793,Nihilego,,,Rock,Poison
+#0794,Buzzwole,,,Bug,Fighting
+#0795,Pheromosa,,,Bug,Fighting
+#0796,Xurkitree,,,Electric,NA
+#0797,Celesteela,,,Steel,Flying
+#0798,Kartana,,,Grass,Steel
+#0799,Guzzlord,,,Dark,Dragon
+#0800,Necrozma,,,Psychic,NA
+#0800,Necrozma,Dusk Mane,,Psychic,Steel
+#0800,Necrozma,Dawn Wings,,Psychic,Ghost
+#0801,Magearna,,,Steel,Fairy
+#0802,Marshadow,,,Fighting,Ghost
+#0803,Poipole,,,Poison,NA
+#0804,Naganadel,,,Poison,Dragon
+#0805,Stakataka,,,Rock,Steel
+#0806,Blacephalon,,,Fire,Ghost
+#0807,Zeraora,,,Electric,NA
+#0808,Meltan,,,Steel,NA
+#0809,Melmetal,,,Steel,NA
+#0810,Grookey,,,Grass,NA
+#0811,Thwackey,,,Grass,NA
+#0812,Rillaboom,,,Grass,NA
+#0813,Scorbunny,,,Fire,NA
+#0814,Raboot,,,Fire,NA
+#0815,Cinderace,,,Fire,NA
+#0816,Sobble,,,Water,NA
+#0817,Drizzile,,,Water,NA
+#0818,Inteleon,,,Water,NA
+#0819,Skwovet,,,Normal,NA
+#0820,Greedent,,,Normal,NA
+#0821,Rookidee,,,Flying,NA
+#0822,Corvisquire,,,Flying,NA
+#0823,Corviknight,,,Flying,Steel
+#0824,Blipbug,,,Bug,NA
+#0825,Dottler,,,Bug,Psychic
+#0826,Orbeetle,,,Bug,Psychic
+#0827,Nickit,,,Dark,NA
+#0828,Thievul,,,Dark,NA
+#0829,Gossifleur,,,Grass,NA
+#0830,Eldegoss,,,Grass,NA
+#0831,Wooloo,,,Normal,NA
+#0832,Dubwool,,,Normal,NA
+#0833,Chewtle,,,Water,NA
+#0834,Drednaw,,,Water,Rock
+#0835,Yamper,,,Electric,NA
+#0836,Boltund,,,Electric,NA
+#0837,Rolycoly,,,Rock,NA
+#0838,Carkol,,,Rock,Fire
+#0839,Coalossal,,,Rock,Fire
+#0840,Applin,,,Grass,Dragon
+#0841,Flapple,,,Grass,Dragon
+#0842,Appletun,,,Grass,Dragon
+#0843,Silicobra,,,Ground,NA
+#0844,Sandaconda,,,Ground,NA
+#0845,Cramorant,,,Flying,Water
+#0845,Cramorant,Gulping Form,,Flying,Water
+#0845,Cramorant,Gorging Form,,Flying,Water
+#0846,Arrokuda,,,Water,NA
+#0847,Barraskewda,,,Water,NA
+#0848,Toxel,,,Electric,Poison
+#0849,Toxtricity,Amped Form,,Electric,Poison
+#0849,Toxtricity,Low Key Form,,Electric,Poison
+#0850,Sizzlipede,,,Fire,Bug
+#0851,Centiskorch,,,Fire,Bug
+#0852,Clobbopus,,,Fighting,NA
+#0853,Grapploct,,,Fighting,NA
+#0854,Sinistea,,,Ghost,NA
+#0855,Polteageist,,,Ghost,NA
+#0856,Hatenna,,,Psychic,NA
+#0857,Hattrem,,,Psychic,NA
+#0858,Hatterene,,,Psychic,Fairy
+#0859,Impidimp,,,Dark,Fairy
+#0860,Morgrem,,,Dark,Fairy
+#0861,Grimmsnarl,,,Dark,Fairy
+#0862,Obstagoon,,,Dark,Normal
+#0863,Perrserker,,,Steel,NA
+#0864,Cursola,,,Ghost,NA
+#0865,Sirfetch,,,Fighting,NA
+#0866,Mr. Rime,,,Ice,Psychic
+#0867,Runerigus,,,Ground,Ghost
+#0868,Milcery,,,Fairy,NA
+#0869,Alcremie,Vanilla Cream,,Fairy,NA
+#0870,Falinks,,,Fighting,NA
+#0871,Pincurchin,,,Electric,NA
+#0872,Snom,,,Ice,Bug
+#0873,Frosmoth,,,Ice,Bug
+#0874,Stonjourner,,,Rock,NA
+#0875,Eiscue,Ice Face,,Ice,NA
+#0875,Eiscue,Noice Face,,Ice,NA
+#0876,Indeedee,Male,,Psychic,Normal
+#0876,Indeedee,Female,,Psychic,Normal
+#0877,Morpeko,Full Belly Mode,,Electric,Dark
+#0877,Morpeko,Hangry Mode,,Electric,Dark
+#0878,Cufant,,,Steel,NA
+#0879,Copperajah,,,Steel,NA
+#0880,Dracozolt,,,Electric,Dragon
+#0881,Arctozolt,,,Electric,Ice
+#0882,Dracovish,,,Water,Dragon
+#0883,Arctovish,,,Water,Ice
+#0884,Duraludon,,,Steel,Dragon
+#0885,Dreepy,,,Dragon,Ghost
+#0886,Drakloak,,,Dragon,Ghost
+#0887,Dragapult,,,Dragon,Ghost
+#0888,Zacian,Hero of Many Battles,,Fairy,NA
+#0888,Zacian,Crowned Sword,,Fairy,Steel
+#0889,Zamazenta,Hero of Many Battles,,Fighting,NA
+#0889,Zamazenta,Crowned Shield,,Fighting,Steel
+#0890,Eternatus,,,Poison,Dragon
+#0891,Kubfu,,,Fighting,NA
+#0892,Urshifu,Single Strike Style,,Fighting,Dark
+#0892,Urshifu,Rapid Strike Style,,Fighting,Water
+#0893,Zarude,,,Dark,Grass
+#0894,Regieleki,,,Electric,NA
+#0895,Regidrago,,,Dragon,NA
+#0896,Glastrier,,,Ice,NA
+#0897,Spectrier,,,Ghost,NA
+#0898,Calyrex,,,Psychic,Grass
+#0898,Calyrex,Ice Rider,,Psychic,Ice
+#0898,Calyrex,Shadow Rider,,Psychic,Ghost
+#0899,Wyrdeer,,,Normal,Psychic
+#0900,Kleavor,,,Bug,Rock
+#0901,Ursaluna,,,Ground,Normal
+#0902,Basculegion,Male,,Water,Ghost
+#0902,Basculegion,Female,,Water,Ghost
+#0903,Sneasler,,,Fighting,Poison
+#0904,Overqwil,,,Dark,Poison
+#0905,Enamorus,Incarnate Forme,,Fairy,Flying
+#0905,Enamorus,Therian Forme,,Fairy,Flying
+#0906,Sprigatito,,,Grass,NA
+#0907,Floragato,,,Grass,NA
+#0908,Meowscarada,,,Grass,Dark
+#0909,Fuecoco,,,Fire,NA
+#0910,Crocalor,,,Fire,NA
+#0911,Skeledirge,,,Fire,Ghost
+#0912,Quaxly,,,Water,NA
+#0913,Quaxwell,,,Water,NA
+#0914,Quaquaval,,,Water,Fighting
+#0915,Lechonk,,,Normal,NA
+#0916,Oinkologne,Male,,Normal,NA
+#0916,Oinkologne,Female,,Normal,NA
+#0917,Tarountula,,,Bug,NA
+#0918,Spidops,,,Bug,NA
+#0919,Nymble,,,Bug,NA
+#0920,Lokix,,,Bug,Dark
+#0921,Pawmi,,,Electric,NA
+#0922,Pawmo,,,Electric,Fighting
+#0923,Pawmot,,,Electric,Fighting
+#0924,Tandemaus,,,Normal,NA
+#0925,Maushold,Family of Three,,Normal,NA
+#0925,Maushold,Family of Four,,Normal,NA
+#0926,Fidough,,,Fairy,NA
+#0927,Dachsbun,,,Fairy,NA
+#0928,Smoliv,,,Grass,Normal
+#0929,Dolliv,,,Grass,Normal
+#0930,Arboliva,,,Grass,Normal
+#0931,Squawkabilly,Green Plumage,,Normal,Flying
+#0931,Squawkabilly,Blue Plumage,,Normal,Flying
+#0931,Squawkabilly,Yellow Plumage,,Normal,Flying
+#0931,Squawkabilly,White Plumage,,Normal,Flying
+#0932,Nacli,,,Rock,NA
+#0933,Naclstack,,,Rock,NA
+#0934,Garganacl,,,Rock,NA
+#0935,Charcadet,,,Fire,NA
+#0936,Armarouge,,,Fire,Psychic
+#0937,Ceruledge,,,Fire,Ghost
+#0938,Tadbulb,,,Electric,NA
+#0939,Bellibolt,,,Electric,NA
+#0940,Wattrel,,,Electric,Flying
+#0941,Kilowattrel,,,Electric,Flying
+#0942,Maschiff,,,Dark,NA
+#0943,Mabosstiff,,,Dark,NA
+#0944,Shroodle,,,Poison,Normal
+#0945,Grafaiai,,,Poison,Normal
+#0946,Bramblin,,,Grass,Ghost
+#0947,Brambleghast,,,Grass,Ghost
+#0948,Toedscool,,,Ground,Grass
+#0949,Toedscruel,,,Ground,Grass
+#0950,Klawf,,,Rock,NA
+#0951,Capsakid,,,Grass,NA
+#0952,Scovillain,,,Grass,Fire
+#0953,Rellor,,,Bug,NA
+#0954,Rabsca,,,Bug,Psychic
+#0955,Flittle,,,Psychic,NA
+#0956,Espathra,,,Psychic,NA
+#0957,Tinkatink,,,Fairy,Steel
+#0958,Tinkatuff,,,Fairy,Steel
+#0959,Tinkaton,,,Fairy,Steel
+#0960,Wiglett,,,Water,NA
+#0961,Wugtrio,,,Water,NA
+#0962,Bombirdier,,,Flying,Dark
+#0963,Finizen,,,Water,NA
+#0964,Palafin,Zero Form,,Water,NA
+#0964,Palafin,Hero Form,,Water,NA
+#0965,Varoom,,,Steel,Poison
+#0966,Revavroom,,,Steel,Poison
+#0967,Cyclizar,,,Dragon,Normal
+#0968,Orthworm,,,Steel,NA
+#0969,Glimmet,,,Rock,Poison
+#0970,Glimmora,,,Rock,Poison
+#0971,Greavard,,,Ghost,NA
+#0972,Houndstone,,,Ghost,NA
+#0973,Flamigo,,,Flying,Fighting
+#0974,Cetoddle,,,Ice,NA
+#0975,Cetitan,,,Ice,NA
+#0976,Veluza,,,Water,Psychic
+#0977,Dondozo,,,Water,NA
+#0978,Tatsugiri,Curly Form,,Dragon,Water
+#0978,Tatsugiri,Droopy Form,,Dragon,Water
+#0978,Tatsugiri,Stretchy Form,,Dragon,Water
+#0979,Annihilape,,,Fighting,Ghost
+#0980,Clodsire,,,Poison,Ground
+#0981,Farigiraf,,,Normal,Psychic
+#0982,Dudunsparce,Two-Segment Form,,Normal,NA
+#0982,Dudunsparce,Three-Segment Form,,Normal,NA
+#0983,Kingambit,,,Dark,Steel
+#0984,Great Tusk,,,Ground,Fighting
+#0985,Scream Tail,,,Fairy,Psychic
+#0986,Brute Bonnet,,,Grass,Dark
+#0987,Flutter Mane,,,Ghost,Fairy
+#0988,Slither Wing,,,Bug,Fighting
+#0989,Sandy Shocks,,,Electric,Ground
+#0990,Iron Treads,,,Ground,Steel
+#0991,Iron Bundle,,,Ice,Water
+#0992,Iron Hands,,,Fighting,Electric
+#0993,Iron Jugulis,,,Dark,Flying
+#0994,Iron Moth,,,Fire,Poison
+#0995,Iron Thorns,,,Rock,Electric
+#0996,Frigibax,,,Dragon,Ice
+#0997,Arctibax,,,Dragon,Ice
+#0998,Baxcalibur,,,Dragon,Ice
+#0999,Gimmighoul,Chest Form,,Ghost,NA
+#0999,Gimmighoul,Roaming Form,,Ghost,NA
+#1000,Gholdengo,,,Steel,Ghost
+#1001,Wo-Chien,,,Dark,Grass
+#1002,Chien-Pao,,,Dark,Ice
+#1003,Ting-Lu,,,Dark,Ground
+#1004,Chi-Yu,,,Dark,Fire
+#1005,Roaring Moon,,,Dragon,Dark
+#1006,Iron Valiant,,,Fairy,Fighting
+#1007,Koraidon,Apex Build,,Fighting,Dragon
+#1008,Miraidon,Ultimate Mode,,Electric,Dragon
+#1009,Walking Wake,,,Water,Dragon
+#1010,Iron Leaves,,,Grass,Psychic
+#1011,Dipplin,,,Grass,Dragon
+#1012,Poltchageist,,,Grass,Ghost
+#1013,Sinistcha,,,Grass,Ghost
+#1014,Okidogi,,,Poison,Fighting
+#1015,Munkidori,,,Poison,Psychic
+#1016,Fezandipiti,,,Poison,Fairy
+#1017,Ogerpon,Teal Mask,,Grass,NA
+#1017,Ogerpon,Wellspring Mask,,Grass,Water
+#1017,Ogerpon,Hearthflame Mask,,Grass,Fire
+#1017,Ogerpon,Cornerstone Mask,,Grass,Rock
+#1018,Archaludon,,,Steel,Dragon
+#1019,Hydrapple,,,Grass,Dragon
+#1020,Gouging Fire,,,Fire,Dragon
+#1021,Raging Bolt,,,Electric,Dragon
+#1022,Iron Boulder,,,Rock,Psychic
+#1023,Iron Crown,,,Steel,Psychic
+#1024,Terapagos,Normal Form,,Normal,NA
+#1024,Terapagos,Terastal Form,,Normal,NA
+#1025,Pecharunt,,,Poison,Ghost

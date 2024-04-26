@@ -1,0 +1,825 @@
+Family,Base,Method,Evo,Transition
+Bulbasaur,Bulbasaur,Level 16,Ivysaur,First
+Charmander,Charmander,Level 16,Charmeleon,First
+Squirtle,Squirtle,Level 16,Wartortle,First
+Caterpie,Caterpie,Level 7,Metapod,First
+Weedle,Weedle,Level 7,Kakuna,First
+Pidgey,Pidgey,Level 18,Pidgeotto,First
+Rattata,Rattata (Kantonian),Level 20,Raticate (Kantonian),First
+Rattata,Rattata (Alolan),Level 20 (night),Raticate (Alolan),First
+Spearow,Spearow,Level 20,Fearow,First
+Ekans,Ekans,Level 22,Arbok,First
+Pikachu,Pichu,Friendship,Pikachu,First
+Pikachu,Pichu,Friendship,Pikachu,First
+Sandshrew,Sandshrew (Kantonian),Level 22,Sandslash (Kantonian),First
+Sandshrew,Sandshrew (Alolan),Ice Stone,Sandslash (Alolan),First
+Nidoran,Nidoran♀,Level 16,Nidorina,First
+Nidoran,Nidoran♂,Level 16,Nidorino,First
+Clefairy,Cleffa,Friendship,Clefairy,First
+Vulpix,Vulpix (Kantonian),Fire Stone,Ninetales (Kantonian),First
+Vulpix,Vulpix (Alolan),Ice Stone,Ninetales (Alolan),First
+Jigglypuff,Igglybuff,Friendship,Jigglypuff,First
+Zubat,Zubat,Level 22,Golbat,First
+Oddish,Oddish,Level 21,Gloom,First
+Oddish,Oddish,Level 21,Gloom,First
+Paras,Paras,Level 24,Parasect,First
+Venonat,Venonat,Level 31,Venomoth,First
+Diglett,Diglett (Kantonian),Level 26,Dugtrio (Kantonian),First
+Diglett,Diglett (Alolan),Level 26,Dugtrio (Alolan),First
+Meowth,Meowth (Kantonian),Level 28,Persian (Kantonian),First
+Meowth,Meowth (Alolan),Friendship;Level 28PE,Persian (Alolan),First
+Meowth,Meowth (Galarian),Level 28,Perrserker,First
+Psyduck,Psyduck,Level 33,Golduck,First
+Mankey,Mankey,Level 28,Primeape,First
+Growlithe,Growlithe (Kantonian),Fire Stone,Arcanine (Kantonian),First
+Growlithe,Growlithe (Hisuian),Fire Stone,Arcanine (Hisuian),First
+Poliwag,Poliwag,Level 25,Poliwhirl,First
+Poliwag,Poliwag,Level 25,Poliwhirl,First
+Abra,Abra,Level 16,Kadabra,First
+Machop,Machop,Level 28,Machoke,First
+Bellsprout,Bellsprout,Level 21,Weepinbell,First
+Tentacool,Tentacool,Level 30,Tentacruel,First
+Geodude,Geodude (Kantonian),Level 25,Graveler (Kantonian),First
+Geodude,Geodude (Alolan),Level 25,Graveler (Alolan),First
+Ponyta,Ponyta (Kantonian),Level 40,Rapidash (Kantonian),First
+Ponyta,Ponyta (Galarian),Level 40,Rapidash (Galarian),First
+Slowpoke,Slowpoke (Kantonian),Level 37,Slowbro (Kantonian),First
+Slowpoke,Slowpoke (Kantonian),Trade holding King's Rock,Slowking (Johtonian),First
+Slowpoke,Slowpoke (Galarian),Galarica Cuff,Slowbro (Galarian),First
+Slowpoke,Slowpoke (Galarian),Galarica Wreath,Slowking (Galarian),First
+Magnemite,Magnemite,Level 30,Magneton,First
+Farfetch'd,Farfetch'd (Kantonian),NA,NA,None
+Farfetch'd,Farfetch'd (Galarian),Land 3 critical hits in a single battle,Sirfetch'd,First
+Doduo,Doduo,Level 31,Dodrio,First
+Seel,Seel,Level 34,Dewgong,First
+Grimer,Grimer (Kantonian),Level 38,Muk (Kantonian),First
+Grimer,Grimer (Alolan),Level 38,Muk (Alolan),First
+Shellder,Shellder,Water Stone,Cloyster,First
+Gastly,Gastly,Level 25,Haunter,First
+Onix,Onix,Trade holding Metal Coat,Steelix,First
+Drowzee,Drowzee,Level 26,Hypno,First
+Krabby,Krabby,Level 28,Kingler,First
+Voltorb,Voltorb (Kantonian),Level 30,Electrode (Kantonian),First
+Voltorb,Voltorb (Hisuian),Leaf Stone,Electrode (Hisuian),First
+Exeggcute,Exeggcute,Leaf Stone,Exeggutor (Kantonian),First
+Exeggcute,Exeggcute,Leaf Stone (Alola),Exeggutor (Alolan),First
+Cubone,Cubone,Level 28,Marowak (Kantonian),First
+Cubone,Cubone,"Level 28 (Alola, night)",Marowak (Alolan),First
+Hitmon,Tyrogue,Level 20 (Attack > Defense),Hitmonlee,First
+Hitmon,Tyrogue,Level 20 (Attack < Defense),Hitmonchan,First
+Hitmon,Tyrogue,Level 20 (Attack = Defense),Hitmontop,First
+Lickitung,Lickitung,Level up knowing Rollout,Lickilicky,First
+Koffing,Koffing,Level 35,Weezing (Kantonian),First
+Koffing,Koffing,Level 35 (Galar),Weezing (Galarian),First
+Rhyhorn,Rhyhorn,Level 42,Rhydon,First
+Chansey,Happiny,Level up holding Oval Stone (day),Chansey,First
+Tangela,Tangela,Level up knowing Ancient Power,Tangrowth,First
+Kangaskhan,Kangaskhan,NA,NA,None
+Horsea,Horsea,Level 32,Seadra,First
+Goldeen,Goldeen,Level 33,Seaking,First
+Staryu,Staryu,Water Stone,Starmie,First
+Mr. Mime,Mime Jr.,Level up knowing Mimic,Mr. Mime (Kantonian),First
+Mr. Mime,Mime Jr.,Level up knowing Mimic (Galar),Mr. Mime (Galarian),First
+Scyther,Scyther,Trade holding Metal Coat,Scizor,First
+Scyther,Scyther,Black Augurite (Hisui),Kleavor,First
+Jynx,Smoochum,Level 30,Jynx,First
+Electabuzz,Elekid,Level 30,Electabuzz,First
+Magmar,Magby,Level 30,Magmar,First
+Pinsir,Pinsir,NA,NA,None
+Tauros,Tauros (Kantonian),NA,NA,None
+Tauros,"Tauros (Paldean, Combat Breed)",NA,NA,None
+Tauros,"Tauros (Paldean, Blaze Breed)",NA,NA,None
+Tauros,"Tauros (Paldean, Aqua Breed)",NA,NA,None
+Magikarp,Magikarp,Level 20,Gyarados,First
+Lapras,Lapras,NA,NA,None
+Ditto,Ditto,NA,NA,None
+Eeveelution,Eevee,Water Stone,Vaporeon,First
+Eeveelution,Eevee,Thunder Stone,Jolteon,First
+Eeveelution,Eevee,Fire Stone,Flareon,First
+Eeveelution,Eevee,Friendship (day);Level up with Sun ShardXD,Espeon,First
+Eeveelution,Eevee,Friendship (night);Level up with Moon ShardXD,Umbreon,First
+Eeveelution,Eevee,Level up near Moss Rock;Leaf StoneVIII+,Leafeon,First
+Eeveelution,Eevee,Level up near Ice Rock;Ice StoneSwShLASV,Glaceon,First
+Eeveelution,Eevee,Level up with a Fairy-type moveand either two hearts of affectionor high friendshipSwShLASV,Sylveon,First
+Porygon,Porygon,Trade holding Upgrade,Porygon2,First
+Omanyte,Omanyte,Level 40,Omastar,First
+Kabuto,Kabuto,Level 40,Kabutops,First
+Aerodactyl,Aerodactyl,NA,NA,None
+Snorlax,Munchlax,Friendship,Snorlax,First
+Articuno,Articuno (Kantonian),NA,NA,None
+Articuno,Articuno (Galarian),NA,NA,None
+Zapdos,Zapdos (Kantonian),NA,NA,None
+Zapdos,Zapdos (Galarian),NA,NA,None
+Moltres,Moltres (Kantonian),NA,NA,None
+Moltres,Moltres (Galarian),NA,NA,None
+Dratini,Dratini,Level 30,Dragonair,First
+Mewtwo,Mewtwo,NA,NA,None
+Mew,Mew,NA,NA,None
+Chikorita,Chikorita,Level 16,Bayleef,First
+Cyndaquil,Cyndaquil,Level 14/17LA,Quilava,First
+Cyndaquil,Cyndaquil,Level 14/17LA,Quilava,First
+Totodile,Totodile,Level 18,Croconaw,First
+Sentret,Sentret,Level 15,Furret,First
+Hoothoot,Hoothoot,Level 20,Noctowl,First
+Ledyba,Ledyba,Level 18,Ledian,First
+Spinarak,Spinarak,Level 22,Ariados,First
+Chinchou,Chinchou,Level 27,Lanturn,First
+Togepi,Togepi,Friendship,Togetic,First
+Natu,Natu,Level 25,Xatu,First
+Mareep,Mareep,Level 15,Flaaffy,First
+Marill,Azurill,Friendship,Marill,First
+Sudowoodo,Bonsly,Level up knowing Mimic,Sudowoodo,First
+Hoppip,Hoppip,Level 18,Skiploom,First
+Aipom,Aipom,Level up knowing Double Hit,Ambipom,First
+Sunkern,Sunkern,Sun Stone,Sunflora,First
+Yanma,Yanma,Level up knowing Ancient Power,Yanmega,First
+Wooper,Wooper (Johtonian),Level 20,Quagsire,First
+Wooper,Wooper (Paldean),Level 20,Clodsire,First
+Murkrow,Murkrow,Dusk Stone,Honchkrow,First
+Misdreavus,Misdreavus,Dusk Stone,Mismagius,First
+Wobbuffet,Wynaut,Level 15,Wobbuffet,First
+Girafarig,Girafarig,Level up knowing Twin Beam,Farigiraf,First
+Pineco,Pineco,Level 31,Forretress,First
+Dunsparce,Dunsparce,Level up knowing Hyper Drill,Dudunsparce,First
+Gligar,Gligar,Level up holding Razor Fang at night,Gliscor,First
+Snubbull,Snubbull,Level 23,Granbull,First
+Qwilfish,Qwilfish (Johtonian),NA,NA,None
+Qwilfish,Qwilfish (Hisuian),Use Barb Barrage in the strong style 20 times (Hisui),Overqwil,First
+Shuckle,Shuckle,NA,NA,None
+Heracross,Heracross,NA,NA,None
+Sneasel,Sneasel (Johtonian),Level up with Razor Claw at night,Weavile,First
+Sneasel,Sneasel (Hisuian),Level up with Razor Claw during the day,Sneasler,First
+Teddiursa,Teddiursa,Level 30,Ursaring,First
+Bloodmoon Ursaluna,Ursaluna,Bloodmoon,NA,None
+Slugma,Slugma,Level 38,Magcargo,First
+Swinub,Swinub,Level 33,Piloswine,First
+Corsola,Corsola (Johtonian),NA,NA,None
+Corsola,Corsola (Galarian),Level 38,Cursola,First
+Remoraid,Remoraid,Level 25,Octillery,First
+Delibird,Delibird,NA,NA,None
+Mantine,Mantyke,Level up with Remoraid in party,Mantine,First
+Skarmory,Skarmory,NA,NA,None
+Houndour,Houndour,Level 24,Houndoom,First
+Phanpy,Phanpy,Level 25,Donphan,First
+Stantler,Stantler,Use Psyshield Bash in the agile style 20 times (Hisui),Wyrdeer,First
+Smeargle,Smeargle,NA,NA,None
+Miltank,Miltank,NA,NA,None
+Raikou,Raikou,NA,NA,None
+Entei,Entei,NA,NA,None
+Suicune,Suicune,NA,NA,None
+Larvitar,Larvitar,Level 30,Pupitar,First
+Lugia,Lugia,NA,NA,None
+Ho-Oh,Ho-Oh,NA,NA,None
+Celebi,Celebi,NA,NA,None
+Treecko,Treecko,Level 16,Grovyle,First
+Torchic,Torchic,Level 16,Combusken,First
+Mudkip,Mudkip,Level 16,Marshtomp,First
+Poochyena,Poochyena,Level 18,Mightyena,First
+Zigzagoon,Zigzagoon (Hoennian),Level 20,Linoone (Hoennian),First
+Zigzagoon,Zigzagoon (Galarian),Level 20,Linoone (Galarian),First
+Wurmple,Wurmple,Level 7,Silcoon,First
+Wurmple,Wurmple,Level 7,Cascoon,First
+Lotad,Lotad,Level 14,Lombre,First
+Seedot,Seedot,Level 14,Nuzleaf,First
+Taillow,Taillow,Level 22,Swellow,First
+Wingull,Wingull,Level 25,Pelipper,First
+Ralts,Ralts,Level 20,Kirlia,First
+Ralts,Ralts,Level 20,Kirlia,First
+Surskit,Surskit,Level 22,Masquerain,First
+Shroomish,Shroomish,Level 23,Breloom,First
+Slakoth,Slakoth,Level 18,Vigoroth,First
+Nincada,Nincada,Level 20,Ninjask,First
+Nincada,Nincada,Free spaceAdditional Poké Ball,Shedinja,First
+Whismur,Whismur,Level 20,Loudred,First
+Makuhita,Makuhita,Level 24,Hariyama,First
+Nosepass,Nosepass,Level up in a special magnetic field;Thunder StoneLA,Probopass,First
+Skitty,Skitty,Moon Stone,Delcatty,First
+Sableye,Sableye,NA,NA,None
+Mawile,Mawile,NA,NA,None
+Aron,Aron,Level 32,Lairon,First
+Meditite,Meditite,Level 37,Medicham,First
+Electrike,Electrike,Level 26,Manectric,First
+Plusle,Plusle,NA,NA,None
+Minun,Minun,NA,NA,None
+Volbeat and Illumise*,Volbeat,NA,NA,None
+Volbeat and Illumise*,Illumise,NA,NA,None
+Roselia,Budew,Friendship (day),Roselia,First
+Gulpin,Gulpin,Level 26,Swalot,First
+Carvanha,Carvanha,Level 30,Sharpedo,First
+Wailmer,Wailmer,Level 40,Wailord,First
+Numel,Numel,Level 33,Camerupt,First
+Torkoal,Torkoal,NA,NA,None
+Spoink,Spoink,Level 32,Grumpig,First
+Spinda,Spinda,NA,NA,None
+Trapinch,Trapinch,Level 35,Vibrava,First
+Cacnea,Cacnea,Level 32,Cacturne,First
+Swablu,Swablu,Level 35,Altaria,First
+Zangoose,Zangoose,NA,NA,None
+Seviper,Seviper,NA,NA,None
+Lunatone,Lunatone,NA,NA,None
+Solrock,Solrock,NA,NA,None
+Barboach,Barboach,Level 30,Whiscash,First
+Corphish,Corphish,Level 30,Crawdaunt,First
+Baltoy,Baltoy,Level 36,Claydol,First
+Lileep,Lileep,Level 40,Cradily,First
+Anorith,Anorith,Level 40,Armaldo,First
+Feebas,Feebas,Level up with maximum Beauty;Trade holding Prism Scale,Milotic,First
+Castform,Castform,NA,NA,None
+Kecleon,Kecleon,NA,NA,None
+Shuppet,Shuppet,Level 37,Banette,First
+Duskull,Duskull,Level 37,Dusclops,First
+Tropius,Tropius,NA,NA,None
+Chimecho,Chingling,Friendship (night),Chimecho,First
+Absol,Absol,NA,NA,None
+Snorunt,Snorunt,Level 42,Glalie,First
+Snorunt,Snorunt,Dawn Stone (female),Froslass,First
+Spheal,Spheal,Level 32,Sealeo,First
+Clamperl,Clamperl,Trade holding Deep Sea Tooth,Huntail,First
+Clamperl,Clamperl,Trade holding Deep Sea Scale,Gorebyss,First
+Relicanth,Relicanth,NA,NA,None
+Luvdisc,Luvdisc,NA,NA,None
+Bagon,Bagon,Level 30,Shelgon,First
+Beldum,Beldum,Level 20,Metang,First
+Regirock,Regirock,NA,NA,None
+Regice,Regice,NA,NA,None
+Registeel,Registeel,NA,NA,None
+Latias,Latias,NA,NA,None
+Latios,Latios,NA,NA,None
+Kyogre,Kyogre,NA,NA,None
+Groudon,Groudon,NA,NA,None
+Rayquaza,Rayquaza,NA,NA,None
+Jirachi,Jirachi,NA,NA,None
+Deoxys,Deoxys,Normal Forme,NA,None
+Deoxys,Deoxys,Attack Forme,NA,None
+Deoxys,Deoxys,Defense Forme,NA,None
+Deoxys,Deoxys,Speed Forme,NA,None
+Turtwig,Turtwig,Level 18,Grotle,First
+Chimchar,Chimchar,Level 14,Monferno,First
+Piplup,Piplup,Level 16,Prinplup,First
+Starly,Starly,Level 14,Staravia,First
+Bidoof,Bidoof,Level 15,Bibarel,First
+Kricketot,Kricketot,Level 10,Kricketune,First
+Shinx,Shinx,Level 15,Luxio,First
+Cranidos,Cranidos,Level 30,Rampardos,First
+Shieldon,Shieldon,Level 30,Bastiodon,First
+Burmy,Burmy,"Level 20 (female, Plant Cloak)",Wormadam,First
+Burmy,Burmy,"Level 20 (female, Sandy Cloak)",Wormadam,First
+Burmy,Burmy,"Level 20 (female, Trash Cloak)",Wormadam,First
+Burmy,Burmy,Level 20 (male),Mothim,First
+Combee,Combee,Level 21 (female),Vespiquen,First
+Pachirisu,Pachirisu,NA,NA,None
+Buizel,Buizel,Level 26,Floatzel,First
+Cherubi,Cherubi,Level 25,Cherrim,First
+Shellos,Shellos,Level 30,Gastrodon,First
+Shellos,Shellos,Level 30,Gastrodon,First
+Drifloon,Drifloon,Level 28,Drifblim,First
+Buneary,Buneary,Friendship,Lopunny,First
+Glameow,Glameow,Level 38,Purugly,First
+Stunky,Stunky,Level 34,Skuntank,First
+Bronzor,Bronzor,Level 33,Bronzong,First
+Chatot,Chatot,NA,NA,None
+Spiritomb,Spiritomb,NA,NA,None
+Gible,Gible,Level 24,Gabite,First
+Riolu,Riolu,Friendship (day),Lucario,First
+Hippopotas,Hippopotas,Level 34,Hippowdon,First
+Skorupi,Skorupi,Level 40,Drapion,First
+Croagunk,Croagunk,Level 37,Toxicroak,First
+Carnivine,Carnivine,NA,NA,None
+Finneon,Finneon,Level 31,Lumineon,First
+Snover,Snover,Level 40,Abomasnow,First
+Rotom,Rotom,Normal Rotom,NA,None
+Rotom,Rotom,Heat Rotom,NA,None
+Rotom,Rotom,Wash Rotom,NA,None
+Rotom,Rotom,Frost Rotom,NA,None
+Rotom,Rotom,Fan Rotom,NA,None
+Rotom,Rotom,Mow Rotom,NA,None
+Uxie,Uxie,NA,NA,None
+Mesprit,Mesprit,NA,NA,None
+Azelf,Azelf,NA,NA,None
+Dialga,Dialga,NA,NA,None
+Dialga,Dialga,Origin Forme,NA,None
+Palkia,Palkia,NA,NA,None
+Palkia,Palkia,Origin Forme,NA,None
+Heatran,Heatran,NA,NA,None
+Regigigas,Regigigas,NA,NA,None
+Giratina,Giratina,Altered Forme,NA,None
+Giratina,Giratina,Origin Forme,NA,None
+Cresselia,Cresselia,NA,NA,None
+Manaphy*,Phione,NA,NA,None
+Manaphy*,Manaphy,NA,NA,None
+Darkrai,Darkrai,NA,NA,None
+Shaymin,Shaymin,Land Forme,NA,None
+Shaymin,Shaymin,Sky Forme,NA,None
+Arceus,Arceus,NA,NA,None
+Victini,Victini,NA,NA,None
+Snivy,Snivy,Level 17,Servine,First
+Tepig,Tepig,Level 17,Pignite,First
+Oshawott,Oshawott,Level 17,Dewott,First
+Oshawott,Oshawott,Level 17,Dewott,First
+Patrat,Patrat,Level 20,Watchog,First
+Lillipup,Lillipup,Level 16,Herdier,First
+Purrloin,Purrloin,Level 20,Liepard,First
+Pansage,Pansage,Leaf Stone,Simisage,First
+Pansear,Pansear,Fire Stone,Simisear,First
+Panpour,Panpour,Water Stone,Simipour,First
+Munna,Munna,Moon Stone,Musharna,First
+Pidove,Pidove,Level 21,Tranquill,First
+Blitzle,Blitzle,Level 27,Zebstrika,First
+Roggenrola,Roggenrola,Level 25,Boldore,First
+Woobat,Woobat,Friendship,Swoobat,First
+Drilbur,Drilbur,Level 31,Excadrill,First
+Audino,Audino,NA,NA,None
+Timburr,Timburr,Level 25,Gurdurr,First
+Tympole,Tympole,Level 25,Palpitoad,First
+Throh,Throh,NA,NA,None
+Sawk,Sawk,NA,NA,None
+Sewaddle,Sewaddle,Level 20,Swadloon,First
+Venipede,Venipede,Level 22,Whirlipede,First
+Cottonee,Cottonee,Sun Stone,Whimsicott,First
+Petilil,Petilil,Sun Stone,Lilligant (Unovan),First
+Petilil,Petilil,Sun Stone (Hisui),Lilligant (Hisuian),First
+Basculin,Basculin (Red-Striped),NA,NA,None
+Basculin,Basculin (Blue-Striped),NA,NA,None
+Basculin,Basculin (White-Striped),Take 294 damage in recoil,Basculegion,First
+Sandile,Sandile,Level 29,Krokorok,First
+Darumaka,Darumaka (Unovan),Level 35,Darmanitan (Unovan),First
+Darumaka,Darumaka (Galarian),Ice Stone,Darmanitan (Galarian),First
+Maractus,Maractus,NA,NA,None
+Dwebble,Dwebble,Level 34,Crustle,First
+Scraggy,Scraggy,Level 39,Scrafty,First
+Sigilyph,Sigilyph,NA,NA,None
+Yamask,Yamask (Unovan),Level 34,Cofagrigus,First
+Yamask,Yamask (Galarian),Travel under the large rock arch in Dusty Bowl after taking at least 49 HP in damage from attacks without fainting.,Runerigus,First
+Tirtouga,Tirtouga,Level 37,Carracosta,First
+Archen,Archen,Level 37,Archeops,First
+Trubbish,Trubbish,Level 36,Garbodor,First
+Zorua,Zorua (Unovan),Level 30,Zoroark (Unovan),First
+Zorua,Zorua (Hisuian),Level 30,Zoroark (Hisuian),First
+Minccino,Minccino,Shiny Stone,Cinccino,First
+Gothita,Gothita,Level 32,Gothorita,First
+Solosis,Solosis,Level 32,Duosion,First
+Ducklett,Ducklett,Level 35,Swanna,First
+Vanillite,Vanillite,Level 35,Vanillish,First
+Deerling,Deerling,Level 34,Sawsbuck,First
+Deerling,Deerling,Level 34,Sawsbuck,First
+Deerling,Deerling,Level 34,Sawsbuck,First
+Deerling,Deerling,Level 34,Sawsbuck,First
+Emolga,Emolga,NA,NA,None
+Karrablast,Karrablast,Trade for Shelmet,Escavalier,First
+Foongus,Foongus,Level 39,Amoonguss,First
+Frillish,Frillish,Level 40,Jellicent,First
+Alomomola,Alomomola,NA,NA,None
+Joltik,Joltik,Level 36,Galvantula,First
+Ferroseed,Ferroseed,Level 40,Ferrothorn,First
+Klink,Klink,Level 38,Klang,First
+Tynamo,Tynamo,Level 39,Eelektrik,First
+Elgyem,Elgyem,Level 42,Beheeyem,First
+Litwick,Litwick,Level 41,Lampent,First
+Axew,Axew,Level 38,Fraxure,First
+Cubchoo,Cubchoo,Level 37,Beartic,First
+Cryogonal,Cryogonal,NA,NA,None
+Shelmet,Shelmet,Trade for Karrablast,Accelgor,First
+Stunfisk,Stunfisk (Unovan),NA,NA,None
+Stunfisk,Stunfisk (Galarian),NA,NA,None
+Mienfoo,Mienfoo,Level 50,Mienshao,First
+Druddigon,Druddigon,NA,NA,None
+Golett,Golett,Level 43,Golurk,First
+Pawniard,Pawniard,Level 52,Bisharp,First
+Bouffalant,Bouffalant,NA,NA,None
+Rufflet,Rufflet,Level 54,Braviary (Unovan),First
+Rufflet,Rufflet,Level 54 (Hisui),Braviary (Hisuian),First
+Vullaby,Vullaby,Level 54,Mandibuzz,First
+Heatmor,Heatmor,NA,NA,None
+Durant,Durant,NA,NA,None
+Deino,Deino,Level 50,Zweilous,First
+Larvesta,Larvesta,Level 59,Volcarona,First
+Cobalion,Cobalion,NA,NA,None
+Terrakion,Terrakion,NA,NA,None
+Virizion,Virizion,NA,NA,None
+Tornadus,Tornadus,Incarnate Forme,NA,None
+Tornadus,Tornadus,Therian Forme,NA,None
+Thundurus,Thundurus,Incarnate Forme,NA,None
+Thundurus,Thundurus,Therian Forme,NA,None
+Reshiram,Reshiram,NA,NA,None
+Zekrom,Zekrom,NA,NA,None
+Landorus,Landorus,Incarnate Forme,NA,None
+Landorus,Landorus,Therian Forme,NA,None
+Kyurem,Kyurem,NA,NA,None
+Kyurem,Kyurem,Black Kyurem,NA,None
+Kyurem,Kyurem,White Kyurem,NA,None
+Keldeo,Keldeo,Ordinary Form,NA,None
+Keldeo,Keldeo,Resolute Form,NA,None
+Meloetta,Meloetta,Aria Forme,NA,None
+Meloetta,Meloetta,Pirouette Forme,NA,None
+Genesect,Genesect,NA,NA,None
+Chespin,Chespin,Level 16,Quilladin,First
+Fennekin,Fennekin,Level 16,Braixen,First
+Froakie,Froakie,Level 16,Frogadier,First
+Battle Bond Greninja,Greninja,Battle Bond Greninja,NA,None
+Battle Bond Greninja,Greninja,Ash-Greninja,NA,None
+Bunnelby,Bunnelby,Level 20,Diggersby,First
+Fletchling,Fletchling,Level 17,Fletchinder,First
+Scatterbug,Scatterbug,Level 9,Spewpa,First
+Litleo,Litleo,Level 35,Pyroar,First
+Flabébé,Flabébé,Level 19,Floette,First
+Skiddo,Skiddo,Level 32,Gogoat,First
+Pancham,Pancham,Level 32 with Dark-type in party,Pangoro,First
+Furfrou,Furfrou,NA,NA,None
+Espurr,Espurr,Level 25,Meowstic,First
+Honedge,Honedge,Level 35,Doublade,First
+Spritzee,Spritzee,Trade holding Sachet,Aromatisse,First
+Swirlix,Swirlix,Trade holding Whipped Dream,Slurpuff,First
+Inkay,Inkay,Level 30 with game system held upside down,Malamar,First
+Binacle,Binacle,Level 39,Barbaracle,First
+Skrelp,Skrelp,Level 48,Dragalge,First
+Clauncher,Clauncher,Level 37,Clawitzer,First
+Helioptile,Helioptile,Sun Stone,Heliolisk,First
+Tyrunt,Tyrunt,Level 39 (day),Tyrantrum,First
+Amaura,Amaura,Level 39 (night),Aurorus,First
+Hawlucha,Hawlucha,NA,NA,None
+Dedenne,Dedenne,NA,NA,None
+Carbink,Carbink,NA,NA,None
+Goomy,Goomy,Level 40,Sliggoo (Kalosian),First
+Goomy,Goomy,Level 40 (Hisui),Sliggoo (Hisuian),First
+Klefki,Klefki,NA,NA,None
+Phantump,Phantump,Trade,Trevenant,First
+Pumpkaboo,Pumpkaboo,Trade,Gourgeist,First
+Bergmite,Bergmite,Level 37,Avalugg (Kalosian),First
+Bergmite,Bergmite,Level 37 (Hisui),Avalugg (Hisuian),First
+Noibat,Noibat,Level 48,Noivern,First
+Xerneas,Xerneas,Active Mode,NA,None
+Xerneas,Xerneas,Neutral Mode,NA,None
+Yveltal,Yveltal,NA,NA,None
+Zygarde,Zygarde,50% Forme,NA,None
+Zygarde,Zygarde,10% Forme,NA,None
+Zygarde,Zygarde,Complete Forme,NA,None
+Diancie,Diancie,NA,NA,None
+Hoopa,Hoopa,Hoopa Confined,NA,None
+Hoopa,Hoopa,Hoopa Unbound,NA,None
+Volcanion,Volcanion,NA,NA,None
+Rowlet,Rowlet,Level 17,Dartrix,First
+Rowlet,Rowlet,Level 17,Dartrix,First
+Litten,Litten,Level 17,Torracat,First
+Popplio,Popplio,Level 17,Brionne,First
+Pikipek,Pikipek,Level 14,Trumbeak,First
+Yungoos,Yungoos,Level 20 (day),Gumshoos,First
+Grubbin,Grubbin,Level 20,Charjabug,First
+Crabrawler,Crabrawler,Level up at Mount Lanakila;Ice StoneSV,Crabominable,First
+Oricorio,Oricorio,Baile Style,NA,None
+Oricorio,Oricorio,Pom-Pom Style,NA,None
+Oricorio,Oricorio,Pa'u Style,NA,None
+Oricorio,Oricorio,Sensu Style,NA,None
+Cutiefly,Cutiefly,Level 25,Ribombee,First
+Rockruff,Rockruff,Level 25 (day; Pokémon Sun and Ultra SunVII),Lycanroc (Midday Form),First
+Rockruff,Rockruff,Level 25 (night; Pokémon Moon and Ultra MoonVII),Lycanroc (Midnight Form),First
+Rockruff,Rockruff (Own Tempo),Level 25 (evening),Lycanroc (Dusk Form),First
+Wishiwashi,Wishiwashi,Solo Form,NA,None
+Wishiwashi,Wishiwashi,Schooling Form,NA,None
+Mareanie,Mareanie,Level 38,Toxapex,First
+Mudbray,Mudbray,Level 30,Mudsdale,First
+Dewpider,Dewpider,Level 22,Araquanid,First
+Fomantis,Fomantis,Level 34 (day),Lurantis,First
+Morelull,Morelull,Level 24,Shiinotic,First
+Salandit,Salandit,Level 33 (female),Salazzle,First
+Stufful,Stufful,Level 27,Bewear,First
+Bounsweet,Bounsweet,Level 18,Steenee,First
+Comfey,Comfey,NA,NA,None
+Oranguru,Oranguru,NA,NA,None
+Passimian,Passimian,NA,NA,None
+Wimpod,Wimpod,Level 30,Golisopod,First
+Sandygast,Sandygast,Level 42,Palossand,First
+Pyukumuku,Pyukumuku,NA,NA,None
+Type: Null,Type: Null,Friendship,Silvally,First
+Minior,Minior,Meteor Form,NA,None
+Minior,Minior,Core,NA,None
+Komala,Komala,NA,NA,None
+Turtonator,Turtonator,NA,NA,None
+Togedemaru,Togedemaru,NA,NA,None
+Mimikyu,Mimikyu,Disguised Form,NA,None
+Mimikyu,Mimikyu,Busted Form,NA,None
+Bruxish,Bruxish,NA,NA,None
+Drampa,Drampa,NA,NA,None
+Dhelmise,Dhelmise,NA,NA,None
+Jangmo-o,Jangmo-o,Level 35,Hakamo-o,First
+Tapu Koko,Tapu Koko,NA,NA,None
+Tapu Lele,Tapu Lele,NA,NA,None
+Tapu Bulu,Tapu Bulu,NA,NA,None
+Tapu Fini,Tapu Fini,NA,NA,None
+Cosmog,Cosmog,Level 43,Cosmoem,First
+Cosmog,Cosmog,Level 43,Cosmoem,First
+Nihilego,Nihilego,NA,NA,None
+Buzzwole,Buzzwole,NA,NA,None
+Pheromosa,Pheromosa,NA,NA,None
+Xurkitree,Xurkitree,NA,NA,None
+Celesteela,Celesteela,NA,NA,None
+Kartana,Kartana,NA,NA,None
+Guzzlord,Guzzlord,NA,NA,None
+Necrozma,Necrozma,NA,NA,None
+Necrozma,Necrozma,Dusk Mane Necrozma,NA,None
+Necrozma,Necrozma,Dawn Wings Necrozma,NA,None
+Necrozma,Necrozma,Ultra Necrozma,NA,None
+Magearna,Magearna,NA,NA,None
+Magearna,Magearna,Original Color Magearna,NA,None
+Marshadow,Marshadow,NA,NA,None
+Poipole,Poipole,Level up knowing Dragon Pulse,Naganadel,First
+Stakataka,Stakataka,NA,NA,None
+Blacephalon,Blacephalon,NA,NA,None
+Zeraora,Zeraora,NA,NA,None
+Meltan,Meltan,400 Meltan Candy in Pokémon GO,Melmetal,First
+Grookey,Grookey,Level 16,Thwackey,First
+Scorbunny,Scorbunny,Level 16,Raboot,First
+Sobble,Sobble,Level 16,Drizzile,First
+Skwovet,Skwovet,Level 24,Greedent,First
+Rookidee,Rookidee,Level 18,Corvisquire,First
+Blipbug,Blipbug,Level 10,Dottler,First
+Nickit,Nickit,Level 18,Thievul,First
+Gossifleur,Gossifleur,Level 20,Eldegoss,First
+Wooloo,Wooloo,Level 24,Dubwool,First
+Chewtle,Chewtle,Level 22,Drednaw,First
+Yamper,Yamper,Level 25,Boltund,First
+Rolycoly,Rolycoly,Level 18,Carkol,First
+Applin,Applin,Tart Apple,Flapple,First
+Applin,Applin,Sweet Apple,Appletun,First
+Applin,Applin,Syrupy Apple,Dipplin,First
+Silicobra,Silicobra,Level 36,Sandaconda,First
+Cramorant,Cramorant,NA,NA,None
+Arrokuda,Arrokuda,Level 26,Barraskewda,First
+Toxel,Toxel,Level 30,Toxtricity,First
+Sizzlipede,Sizzlipede,Level 28,Centiskorch,First
+Clobbopus,Clobbopus,Level up knowing Taunt,Grapploct,First
+Sinistea,Sinistea,Chipped Pot or Cracked Pot,Polteageist,First
+Hatenna,Hatenna,Level 32,Hattrem,First
+Impidimp,Impidimp,Level 32,Morgrem,First
+Milcery,Milcery,Sweet when its Trainer spins and strikes a pose,Alcremie,First
+Falinks,Falinks,NA,NA,None
+Pincurchin,Pincurchin,NA,NA,None
+Snom,Snom,Friendship (night),Frosmoth,First
+Stonjourner,Stonjourner,NA,NA,None
+Eiscue,Eiscue,NA,NA,None
+Indeedee,Indeedee,NA,NA,None
+Morpeko,Morpeko,Full Belly Mode,NA,None
+Morpeko,Morpeko,Hangry Mode,NA,None
+Cufant,Cufant,Level 34,Copperajah,First
+Dracozolt,Dracozolt,NA,NA,None
+Arctozolt,Arctozolt,NA,NA,None
+Dracovish,Dracovish,NA,NA,None
+Arctovish,Arctovish,NA,NA,None
+Duraludon,Duraludon,Metal Alloy,Archaludon,First
+Dreepy,Dreepy,Level 50,Drakloak,First
+Zacian,Zacian,Hero of Many Battles,NA,None
+Zacian,Zacian,Crowned Sword,NA,None
+Zamazenta,Zamazenta,Hero of Many Battles,NA,None
+Zamazenta,Zamazenta,Crowned Shield,NA,None
+Eternatus,Eternatus,NA,NA,None
+Kubfu,Kubfu,"Train in The Tower of Darkness, Scroll of Darkness(Single Strike Style)",Urshifu,First
+Kubfu,Kubfu,"Train in The Tower of Waters, Scroll of Waters (Rapid Strike Style)",Urshifu,First
+Zarude,Zarude,Zarude,NA,None
+Zarude,Zarude,Dada Zarude,NA,None
+Regieleki,Regieleki,NA,NA,None
+Regidrago,Regidrago,NA,NA,None
+Glastrier,Glastrier,NA,NA,None
+Spectrier,Spectrier,NA,NA,None
+Calyrex,Calyrex,NA,NA,None
+Calyrex,Calyrex,Ice Rider Calyrex,NA,None
+Calyrex,Calyrex,Shadow Rider Calyrex,NA,None
+Enamorus,Enamorus,Incarnate Forme,NA,None
+Enamorus,Enamorus,Therian Forme,NA,None
+Sprigatito,Sprigatito,Level 16,Floragato,First
+Fuecoco,Fuecoco,Level 16,Crocalor,First
+Quaxly,Quaxly,Level 16,Quaxwell,First
+Lechonk,Lechonk,Level 18,Oinkologne,First
+Tarountula,Tarountula,Level 15,Spidops,First
+Nymble,Nymble,Level 24,Lokix,First
+Pawmi,Pawmi,Level 18,Pawmo,First
+Tandemaus,Tandemaus,Level 25 in a fight,Maushold,First
+Fidough,Fidough,Level 26,Dachsbun,First
+Smoliv,Smoliv,Level 25,Dolliv,First
+Squawkabilly,Squawkabilly,NA,NA,None
+Nacli,Nacli,Level 24,Naclstack,First
+Charcadet,Charcadet,Auspicious Armor,Armarouge,First
+Charcadet,Charcadet,Malicious Armor,Ceruledge,First
+Tadbulb,Tadbulb,Thunder Stone,Bellibolt,First
+Wattrel,Wattrel,Level 25,Kilowattrel,First
+Maschiff,Maschiff,Level 30,Mabosstiff,First
+Shroodle,Shroodle,Level 28,Grafaiai,First
+Bramblin,Bramblin,Walk 1000 steps using the Let's Go feature,Brambleghast,First
+Toedscool,Toedscool,Level 30,Toedscruel,First
+Klawf,Klawf,NA,NA,None
+Capsakid,Capsakid,Fire Stone,Scovillain,First
+Rellor,Rellor,Walk 1000 steps using the Let's Go feature,Rabsca,First
+Flittle,Flittle,Level 35,Espathra,First
+Tinkatink,Tinkatink,Level 24,Tinkatuff,First
+Wiglett,Wiglett,Level 26,Wugtrio,First
+Bombirdier,Bombirdier,NA,NA,None
+Finizen,Finizen,Level 38 while in a Union Circle group,Palafin,First
+Varoom,Varoom,Level 40,Revavroom,First
+Cyclizar,Cyclizar,NA,NA,None
+Orthworm,Orthworm,NA,NA,None
+Glimmet,Glimmet,Level 35,Glimmora,First
+Greavard,Greavard,Level 30 (night),Houndstone,First
+Flamigo,Flamigo,NA,NA,None
+Cetoddle,Cetoddle,Ice Stone,Cetitan,First
+Veluza,Veluza,NA,NA,None
+Dondozo,Dondozo,NA,NA,None
+Tatsugiri,Tatsugiri,Curly Form,NA,None
+Tatsugiri,Tatsugiri,Droopy Form,NA,None
+Tatsugiri,Tatsugiri,Stretchy Form,NA,None
+Great Tusk,Great Tusk,NA,NA,None
+Scream Tail,Scream Tail,NA,NA,None
+Brute Bonnet,Brute Bonnet,NA,NA,None
+Flutter Mane,Flutter Mane,NA,NA,None
+Slither Wing,Slither Wing,NA,NA,None
+Sandy Shocks,Sandy Shocks,NA,NA,None
+Iron Treads,Iron Treads,NA,NA,None
+Iron Bundle,Iron Bundle,NA,NA,None
+Iron Hands,Iron Hands,NA,NA,None
+Iron Jugulis,Iron Jugulis,NA,NA,None
+Iron Moth,Iron Moth,NA,NA,None
+Iron Thorns,Iron Thorns,NA,NA,None
+Frigibax,Frigibax,Level 35,Arctibax,First
+Gimmighoul,Gimmighoul (Chest Form),Collect 999 Gimmighoul Coins,Gholdengo,First
+Gimmighoul,Gimmighoul (Roaming Form),Collect 999 Gimmighoul Coins,Gholdengo,First
+Wo-Chien,Wo-Chien,NA,NA,None
+Chien-Pao,Chien-Pao,NA,NA,None
+Ting-Lu,Ting-Lu,NA,NA,None
+Chi-Yu,Chi-Yu,NA,NA,None
+Roaring Moon,Roaring Moon,NA,NA,None
+Iron Valiant,Iron Valiant,NA,NA,None
+Koraidon,Koraidon,NA,NA,None
+Miraidon,Miraidon,NA,NA,None
+Walking Wake,Walking Wake,NA,NA,None
+Iron Leaves,Iron Leaves,NA,NA,None
+Poltchageist,Poltchageist,Unremarkable Teacup or Masterpiece Teacup,Sinistcha,First
+Okidogi,Okidogi,NA,NA,None
+Munkidori,Munkidori,NA,NA,None
+Fezandipiti,Fezandipiti,NA,NA,None
+Ogerpon,Ogerpon,NA,NA,None
+Raging Bolt,Gouging Fire,NA,NA,None
+Raging Bolt,Raging Bolt,NA,NA,None
+Iron Crown,Iron Boulder,NA,NA,None
+Iron Crown,Iron Crown,NA,NA,None
+Terapagos,Terapagos,NA,NA,None
+Pecharunt,Pecharunt,NA,NA,None
+Bulbasaur,Ivysaur,Level 32,Venusaur,Second
+Charmander,Charmeleon,Level 36,Charizard,Second
+Squirtle,Wartortle,Level 36,Blastoise,Second
+Caterpie,Metapod,Level 10,Butterfree,Second
+Weedle,Kakuna,Level 10,Beedrill,Second
+Pidgey,Pidgeotto,Level 36,Pidgeot,Second
+Pikachu,Pikachu,Thunder Stone,Raichu (Kantonian),Second
+Pikachu,Pikachu,Thunder Stone (Alola),Raichu (Alolan),Second
+Nidoran,Nidorina,Moon Stone,Nidoqueen,Second
+Nidoran,Nidorino,Moon Stone,Nidoking,Second
+Clefairy,Clefairy,Moon Stone,Clefable,Second
+Jigglypuff,Jigglypuff,Moon Stone,Wigglytuff,Second
+Zubat,Golbat,Friendship,Crobat,Second
+Oddish,Gloom,Leaf Stone,Vileplume,Second
+Oddish,Gloom,Sun Stone,Bellossom,Second
+Mankey,Primeape,Use Rage Fist 20 times,Annihilape,Second
+Poliwag,Poliwhirl,Water Stone,Poliwrath,Second
+Poliwag,Poliwhirl,Trade holding King's Rock,Politoed,Second
+Abra,Kadabra,Trade,Alakazam,Second
+Machop,Machoke,Trade,Machamp,Second
+Bellsprout,Weepinbell,Leaf Stone,Victreebel,Second
+Geodude,Graveler (Kantonian),Trade,Golem (Kantonian),Second
+Geodude,Graveler (Alolan),Trade,Golem (Alolan),Second
+Magnemite,Magneton,Level up in a special magnetic field;Thunder StoneVIII+,Magnezone,Second
+Gastly,Haunter,Trade,Gengar,Second
+Rhyhorn,Rhydon,Trade holding Protector,Rhyperior,Second
+Chansey,Chansey,Friendship,Blissey,Second
+Horsea,Seadra,Trade holding Dragon Scale,Kingdra,Second
+Mr. Mime,Mr. Mime (Galarian),Level 42,Mr. Rime,Second
+Electabuzz,Electabuzz,Trade holding Electirizer,Electivire,Second
+Magmar,Magmar,Trade holding Magmarizer,Magmortar,Second
+Porygon,Porygon2,Trade holding Dubious Disc,Porygon-Z,Second
+Dratini,Dragonair,Level 55,Dragonite,Second
+Chikorita,Bayleef,Level 32,Meganium,Second
+Cyndaquil,Quilava,Level 36,Typhlosion (Johtonian),Second
+Cyndaquil,Quilava,Level 36 (Hisui),Typhlosion (Hisuian),Second
+Totodile,Croconaw,Level 30,Feraligatr,Second
+Togepi,Togetic,Shiny Stone,Togekiss,Second
+Mareep,Flaaffy,Level 30,Ampharos,Second
+Marill,Marill,Level 18,Azumarill,Second
+Hoppip,Skiploom,Level 27,Jumpluff,Second
+Teddiursa,Ursaring,Peat Block during full moon (Hisui),Ursaluna,Second
+Swinub,Piloswine,Level up knowing Ancient Power,Mamoswine,Second
+Larvitar,Pupitar,Level 55,Tyranitar,Second
+Treecko,Grovyle,Level 36,Sceptile,Second
+Torchic,Combusken,Level 36,Blaziken,Second
+Mudkip,Marshtomp,Level 36,Swampert,Second
+Zigzagoon,Linoone (Galarian),Level 35 (night),Obstagoon,Second
+Wurmple,Silcoon,Level 10,Beautifly,Second
+Wurmple,Cascoon,Level 10,Dustox,Second
+Lotad,Lombre,Water Stone,Ludicolo,Second
+Seedot,Nuzleaf,Leaf Stone,Shiftry,Second
+Ralts,Kirlia,Level 30,Gardevoir,Second
+Ralts,Kirlia,Dawn Stone (male),Gallade,Second
+Slakoth,Vigoroth,Level 36,Slaking,Second
+Whismur,Loudred,Level 40,Exploud,Second
+Aron,Lairon,Level 42,Aggron,Second
+Roselia,Roselia,Shiny Stone,Roserade,Second
+Trapinch,Vibrava,Level 45,Flygon,Second
+Duskull,Dusclops,Trade holding Reaper Cloth,Dusknoir,Second
+Spheal,Sealeo,Level 44,Walrein,Second
+Bagon,Shelgon,Level 50,Salamence,Second
+Beldum,Metang,Level 45,Metagross,Second
+Turtwig,Grotle,Level 32,Torterra,Second
+Chimchar,Monferno,Level 36,Infernape,Second
+Piplup,Prinplup,Level 36,Empoleon,Second
+Starly,Staravia,Level 34,Staraptor,Second
+Shinx,Luxio,Level 30,Luxray,Second
+Gible,Gabite,Level 48,Garchomp,Second
+Snivy,Servine,Level 36,Serperior,Second
+Tepig,Pignite,Level 36,Emboar,Second
+Oshawott,Dewott,Level 36,Samurott (Unovan),Second
+Oshawott,Dewott,Level 36 (Hisui),Samurott (Hisuian),Second
+Lillipup,Herdier,Level 32,Stoutland,Second
+Pidove,Tranquill,Level 32,Unfezant,Second
+Roggenrola,Boldore,Trade,Gigalith,Second
+Timburr,Gurdurr,Trade,Conkeldurr,Second
+Tympole,Palpitoad,Level 36,Seismitoad,Second
+Sewaddle,Swadloon,Friendship,Leavanny,Second
+Venipede,Whirlipede,Level 30,Scolipede,Second
+Sandile,Krokorok,Level 40,Krookodile,Second
+Gothita,Gothorita,Level 41,Gothitelle,Second
+Solosis,Duosion,Level 41,Reuniclus,Second
+Vanillite,Vanillish,Level 47,Vanilluxe,Second
+Klink,Klang,Level 49,Klinklang,Second
+Tynamo,Eelektrik,Thunder Stone,Eelektross,Second
+Litwick,Lampent,Dusk Stone,Chandelure,Second
+Axew,Fraxure,Level 48,Haxorus,Second
+Pawniard,Bisharp,Level up after defeating three Bisharp that hold a Leader's Crest,Kingambit,Second
+Deino,Zweilous,Level 64,Hydreigon,Second
+Chespin,Quilladin,Level 36,Chesnaught,Second
+Fennekin,Braixen,Level 36,Delphox,Second
+Froakie,Frogadier,Level 36,Greninja,Second
+Fletchling,Fletchinder,Level 35,Talonflame,Second
+Scatterbug,Spewpa,Level 12,Vivillon,Second
+Flabébé,Floette,Shiny Stone,Florges,Second
+Honedge,Doublade,Dusk Stone,Aegislash,Second
+Goomy,Sliggoo (Kalosian),Level 50 with rain (or fog VII-VIII) in the overworld,Goodra (Kalosian),Second
+Goomy,Sliggoo (Hisuian),Level 50 with rain or fog in the overworld,Goodra (Hisuian),Second
+Rowlet,Dartrix,Level 34,Decidueye (Alolan),Second
+Rowlet,Dartrix,Level 36 (Hisui),Decidueye (Hisuian),Second
+Litten,Torracat,Level 34,Incineroar,Second
+Popplio,Brionne,Level 34,Primarina,Second
+Pikipek,Trumbeak,Level 28,Toucannon,Second
+Grubbin,Charjabug,Level up in a special magnetic field;Thunder StoneSwSh,Vikavolt,Second
+Bounsweet,Steenee,Level up knowing Stomp,Tsareena,Second
+Jangmo-o,Hakamo-o,Level 45,Kommo-o,Second
+Cosmog,Cosmoem,"Level 53 (Pokémon Sun, Ultra Sun, Sword, and Scarlet)",Solgaleo,Second
+Cosmog,Cosmoem,"Level 53 (Pokémon Moon, Ultra Moon, Shield, and Violet)",Lunala,Second
+Grookey,Thwackey,Level 35,Rillaboom,Second
+Scorbunny,Raboot,Level 35,Cinderace,Second
+Sobble,Drizzile,Level 35,Inteleon,Second
+Rookidee,Corvisquire,Level 38,Corviknight,Second
+Blipbug,Dottler,Level 30,Orbeetle,Second
+Rolycoly,Carkol,Level 34,Coalossal,Second
+Applin,Dipplin,Level up knowing Dragon Cheer,Hydrapple,Second
+Hatenna,Hattrem,Level 42,Hatterene,Second
+Impidimp,Morgrem,Level 42,Grimmsnarl,Second
+Dreepy,Drakloak,Level 60,Dragapult,Second
+Sprigatito,Floragato,Level 36,Meowscarada,Second
+Fuecoco,Crocalor,Level 36,Skeledirge,Second
+Quaxly,Quaxwell,Level 36,Quaquaval,Second
+Pawmi,Pawmo,Walk 1000 steps using the Let's Go feature,Pawmot,Second
+Smoliv,Dolliv,Level 35,Arboliva,Second
+Nacli,Naclstack,Level 38,Garganacl,Second
+Tinkatink,Tinkatuff,Level 38,Tinkaton,Second
+Frigibax,Arctibax,Level 54,Baxcalibur,Second
+Unown,Unown A,NA,NA,None
+Unown,Unown B,NA,NA,None
+Unown,Unown C,NA,NA,None
+Unown,Unown D,NA,NA,None
+Unown,Unown E,NA,NA,None
+Unown,Unown F,NA,NA,None
+Unown,Unown G,NA,NA,None
+Unown,Unown H,NA,NA,None
+Unown,Unown I,NA,NA,None
+Unown,Unown J,NA,NA,None
+Unown,Unown K,NA,NA,None
+Unown,Unown L,NA,NA,None
+Unown,Unown M,NA,NA,None
+Unown,Unown N,NA,NA,None
+Unown,Unown O,NA,NA,None
+Unown,Unown P,NA,NA,None
+Unown,Unown Q,NA,NA,None
+Unown,Unown R,NA,NA,None
+Unown,Unown K,NA,NA,None
+Unown,Unown L,NA,NA,None
+Unown,Unown M,NA,NA,None
+Unown,Unown N,NA,NA,None
+Unown,Unown O,NA,NA,None
+Unown,Unown P,NA,NA,None
+Unown,Unown Q,NA,NA,None
+Unown,Unown R,NA,NA,None
+Unown,Unown S,NA,NA,None
+Unown,Unown T,NA,NA,None
+Unown,Unown U,NA,NA,None
+Unown,Unown V,NA,NA,None
+Unown,Unown W,NA,NA,None
+Unown,Unown X,NA,NA,None
+Unown,Unown Y,NA,NA,None
+Unown,Unown Z,NA,NA,None
+Unown,Unown !,NA,NA,None
+Unown,Unown ?,NA,NA,None
