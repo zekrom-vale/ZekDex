@@ -87,8 +87,6 @@ str_half = Vectorize(.str_half, vectorize.args = "str")
 #' @param name The value(s) to test
 #' @param match What to check for a vector RegEx
 #' @param val The value to return
-#'
-#' @return
 #' @export
 fun = function(names_vector, match, val){
 	# The Vectorize function then allows this operation to be applied to each element of the “name” argument.
@@ -108,16 +106,20 @@ vLength = function(x){
 	purrr::map(x, length)
 }
 
-#' Title
+#' Paste Non-Unique Elements
 #'
-#' @param vec1
-#' @param vec2
-#' @param sep
+#' This function pastes together elements from two vectors (`vec1` and `vec2`) if the corresponding element in `vec2` is not unique. If the element in `vec2` is unique, it returns the corresponding element from `vec1`.
 #'
-#' @return
+#' @param vec1 A vector of elements to be pasted with `vec2` if the corresponding element in `vec2` is not unique.
+#' @param vec2 A vector of elements to be checked for uniqueness.
+#' @param sep A character string to separate the terms. Default is "".
+#' @return A vector where each element is either an element from `vec1` (if the corresponding element in `vec2` is unique) or a string resulting from pasting together the corresponding elements from `vec1` and `vec2` (if the element in `vec2` is not unique).
 #' @export
-#'
+#' @importFrom base duplicated paste ifelse
 #' @examples
+#' vec1 <- c("apple", "banana", "cherry")
+#' vec2 <- c("fruit", "fruit", "fruit")
+#' paste_non_unique(vec1, vec2, sep = " ")
 paste_non_unique  = function(vec1, vec2, sep = ""){
 	# Identify non-unique elements in vec2
 	non_unique = duplicated(vec2) | duplicated(vec2, fromLast = TRUE)

@@ -1,9 +1,12 @@
-#' Generates the national dex
+#' Generate the National Dex
 #'
-#' @param write write Write the file to `data/PokemonNational.csv`?
+#' This function generates a tibble of the National Dex by reading the 'PokemonNational.csv' file and scraping data from Bulbapedia. It extracts the tables from the HTML content, cleans the column names of the dataframe, and combines all dataframes into one. If `write = TRUE`, it also writes the tibble to a csv file.
 #'
-#' @return A tibble of national pokedexes
+#' @param write Logical, if `TRUE`, writes the tibble to a csv file. Default is `FALSE`.
+#' @param path The path where the csv file will be written if `write = TRUE`. Default is `system.file("data/PokemonNational.csv", package = "ZekDex")`.
+#' @return A tibble of the National Dex.
 #' @export
+#'
 #' @importFrom readr read_csv write_csv
 #' @importFrom dplyr mutate select filter
 #' @importFrom purrr map discard
@@ -11,6 +14,8 @@
 #' @importFrom stringr str_remove_all
 #' @importFrom janitor clean_names
 #' @importFrom rvest read_html html_table
+#' @examples
+#' gen_national()
 gen_national = function(write = FALSE, path = system.file("data/PokemonNational.csv", package = "ZekDex")){
 	# Import the required package 'rvest' for web scraping
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
