@@ -1,8 +1,9 @@
-#' Generates regional dex from scratch
+#' Generate Regional Pokedex
 #'
-#' @param write Write the file to `data/PokemonRegional.csv`?
+#' This function generates a tibble of the regional Pokedex by scraping data from Bulbapedia. It extracts the URLs of the regional Pokedex pages from the HTML, reads the HTML of each regional Pokedex page, and combines the regional Pokedex data with the national Pokedex data.
 #'
-#' @return A tibble with of regional dexes
+#' @param write Logical, if `TRUE`, writes the tibble to a csv file. Default is `FALSE`.
+#' @return A tibble of regional dexes.
 #' @export
 #'
 #' @importFrom rvest read_html html_elements html_attr
