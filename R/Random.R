@@ -25,42 +25,52 @@ randomType = function(n=1, replace = FALSE, types = data("PokemonNational", pack
 #' @examples
 #' # Get a random Pokemon
 #' randomPokemon()
-#' # > [1] "Koraidon"
+#' # > "Koraidon"
 #'
 #' # Get a random Dragon type
 #' randomPokemon(type = "Dragon")
-#' > [1] "Zekrom"
+#' # > "Zekrom"
 #'
 #' # Get 6 random Dragon Pokemon
 #' randomPokemon(6, type = "Dragon")
-#' # > [1] "Dragapult" "Jangmo-o" "Rayquaza" "Zekrom" "Garchomp" "Haxorus"
+#' # > c("Dragapult", "Jangmo-o", "Rayquaza", "Zekrom", "Garchomp", "Haxorus")
+#'
 #' # Get a random Dragon-Electric Pokemon
 #' randomPokemon(type = "Dragon", type2 = "Electric")
-#' # > [1] "Zekrom"
+#' # > "Zekrom"
 #'
 #' # Get a random Dragon-Electric or Electric-Dragon Pokemon
 #' randomPokemon(type = "Dragon", type2 = "Electric", swap = TRUE)
-#' # > [1] "Miraidon"
+#' # > "Miraidon"
 #'
-#' # Get All random Dragon-\* or \*-Dragon Pokemon
+#' # Get All random Dragon-* or *-Dragon Pokemon
 #' randomPokemon(n = -1, type = "Dragon", swap = TRUE)
-#' # > [1] "Zekrom" "Dreepy" "Guzzlord" "Archaludon" "Dragonite" "Raging Bolt" "Frigibax" "Zweilous" "Goodra"
-#' # > [10] "Rayquaza" "Regidrago" "Garchomp" "Kingdra" "Roaring Moon" "Drakloak" "Jangmo-o" "Bagon" "Eternatus"
-#' # > [19] "Turtonator" "Altaria" "Goomy" "Baxcalibur" "Hydreigon" "Druddigon" "Hydrapple" "Miraidon" "Dragapult"
-#' # > [28] "Salamence" "Drampa" "Fraxure" "Duraludon" "Zygarde" "Cyclizar" "Haxorus" "Dipplin" "Dratini"
-#' # > [37] "Dracovish" "Noibat" "Gouging Fire" "Latios" "Kyurem" "Latias" "Palkia" "Walking Wake" "Kommo-o"
-#' # > [46] "Sliggoo" "Vibrava" "Giratina" "Dracozolt" "Flygon" "Tyrunt" "Shelgon" "Tatsugiri" "Dragalge"
-#' # > [55] "Axew" "Zygarde50" "Arctibax" "Tyrantrum" "Flapple" "Gible" "Deino" "Applin" "Exeggutor"
-#' # > [64] "Hakamo-o" "Noivern" "Koraidon" "Dragonair" "Dialga" "Gabite" "Appletun" "Reshiram" "Naganadel"
-#' # > [73] "Zygarde10"
+#' # > "Zekrom", "Dreepy", "Guzzlord", "Archaludon", "Dragonite", "Raging Bolt",
+#' # > "Frigibax", "Zweilous", "Goodra", "Rayquaza", "Regidrago", "Garchomp",
+#' # > "Kingdra", "Roaring Moon", "Drakloak", "Jangmo-o", "Bagon", "Eternatus",
+#' # > "Turtonator", "Altaria", "Goomy", "Baxcalibur", "Hydreigon", "Druddigon",
+#' # > "Hydrapple", "Miraidon", "Dragapult", "Salamence", "Drampa", "Fraxure",
+#' # > "Duraludon", "Zygarde", "Cyclizar", "Haxorus", "Dipplin", "Dratini",
+#' # > "Dracovish", "Noibat", "Gouging Fire", "Latios", "Kyurem", "Latias",
+#' # > "Palkia", "Walking Wake", "Kommo-o", "Sliggoo", "Vibrava", "Giratina",
+#' # > "Dracozolt", "Flygon", "Tyrunt", "Shelgon", "Tatsugiri", "Dragalge",
+#' # > "Axew", "Zygarde50", "Arctibax", "Tyrantrum", "Flapple", "Gible",
+#' # > "Deino", "Applin", "Exeggutor", "Hakamo-o", "Noivern", "Koraidon",
+#' # > "Dragonair", "Dialga", "Gabite", "Appletun", "Reshiram", "Naganadel",
+#' # > "Zygarde10"
 #'
 #' # Return the dex number instead
-#' randomPokemon(n = -1, type = "Dragon", swap = TRUE, p = Ndex)
-#' # > [1] "#1011" "#1019" "#0371" "#0633" "#0634" "#0841" "#0334" "#0691" "#0644" "#0718" "#0782" "#0381" "#0445" "#0804" "#0840" "#0704" "#0799"
-#' # > [18] "#0886" "#0380" "#0330" "#0842" "#0880" "#0714" "#0147" "#0895" "#0646" "#0635" "#0705" "#0884" "#1018" "#0967" "#0384" "#0372" "#0373"
-#' # > [35] "#0621" "#0780" "#0696" "#0887" "#0483" "#1008" "#0882" "#0706" "#0697" "#1005" "#0784" "#0610" "#0978" "#0998" "#0890" "#0997" "#0148"
-#' # > [52] "#0443" "#0715" "#0776" "#0230" "#0611" "#0783" "#0996" "#1020" "#0103" "#0643" "#1009" "#0487" "#0329" "#0885" "#0612" "#0444" "#0149"
-#' # > [69] "#1021" "#1007" "#0484"
+#' randomPokemon(n = -1, type = "Dragon", swap = TRUE, p = "Ndex")
+#' # > "#1011", "#1019", "#0371", "#0633", "#0634", "#0841", "#0334", "#0691",
+#' # > "#0644", "#0718", "#0782", "#0381", "#0445", "#0804", "#0840", "#0704",
+#' # > "#0799", "#0886", "#0380", "#0330", "#0842", "#0880", "#0714", "#0147",
+#' # > "#0895", "#0646", "#0635", "#0705", "#0884", "#1018", "#0967", "#0384",
+#' # > "#0372", "#0373", "#0621", "#0780", "#0696", "#0887", "#0483", "#1008",
+#' # > "#0882", "#0706", "#0697", "#1005", "#0784", "#0610", "#0978", "#0998",
+#' # > "#0890", "#0997", "#0148", "#0443", "#0715", "#0776", "#0230", "#0611",
+#' # > "#0783", "#0996", "#1020", "#0103", "#0643", "#1009", "#0487", "#0329",
+#' # > "#0885", "#0612", "#0444", "#0149", "#1021", "#1007", "#0484"
+
 #'
 #' @importFrom dplyr enquo mutate filter pull
 #' @importFrom glue glue
@@ -171,13 +181,82 @@ filterByType = function(
 #' @importFrom glue glue
 #' @importFrom utils data
 #' @importFrom dplyr pull
+#' @examples
+#' # Create a random Pokemon generator for any type of Pokemon
+#' gen_any <- randomPokemonGen()
+#' # Generate a random Pokemon
+#' gen_any()
+#' # > "Rayquaza"
+#'
+#' # Create a random Pokemon generator for Fire type Pokemon
+#' gen_fire <- randomPokemonGen(type = "Fire")
+#' # Generate a random Fire type Pokemon
+#' gen_fire()
+#' # > "Reshiram"
+#'
+#' # Create a random Pokemon generator for Fire and Flying type Pokemon
+#' gen_fire_flying <- randomPokemonGen(type = "Fire", type2 = "Flying")
+#' # Generate a random Fire and Flying type Pokemon
+#' gen_fire_flying()
+#' # > "Charizard"
+#'
+#' # Create a random Pokemon generator for Fire or Flying type Pokemon
+#' gen_dragon_or_electric <- randomPokemonGen(type = "Dragon", type2 = "Electric", swap = TRUE)
+#' # Generate a random Fire or Flying type Pokemon
+#' gen_dragon_or_electric()
+#' # > "Zekrom"
+#' gen_dragon_or_electric()
+#' # > "Rayquaza"
+#'
+#' # Create a random Pokemon generator for all Dragon type Pokemon
+#' gen_all_dragon <- randomPokemonGen(type = "Dragon", swap = TRUE)
+#' # Generate all Dragon type Pokemon
+#' while(!is.null(pokemon <- gen_all_dragon())) {
+#'   print(pokemon)
+#' }
+#' # > "Zekrom", "Dreepy", "Guzzlord", "Archaludon", "Dragonite", "Raging Bolt",
+#' # > "Frigibax", "Zweilous", "Goodra", "Rayquaza", "Regidrago", "Garchomp",
+#' # > "Kingdra", "Roaring Moon", "Drakloak", "Jangmo-o", "Bagon", "Eternatus",
+#' # > "Turtonator", "Altaria", "Goomy", "Baxcalibur", "Hydreigon", "Druddigon",
+#' # > "Hydrapple", "Miraidon", "Dragapult", "Salamence", "Drampa", "Fraxure",
+#' # > "Duraludon", "Zygarde", "Cyclizar", "Haxorus", "Dipplin", "Dratini",
+#' # > "Dracovish", "Noibat", "Gouging Fire", "Latios", "Kyurem", "Latias",
+#' # > "Palkia", "Walking Wake", "Kommo-o", "Sliggoo", "Vibrava", "Giratina",
+#' # > "Dracozolt", "Flygon", "Tyrunt", "Shelgon", "Tatsugiri", "Dragalge",
+#' # > "Axew", "Zygarde50", "Arctibax", "Tyrantrum", "Flapple", "Gible",
+#' # > "Deino", "Applin", "Exeggutor", "Hakamo-o", "Noivern", "Koraidon",
+#' # > "Dragonair", "Dialga", "Gabite", "Appletun", "Reshiram", "Naganadel",
+#' # > "Zygarde10"
+#'
+#' # Return the dex number instead
+#' gen_dex <- randomPokemonGen(type = "Dragon", swap = TRUE, p = Ndex)
+#' # Generate all Dragon type Pokemon dex numbers
+#' while(!is.null(pokemon <- gen_dex())) {
+#'   print(pokemon)
+#' }
+#' # > "#1011", "#1019", "#0371", "#0633", "#0634", "#0841", "#0334", "#0691",
+#' # > "#0644", "#0718", "#0782", "#0381", "#0445", "#0804", "#0840", "#0704",
+#' # > "#0799", "#0886", "#0380", "#0330", "#0842", "#0880", "#0714", "#0147",
+#' # > "#0895", "#0646", "#0635", "#0705", "#0884", "#1018", "#0967", "#0384",
+#' # > "#0372", "#0373", "#0621", "#0780", "#0696", "#0887", "#0483", "#1008",
+#' # > "#0882", "#0706", "#0697", "#1005", "#0784", "#0610", "#0978", "#0998",
+#' # > "#0890", "#0997", "#0148", "#0443", "#0715", "#0776", "#0230", "#0611",
+#' # > "#0783", "#0996", "#1020", "#0103", "#0643", "#1009", "#0487", "#0329",
+#' # > "#0885", "#0612", "#0444", "#0149", "#1021", "#1007", "#0484"
+#'
+#' # Create a random Pokemon generator for Dragon type Pokemon with replacement
+#' gen_dragon_replace <- randomPokemonGen(type = "Dragon", replace = TRUE)
+#' # Generate 5 random Dragon type Pokemon with replacement
+#' replicate(5, gen_dragon_replace())
+#' # > "Zekrom" "Rayquaza" "Garchomp" "Zekrom" "Haxorus"
+
 randomPokemonGen = function(
 		...,
 		p = English,
 		replace = FALSE
 ){
 	if(!requireNamespace("coro", quietly = TRUE))stop("coro required.  Use install.packages(\"coro\")")
-	# Quosure to capture the expression for later evaluation
+	# enquo to capture the expression for later evaluation
 	p=dplyr::enquo(p)
 
 	# Pull the specified column from the data, remove duplicates, and store it in data
