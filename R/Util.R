@@ -241,6 +241,7 @@ name_from_row = Vectorize(function(df, row_number = 1, prepend = "", postpend = 
 #' @importFrom purrr reduce
 #' @importFrom tibble tribble
 #' @examples
+#' library(tibble)
 #' drop_all_na(tribble(
 #'   ~a, ~b,
 #'   1, 3,
@@ -286,6 +287,7 @@ drop_na_columns = function(df) {
 #' @importFrom rlang enquos
 #' @importFrom dplyr group_by across filter ungroup n everything
 #' @examples
+#' library(tibble)
 #' filter_non_unique(
 #'   tribble(
 #'     ~a, ~b,
@@ -435,3 +437,55 @@ recursive_xml_map2 = function(lst, fn, level = 1){
 		} else x
 	})
 }
+
+#' Save Data to CSV and/or RDA
+#'
+#' This function saves a given data frame to a CSV and/or RDA file.
+#'
+#' @param data The data frame to save.
+#' @param root The root directory where the file should be saved.
+#' @param file The name of the file (without extension).
+#' @param csv Logical, should the data be saved as a CSV file? Default is TRUE.
+#' @param rda Logical, should the data be saved as an RDA file? Default is TRUE.
+#'
+#' @importFrom readr write_csv
+#' @importFrom readr write_rds
+#' @importFrom glue glue
+#' @export
+save_data = function(
+		data,
+		root = stop("'root' must be specified"),
+		file = stop("'file' must be specified"),
+		csv = TRUE, rda = TRUE
+){
+	if(csv)write_csv(data, glue("{root}/{file}.csv"))
+	if(rda)write_rds(data, glue("{root}/{file}.rda"), compress = "gz")
+	if(!csv&&!rda)warning("Nothing saved")
+}
+
+#' Read Data from CSV or RDA
+#'
+#' This function reads data from a CSV or RDA file, or from a package namespace.
+#'
+#' @param data The name of the data to load.
+#' @param root The root directory where the file is located.
+#' @param ns The namespace from which to load the data.
+#'
+#' @importFrom readr read_csv
+#' @importFrom readr read_rds
+#' @importFrom glue glue
+#' @export
+read_data = function(data, root, ns = asNamespace("ZekDex")){
+	if(!is.null(root)){
+		if(file.exists(glue("{root}/{data}.rda"))){
+			return(read_rds(glue("{root}/{data}.rda")))
+		}
+		if(file.exists(glue("{root}/{data}.csv"))){
+			return(read_rds(glue("{root}/{data}.csv")))
+		}
+	}
+	if(exists(data, where = ns)){
+		return(get(data, envir = ns))
+	}
+}
+

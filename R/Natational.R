@@ -12,7 +12,7 @@
 #' @importFrom purrr map discard
 #' @importFrom tibble tibble
 #' @importFrom stringr str_remove_all
-gen_national = function(write = FALSE, path = system.file("data/PokemonNational.csv", package = "ZekDex")){
+gen_national = function(write = FALSE, root = "data/", file = "PokemonNational"){
 	# Import the required package 'rvest' for web scraping
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
 	# Check if the 'janitor' package is installed. If not, stop the function and ask the user to install it.
@@ -70,7 +70,7 @@ gen_national = function(write = FALSE, path = system.file("data/PokemonNational.
 		rename(Ndex="ndex", English = "pokemon")
 
 	# If 'write' is TRUE, write the 'national' dataframe to a CSV file
-	if(write)write_csv(national, path)
+	if(write)save_data(national, root, file)
 
 	# Return the 'national' dataframe
 	national

@@ -6,7 +6,7 @@
 #' @importFrom utils data
 #' @return A vector of random Pokemon types
 #' @export
-randomType = function(n=1, replace = FALSE, types = data("PokemonNational", package = "ZekDex")){
+randomType = function(n=1, replace = FALSE, types = PokemonNational){
 	if(n < 0) return("Zekrom")
 	sample(types, n, replace = replace)
 }
@@ -43,7 +43,7 @@ randomType = function(n=1, replace = FALSE, types = data("PokemonNational", pack
 #' randomPokemon(type = "Dragon", type2 = "Electric", swap = TRUE)
 #' # > "Miraidon"
 #'
-#' # Get All random Dragon-* or *-Dragon Pokemon
+#' # Get All random Dragon-\* or \*-Dragon Pokemon
 #' randomPokemon(n = -1, type = "Dragon", swap = TRUE)
 #' # > "Zekrom", "Dreepy", "Guzzlord", "Archaludon", "Dragonite", "Raging Bolt",
 #' # > "Frigibax", "Zweilous", "Goodra", "Rayquaza", "Regidrago", "Garchomp",
@@ -76,6 +76,7 @@ randomType = function(n=1, replace = FALSE, types = data("PokemonNational", pack
 #' @importFrom glue glue
 #' @importFrom utils data
 #' @importFrom dplyr pull
+#' @export
 randomPokemon = function(
 		n=1,
 		...,
@@ -112,11 +113,12 @@ randomPokemon = function(
 #' @param type2 Filter on type2
 #' @param swap Allow type to match type2 and vicea-versa
 #' @param data Override the data (Must have type and type2 (If type 2 is not ANY or swap is TRUE))
+#' @export
 filterByType = function(
 		type = "ANY",
 		type2 = "ANY",
 		swap = FALSE,
-		data = data("PokemonNational", package = "ZekDex")
+		data = PokemonNational
 ){
 	# Define a constant for "ANY"
 	ANY = "ANY"
@@ -249,7 +251,7 @@ filterByType = function(
 #' # Generate 5 random Dragon type Pokemon with replacement
 #' replicate(5, gen_dragon_replace())
 #' # > "Zekrom" "Rayquaza" "Garchomp" "Zekrom" "Haxorus"
-
+#' @export
 randomPokemonGen = function(
 		...,
 		p = English,

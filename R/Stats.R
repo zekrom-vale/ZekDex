@@ -14,7 +14,12 @@
 #' @importFrom readr write_csv
 #' @importFrom stringr str_extract
 #' @importFrom magrittr "%>%"
-gen_stats = function(write = FALSE, path = system.file("data/PokemonStats.csv", package = "ZekDex"), pathWide = system.file("data/PokemonStatsWide.csv", package = "ZekDex")){
+gen_stats = function(
+		write = FALSE,
+		root = "data/",
+		file = "PokemonStats",
+		fileWide = "PokemonStatsWide"
+	){
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
 
 	# Stats
@@ -44,7 +49,9 @@ gen_stats = function(write = FALSE, path = system.file("data/PokemonStats.csv", 
 		pivot_wider(names_from = "Gen", values_from = c("HP", "Attack", "Defense", "Speed", "Special", "Total", "Average", "Sp. Attack", "Sp. Defense"))
 
 
-	if(write)write_csv(PokemonStats, path)
-	if(write)write_csv(PokemonStatsWide, pathWide)
+	if(write){
+		save_data(PokemonStats, root, file)
+		save_data(PokemonStatsWide, root, fileWide)
+	}
 	list(PokemonStats, PokemonStatsWide)
 }

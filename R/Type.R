@@ -12,10 +12,8 @@
 #' @importFrom purrr discard
 #' @importFrom tibble tibble
 #' @importFrom utils data
-gen_type = function(write = FALSE, path = system.file("data/PokemonTypes.csv", package = "ZekDex")){
-	# Read the CSV file 'PokemonNational.csv' from the 'data' directory
-	nat = data("PokemonNational", package = "ZekDex")
-	if(nat == "PokemonNational")nat = read_csv(system.file("data/PokemonNational.csv", package = "ZekDex"))
+gen_type = function(write = FALSE, root = "data/", file = "PokemonTypes"){
+	read_data("PokemonNational", root)
 
 	# Extract the 'type' column from 'nat' using 'pull', concatenate it with the 'type2' column using 'c',
 	# remove duplicate values using 'unique', and remove NA values using 'discard(is.na)'
@@ -28,7 +26,7 @@ gen_type = function(write = FALSE, path = system.file("data/PokemonTypes.csv", p
 	types = tibble(types = types)
 
 	# If 'write' is TRUE, write the 'types' tibble to a CSV file named 'PokemonTypes.csv' in the 'data' directory
-	if(write)write_csv(types, path)
+	if(write)save_data(types, root, file)
 
 	# Return the 'types' tibble
 	types

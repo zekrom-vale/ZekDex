@@ -11,7 +11,7 @@
 #' @importFrom stringr str_remove
 #' @importFrom readr write_csv
 #' @importFrom magrittr "%>%"
-gen_evos = function(write = FALSE, path = system.file("data/PokemonEvolution.csv", package = "ZekDex")){
+gen_evos = function(write = FALSE, root = "data/", file = "PokemonEvolution"){
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
 
 	# Add Evolution family
@@ -76,5 +76,5 @@ gen_evos = function(write = FALSE, path = system.file("data/PokemonEvolution.csv
 			Transition = if_else(is.na(Evo), "None", Transition)
 		)
 
-	if(write)write_csv(PokemonEvolution, path)
+	if(write)save_data(PokemonEvolution, root, file)
 }

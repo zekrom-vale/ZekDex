@@ -1,3 +1,6 @@
+# WIP
+
+
 #' Scrape Pokémon Data from Bulbapedia
 #'
 #' This function scrapes Pokémon data from Bulbapedia and saves the HTML content of each Pokémon's page as an RDS file in the specified directory.

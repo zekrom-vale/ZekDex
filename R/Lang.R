@@ -16,11 +16,10 @@
 #' @importFrom tidyr everything
 #' @importFrom tidyselect matches
 #' @importFrom magrittr "%>%"
-gen_lang = function(write = FALSE, path = system.file("data/PokemonLang.csv", package = "ZekDex")){
+gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
 
-	national = data("PokemonNational", package = "ZekDex")
-	if(national == "PokemonNational")national = read_csv(system.file("data/PokemonNational.csv", package = "ZekDex"))
+	read_data("PokemonNational", root)
 
 	# Extract HTML table data
 	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")
@@ -79,6 +78,6 @@ gen_lang = function(write = FALSE, path = system.file("data/PokemonLang.csv", pa
 			~ if_else(.=="", NA_character_, ., NA_character_)
 		))
 
-	if(write)write_csv(PokemonLang, path)
+	if(write)save_data(PokemonLang, root, file)
 	PokemonLang
 }

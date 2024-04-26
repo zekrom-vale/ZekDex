@@ -13,14 +13,11 @@
 #' @importFrom stringr str_extract str_remove_all
 #' @importFrom tidyr drop_na
 #' @importFrom magrittr "%>%"
-gen_reginal = function(write = FALSE){
+gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 	# Check if the 'rvest' package is installed. If not, stop the function and ask the user to install it.
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Used install.packages(\"rvest\")")
 
-	# Load the 'PokemonNational' data from the 'ZekDex' package
-	nat = data("PokemonNational", package = "ZekDex")
-	# If the data is not loaded correctly, read it from the csv file in the package's data directory
-	if(nat == "PokemonNational")nat = read_csv(system.file("data/PokemonNational.csv", package = "ZekDex"))
+	nat = read_data("PokemonNational", root)
 
 	# Read the HTML of the webpage containing the list of Pokemon by National Pokedex number
 	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")
@@ -91,6 +88,6 @@ gen_reginal = function(write = FALSE){
 	# https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Hisui_Pok%C3%A9dex_number
 	# LAdex ObsidianFieldlands CrimsonMirelands CobaltCoastlands CoronetHighlands AlabasterIcelands Ndex  Pokémon    game  dex > Drop odd dexes
 
-	# Write the regional Pokedex data to a csv file in the package's data directory, if requested
-	if(write)write_csv(regionDex, system.file("data/PokemonRegional.csv", package = "ZekDex"))
+
+	if(write)save_data(regionDex, root, file)
 }
