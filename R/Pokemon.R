@@ -4,10 +4,9 @@
 #'
 #' @param path The directory where the RDS files will be saved. Default is "E:\\html\\".
 #' @return None. This function does not return anything but saves the HTML content of each Pokémon's page as an RDS file in the specified directory.
-#' @importFrom rvest read_html html_elements html_attr
 #' @importFrom purrr map
 #' @importFrom stringr str_extract
-#' @importFrom readr write_rds
+#' @importFrom readr write_rds read_rds
 #' @examples
 #' scrape_pokemon()
 scrape_pokemon = function(path = "E:\\html\\"){
@@ -25,6 +24,128 @@ scrape_pokemon = function(path = "E:\\html\\"){
 		HTML = rvest::read_html(URL)
 		write_rds(as.character(HTML), paste0(path, str_extract(URL, "wiki/(.*)_\\(Pok\\%C3\\%A9mon\\)", group = 1), ".rds"))
 	})
+}
+
+#' Relevels the structure of a list of xml_nodes and xml_nodesets
+#'
+#' @param lst The list to modify
+#' @param level The current level of recursion
+#' @param tags The tags to move down (Note: this is not built to move things up)
+#'
+#' @return The modified list
+#' @export
+#'
+#' @examples
+#' new_node = function(tag, val){
+#' xml2::read_html(glue::glue("<{tag}>{val}</{tag}>"))|>
+#'    xml2::xml_child()|>
+#'    xml2::xml_child()
+#' }
+#'
+#' # example data
+#' t = list(
+#'    list(
+#'        list(
+#'            new_node("h2", "hi"),
+#'            new_node("div", "hi")
+#'        )
+#' 	  )
+#' )
+#' # > [[1]]
+#' # > [[1]][[1]]
+#' # > [[1]][[1]][[1]]
+#' # > {html_node}
+#' # > <h2>
+#' # >
+#' # > 	[[1]][[1]][[2]]
+#' # > {html_node}
+#' # > <div>
+#' v = t|>
+#' 	recursive_xml_map2(relevel_matched_node)
+#' # > [[1]]
+#' # > [[1]][[1]]
+#' # > {html_node}
+#' # > <h2>
+#' # >
+#' # > [[1]][[2]]
+#' # > [[1]][[2]][[1]]
+#' # > {html_node}
+#' # > <div>
+relevel_matched_node <- function(lst, level = 1){
+	tags <- c("h2", "h3", "h4")
+	# If it's a node return as is
+	if (inherits(lst, "xml_node")) return(lst)
+	if (level <= length(tags) && any(purrr::map_lgl(lst, function(x) check_h(x, tags[level])))) {
+		# Pluck the node
+		both <- pluck_matched_node(lst, tags[level])
+		# Other elements here
+		other_elements <- both$other_elements
+		# Matched element here
+		matched_elements <- both$matched_elements
+		# Recurce, may not be necessary
+		return(c(matched_elements, purrr::map(other_elements, relevel_matched_node, level)))
+	} else {
+		# Check if an element is an xml_node or xml_nodeset before recurcing
+		purrr::map(lst, function(x) {
+			# If it's a node return as is
+			if(inherits(x, "xml_node"))
+				return(x)
+			# If it's a list or a nodeset recurce
+			return(purrr::map(x, relevel_matched_node, level))
+		})
+	}
+}
+
+#' Checks if a given xml_node type of tag exists
+#'
+#' @param x The object to search
+#' @param tag What xml_node to search for
+#'
+#' @return TRUE if it exists FALSE otherwise
+#' @export
+check_h <- function(x, tag) {
+	if(inherits(x, "xml_node")) rvest::html_name(x) == tag
+	else if (is.list(x)) any(unlist(lapply(x, check_h, tag)))
+	else FALSE
+}
+
+#' Extracts all xml_nodes matching the tag and all other elements that don't
+#'
+#'
+#' @param lst A list or xml_nodeset of xml_nodes to extract from
+#' @param tag The tag to extract form the set
+#'
+#' @return A list of
+#'		matched_elements that have the matching xml_nodes
+#'		other_elements that have the updated list without the matched elements
+#' @export
+pluck_matched_node = function(lst, tag) {
+	# Initialize empty lists for matched_elements and other_elements
+	matched_elements <- list()
+	other_elements <- list()
+
+	# Iterate over each element in the list
+	for (i in seq_along(lst)) {
+		# If the element is an xml_node and its name matches the tag, add it to matched_elements
+		if (inherits(lst[[i]], "xml_node") && rvest::html_name(lst[[i]]) == tag) {
+			matched_elements[[length(matched_elements) + 1]] <- lst[[i]]
+		} else if(inherits(lst[[i]], "xml_node")) {
+			# Otherwise, add it to other_elements
+			other_elements[[length(other_elements) + 1]] <- lst[[i]]
+		} else {
+			# If the element is a list, recursively pluck the h2 element from it
+			both <- pluck_matched_node(lst[[i]], tag)
+			# Accumulate to respective lists
+			matched_elements[[length(matched_elements) + 1]] <- both$matched_elements
+			other_elements[[length(other_elements) + 1]] <- both$other_elements
+		}
+	}
+
+	# Return a list with two elements: matched_elements and other_elements
+	list(
+		matched_elements = if(length(matched_elements) > 0) matched_elements else NULL,
+		other_elements = if(length(other_elements) > 0) other_elements else NULL
+	)
 }
 
 process_pokemon = function(path = "E:\\html\\", scrape = FALSE){
@@ -75,134 +196,6 @@ process_pokemon = function(path = "E:\\html\\", scrape = FALSE){
 
 		# Load HTML
 		html = rvest::read_html(read_rds(pokemon))
-
-		#' Checks if a given xml_node type of tag exists
-		#'
-		#' @param x The object to search
-		#' @param tag What xml_node to search for
-		#'
-		#' @return TRUE if it exists FALSE otherwise
-		#' @export
-		#'
-		check_h <- function(x, tag) {
-			if(inherits(x, "xml_node")) rvest::html_name(x) == tag
-			else if (is.list(x)) any(unlist(lapply(x, check_h, tag)))
-			else FALSE
-		}
-
-		#' Extracts all xml_nodes matching the tag and all other elements that don't
-		#'
-		#'
-		#' @param lst A list or xml_nodeset of xml_nodes to extract from
-		#' @param tag The tag to extract form the set
-		#'
-		#' @return A list of
-		#'		matched_elements that have the matching xml_nodes
-		#'		other_elements that have the updated list without the matched elements
-		#' @export
-		#'
-
-		pluck_matched_node = function(lst, tag) {
-			# Initialize empty lists for matched_elements and other_elements
-			matched_elements <- list()
-			other_elements <- list()
-
-			# Iterate over each element in the list
-			for (i in seq_along(lst)) {
-				# If the element is an xml_node and its name matches the tag, add it to matched_elements
-				if (inherits(lst[[i]], "xml_node") && rvest::html_name(lst[[i]]) == tag) {
-					matched_elements[[length(matched_elements) + 1]] <- lst[[i]]
-				} else if(inherits(lst[[i]], "xml_node")) {
-					# Otherwise, add it to other_elements
-					other_elements[[length(other_elements) + 1]] <- lst[[i]]
-				} else {
-					# If the element is a list, recursively pluck the h2 element from it
-					both <- pluck_matched_node(lst[[i]], tag)
-					# Accumulate to respective lists
-					matched_elements[[length(matched_elements) + 1]] <- both$matched_elements
-					other_elements[[length(other_elements) + 1]] <- both$other_elements
-				}
-			}
-
-			# Return a list with two elements: matched_elements and other_elements
-			list(
-				matched_elements = if(length(matched_elements) > 0) matched_elements else NULL,
-				other_elements = if(length(other_elements) > 0) other_elements else NULL
-			)
-		}
-
-
-
-		#' Re levels the structure of a list of xml_nodes and xml_nodesets
-		#'
-		#' @param lst The list to modify
-		#' @param level The current level of recursion
-		#' @param tags The tags to move down (Note: this is not built to move things up)
-		#'
-		#' @return The modified list
-		#' @export
-		#'
-		#' @examples
-		#' new_node = function(tag, val){
-		#' xml2::read_html(glue::glue("<{tag}>{val}</{tag}>"))|>
-		#'    xml2::xml_child()|>
-		#'    xml2::xml_child()
-		#' }
-		#'
-		#' # example data
-		#' t = list(
-		#'    list(
-		#'        list(
-		#'            new_node("h2", "hi"),
-		#'            new_node("div", "hi")
-		#'        )
-		#' 	  )
-		#' )
-		#' # > [[1]]
-		#' # > [[1]][[1]]
-		#' # > [[1]][[1]][[1]]
-		#' # > {html_node}
-		#' # > <h2>
-		#' # >
-		#' # > 	[[1]][[1]][[2]]
-		#' # > {html_node}
-		#' # > <div>
-		#' v = t|>
-		#' 	recursive_xml_map2(relevel_matched_node)
-		#' # > [[1]]
-		#' # > [[1]][[1]]
-		#' # > {html_node}
-		#' # > <h2>
-		#' # >
-		#' # > [[1]][[2]]
-		#' # > [[1]][[2]][[1]]
-		#' # > {html_node}
-		#' # > <div>
-		relevel_matched_node <- function(lst, level = 1){
-			tags <- c("h2", "h3", "h4")
-			# If it's a node return as is
-			if (inherits(lst, "xml_node")) return(lst)
-			if (level <= length(tags) && any(purrr::map_lgl(lst, function(x) check_h(x, tags[level])))) {
-				# Pluck the node
-				both <- pluck_matched_node(lst, tags[level])
-				# Other elements here
-				other_elements <- both$other_elements
-				# Matched element here
-				matched_elements <- both$matched_elements
-				# Recurce, may not be necessary
-				return(c(matched_elements, purrr::map(other_elements, relevel_matched_node, level)))
-			} else {
-				# Check if an element is an xml_node or xml_nodeset before recurcing
-				purrr::map(lst, function(x) {
-					# If it's a node return as is
-					if(inherits(x, "xml_node"))
-						return(x)
-					# If it's a list or a nodeset recurce
-					return(purrr::map(x, relevel_matched_node, level))
-				})
-			}
-		}
-
 
 		new_node = function(tag, val){
 			xml2::read_html(glue::glue("<{tag}>{val}</{tag}>"))|>
