@@ -18,7 +18,7 @@ randomType = function(n=1, replace = FALSE, types = data("PokemonNational", pack
 #' @param type Filter on type
 #' @param type2 Filter on type2
 #' @param swap Allow type to match type2 and vicea-versa
-#' @param replace Allow duplicates from sample (Ie replace what is pulled)
+#' @param replace Should sampling be with replacement?
 #' @param p What column to return (Ndex, English, form, form2, type, type2 can be used)
 #' @param data Override the data (Must have type and type2 (If type 2 is not ANY or swap is TRUE))
 #'
@@ -67,28 +67,52 @@ randomType = function(n=1, replace = FALSE, types = data("PokemonNational", pack
 #' @importFrom utils data
 randomPokemon = function(
 		n=1,
-		type = "ANY",
-		type2 = "ANY",
-		swap = FALSE,
+		...,
 		p = English,
-		replace = FALSE,
-		data = data("PokemonNational", package = "ZekDex")
+		replace = FALSE
 	){
 	# Quosure to capture the expression for later evaluation
 	p=dplyr::enquo(p)
-
-	# Define a constant for "ANY"
-	ANY = "ANY"
-
-	# Store the input parameters in local variables
-	argType = type
-	argType2 = type2
 
 	# If n is less than -1, return a specific Pokemon
 	if(n < -1){
 		warning(glue::glue("n == {n}: hot swapping to Zekrom"))
 		return(randomPokemon(n = -1, type = "Dragon", type2 = "Electric"), data=data)
 	}
+
+	# Pull the specified column from the data, remove duplicates, and store it in data
+	data = filterByType(...)|>
+		pull(!!p)|>
+		unique()
+
+	# If data is empty, return an empty character vector
+	if(length( data) == 0)return(character(0))
+
+	# If n is -1, return all elements in data
+	if(n == -1)return(sample(data, length(data)))
+
+	# Otherwise, return n random elements from data
+	sample(data, n, replace = replace)
+}
+
+#' Returns a tibble with filtered Pokemon
+#'
+#' @param type Filter on type
+#' @param type2 Filter on type2
+#' @param swap Allow type to match type2 and vicea-versa
+#' @param data Override the data (Must have type and type2 (If type 2 is not ANY or swap is TRUE))
+filterByType = function(
+		type = "ANY",
+		type2 = "ANY",
+		swap = FALSE,
+		data = data("PokemonNational", package = "ZekDex")
+){
+	# Define a constant for "ANY"
+	ANY = "ANY"
+
+	# Store the input parameters in local variables
+	argType = type
+	argType2 = type2
 
 	# If swap is TRUE, modify the type2 column in the data
 	if(swap){
@@ -101,7 +125,7 @@ randomPokemon = function(
 			data =  data|> filter(
 				type == argType & type2 == argType2
 				|
-				type == argType2 & type2 == argType
+					type == argType2 & type2 == argType
 			)
 		}
 		# If only argType is not "ANY", filter the data where type equals argType
@@ -130,16 +154,33 @@ randomPokemon = function(
 		}
 	}
 	# Pull the specified column from the data, remove duplicates, and store it in data
-	data = data|>
+	data
+}
+
+
+randomPokemonGen = function(
+		...,
+		p = English,
+		replace = FALSE
+){
+	if(!requireNamespace("coro", quietly = TRUE))stop("coro required.  Use install.packages(\"coro\")")
+	# Quosure to capture the expression for later evaluation
+	p=dplyr::enquo(p)
+
+	# Pull the specified column from the data, remove duplicates, and store it in data
+	data = filterByType(...)|>
 		pull(!!p)|>
 		unique()
 
 	# If data is empty, return an empty character vector
-	if(length( data) == 0)return(character(0))
+	if(length(data) == 0)return(character(0))
 
-	# If n is -1, return all elements in data
-	if(n == -1)return(sample(data, length(data)))
-
-	# Otherwise, return n random elements from data
-	sample(data, n, replace = replace)
+	if(replace)while(TRUE){
+		coro::yield(sample(data))
+	}
+	else while(length(data) >= 0){
+		item = sample(data)
+		data = setdiff(data, item)
+		coro::yield(item)
+	}
 }
