@@ -71,6 +71,7 @@ removeA = function(str){
 	str_replace_all(str, replacements)
 }
 
+
 # Make partial name matches
 .str_half = function(str, add = .5, div = 2, min = 4){
 	substr(str, 0, max(floor(str_length(str)/div+add), min))
@@ -289,13 +290,17 @@ filter_non_unique_each = function(df, ...) {
 
 #' Splits a list at elements that satisfy a condition
 #'
-#' @param lst A list to split
-#' @param condition A condition function that returns TRUE for elements where the list should be split
+#' This function splits a list at elements that satisfy a condition. It returns a list of lists, split at elements where the condition is TRUE.
 #'
-#' @return A list of lists, split at elements where the condition is TRUE
+#' @param lst A list to split.
+#' @param condition A condition function that returns TRUE for elements where the list should be split.
+#' @return A list of lists, split at elements where the condition is TRUE.
+#' @export
+#'
 #' @importFrom purrr map_lgl map2
 #' @importFrom base which length
-#' @export
+#' @examples
+#' split_at(list(1, 2, 3, 4, 5), function(x) x %% 2 == 0)
 split_at = function(lst, condition) {
 	# Return as is if it's length 1
 	if(length(lst)==1)return(lst)
@@ -319,13 +324,17 @@ split_at = function(lst, condition) {
 
 #' Splits a list at each specified tag
 #'
-#' @param lst A list to split
-#' @param tags A vector of tags at which to split the list
+#' This function splits a list at each specified tag. It returns a list of lists, split at each specified tag.
 #'
-#' @return A list of lists, split at each specified tag
+#' @param lst A list to split.
+#' @param tags A vector of tags at which to split the list.
+#' @return A list of lists, split at each specified tag.
+#' @export
+#'
 #' @importFrom rvest html_name
 #' @importFrom purrr map
-#' @export
+#' @examples
+#' split_each(list("h1", "h2", "h3", "h4"), c("h2", "h3", "h4"))
 split_each = function(lst, tags = c("h2", "h3", "h4")) {
 	# If it has external pointers as a type just return it as it is
 	if (length(tags) == 1) {
