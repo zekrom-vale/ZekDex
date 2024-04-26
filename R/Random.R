@@ -157,7 +157,19 @@ filterByType = function(
 	data
 }
 
-
+#' Returns a random Pokemon Generator
+#'
+#' @param type Filter on type
+#' @param type2 Filter on type2
+#' @param swap Allow type to match type2 and vicea-versa
+#' @param replace Should sampling be with replacement?
+#' @param p What column to return (Ndex, English, form, form2, type, type2 can be used)
+#' @param data Override the data (Must have type and type2 (If type 2 is not ANY or swap is TRUE))
+#'
+#' @importFrom dplyr enquo mutate filter pull
+#' @importFrom glue glue
+#' @importFrom utils data
+#' @importFrom dplyr pull
 randomPokemonGen = function(
 		...,
 		p = English,
