@@ -8,12 +8,10 @@
 #' @export
 #'
 #' @importFrom readr read_csv write_csv
-#' @importFrom dplyr filter
+#' @importFrom dplyr filter pull
 #' @importFrom purrr discard
 #' @importFrom tibble tibble
 #' @importFrom utils data
-#' @examples
-#' gen_type()
 gen_type = function(write = FALSE, path = system.file("data/PokemonTypes.csv", package = "ZekDex")){
 	# Read the CSV file 'PokemonNational.csv' from the 'data' directory
 	nat = data("PokemonNational", package = "ZekDex")

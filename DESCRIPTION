@@ -3,7 +3,7 @@ Type: Package
 Title: Provides a package and extractor for Pokemon data from Bulbapedia
 Version: 0.0.1
 Author: ZekromVale
-Maintainer: ZekromVale
+Maintainer: The package maintainer <yourself@somewhere.net>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: CC0 1.0 Universal
@@ -12,7 +12,7 @@ LazyData: true
 Depends: 
     R (>= 4.1),
     methods
-Imports: purrr, glue, utils, dplyr, tidyr
-Suggests: rvest, janator, coro
+Imports: dplyr, magrittr, purrr, readr, rlang, stringr, tibble, tidyr, glue, tidyselect
+Suggests: rvest, janitor, coro, xml2
 RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)

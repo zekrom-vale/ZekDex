@@ -6,12 +6,13 @@
 #' @return A tibble of regional dexes.
 #' @export
 #'
-#' @importFrom rvest read_html html_elements html_attr
-#' @importFrom purrr map map2 reduce
-#' @importFrom dplyr mutate select rename_with distinct left_join
+#' @importFrom purrr map map2 reduce discard
+#' @importFrom dplyr mutate select distinct left_join join_by bind_rows rename_with starts_with
 #' @importFrom readr read_csv write_csv
 #' @importFrom utils data
 #' @importFrom stringr str_extract str_remove_all
+#' @importFrom tidyr drop_na
+#' @importFrom magrittr "%>%"
 gen_reginal = function(write = FALSE){
 	# Check if the 'rvest' package is installed. If not, stop the function and ask the user to install it.
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Used install.packages(\"rvest\")")

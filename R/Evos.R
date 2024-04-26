@@ -5,14 +5,12 @@
 #' @param write Logical, if `TRUE`, writes the data frame to a csv file. Default is `FALSE`.
 #' @param path The path where the csv file will be written if `write = TRUE`. Default is `system.file("data/PokemonEvolution.csv", package = "ZekDex")`.
 #' @return A data frame of Pokémon evolution data.
-#' @importFrom rvest read_html html_table
 #' @importFrom purrr map pmap_lgl
 #' @importFrom dplyr select mutate filter bind_rows across everything
 #' @importFrom tidyr fill
 #' @importFrom stringr str_remove
 #' @importFrom readr write_csv
-#' @examples
-#' gen_evos()
+#' @importFrom magrittr "%>%"
 gen_evos = function(write = FALSE, path = system.file("data/PokemonEvolution.csv", package = "ZekDex")){
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
 

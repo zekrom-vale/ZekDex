@@ -12,13 +12,11 @@
 #' @importFrom purrr map discard
 #' @importFrom tibble tibble
 #' @importFrom stringr str_remove_all
-#' @importFrom janitor clean_names
-#' @importFrom rvest read_html html_table
-#' @examples
-#' gen_national()
 gen_national = function(write = FALSE, path = system.file("data/PokemonNational.csv", package = "ZekDex")){
 	# Import the required package 'rvest' for web scraping
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
+	# Check if the 'janitor' package is installed. If not, stop the function and ask the user to install it.
+	if(!requireNamespace("janitor", quietly = TRUE))stop("janitor required.  Use install.packages(\"janitor\")")
 
 	# Read the HTML content from the specified URL
 	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")

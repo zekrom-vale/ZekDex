@@ -1,15 +1,17 @@
-#' All functions that start with . are not vectorised
-
 #' Recursively wraps a string with specified opening and closing characters
 #'
-#' @param str The string to be wrapped
-#' @param .open The opening character(s) for wrapping, default is "("
-#' @param .close The closing character(s) for wrapping, default is ")?"
+#' This function recursively wraps a string with specified opening and closing characters. It returns a string that is recursively wrapped with the specified opening and closing characters.
 #'
-#' @return A string that is recursively wrapped with the specified opening and closing characters
+#' @param str The string to be wrapped.
+#' @param .open The opening character(s) for wrapping, default is "(".
+#' @param .close The closing character(s) for wrapping, default is ")?".
+#' @return A string that is recursively wrapped with the specified opening and closing characters.
+#' @export
+#'
 #' @importFrom stringr str_length str_sub
 #' @importFrom glue glue
-#' @export
+#' @examples
+#' .recursive_wrap("Zekrom")
 .recursive_wrap = function(str, .open="(", .close=")?"){
 	if(str_length(str) == 1)return(str)
 	return(glue::glue(
@@ -30,11 +32,17 @@ recursive_wrap = Vectorize(.recursive_wrap, vectorize.args = "str")
 
 #' Returns the shortest string before a match
 #'
-#' @param str The string to resize
-#' @param test The string to test
+#' This function returns the shortest string not matching a test string. It uses a recursive wrap function to match the strings.
 #'
-#' @return The shortest string not matching test
+#' @param str The string to resize.
+#' @param test The string to test.
+#' @return The shortest string not matching test.
 #' @export
+#'
+#' @importFrom stringr str_extract_all
+#' @importFrom magrittr "%>%"
+#' @examples
+#' str_longest_match("Zekrom", "Zek")
 str_longest_match = Vectorize(function(str, test, ..., .open="(", .close=")?"){
 	# args = list(...); if(!is.null(args$literal) && args$literal == TRUE)stop("Cannot match anything when literal is true")
 	matches = str_extract_all(test, regex(.recursive_wrap(str), ...))|>
@@ -43,11 +51,25 @@ str_longest_match = Vectorize(function(str, test, ..., .open="(", .close=")?"){
 	matches[which.max(str_length(matches))]
 }, vectorize.args = c("str", "test"))
 
+#' Returns the string before a match
+#'
+#' This function returns the string before a match. It uses the `str_longest_match` function to find the match and then returns the string before it.
+#'
+#' @param str The string to resize.
+#' @param test The string to test.
+#' @return The string before the match.
+#' @export
+#'
+#' @importFrom stringr str_sub
+#' @importFrom dplyr if_else
+#' @examples
+#' str_before_match("Zekrom", "Zek")
 str_before_match = function(str, test, ..., .open="(", .close=")?"){
 	match = str_longest_match(str, test, ..., .open="(", .close=")?")
 	match = if_else(match == str, NA_character_, match)
 	substr(str, 0, str_length(match)+1)
 }
+
 
 
 #' Replaces all accented characters in a string with their unaccented counterparts
@@ -118,7 +140,6 @@ vLength = function(x){
 #' @param sep A character string to separate the terms. Default is "".
 #' @return A vector where each element is either an element from `vec1` (if the corresponding element in `vec2` is unique) or a string resulting from pasting together the corresponding elements from `vec1` and `vec2` (if the element in `vec2` is not unique).
 #' @export
-#' @importFrom base duplicated paste ifelse
 #' @examples
 #' vec1 <- c("apple", "banana", "cherry")
 #' vec2 <- c("fruit", "fruit", "fruit")
@@ -144,9 +165,7 @@ paste_non_unique  = function(vec1, vec2, sep = ""){
 #' @param bind A logical value indicating whether to bind rows with duplicate values, default is TRUE
 #'
 #' @return A dataframe with renamed columns
-#' @importFrom janitor clean_names
 #' @importFrom dplyr rename slice
-#' @importFrom base Vectorize names unlist warning
 #' @importFrom stringr str_detect
 #' @export
 #' @examples
@@ -210,14 +229,24 @@ name_from_row = Vectorize(function(df, row_number = 1, prepend = "", postpend = 
 
 #' Drops all rows with NA values in specified columns
 #'
-#' @param df A dataframe to operate on
-#' @param ... Columns to check for NA values. If no columns are specified, all columns are checked.
+#' This function drops all rows with NA values in specified columns from a dataframe. If no columns are specified, all columns are checked.
 #'
-#' @return A dataframe with rows containing NA values in the specified columns removed
+#' @param df A dataframe to operate on.
+#' @param ... Columns to check for NA values. If no columns are specified, all columns are checked.
+#' @return A dataframe with rows containing NA values in the specified columns removed.
+#' @export
+#'
 #' @importFrom rlang enquos
 #' @importFrom dplyr filter across everything
 #' @importFrom purrr reduce
-#' @export
+#' @importFrom tibble tribble
+#' @examples
+#' drop_all_na(tribble(
+#'   ~a, ~b,
+#'   1, 3,
+#'   2, NA,
+#'   NA, 5
+#' ))
 drop_all_na = function(df, ...) {
 	cols = enquos(...)
 
@@ -247,13 +276,24 @@ drop_na_columns = function(df) {
 
 #' Filters rows of a dataframe based on non-unique values in specified columns
 #'
-#' @param df A dataframe to operate on
-#' @param ... Columns to check for non-unique values. If no columns are specified, all columns are checked.
+#' This function filters rows of a dataframe based on non-unique values in specified columns. If no columns are specified, all columns are checked.
 #'
-#' @return A dataframe with rows containing non-unique values in the specified columns
-#' @importFrom rlang enquos
-#' @importFrom dplyr group_by across filter ungroup
+#' @param df A dataframe to operate on.
+#' @param ... Columns to check for non-unique values. If no columns are specified, all columns are checked.
+#' @return A dataframe with rows containing non-unique values in the specified columns removed.
 #' @export
+#'
+#' @importFrom rlang enquos
+#' @importFrom dplyr group_by across filter ungroup n everything
+#' @examples
+#' filter_non_unique(
+#'   tribble(
+#'     ~a, ~b,
+#'     1, 3,
+#'     2, 4,
+#'     2, 4
+#'   )
+#' )
 filter_non_unique = function(df, ...){
 	cols = enquos(...)
 
@@ -263,12 +303,12 @@ filter_non_unique = function(df, ...){
 		ungroup()
 }
 
+
 #' Checks for non-unique values in a vector
 #'
 #' @param x A vector to check for non-unique values
 #'
 #' @return A logical vector indicating which values are non-unique
-#' @importFrom base duplicated
 #' @export
 non_unique = function(x) duplicated(x) | duplicated(x, fromLast = TRUE)
 
@@ -280,7 +320,6 @@ non_unique = function(x) duplicated(x) | duplicated(x, fromLast = TRUE)
 #' @return A dataframe with rows containing non-unique values in each of the specified columns
 #' @importFrom rlang enquos
 #' @importFrom dplyr filter across
-#' @importFrom base rowSums
 #' @export
 filter_non_unique_each = function(df, ...) {
 	cols = enquos(...)
@@ -298,7 +337,7 @@ filter_non_unique_each = function(df, ...) {
 #' @export
 #'
 #' @importFrom purrr map_lgl map2
-#' @importFrom base which length
+#' @importFrom magrittr "%>%"
 #' @examples
 #' split_at(list(1, 2, 3, 4, 5), function(x) x %% 2 == 0)
 split_at = function(lst, condition) {
@@ -331,8 +370,8 @@ split_at = function(lst, condition) {
 #' @return A list of lists, split at each specified tag.
 #' @export
 #'
-#' @importFrom rvest html_name
 #' @importFrom purrr map
+#' @importFrom magrittr "%>%"
 #' @examples
 #' split_each(list("h1", "h2", "h3", "h4"), c("h2", "h3", "h4"))
 split_each = function(lst, tags = c("h2", "h3", "h4")) {

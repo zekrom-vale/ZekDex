@@ -65,6 +65,7 @@ randomType = function(n=1, replace = FALSE, types = data("PokemonNational", pack
 #' @importFrom dplyr enquo mutate filter pull
 #' @importFrom glue glue
 #' @importFrom utils data
+#' @importFrom dplyr pull
 randomPokemon = function(
 		n=1,
 		...,
