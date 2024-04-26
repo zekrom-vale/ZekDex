@@ -1,8 +1,10 @@
 #' Generate Pokémon Statistics
 #'
-#' This function scrapes Pokémon statistics from Bulbapedia and returns a list of two data frames: one in long format and one in wide format. If `write = TRUE`, it also writes these data frames to csv files.
+#' This function scrapes Pokemon statistics from Bulbapedia and returns a list of two data frames: one in long format and one in wide format. If `write = TRUE`, it also writes these data frames to csv files.
 #'
 #' @param write Logical, if `TRUE`, writes the data frames to csv files. Default is `FALSE`.
+#' @param path The path where the csv file will be written if `write = TRUE`. Default is `system.file("data/PokemonStats.csv", package = "ZekDex")`.
+#' @param pathWide The path where the wide format csv file will be written if `write = TRUE`. Default is `system.file("data/PokemonStatsWide.csv", package = "ZekDex")`.
 #' @return A list of two data frames: PokemonStats (long format) and PokemonStatsWide (wide format).
 #' @importFrom rvest read_html html_elements html_attr
 #' @importFrom purrr map map2
