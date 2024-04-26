@@ -11,8 +11,6 @@
 #' @importFrom tidyr fill
 #' @importFrom stringr str_remove
 #' @importFrom readr write_csv
-#' @importFrom utils packageVersion system.file
-#' @importFrom base stop
 #' @examples
 #' gen_evos()
 gen_evos = function(write = FALSE, path = system.file("data/PokemonEvolution.csv", package = "ZekDex")){

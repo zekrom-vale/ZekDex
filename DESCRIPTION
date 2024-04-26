@@ -12,6 +12,7 @@ LazyData: true
 Depends: 
     R (>= 4.1),
     methods
-Imports: purrr, glue, utils, dplyr, tidyr, R.util
+Imports: purrr, glue, utils, dplyr, tidyr
+Suggests: rvest, janator, coro
 RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)

@@ -1,4 +1,3 @@
-library(tidyverse)
 #' Scrape Pokémon Data from Bulbapedia
 #'
 #' This function scrapes Pokémon data from Bulbapedia and saves the HTML content of each Pokémon's page as an RDS file in the specified directory.
@@ -8,7 +7,7 @@ library(tidyverse)
 #' @importFrom rvest read_html html_elements html_attr
 #' @importFrom purrr map
 #' @importFrom stringr str_extract
-#' @importFrom base write_rds Sys.sleep sample
+#' @importFrom readr write_rds
 #' @examples
 #' scrape_pokemon()
 scrape_pokemon = function(path = "E:\\html\\"){
@@ -85,7 +84,6 @@ process_pokemon = function(path = "E:\\html\\", scrape = FALSE){
 		#' @return TRUE if it exists FALSE otherwise
 		#' @export
 		#'
-		#' @examples
 		check_h <- function(x, tag) {
 			if(inherits(x, "xml_node")) rvest::html_name(x) == tag
 			else if (is.list(x)) any(unlist(lapply(x, check_h, tag)))

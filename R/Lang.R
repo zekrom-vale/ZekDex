@@ -10,11 +10,11 @@
 #'
 #' @importFrom rvest read_html html_elements html_attr
 #' @importFrom purrr map map2 reduce
-#' @importFrom dplyr select drop_na_columns left_join group_by group_modify mutate across
+#' @importFrom dplyr select left_join group_by group_modify mutate across
 #' @importFrom readr read_csv write_csv
 #' @importFrom stringr str_extract
 #' @importFrom glue glue
-#' @importFrom utils data system.file
+#' @importFrom utils data
 #' @examples
 #' gen_lang()
 gen_lang = function(write = FALSE, path = system.file("data/PokemonLang.csv", package = "ZekDex")){

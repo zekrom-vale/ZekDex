@@ -11,7 +11,7 @@
 #' @importFrom dplyr filter
 #' @importFrom purrr discard
 #' @importFrom tibble tibble
-#' @importFrom utils data system.file
+#' @importFrom utils data
 #' @examples
 #' gen_type()
 gen_type = function(write = FALSE, path = system.file("data/PokemonTypes.csv", package = "ZekDex")){
