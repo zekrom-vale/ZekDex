@@ -58,12 +58,14 @@ str_before_match = function(str, test, ..., .open="(", .close=")?"){
 #' @importFrom stringr str_replace_all
 #' @export
 removeA = function(str){
-	replacements = c("á" = "a", "é" = "e", "í" = "i", "ó" = "o", "ú" = "u",
-					 "Á" = "A", "É" = "E", "Í" = "I", "Ó" = "O", "Ú" = "U",
-					 "à" = "a", "è" = "e", "ì" = "i", "ò" = "o", "ù" = "u",
-					 "À" = "A", "È" = "E", "Ì" = "I", "Ò" = "O", "Ù" = "U",
-					 "ä" = "a", "ë" = "e", "ï" = "i", "ö" = "o", "ü" = "u",
-					 "Ä" = "A", "Ë" = "E", "Ï" = "I", "Ö" = "O", "Ü" = "U")
+	replacements = c(
+		"\u00E1" = "a", "\u00E9" = "e", "\u00ED" = "i", "\u00F3" = "o", "\u00FA" = "u", # Lowercase á, é, í, ó, ú
+		"\u00C1" = "A", "\u00C9" = "E", "\u00CD" = "I", "\u00D3" = "O", "\u00DA" = "U", # Uppercase Á, É, Í, Ó, Ú
+		"\u00E0" = "a", "\u00E8" = "e", "\u00EC" = "i", "\u00F2" = "o", "\u00F9" = "u", # Lowercase à, è, ì, ò, ù
+		"\u00C0" = "A", "\u00C8" = "E", "\u00CC" = "I", "\u00D2" = "O", "\u00D9" = "U", # Uppercase À, È, Ì, Ò, Ù
+		"\u00E4" = "a", "\u00EB" = "e", "\u00EF" = "i", "\u00F6" = "o", "\u00FC" = "u", # Lowercase ä, ë, ï, ö, ü
+		"\u00C4" = "A", "\u00CB" = "E", "\u00CF" = "I", "\u00D6" = "O", "\u00DC" = "U"  # Uppercase Ä, Ë, Ï, Ö, Ü
+	)
 
 	# Use str_replace_all to replace all instances of the accented characters
 	str_replace_all(str, replacements)

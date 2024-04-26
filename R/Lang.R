@@ -49,7 +49,7 @@ gen_lang = function(write = FALSE, path = system.file("data/PokemonLang.csv", pa
 			name_from_row(1, prepend = lang)|>
 			bind_rows()|>
 			# Discard junk columns
-			select(!matches(glue::glue("^{lang}(by National Pokédex|\\.{3}\\d+|X\\d+|by National|MS|English • Japanese)")))|>
+			select(!matches(glue::glue("^{lang}(by National Pokédex|\\.{3}\\d+|X\\d+|by National|MS|English \\u2022 Japanese)")))|>
 			# Drop all columns that are NA as some tables are not wanted
 			drop_all_na()|>
 			# Drop all na columns

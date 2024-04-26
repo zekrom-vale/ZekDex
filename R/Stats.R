@@ -21,7 +21,7 @@ gen_stats = function(write = FALSE, path = system.file("data/PokemonStats.csv", 
 	URL = "https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_II-V)"
 	HTML = rvest::read_html(URL)
 	URLS = rvest::html_elements(HTML, css = 'table')[[1]]|>
-		rvest::html_elements('a[title^="List of Pokémon by base stats"]')|>
+		rvest::html_elements('a[title^="List of Pok\\u00E9mon by base stats"]')|>
 		rvest::html_attr(name="href")|>
 		paste0("https://bulbapedia.bulbagarden.net", b=_)|>
 		c(URL)
@@ -35,7 +35,7 @@ gen_stats = function(write = FALSE, path = system.file("data/PokemonStats.csv", 
 		table = rvest::html_table(HTML)
 		table = table[[(length(table)-3)]]|>
 			select(-2)|>
-			rename(Ndex=1, Name = "Pokémon")|>
+			rename(Ndex=1, Name = "Pok\\u00E9mon")|>
 			mutate(Gen = gen)
 	})|>
 		bind_rows()

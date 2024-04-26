@@ -74,7 +74,7 @@ gen_evos = function(write = FALSE, path = system.file("data/PokemonEvolution.csv
 			# Remove family
 			Family = str_remove(Family, " family\\*?"),
 			# Remove  →
-			Method = str_remove(Method, " →"),
+			Method = str_remove(Method, " \u2192"),
 			Transition = if_else(is.na(Evo), "None", Transition)
 		)
 
