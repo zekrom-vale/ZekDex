@@ -4,7 +4,7 @@
 \alias{gen_reginal}
 \title{Generate Regional Pokedex}
 \usage{
-gen_reginal(write = FALSE)
+gen_reginal(write = FALSE, root = "data/", file = "PokemonRegional")
 }
 \arguments{
 \item{write}{Logical, if \code{TRUE}, writes the tibble to a csv file. Default is \code{FALSE}.}

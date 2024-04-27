@@ -4,15 +4,14 @@
 \alias{gen_national}
 \title{Generate the National Dex}
 \usage{
-gen_national(
-  write = FALSE,
-  path = system.file("data/PokemonNational.csv", package = "ZekDex")
-)
+gen_national(write = FALSE, root = "data/", file = "PokemonNational")
 }
 \arguments{
 \item{write}{Logical, if \code{TRUE}, writes the tibble to a csv file. Default is \code{FALSE}.}
 
-\item{path}{The path where the csv file will be written if \code{write = TRUE}. Default is \code{system.file("data/PokemonNational.csv", package = "ZekDex")}.}
+\item{root}{The root directory where the file will be written if \code{write = TRUE}. Default is "data/".}
+
+\item{file}{The name of the file (without extension) to be written if \code{write = TRUE}. Default is "PokemonNational".}
 }
 \value{
 A tibble of the National Dex.

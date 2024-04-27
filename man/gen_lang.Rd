@@ -4,10 +4,7 @@
 \alias{gen_lang}
 \title{Generate the National Dex with Other Language Data}
 \usage{
-gen_lang(
-  write = FALSE,
-  path = system.file("data/PokemonLang.csv", package = "ZekDex")
-)
+gen_lang(write = FALSE, root = "data/", file = "PokemonLang")
 }
 \arguments{
 \item{write}{Logical, if \code{TRUE}, writes the tibble to a csv file. Default is \code{FALSE}.}

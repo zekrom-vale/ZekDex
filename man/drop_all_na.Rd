@@ -18,6 +18,7 @@ A dataframe with rows containing NA values in the specified columns removed.
 This function drops all rows with NA values in specified columns from a dataframe. If no columns are specified, all columns are checked.
 }
 \examples{
+library(tibble)
 drop_all_na(tribble(
   ~a, ~b,
   1, 3,

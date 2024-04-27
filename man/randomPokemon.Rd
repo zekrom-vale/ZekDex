@@ -45,7 +45,7 @@ randomPokemon(type = "Dragon", type2 = "Electric")
 randomPokemon(type = "Dragon", type2 = "Electric", swap = TRUE)
 # > "Miraidon"
 
-# Get All random Dragon-* or *-Dragon Pokemon
+# Get All random Dragon-\* or \*-Dragon Pokemon
 randomPokemon(n = -1, type = "Dragon", swap = TRUE)
 # > "Zekrom", "Dreepy", "Guzzlord", "Archaludon", "Dragonite", "Raging Bolt",
 # > "Frigibax", "Zweilous", "Goodra", "Rayquaza", "Regidrago", "Garchomp",

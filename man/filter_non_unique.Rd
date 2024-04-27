@@ -18,6 +18,7 @@ A dataframe with rows containing non-unique values in the specified columns remo
 This function filters rows of a dataframe based on non-unique values in specified columns. If no columns are specified, all columns are checked.
 }
 \examples{
+library(tibble)
 filter_non_unique(
   tribble(
     ~a, ~b,

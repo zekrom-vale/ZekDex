@@ -4,10 +4,7 @@
 \alias{gen_type}
 \title{Generates Pokémon Types from Scratch}
 \usage{
-gen_type(
-  write = FALSE,
-  path = system.file("data/PokemonTypes.csv", package = "ZekDex")
-)
+gen_type(write = FALSE, root = "data/", file = "PokemonTypes")
 }
 \arguments{
 \item{write}{Logical, if \code{TRUE}, writes the tibble to a csv file. Default is \code{FALSE}.}

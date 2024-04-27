@@ -4,10 +4,7 @@
 \alias{gen_evos}
 \title{Generate Pokémon Evolution Data}
 \usage{
-gen_evos(
-  write = FALSE,
-  path = system.file("data/PokemonEvolution.csv", package = "ZekDex")
-)
+gen_evos(write = FALSE, root = "data/", file = "PokemonEvolution")
 }
 \arguments{
 \item{write}{Logical, if \code{TRUE}, writes the data frame to a csv file. Default is \code{FALSE}.}

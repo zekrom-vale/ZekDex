@@ -6,8 +6,9 @@
 \usage{
 gen_stats(
   write = FALSE,
-  path = system.file("data/PokemonStats.csv", package = "ZekDex"),
-  pathWide = system.file("data/PokemonStatsWide.csv", package = "ZekDex")
+  root = "data/",
+  file = "PokemonStats",
+  fileWide = "PokemonStatsWide"
 )
 }
 \arguments{

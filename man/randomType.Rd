@@ -4,11 +4,7 @@
 \alias{randomType}
 \title{Returns a random Pokemon type}
 \usage{
-randomType(
-  n = 1,
-  replace = FALSE,
-  types = data("PokemonNational", package = "ZekDex")
-)
+randomType(n = 1, replace = FALSE, types = PokemonNational)
 }
 \arguments{
 \item{n}{The number of random types to return. If n is less than 0, it returns "Zekrom".}
