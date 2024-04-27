@@ -32,7 +32,7 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational")
 			df = janitor::clean_names(df)
 			# If any of the specified strings are in the column names, return NULL
 			if(any(c("lists_of_pokemon", "x1", "x12") %in% names(df)))return(NULL)
-			i = i + 1
+			i <<- i + 1
 			# Otherwise, return the dataframe with genration added
 			df|>
 				mutate(
