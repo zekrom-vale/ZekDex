@@ -8,12 +8,11 @@
 #' @return A tibble of the National Dex.
 #' @export
 #'
-#' @importFrom readr read_csv write_csv
-#' @importFrom dplyr mutate select filter bind_rows
+#' @importFrom dplyr mutate select filter bind_rows case_when if_else rename
 #' @importFrom tidyr extract
 #' @importFrom purrr map discard
 #' @importFrom tibble tibble
-#' @importFrom stringr str_remove_all
+#' @importFrom stringr str_remove_all str_detect
 gen_national = function(write = FALSE, root = "data/", file = "PokemonNational"){
 	if(pkgload::is_loading()) return()
 	# Import the required package 'rvest' for web scraping
@@ -25,6 +24,7 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational")
 	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")
 
 	# Extract the tables from the HTML content
+	i = 0
 	nationalDex = rvest::html_table(HTML)|>
 		# Apply a function to each element of the list (each table)
 		map(function(df){
@@ -32,8 +32,12 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational")
 			df = janitor::clean_names(df)
 			# If any of the specified strings are in the column names, return NULL
 			if(any(c("lists_of_pokemon", "x1", "x12") %in% names(df)))return(NULL)
-			# Otherwise, return the dataframe
-			df
+			i = i + 1
+			# Otherwise, return the dataframe with genration added
+			df|>
+				mutate(
+					generation = i
+				)
 		})|>
 		# Remove NULL elements from the list
 		discard(is.null)|>
