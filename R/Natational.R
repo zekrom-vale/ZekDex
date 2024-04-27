@@ -70,11 +70,30 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational")
 		mutate(
 			type2 = if_else(type == type2, NA_character_, type2, missing = type2),
 			ndex = as.integer(str_remove_all(ndex, "[^\\d]")),
-			form = if_else(form == "", NA_character_, form, NA_character_),
-			form2 = if_else(form2 == "", NA_character_, form2, NA_character_)
+			form2 = if_else(form2 == "", NA_character_, form2, NA_character_),
+			# Arceus technically not correct
+			# Koraidon and Miraidon forms are incomplete
+			# Furfrou does not have the trimed forms
+			# Fix Zygarde50 and Zygarde10
+			form = case_when(
+				pokemon == "Zygarde50" ~ "50% Form",
+				pokemon == "Zygarde10" ~ "10% Form",
+				# Fix Oricorio Pa'u Style
+				ndex == 741 && form == "Pa" ~ "Pa'u Style",
+				# Fix Groudon and Kyoger
+				form == pokemon || form == "" ~ NA_character_,
+				.default = form
+			),
+			pokemon = if_else(ndex == 718, "Zygarde", pokemon),
+			# TODO extract from https://bulbapedia.bulbagarden.net/wiki/Alolan_form
+			# Move Alolan Galarian Hisuian Paldean forms to form 2
+			temp = if_else(str_detect(form, "Alolan|Galarian|Hisuian|Paldean"), form, NA_character_, NA_character_),
+			form = if_else(is.na(temp), form, form2),
+			form2 = if_else(is.na(temp), form2, temp),
+			temp = NULL
 		)|>
-		# Rename the 'ndex' column to 'Ndex' and the 'pokemon' column to 'English'
-		rename(Ndex="ndex", English = "pokemon")
+		# Rename
+		rename(name = "pokemon", regional = "form2")
 
 	# If 'write' is TRUE, write the 'nationalDex' dataframe to a CSV file
 	if(write)save_data("nationalDex", root, file)
