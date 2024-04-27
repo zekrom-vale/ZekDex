@@ -1,4 +1,4 @@
-Ndex,Name,HP,Attack,Defense,Speed,Special,Total,Average,Gen,Sp. Attack,Sp. Defense
+ndex,name,HP,Attack,Defense,Speed,Special,Total,Average,Gen,Sp. Attack,Sp. Defense
 1,Bulbasaur,45,49,49,45,65,253,50.6,I,NA,NA
 2,Ivysaur,60,62,63,60,80,325,65,I,NA,NA
 3,Venusaur,80,82,83,80,100,425,85,I,NA,NA
