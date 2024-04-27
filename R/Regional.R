@@ -83,7 +83,14 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 			left_join(acc, cur, by = join_by(ndex, name, type, type2))
 		}, .init = national|>
 			distinct()
-	)
+	)|>
+		# Fix the dexes into ints
+		mutate(
+			across(
+				-names(nationalDex),
+				~ as.integer(str_remove_all(., "[^\\d]"))
+			)
+		)
 
 	# Thses 4 are issues, they have split dexes
 	# https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Kalos_Pok%C3%A9dex_number
