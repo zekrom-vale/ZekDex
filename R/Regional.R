@@ -61,15 +61,16 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 
 		# Further clean up the data and rename the columns
 		table|>
+			rename(ndex=Ndex)|>
 			mutate(
 				# Remove duplicate types
 				type2 = if_else(type == type2, NA_character_, type2),
-				# Fix Ndex to int
-				Ndex = as.integer(str_remove_all(Ndex, "[^\\d]"))
+				# Fix ndex to int
+				ndex = as.integer(str_remove_all(ndex, "[^\\d]"))
 			)|>
 			select(!matches("^(MS|Image|ObsidianFieldlands|CrimsonMirelands|CobaltCoastlands|CoronetHighlands|AlabasterIcelands)$"))|>
-			rename(Name = `Pokémon`)|>
-			rename_with(!c(Ndex, Name, starts_with("type")), .fn = function(.){
+			rename(name = `Pokémon`)|>
+			rename_with(!c(ndex, name, starts_with("type")), .fn = function(.){
 				game = str_remove_all(dex$game, "_")
 				dex = str_remove_all(dex$dexes, "_")
 				paste(game, dex, ., sep="_")
@@ -79,15 +80,14 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 		# Combine the regional Pokedex data with the national Pokedex data
 		reduce(function(acc, cur){
 			# Join by Pokemon than type (Only issue that reginals will be duplicated, may not be an issue though)
-			left_join(acc, cur, by = join_by(Ndex, Name, type, type2))
+			left_join(acc, cur, by = join_by(ndex, name, type, type2))
 		}, .init = national|>
-			rename(Name = English)|>
 			distinct()
 	)
 
 	# Thses 4 are issues, they have split dexes
 	# https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Kalos_Pok%C3%A9dex_number
-	# CeKdex Ndex Pokémon    CoKdex MoKdex game  dex
+	# CeKdex ndex Pokémon    CoKdex MoKdex game  dex
 	# https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Alola_Pok%C3%A9dex_number_(Sun_and_Moon)
 	# Adex  Melemele Akala `Ula'ula` Poni  Ndex  Pokémon    game         dex
 	# Adex  Melemele Akala `Ula'ula` Poni  Ndex  Pokémon    game                     dex

@@ -41,10 +41,10 @@ gen_stats = function(
 		table = rvest::html_table(HTML)
 		table = table[[(length(table)-3)]]|>
 			select(-2)|>
-			rename(Ndex=1, Name = "Pok\u00E9mon")|>
+			rename(ndex=1, name = "Pok\u00E9mon")|>
 			mutate(
-				# Fix Ndex to int
-				Ndex = as.integer(str_remove_all(Ndex, "[^\\d]")),
+				# Fix ndex to int
+				ndex = as.integer(str_remove_all(ndex, "[^\\d]")),
 				Gen = gen
 			)
 	})|>

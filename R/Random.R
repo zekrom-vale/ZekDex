@@ -16,7 +16,7 @@ randomType = function(n=1, replace = FALSE, types = types$types){
 #'
 #' @param n How many
 #' @inheritDotParams filterByType
-#' @param p What column to return (Ndex, English, form, form2, type, type2 can be used)
+#' @param p What column to return (ndex, name, form, regional, type, type2 can be used)
 #' @param replace Should sampling be with replacement?
 #'
 #' @examples
@@ -72,12 +72,11 @@ randomType = function(n=1, replace = FALSE, types = types$types){
 #' @importFrom glue glue
 #' @importFrom utils data
 #' @importFrom dplyr pull
-#' @inheritDotParams source arg1 arg2 arg3
 #' @export
 randomPokemon = function(
 		n=1,
 		...,
-		p = English,
+		p = name,
 		replace = FALSE
 ){
 	# Quosure to capture the expression for later evaluation
@@ -182,8 +181,8 @@ filterByType = function(
 
 #' Returns a random Pokemon Generator
 #'
-#' @inheritDotParams randomPokemon
-#' @param p What column to return (Ndex, English, form, form2, type, type2 can be used)
+#' @inheritDotParams filterByType
+#' @param p What column to return (ndex, name, form, regional, type, type2 can be used)
 #' @param replace Should sampling be with replacement?
 #' @param size The number of random Pokemon to generate on each call
 #'
@@ -264,7 +263,7 @@ filterByType = function(
 #' @export
 randomPokemonGen = function(
 		...,
-		p = English,
+		p = name,
 		replace = FALSE,
 		size = 1
 ){
@@ -302,11 +301,21 @@ randomPokemonGen = function(
 		})()
 	} else {
 		coro::generator(function(){
-			while(length(data) > 0){
+			while(length(data) > size){
 				item = sample(data, size = size, prob = prob)
-				data = setdiff(data, item)
+				# Find the indices of the selected items in the data vector
+				indices = match(item, data)
+				# Remove the selected items from the data and prob vectors
+				data = data[-indices]
+				if (!is.null(prob)) {
+					prob = prob[-indices]
+					# Normalize the prob vector so it sums to 1
+					prob = prob / sum(prob)
+				}
 				yield(item)
 			}
+			item = sample(data, size = length(data), prob = prob)
+			yield(item)
 		})()
 	}
 }

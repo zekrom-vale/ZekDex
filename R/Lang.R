@@ -55,22 +55,22 @@ gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
 			# Drop all na columns
 			drop_na_columns()|>
 			# Rename the first and 2ed column to be standard
-			rename(Ndex = 1, English = 2)|>
-			# Fix Ndex to int
+			rename(ndex = 1, name = 2)|>
+			# Fix ndex to int
 			mutate(
-				Ndex = as.integer(str_remove_all(Ndex, "[^\\d]"))
+				ndex = as.integer(str_remove_all(ndex, "[^\\d]"))
 			)
 	})
 
 	# Combine the df list into one df
 	languages =  pokeList|>
 		reduce(function(acc, cur){
-			left_join(acc, cur, by = c("Ndex", "English"), relationship = "many-to-many")
+			left_join(acc, cur, by = c("ndex", "name"), relationship = "many-to-many")
 		}, .init = national)|>
 		# Still some columns that are all NA
 		drop_na_columns()|>
 		# Hindi_Romanization is duplicating values
-		group_by(Ndex, English, form, form2)|>
+		group_by(ndex, name, form, form2)|>
 		# Apply a function to each group
 		group_modify(function(x, y){
 			# If the group has only one row, return it as is

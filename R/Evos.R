@@ -36,7 +36,7 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonEvolution"){
 				select(matches("X[^47]"))%>%
 				# Filter out rows where all values are equal
 				filter(., !pmap_lgl(., all_identical))|>
-				rename(Family = X1, Base = X2, Method = X3, Evo = X5, Method2 = X6, Evo2 = X8)
+				rename(family = X1, base = X2, method = X3, evo = X5, method2 = X6, evo2 = X8)
 		})|>
 		bind_rows()
 
@@ -44,38 +44,38 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonEvolution"){
 		bind_rows(
 			# First Evolution
 			evTable|>
-				select(Family, Base, Method, Evo)|>
-				mutate(Transition = "First"),
+				select(family, base, method, evo)|>
+				mutate(transition = "First"),
 			# Second Evolution
 			evTable|>
-				select(Family, Base = Evo, Method = Method2, Evo = Evo2)|>
+				select(family, base = evo, method = method2, evo = evo2)|>
 				# Fix Pokemon with only 1 evolution
-				filter(!is.na(Evo))|>
-				mutate(Transition = "Second")
+				filter(!is.na(evo))|>
+				mutate(transition = "Second")
 		)
 
 	# Fix unknown
 	evolution = evTable|>
-		filter(Family != "Unown")|>
+		filter(family != "Unown")|>
 		bind_rows(
 			evTable|>
-				filter(Family == "Unown")|>
-				mutate(Evo = NA_character_),
+				filter(family == "Unown")|>
+				mutate(evo = NA_character_),
 			evTable|>
-				filter(Family == "Unown")|>
+				filter(family == "Unown")|>
 				mutate(
-					Base = Evo,
-					Evo = NA_character_
+					base = evo,
+					evo = NA_character_
 				)|>
-				drop_na(Base)
+				drop_na(base)
 		)|>
-		drop_na(Base)|>
+		drop_na(base)|>
 		mutate(
 			# Remove family
-			Family = str_remove(Family, " family\\*?"),
+			family = str_remove(family, " family\\*?"),
 			# Remove  →
-			Method = str_remove(Method, " \u2192"),
-			Transition = if_else(is.na(Evo), "None", Transition)
+			method = str_remove(method, " \u2192"),
+			transition = if_else(is.na(evo), "None", transition)
 		)
 
 	if(write)save_data("evolution", root, file)
