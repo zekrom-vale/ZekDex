@@ -200,33 +200,34 @@ filterByType = function(
 #' # Create a random Pokemon generator for any type of Pokemon
 #' gen_any <- randomPokemonGen()
 #' # Generate a random Pokemon
-#' coro::resume(gen_any)
+#' gen_any()
 #' # > "Rayquaza"
 #'
 #' # Create a random Pokemon generator for Fire type Pokemon
 #' gen_fire <- randomPokemonGen(type = "Fire")
 #' # Generate a random Fire type Pokemon
-#' coro::resume(gen_fire)
+#' gen_fire()
 #' # > "Reshiram"
 #'
 #' # Create a random Pokemon generator for Fire and Flying type Pokemon
 #' gen_fire_flying <- randomPokemonGen(type = "Fire", type2 = "Flying")
 #' # Generate a random Fire and Flying type Pokemon
-#' coro::resume(gen_fire_flying)
+#' gen_fire_flying()
 #' # > "Charizard"
 #'
 #' # Create a random Pokemon generator for Fire or Flying type Pokemon
 #' gen_dragon_or_electric <- randomPokemonGen(type = "Dragon", type2 = "Electric", swap = TRUE)
 #' # Generate a random Fire or Flying type Pokemon
-#' coro::resume(gen_dragon_or_electric)
+#' gen_dragon_or_electric()
 #' # > "Zekrom"
-#' coro::resume(gen_dragon_or_electric)
+#' gen_dragon_or_electric()
 #' # > "Rayquaza"
 #'
 #' # Create a random Pokemon generator for all Dragon type Pokemon
 #' gen_all_dragon <- randomPokemonGen(type = "Dragon", swap = TRUE)
 #' # Generate all Dragon type Pokemon
-#' while(!is.null(pokemon <- coro::resume(gen_all_dragon))) {
+#' while(!coro::exhausted(gen_all_dragon)) {
+#'   pokemon <- gen_all_dragon()
 #'   print(pokemon)
 #' }
 #' # > "Zekrom", "Dreepy", "Guzzlord", "Archaludon", "Dragonite", "Raging Bolt",
@@ -247,7 +248,7 @@ filterByType = function(
 #' gen_dex <- randomPokemonGen(type = "Dragon", swap = TRUE, p = Ndex)
 #' # Generate all Dragon type Pokemon dex numbers
 #' while(!coro::exhausted(gen_dex)) {
-#'   pokemon = coro::resume(gen_dex)
+#'   pokemon = gen_dex()
 #'   print(pokemon)
 #' }
 #' # > 1011, 1019, 371, 633, 634, 841, 334, 691,
@@ -263,7 +264,7 @@ filterByType = function(
 #' # Create a random Pokemon generator for Dragon type Pokemon with replacement
 #' gen_dragon_replace <- randomPokemonGen(type = "Dragon", replace = TRUE)
 #' # Generate 5 random Dragon type Pokemon with replacement
-#' replicate(5, coro::resume(gen_dragon_replace))
+#' replicate(5, gen_dragon_replace())
 #' # > "Zekrom" "Rayquaza" "Garchomp" "Zekrom" "Haxorus"
 #' @export
 randomPokemonGen = function(
