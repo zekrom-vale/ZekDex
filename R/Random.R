@@ -15,12 +15,9 @@ randomType = function(n=1, replace = FALSE, types = types$types){
 #' Returns a random Pokemon
 #'
 #' @param n How many
-#' @param type Filter on type
-#' @param type2 Filter on type2
-#' @param swap Allow type to match type2 and vicea-versa
-#' @param replace Should sampling be with replacement?
+#' @inheritDotParams filterByType
 #' @param p What column to return (Ndex, English, form, form2, type, type2 can be used)
-#' @param data Override the data (Must have type and type2 (If type 2 is not ANY or swap is TRUE))
+#' @param replace Should sampling be with replacement?
 #'
 #' @examples
 #' # Get a random Pokemon
@@ -70,12 +67,12 @@ randomType = function(n=1, replace = FALSE, types = types$types){
 #' # > 890, 997, 148, 443, 715, 776, 230, 611,
 #' # > 783, 996, 1020, 103, 643, 1009, 487, 329,
 #' # > 885, 612, 444, 149, 1021, 1007, 484
-
 #'
 #' @importFrom dplyr enquo mutate filter pull
 #' @importFrom glue glue
 #' @importFrom utils data
 #' @importFrom dplyr pull
+#' @inheritDotParams source arg1 arg2 arg3
 #' @export
 randomPokemon = function(
 		n=1,
@@ -185,12 +182,10 @@ filterByType = function(
 
 #' Returns a random Pokemon Generator
 #'
-#' @param type Filter on type
-#' @param type2 Filter on type2
-#' @param swap Allow type to match type2 and vicea-versa
-#' @param replace Should sampling be with replacement?
+#' @inheritDotParams randomPokemon
 #' @param p What column to return (Ndex, English, form, form2, type, type2 can be used)
-#' @param data Override the data (Must have type and type2 (If type 2 is not ANY or swap is TRUE))
+#' @param replace Should sampling be with replacement?
+#' @param size The number of random Pokemon to generate on each call
 #'
 #' @importFrom dplyr enquo mutate filter pull
 #' @importFrom glue glue
