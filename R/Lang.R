@@ -14,7 +14,7 @@
 #' @importFrom glue glue
 #' @importFrom utils data
 #' @importFrom tidyr everything
-#' @importFrom tidyselect matches
+#' @importFrom tidyselect matches where
 #' @importFrom magrittr "%>%"
 #' @importFrom tibble as_tibble
 gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
@@ -70,7 +70,7 @@ gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
 		# Still some columns that are all NA
 		drop_na_columns()|>
 		# Hindi_Romanization is duplicating values
-		group_by(ndex, name, form, form2)|>
+		group_by(ndex, name, form, regional)|>
 		# Apply a function to each group
 		group_modify(function(x, y){
 			# If the group has only one row, return it as is
@@ -80,7 +80,7 @@ gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
 				filter(!is.na(Hindi_Romanization ))
 		})|>
 		mutate(across(
-			everything(),
+			where(is.character),
 			~ if_else(.=="", NA_character_, ., NA_character_)
 		))
 
