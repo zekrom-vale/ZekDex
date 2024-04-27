@@ -233,7 +233,8 @@ filterByType = function(
 #' # Return the dex number instead
 #' gen_dex <- randomPokemonGen(type = "Dragon", swap = TRUE, p = Ndex)
 #' # Generate all Dragon type Pokemon dex numbers
-#' while(!is.null(pokemon <- coro::resume(gen_dex))) {
+#' while(!coro::exhausted(gen_dex)) {
+#'   pokemon = coro::resume(gen_dex)
 #'   print(pokemon)
 #' }
 #' # > 1011, 1019, 371, 633, 634, 841, 334, 691,
