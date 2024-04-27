@@ -20,13 +20,14 @@ gen_stats = function(
 		file = "PokemonStats",
 		fileWide = "PokemonStatsWide"
 	){
+	if(pkgload::is_loading()) return()
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
 
 	# Stats
 	URL = "https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_II-V)"
 	HTML = rvest::read_html(URL)
 	URLS = rvest::html_elements(HTML, css = 'table')[[1]]|>
-		rvest::html_elements('a[title^="List of Pok\\u00E9mon by base stats"]')|>
+		rvest::html_elements('a[title^="List of Pok\u00E9mon by base stats"]')|>
 		rvest::html_attr(name="href")|>
 		paste0("https://bulbapedia.bulbagarden.net", b=_)|>
 		c(URL)
@@ -35,23 +36,27 @@ gen_stats = function(
 		map(rvest::read_html)
 
 	gens = str_extract(URLS, "\\(Generation_(.*)\\)", group = 1)
-	PokemonStats = map2(HTMLS, gens, function(HTML, gen){
+	stats = map2(HTMLS, gens, function(HTML, gen){
 		# HTML = HTMLS[[6]]; gen = "II-V"
 		table = rvest::html_table(HTML)
 		table = table[[(length(table)-3)]]|>
 			select(-2)|>
-			rename(Ndex=1, Name = "Pok\\u00E9mon")|>
-			mutate(Gen = gen)
+			rename(Ndex=1, Name = "Pok\u00E9mon")|>
+			mutate(
+				# Fix Ndex to int
+				Ndex = as.integer(str_remove_all(Ndex, "[^\\d]")),
+				Gen = gen
+			)
 	})|>
 		bind_rows()
 
-	PokemonStatsWide = PokemonStats|>
+	statsWide = stats|>
 		pivot_wider(names_from = "Gen", values_from = c("HP", "Attack", "Defense", "Speed", "Special", "Total", "Average", "Sp. Attack", "Sp. Defense"))
 
 
 	if(write){
-		save_data(PokemonStats, root, file)
-		save_data(PokemonStatsWide, root, fileWide)
+		save_data("stats", root, file)
+		save_data("statsWide", root, fileWide)
 	}
-	list(PokemonStats, PokemonStatsWide)
+	list(stats, statsWide)
 }

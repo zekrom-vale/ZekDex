@@ -16,10 +16,12 @@
 #' @importFrom tidyr everything
 #' @importFrom tidyselect matches
 #' @importFrom magrittr "%>%"
+#' @importFrom tibble as_tibble
 gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
+	if(pkgload::is_loading()) return()
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
 
-	read_data("PokemonNational", root)
+	national = read_data("PokemonNational", root)
 
 	# Extract HTML table data
 	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")
@@ -53,11 +55,15 @@ gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
 			# Drop all na columns
 			drop_na_columns()|>
 			# Rename the first and 2ed column to be standard
-			rename(Ndex = 1, English = 2)
+			rename(Ndex = 1, English = 2)|>
+			# Fix Ndex to int
+			mutate(
+				Ndex = as.integer(str_remove_all(Ndex, "[^\\d]"))
+			)
 	})
 
 	# Combine the df list into one df
-	PokemonLang =  pokeList|>
+	languages =  pokeList|>
 		reduce(function(acc, cur){
 			left_join(acc, cur, by = c("Ndex", "English"), relationship = "many-to-many")
 		}, .init = national)|>
@@ -78,6 +84,6 @@ gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
 			~ if_else(.=="", NA_character_, ., NA_character_)
 		))
 
-	if(write)save_data(PokemonLang, root, file)
-	PokemonLang
+	if(write)save_data("languages", root, file)
+	languages
 }

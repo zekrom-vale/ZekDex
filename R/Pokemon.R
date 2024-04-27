@@ -13,6 +13,7 @@
 #' @examples
 #' scrape_pokemon()
 scrape_pokemon = function(path = "E:\\html\\"){
+	if(pkgload::is_loading()) return()
 	# Import the required package 'rvest' for web scraping
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
 	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")
@@ -75,6 +76,7 @@ scrape_pokemon = function(path = "E:\\html\\"){
 #' # > {html_node}
 #' # > <div>
 relevel_matched_node <- function(lst, level = 1){
+	if(pkgload::is_loading()) return()
 	tags <- c("h2", "h3", "h4")
 	# If it's a node return as is
 	if (inherits(lst, "xml_node")) return(lst)
@@ -107,6 +109,7 @@ relevel_matched_node <- function(lst, level = 1){
 #' @return TRUE if it exists FALSE otherwise
 #' @export
 check_h <- function(x, tag) {
+	if(pkgload::is_loading()) return()
 	if(inherits(x, "xml_node")) rvest::html_name(x) == tag
 	else if (is.list(x)) any(unlist(lapply(x, check_h, tag)))
 	else FALSE
@@ -123,6 +126,7 @@ check_h <- function(x, tag) {
 #'		other_elements that have the updated list without the matched elements
 #' @export
 pluck_matched_node = function(lst, tag) {
+	if(pkgload::is_loading()) return()
 	# Initialize empty lists for matched_elements and other_elements
 	matched_elements <- list()
 	other_elements <- list()
@@ -152,6 +156,7 @@ pluck_matched_node = function(lst, tag) {
 }
 
 process_pokemon = function(path = "E:\\html\\", scrape = FALSE){
+	if(pkgload::is_loading()) return()
 	if(scrape)scrape_pokemon(path)
 	for (pokemon in Sys.glob(glue::glue("{path}*.rds"))) {
 

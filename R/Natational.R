@@ -3,16 +3,19 @@
 #' This function generates a tibble of the National Dex by reading the 'PokemonNational.csv' file and scraping data from Bulbapedia. It extracts the tables from the HTML content, cleans the column names of the dataframe, and combines all dataframes into one. If `write = TRUE`, it also writes the tibble to a csv file.
 #'
 #' @param write Logical, if `TRUE`, writes the tibble to a csv file. Default is `FALSE`.
-#' @param path The path where the csv file will be written if `write = TRUE`. Default is `system.file("data/PokemonNational.csv", package = "ZekDex")`.
+#' @param root The root directory where the file will be written if `write = TRUE`. Default is "data/".
+#' @param file The name of the file (without extension) to be written if `write = TRUE`. Default is "PokemonNational".
 #' @return A tibble of the National Dex.
 #' @export
 #'
 #' @importFrom readr read_csv write_csv
-#' @importFrom dplyr mutate select filter
+#' @importFrom dplyr mutate select filter bind_rows
+#' @importFrom tidyr extract
 #' @importFrom purrr map discard
 #' @importFrom tibble tibble
 #' @importFrom stringr str_remove_all
 gen_national = function(write = FALSE, root = "data/", file = "PokemonNational"){
+	if(pkgload::is_loading()) return()
 	# Import the required package 'rvest' for web scraping
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
 	# Check if the 'janitor' package is installed. If not, stop the function and ask the user to install it.
@@ -22,7 +25,7 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational")
 	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")
 
 	# Extract the tables from the HTML content
-	national = rvest::html_table(HTML)|>
+	nationalDex = rvest::html_table(HTML)|>
 		# Apply a function to each element of the list (each table)
 		map(function(df){
 			# Clean the column names of the dataframe
@@ -69,9 +72,9 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational")
 		# Rename the 'ndex' column to 'Ndex' and the 'pokemon' column to 'English'
 		rename(Ndex="ndex", English = "pokemon")
 
-	# If 'write' is TRUE, write the 'national' dataframe to a CSV file
-	if(write)save_data(national, root, file)
+	# If 'write' is TRUE, write the 'nationalDex' dataframe to a CSV file
+	if(write)save_data("nationalDex", root, file)
 
-	# Return the 'national' dataframe
-	national
+	# Return the 'nationalDex' dataframe
+	nationalDex
 }

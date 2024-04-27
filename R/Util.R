@@ -442,7 +442,7 @@ recursive_xml_map2 = function(lst, fn, level = 1){
 #'
 #' This function saves a given data frame to a CSV and/or RDA file.
 #'
-#' @param data The data frame to save.
+#' @param sym The name of the data frame to save.
 #' @param root The root directory where the file should be saved.
 #' @param file The name of the file (without extension).
 #' @param csv Logical, should the data be saved as a CSV file? Default is TRUE.
@@ -453,13 +453,14 @@ recursive_xml_map2 = function(lst, fn, level = 1){
 #' @importFrom glue glue
 #' @export
 save_data = function(
-		data,
+		sym,
 		root = stop("'root' must be specified"),
 		file = stop("'file' must be specified"),
 		csv = TRUE, rda = TRUE
 ){
-	if(csv)write_csv(data, glue("{root}/{file}.csv"))
-	if(rda)write_rds(data, glue("{root}/{file}.rda"), compress = "gz")
+	if(pkgload::is_loading()) return()
+	if(rda)save(list = sym, file = glue("{root}/{file}.rda"), envir = parent.frame())
+	if(csv)write_csv(get(sym, envir = parent.frame()), glue("{root}/{file}.csv"))
 	if(!csv&&!rda)warning("Nothing saved")
 }
 
@@ -470,22 +471,27 @@ save_data = function(
 #' @param data The name of the data to load.
 #' @param root The root directory where the file is located.
 #' @param ns The namespace from which to load the data.
+#' @param one Is there one item in the rda file?
 #'
 #' @importFrom readr read_csv
-#' @importFrom readr read_rds
 #' @importFrom glue glue
 #' @export
-read_data = function(data, root, ns = asNamespace("ZekDex")){
+read_data = function(data, root, ns = asNamespace("ZekDex"), one = TRUE){
+	if(pkgload::is_loading()) return()
 	if(!is.null(root)){
-		if(file.exists(glue("{root}/{data}.rda"))){
-			return(read_rds(glue("{root}/{data}.rda")))
+		if(file.exists(glue("{root}{data}.rda"))){
+			e <- new.env()
+			load(glue("{root}{data}.rda"), envir = e)
+			if(one)return(e[[ls(e)[1]]])
+			else return(e)
 		}
-		if(file.exists(glue("{root}/{data}.csv"))){
-			return(read_rds(glue("{root}/{data}.csv")))
+		if(file.exists(glue("{root}{data}.csv"))){
+			return(read_csv(glue("{root}{data}.csv")))
 		}
 	}
 	if(exists(data, where = ns)){
 		return(get(data, envir = ns))
 	}
 }
+
 

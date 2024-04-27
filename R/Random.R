@@ -257,6 +257,7 @@ randomPokemonGen = function(
 		p = English,
 		replace = FALSE
 ){
+	if(pkgload::is_loading()) return()
 	if(!requireNamespace("coro", quietly = TRUE))stop("coro required.  Use install.packages(\"coro\")")
 	# enquo to capture the expression for later evaluation
 	p=dplyr::enquo(p)

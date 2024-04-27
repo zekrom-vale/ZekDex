@@ -13,12 +13,13 @@
 #' @importFrom tibble tibble
 #' @importFrom utils data
 gen_type = function(write = FALSE, root = "data/", file = "PokemonTypes"){
-	read_data("PokemonNational", root)
+	if(pkgload::is_loading()) return()
+	national = read_data("PokemonNational", root)
 
-	# Extract the 'type' column from 'nat' using 'pull', concatenate it with the 'type2' column using 'c',
+	# Extract the 'type' column from 'national' using 'pull', concatenate it with the 'type2' column using 'c',
 	# remove duplicate values using 'unique', and remove NA values using 'discard(is.na)'
-	types = pull(nat, type)|>
-		c(pull(nat, type2))|>
+	types = pull(national, type)|>
+		c(pull(national, type2))|>
 		unique()|>
 		discard(is.na)
 
@@ -26,7 +27,7 @@ gen_type = function(write = FALSE, root = "data/", file = "PokemonTypes"){
 	types = tibble(types = types)
 
 	# If 'write' is TRUE, write the 'types' tibble to a CSV file named 'PokemonTypes.csv' in the 'data' directory
-	if(write)save_data(types, root, file)
+	if(write)save_data("types", root, file)
 
 	# Return the 'types' tibble
 	types

@@ -11,7 +11,9 @@
 #' @importFrom stringr str_remove
 #' @importFrom readr write_csv
 #' @importFrom magrittr "%>%"
+#' @export
 gen_evos = function(write = FALSE, root = "data/", file = "PokemonEvolution"){
+	if(pkgload::is_loading()) return()
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
 
 	# Add Evolution family
@@ -53,7 +55,7 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonEvolution"){
 		)
 
 	# Fix unknown
-	PokemonEvolution = evTable|>
+	evolution = evTable|>
 		filter(Family != "Unown")|>
 		bind_rows(
 			evTable|>
@@ -76,5 +78,6 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonEvolution"){
 			Transition = if_else(is.na(Evo), "None", Transition)
 		)
 
-	if(write)save_data(PokemonEvolution, root, file)
+	if(write)save_data("evolution", root, file)
+	evolution
 }

@@ -6,18 +6,19 @@
 #' @return A tibble of regional dexes.
 #' @export
 #'
-#' @importFrom purrr map map2 reduce discard
-#' @importFrom dplyr mutate select distinct left_join join_by bind_rows rename_with starts_with
+#' @importFrom purrr map map2 reduce discard transpose
+#' @importFrom dplyr mutate select distinct left_join join_by bind_rows rename rename_with starts_with
 #' @importFrom readr read_csv write_csv
 #' @importFrom utils data
 #' @importFrom stringr str_extract str_remove_all
 #' @importFrom tidyr drop_na
 #' @importFrom magrittr "%>%"
 gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
+	if(pkgload::is_loading()) return()
 	# Check if the 'rvest' package is installed. If not, stop the function and ask the user to install it.
-	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Used install.packages(\"rvest\")")
+	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
 
-	nat = read_data("PokemonNational", root)
+	national = read_data("PokemonNational", root)
 
 	# Read the HTML of the webpage containing the list of Pokemon by National Pokedex number
 	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")
@@ -41,7 +42,7 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 	HTMLS = URLS|>
 		map(rvest::read_html)
 
-	regionDex = map2(HTMLS, dexes, function(HTML, dex){
+	regionalDex = map2(HTMLS, dexes, function(HTML, dex){
 		# HTML = HTMLS[[11]]; dex = dexes[[11]]
 		# Read the tables from the HTML
 		table = HTML|>
@@ -60,7 +61,12 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 
 		# Further clean up the data and rename the columns
 		table|>
-			mutate(type2 = if_else(type == type2, NA_character_, type2))|>
+			mutate(
+				# Remove duplicate types
+				type2 = if_else(type == type2, NA_character_, type2),
+				# Fix Ndex to int
+				Ndex = as.integer(str_remove_all(Ndex, "[^\\d]"))
+			)|>
 			select(!matches("^(MS|Image|ObsidianFieldlands|CrimsonMirelands|CobaltCoastlands|CoronetHighlands|AlabasterIcelands)$"))|>
 			rename(Name = `Pokémon`)|>
 			rename_with(!c(Ndex, Name, starts_with("type")), .fn = function(.){
@@ -89,5 +95,6 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 	# LAdex ObsidianFieldlands CrimsonMirelands CobaltCoastlands CoronetHighlands AlabasterIcelands Ndex  Pokémon    game  dex > Drop odd dexes
 
 
-	if(write)save_data(regionDex, root, file)
+	if(write)save_data("regionalDex", root, file)
+	regionalDex
 }
