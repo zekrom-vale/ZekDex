@@ -4,7 +4,7 @@
 \alias{filterByType}
 \title{Returns a tibble with filtered Pokemon}
 \usage{
-filterByType(type = "ANY", type2 = "ANY", swap = FALSE, data = PokemonNational)
+filterByType(type = "ANY", type2 = "ANY", swap = FALSE, data = nationalDex)
 }
 \arguments{
 \item{type}{Filter on type}

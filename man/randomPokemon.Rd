@@ -4,22 +4,23 @@
 \alias{randomPokemon}
 \title{Returns a random Pokemon}
 \usage{
-randomPokemon(n = 1, ..., p = English, replace = FALSE)
+randomPokemon(n = 1, ..., p = name, replace = FALSE)
 }
 \arguments{
 \item{n}{How many}
 
-\item{p}{What column to return (Ndex, English, form, form2, type, type2 can be used)}
+\item{...}{
+  Arguments passed on to \code{\link[=filterByType]{filterByType}}
+  \describe{
+    \item{\code{type}}{Filter on type}
+    \item{\code{type2}}{Filter on type2}
+    \item{\code{swap}}{Allow type to match type2 and vicea-versa}
+    \item{\code{data}}{Override the data (Must have type and type2 (If type 2 is not ANY or swap is TRUE))}
+  }}
+
+\item{p}{What column to return (ndex, name, form, regional, type, type2 can be used)}
 
 \item{replace}{Should sampling be with replacement?}
-
-\item{type}{Filter on type}
-
-\item{type2}{Filter on type2}
-
-\item{swap}{Allow type to match type2 and vicea-versa}
-
-\item{data}{Override the data (Must have type and type2 (If type 2 is not ANY or swap is TRUE))}
 }
 \description{
 Returns a random Pokemon
@@ -63,14 +64,14 @@ randomPokemon(n = -1, type = "Dragon", swap = TRUE)
 
 # Return the dex number instead
 randomPokemon(n = -1, type = "Dragon", swap = TRUE, p = "Ndex")
-# > "#1011", "#1019", "#0371", "#0633", "#0634", "#0841", "#0334", "#0691",
-# > "#0644", "#0718", "#0782", "#0381", "#0445", "#0804", "#0840", "#0704",
-# > "#0799", "#0886", "#0380", "#0330", "#0842", "#0880", "#0714", "#0147",
-# > "#0895", "#0646", "#0635", "#0705", "#0884", "#1018", "#0967", "#0384",
-# > "#0372", "#0373", "#0621", "#0780", "#0696", "#0887", "#0483", "#1008",
-# > "#0882", "#0706", "#0697", "#1005", "#0784", "#0610", "#0978", "#0998",
-# > "#0890", "#0997", "#0148", "#0443", "#0715", "#0776", "#0230", "#0611",
-# > "#0783", "#0996", "#1020", "#0103", "#0643", "#1009", "#0487", "#0329",
-# > "#0885", "#0612", "#0444", "#0149", "#1021", "#1007", "#0484"
+# > 1011, 1019, 371, 633, 634, 841, 334, 691,
+# > 644, 718, 782, 381, 445, 804, 840, 704,
+# > 799, 886, 380, 330, 842, 880, 714, 147,
+# > 895, 646, 635, 705, 884, 1018, 967, 384,
+# > 372, 373, 621, 780, 696, 887, 483, 1008,
+# > 882, 706, 697, 1005, 784, 610, 978, 998,
+# > 890, 997, 148, 443, 715, 776, 230, 611,
+# > 783, 996, 1020, 103, 643, 1009, 487, 329,
+# > 885, 612, 444, 149, 1021, 1007, 484
 
 }
