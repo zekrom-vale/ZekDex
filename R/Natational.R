@@ -79,13 +79,17 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational")
 				pokemon == "Zygarde50" ~ "50% Form",
 				pokemon == "Zygarde10" ~ "10% Form",
 				# Fix Oricorio Pa'u Style
-				ndex == 741 && form == "Pa" ~ "Pa'u Style",
+				ndex == 741 & form == "Pa" ~ "Pa'u Style",
 				# Fix Groudon and Kyoger
-				form == pokemon || form == "" ~ NA_character_,
+				form == pokemon | form == "" ~ NA_character_,
 				.default = form
 			),
 			pokemon = if_else(ndex == 718, "Zygarde", pokemon),
 			# TODO extract from https://bulbapedia.bulbagarden.net/wiki/Alolan_form
+			# Fix Genesect ndex == 649
+			form = if_else(ndex == 649, form2, form),
+			form2 = if_else(ndex == 649, NA_character_, form2),
+
 			# Move Alolan Galarian Hisuian Paldean forms to form 2
 			temp = if_else(str_detect(form, "Alolan|Galarian|Hisuian|Paldean"), form, NA_character_, NA_character_),
 			form = if_else(is.na(temp), form, form2),
