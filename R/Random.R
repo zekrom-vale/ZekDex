@@ -6,7 +6,7 @@
 #' @importFrom utils data
 #' @return A vector of random Pokemon types
 #' @export
-randomType = function(n=1, replace = FALSE, types = PokemonNational){
+randomType = function(n=1, replace = FALSE, types = types$types){
 	if(n < 0) return("Zekrom")
 	sample(types, n, replace = replace)
 }
@@ -82,7 +82,7 @@ randomPokemon = function(
 		...,
 		p = English,
 		replace = FALSE
-	){
+){
 	# Quosure to capture the expression for later evaluation
 	p=dplyr::enquo(p)
 
@@ -92,20 +92,33 @@ randomPokemon = function(
 		return(randomPokemon(n = -1, type = "Dragon", type2 = "Electric"), data=data)
 	}
 
+	# Get the data from filterByType
+	data = filterByType(...)
+
+	# Check if prob column exists
+	if ("prob" %in% colnames(data)) {
+		# Use prob column as sample probability
+		prob = data$prob
+	} else {
+		# If prob column does not exist, prob can be NULL
+		prob = NULL
+	}
+
 	# Pull the specified column from the data, remove duplicates, and store it in data
-	data = filterByType(...)|>
-		pull(!!p)|>
+	data = data |>
+		dplyr::pull(!!p) |>
 		unique()
 
 	# If data is empty, return an empty character vector
-	if(length( data) == 0)return(character(0))
+	if(length(data) == 0) return(character(0))
 
 	# If n is -1, return all elements in data
-	if(n == -1)return(sample(data, length(data)))
+	if(n == -1) return(sample(data, length(data), prob = prob))
 
 	# Otherwise, return n random elements from data
-	sample(data, n, replace = replace)
+	sample(data, n, replace = replace, prob = prob)
 }
+
 
 #' Returns a tibble with filtered Pokemon
 #'
@@ -256,35 +269,49 @@ filterByType = function(
 randomPokemonGen = function(
 		...,
 		p = English,
-		replace = FALSE
+		replace = FALSE,
+		size = 1
 ){
 	if(pkgload::is_loading()) return()
 	if(!requireNamespace("coro", quietly = TRUE))stop("coro required.  Use install.packages(\"coro\")")
 	# enquo to capture the expression for later evaluation
 	p=dplyr::enquo(p)
 
+	# Get the data from filterByType
+	data = filterByType(...)
+
+	# Check if prob column exists
+	if ("prob" %in% colnames(data)) {
+		# Use prob column as sample probability
+		prob = data$prob
+	} else {
+		# If prob column does not exist, prob can be NULL
+		prob = NULL
+	}
+
 	# Pull the specified column from the data, remove duplicates, and store it in data
-	data = filterByType(...)|>
-		pull(!!p)|>
+	data = data |>
+		dplyr::pull(!!p) |>
 		unique()
 
 	# If data is empty, return an empty character vector
-	if(length(data) == 0)return(character(0))
+	if(length(data) == 0) return(character(0))
 
 	# Create a generator
 	if(replace){
 		coro::generator(function(){
 			while(TRUE){
-				yield(sample(data))
+				yield(sample(data, size = size, prob = prob))
 			}
-		})
+		})()
 	} else {
 		coro::generator(function(){
-			while(length(data) >= 0){
-				item = sample(data)
+			while(length(data) > 0){
+				item = sample(data, size = size, prob = prob)
 				data = setdiff(data, item)
 				yield(item)
 			}
-		})
+		})()
 	}
 }
+
