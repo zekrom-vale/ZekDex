@@ -40,7 +40,10 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonEvolution"){
 				# Method2 could also be evolution type
 				rename(family = X1, base = X2, method = X3, evo = X5, method2 = X6, evo2 = X8)
 		})|>
-		bind_rows()
+		bind_rows()|>
+		mutate(
+			first = if_else(is.na(evo), NA_character_, base, NA_character_)
+		)
 
 	# Bind the rows together
 	evTable2 = bind_rows(
@@ -58,10 +61,10 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonEvolution"){
 					# Deerling 	Deerling 	Level 34 → 	Sawsbuck 	Sawsbuck 	Winter Form
 					method2 = if_else(is.na(evo2), method2, NA_character_, method2)
 				)|>
-				select(family, base, method, evo, evoForm = method2, transition),
+				select(family, base, method, evo, evoForm = method2, transition, first),
 			# Second Evolution
 			evTable|>
-				select(family, base = evo, method = method2, evo = evo2)|>
+				select(family, base = evo, method = method2, evo = evo2, first)|>
 				# Fix Pokemon with only 1 evolution
 				filter(!is.na(evo))|>
 				mutate(
@@ -109,14 +112,24 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonEvolution"){
 			into = c("evo", "form2"),
 			regex = "([^()]+)(?:\\(([^()]+)\\))?"
 		)|>
+		extract(
+			first,
+			into = c("first", "firstForm"),
+			regex = "([^()]+)(?:\\(([^()]+)\\))?"
+		)|>
 		mutate(
 			# Trim form and change "" to NA
 			form = if_else(form == "", NA_character_, str_trim(form), form),
 			# Trim form2 and change "" to NA
 			form2 = if_else(form2 == "", NA_character_, str_trim(form2), NA_character_),
+			# Trim firstForm and change "" to NA
+			firstForm = if_else(firstForm == "", NA_character_, str_trim(firstForm), NA_character_),
 
 			# Overwrite form with evoForm if it exists
 			form = if_else(is.na(evoForm), form, evoForm, form),
+			# Overwrite firstForm with evoForm if it exists
+			firstForm = if_else(is.na(evoForm), firstForm, evoForm, firstForm),
+
 			# If evoForm is not NA copy from form2
 			evoForm = if_else(is.na(evoForm), form2, evoForm, form2),
 			# Drop form2
@@ -127,13 +140,6 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonEvolution"){
 			method = str_remove(method, " \u2192"),
 			# Transition is none if evo is NA
 			transition = if_else(is.na(evo), "None", transition)
-		)
-
-	# Add first evolution TODO add further back in the chain to avoid biding
-	evolution = evolution|>left_join(evolution, by=c(base="evo", "family"), relationship = "many-to-many")|>
-		select(family, base, method = method.x, evo, transition = transition.x, first = base.y)|>
-		mutate(
-			first = if_else(is.na(first) & transition != "None", base, first, first)
 		)
 
 	if(write)save_data("evolution", root, file)
