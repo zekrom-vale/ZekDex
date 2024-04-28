@@ -99,6 +99,36 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational")
 		# Rename
 		rename(name = "pokemon", regional = "form2")
 
+	# Add is legendary
+	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/Zekrom_(Pok%C3%A9mon)")
+	legendary = HTML|>
+		rvest::html_element(css = 'div[class="roundy"]:last-of-type')|>
+		rvest::html_elements(css = 'a')|>
+		rvest::html_attr("title")|>
+		discard(~ str_detect(., "Legendary|Generation|Mythical|Ultra Beast"))
+
+	# Add is mythical
+	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/Zeraora_(Pok%C3%A9mon)")
+	mythical = HTML|>
+		rvest::html_element(css = 'div[class="roundy"]:last-of-type')|>
+		rvest::html_elements(css = 'a')|>
+		rvest::html_attr("title")|>
+		discard(~ str_detect(., "Legendary|Generation|Mythical|Ultra Beast"))
+	# Add is Ultra Beast
+
+	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/Nihilego_(Pok%C3%A9mon)")
+	ultraBeast = HTML|>
+		rvest::html_element(css = 'div[class="roundy"]:last-of-type')|>
+		rvest::html_elements(css = ':not(small)>a')|>
+		rvest::html_attr("title")|>
+		discard(~ str_detect(., "Legendary|Generation|Mythical|Ultra Beast"))
+
+	nationalDex = nationalDex|>
+		mutate(
+			isLegendary = name %in% legendary,
+			isMythical = name %in% mythical,
+			isUltraBeast = name %in% ultraBeast
+		)
 	# If 'write' is TRUE, write the 'nationalDex' dataframe to a CSV file
 	if(write)save_data("nationalDex", root, file)
 
