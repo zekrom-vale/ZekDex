@@ -12,7 +12,7 @@
 #' @importFrom readr write_csv
 #' @importFrom magrittr "%>%"
 #' @export
-gen_evos = function(write = FALSE, root = "data/", file = "PokemonEvolution"){
+gen_evos = function(write = FALSE, root = "data/", file = "PokemonFamily"){
 	# library(tidyverse)
 	if(pkgload::is_loading()) return()
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
@@ -21,14 +21,14 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonEvolution"){
 
 	evHTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_evolution_family")
 
-	evTable = rvest::html_table(evHTML, header = FALSE)
+	famTable = rvest::html_table(evHTML, header = FALSE)
 	# Discard the end tables
-	evTable = evTable[1:(length(evTable)-3)]
+	famTable = famTable[1:(length(famTable)-3)]
 
 	all_identical = function(...){
 		length(unique(list(...))) == 1
 	}
-	evTable = evTable|>
+	famTable = famTable|>
 		map(function(table){
 			# table = evTable[[1]]
 			table|>
@@ -46,9 +46,9 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonEvolution"){
 		)
 
 	# Bind the rows together
-	evTable2 = bind_rows(
+	family = bind_rows(
 			# First Evolution
-			evTable|>
+			famTable|>
 				mutate(
 					transition = "First",
 					# Collect method2 if it describes the evolution IE
@@ -63,7 +63,7 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonEvolution"){
 				)|>
 				select(family, base, method, evo, evoForm = method2, transition, first),
 			# Second Evolution
-			evTable|>
+			famTable|>
 				select(family, base = evo, method = method2, evo = evo2, first)|>
 				# Fix Pokemon with only 1 evolution
 				filter(!is.na(evo))|>
@@ -74,19 +74,19 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonEvolution"){
 		)
 
 	# Fix unknown
-	evolution = evTable2|>
-		filter(family != "Unown")|>
-		bind_rows(
-			evTable2|>
-				filter(family == "Unown")|>
-				mutate(evo = NA_character_),
-			evTable2|>
-				filter(family == "Unown")|>
-				mutate(
-					base = evo,
-					evo = NA_character_
-				)|>
-				drop_na(base)
+	family = bind_rows(
+		family|>
+			filter(family != "Unown"),
+		family|>
+			filter(family == "Unown")|>
+			mutate(evo = NA_character_),
+		family|>
+			filter(family == "Unown")|>
+			mutate(
+				base = evo,
+				evo = NA_character_
+			)|>
+			drop_na(base)
 		)|>
 		drop_na(base)|>
 		mutate(
@@ -142,13 +142,6 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonEvolution"){
 			transition = if_else(is.na(evo), "None", transition)
 		)
 
-	if(write)save_data("evolution", root, file)
-	evolution
+	if(write)save_data("family", root, file)
+	family
 }
-
-# ZekDex::evolution|>left_join(ZekDex::evolution, by=c(base="evo", "family"), relationship = "many-to-many")|>
-# 	select(family, base, method = method.x, evo, transition = transition.x, first = base.y)|>
-# 	mutate(
-# 		first = if_else(is.na(first) & transition != "None", base, first, first)
-# 	)|>
-# 	distinct()
