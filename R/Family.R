@@ -12,7 +12,7 @@
 #' @importFrom readr write_csv
 #' @importFrom magrittr "%>%"
 #' @export
-gen_evos = function(write = FALSE, root = "data/", file = "PokemonFamily"){
+gen_evos = function(write = FALSE, root = "data/", file = "PokemonFamily", fileLong = "PokemonFamilyLong"){
 	# library(tidyverse)
 	if(pkgload::is_loading()) return()
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
@@ -118,6 +118,11 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonFamily"){
 			regex = "([^()]+)(?:\\(([^()]+)\\))?"
 		)|>
 		mutate(
+			# Trim
+			base = str_trim(base),
+			evo = str_trim(evo),
+			first = str_trim(first),
+
 			# Trim form and change "" to NA
 			form = if_else(form == "", NA_character_, str_trim(form), form),
 			# Trim form2 and change "" to NA
@@ -142,6 +147,28 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonFamily"){
 			transition = if_else(is.na(evo), "None", transition)
 		)
 
+	# Note this will be sorter than national dex as it does not include swapale
+	# forms.  Like Giratina Altered Forme/Origin Forme and Darmanitan Standard Mode / Zen Mode etc
+	familyLong = family|>
+		mutate(
+			base = paste(base, form, sep = "_"),
+			evo = paste(evo, evoForm, sep = "_"),
+			form = NULL,
+			evoForm = NULL
+		)|>
+		pivot_longer(cols = c("base", "evo"))|>
+		separate(value, into = c("name", "form"), sep = "_", convert = TRUE)|>
+		drop_na(name)|>
+		select(-method)|>
+		distinct()|>
+		mutate(
+			stage = if_else(first == name, 1L, NA_integer_, NA_integer_)
+		)|>
+		group_by(name, form)|>
+		filter(n()<=1 | transition != "First")|>
+		ungroup()
+
 	if(write)save_data("family", root, file)
-	family
+	if(write)save_data("familyLong", root, fileLong)
+	list(family, familyLong)
 }
