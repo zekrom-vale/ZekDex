@@ -494,4 +494,23 @@ read_data = function(data, root, ns = asNamespace("ZekDex"), one = TRUE){
 	}
 }
 
-
+#' Regional Form Function
+#'
+#' This function provides a list or a regex pattern of Pokémon regional forms.
+#'
+#' @param re A logical value. If TRUE, the function returns a regex pattern. If FALSE, it returns a list. Default is FALSE.
+#' @param ext A logical value. If TRUE, the function includes extended regional forms in the output. Default is FALSE.
+#'
+#' @return If re is TRUE, a character string representing a regex pattern of Pokémon regional forms. If re is FALSE, a character vector of Pokémon regional forms.
+#'
+#' @examples
+#' regionalForm(re = TRUE, ext = TRUE)
+#' regionalForm(re = FALSE, ext = FALSE)
+#'
+#' @export
+regionalForm = function(re = FALSE, ext = FALSE){
+	L = c("Alolan","Galarian","Hisuian","Paldean")
+	if(ext) L = c(L, "Kantonian","Hoennian","Unovan","Kalosian")
+	if(re) return(paste(L, collapse = "|"))
+	L
+}

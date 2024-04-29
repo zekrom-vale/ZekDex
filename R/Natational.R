@@ -91,7 +91,7 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational",
 			form2 = if_else(ndex == 649, NA_character_, form2),
 
 			# Move Alolan Galarian Hisuian Paldean forms to form 2
-			temp = if_else(str_detect(form, "Alolan|Galarian|Hisuian|Paldean"), form, NA_character_, NA_character_),
+			temp = if_else(str_detect(form, regionalForm(re=TRUE)), form, NA_character_, NA_character_),
 			form = if_else(is.na(temp), form, form2),
 			form2 = if_else(is.na(temp), form2, temp),
 			temp = NULL
