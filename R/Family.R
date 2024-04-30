@@ -73,6 +73,9 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonFamily", fileL
 				)
 		)
 
+	REGIONAL_REGEX = regionalForm(re = TRUE, ext = TRUE)
+	REMOVE_REGEX = glue("[\\s,]*{REGIONAL_REGEX}[\\s,]*")
+
 	# Fix unknown
 	family = bind_rows(
 		family|>
@@ -118,6 +121,17 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonFamily", fileL
 			regex = "([^()]+)(?:\\(([^()]+)\\))?"
 		)|>
 		mutate(
+			# Extract the reginal form
+			regional = str_extract(form, REGIONAL_REGEX),
+			form = str_remove(form, REMOVE_REGEX),
+
+			evoRegional = str_extract(evoForm, REGIONAL_REGEX),
+			evoForm = str_remove(evoForm, REMOVE_REGEX),
+
+
+			firstRegional = str_extract(firstForm, REGIONAL_REGEX),
+			firstForm = str_remove(firstForm, REMOVE_REGEX),
+
 			# Trim
 			base = str_trim(base),
 			evo = str_trim(evo),
@@ -151,19 +165,28 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonFamily", fileL
 	# forms.  Like Giratina Altered Forme/Origin Forme and Darmanitan Standard Mode / Zen Mode etc
 	familyLong = family|>
 		mutate(
-			base = paste(base, form, sep = "_"),
-			evo = paste(evo, evoForm, sep = "_"),
+			base = paste("base", base, form, regional, sep = "_"),
+			evo = paste("evo", evo, evoForm, evoRegional, sep = "_"),
 			form = NULL,
-			evoForm = NULL
+			evoForm = NULL,
+			evoRegional = NULL,
+			regional = NULL
 		)|>
 		pivot_longer(cols = c("base", "evo"))|>
-		separate(value, into = c("name", "form"), sep = "_", convert = TRUE)|>
+		separate(value, into = c("base", "name", "form", "regional"), sep = "_", convert = TRUE)|>
 		drop_na(name)|>
 		select(-method)|>
 		distinct()|>
 		mutate(
-			stage = if_else(first == name, 1L, NA_integer_, NA_integer_)
+			stage = case_when(
+				transition == "First" & base == "base" ~ 1L,
+				transition == "Second" & base == "base" ~ 2L,
+				transition == "First" & base == "evo" ~ 2L,
+				transition == "Second" & base == "evo" ~ 3L,
+				.default = 0L
+			)
 		)|>
+		select(-base)|>
 		group_by(name, form)|>
 		filter(n()<=1 | transition != "First")|>
 		ungroup()
