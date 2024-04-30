@@ -13,7 +13,7 @@
 #' @importFrom purrr map discard
 #' @importFrom tibble tibble
 #' @importFrom stringr str_remove_all str_detect
-gen_national = function(write = FALSE, root = "data/", file = "PokemonNational", fileGroup = "PokemonGroups"){
+gen_national = function(write = FALSE, root = "data/", file = "PokemonNational"){
 	if(pkgload::is_loading()) return()
 	# Import the required package 'rvest' for web scraping
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
@@ -130,42 +130,14 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational",
 			isUltraBeast = name %in% ultraBeast
 		)
 
-	# Add duo/trio/... groups
-	groups = gen_groups(write = write, root = root, file = fileGroup)
+	# Add groups
+	groups = read_data("PokemonEvolution", root)
 	nationalDex = nationalDex|>
 		left_join(groups, by = "name")
-
-	# Add family
-	# TODO Find the base pokemon
-	evolution = read_data("PokemonEvolution", root)
 
 	# If 'write' is TRUE, write the 'nationalDex' dataframe to a CSV file
 	if(write)save_data("nationalDex", root, file)
 
 	# Return the 'nationalDex' dataframe
 	nationalDex
-}
-
-gen_groups = function(write = FALSE, root = "data/", file = "PokemonGroups"){
-	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/Groups_of_Legendary_and_Mythical_Pok%C3%A9mon")
-	table = rvest::html_table(HTML)[1:4]
-	groups = table|>
-		map(function(x){
-			# x = table[[2]]
-			s = str_split(names(x)[1], " ")[[1]][2]
-
-			x|>
-				janitor::clean_names()|>
-				rename_with(.fn = ~ paste0("x", 1:length(.)))|>
-				mutate(
-					family = if_else(x1 == x2, x1, NA_character_)
-				)|>
-				fill(family, .direction = "up")|>
-				filter(x1!=x2)|>
-				pivot_longer(cols = starts_with("x"), values_to = "name", names_to = NULL)|>
-				mutate(size = s)
-		})|>
-		bind_rows()
-	if(write)save_data("groups", root, file)
-	groups
 }

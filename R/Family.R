@@ -160,6 +160,10 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonFamily", fileL
 			# Transition is none if evo is NA
 			transition = if_else(is.na(evo), "None", transition)
 		)
+	# Add groups
+	groups = read_data("PokemonEvolution", root)
+	family = family|>
+		left_join(groups, by = "name")
 
 	# Note this will be sorter than national dex as it does not include swapale
 	# forms.  Like Giratina Altered Forme/Origin Forme and Darmanitan Standard Mode / Zen Mode etc
