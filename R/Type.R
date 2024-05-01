@@ -12,6 +12,7 @@
 #' @importFrom purrr discard
 #' @importFrom tibble tibble
 #' @importFrom utils data
+#' @importFrom pkgload is_loading
 gen_type = function(write = FALSE, root = "data/", file = "PokemonTypes"){
 	if(pkgload::is_loading()) return()
 	national = read_data("PokemonNational", root)

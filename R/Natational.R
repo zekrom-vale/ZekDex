@@ -13,6 +13,9 @@
 #' @importFrom purrr map discard
 #' @importFrom tibble tibble
 #' @importFrom stringr str_remove_all str_detect
+#' @importFrom rvest read_html html_table html_element html_elements html_attr
+#' @importFrom janitor clean_names
+#' @importFrom pkgload is_loading
 gen_national = function(write = FALSE, root = "data/", file = "PokemonNational"){
 	if(pkgload::is_loading()) return()
 	# Import the required package 'rvest' for web scraping

@@ -13,6 +13,8 @@
 #' @importFrom stringr str_extract str_remove_all
 #' @importFrom tidyr drop_na
 #' @importFrom magrittr "%>%"
+#' @importFrom rvest read_html html_table html_elements html_attr
+#' @importFrom pkgload is_loading
 gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 	if(pkgload::is_loading()) return()
 	# Check if the 'rvest' package is installed. If not, stop the function and ask the user to install it.

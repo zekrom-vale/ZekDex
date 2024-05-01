@@ -13,6 +13,7 @@
 #' @importFrom stringr str_split
 #' @importFrom rvest read_html html_table
 #' @importFrom janitor clean_names
+#' @importFrom pkgload is_loading
 #' @export
 gen_groups = function(write = FALSE, root = "data/", file = "PokemonGroups"){
 	if(pkgload::is_loading()) return()

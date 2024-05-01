@@ -11,6 +11,8 @@
 #' @importFrom stringr str_remove
 #' @importFrom readr write_csv
 #' @importFrom magrittr "%>%"
+#' @importFrom rvest read_html html_table
+#' @importFrom pkgload is_loading
 #' @export
 gen_evos = function(write = FALSE, root = "data/", file = "PokemonFamily", fileLong = "PokemonFamilyLong"){
 	# library(tidyverse)
