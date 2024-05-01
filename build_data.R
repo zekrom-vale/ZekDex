@@ -2,7 +2,7 @@ rstudioapi::restartSession(clean = TRUE)
 
 # Install package
 devtools::clean_dll()
-rm(list = ls())
+rm(list = ls(all.names = TRUE))
 devtools::document()
 devtools::install() # Or clean and install in Build
 # (Required if some data chaged, will cause data coruption issues on the compiled package)
