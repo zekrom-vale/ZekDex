@@ -131,7 +131,7 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational")
 		)
 
 	# Add groups
-	groups = read_data("PokemonEvolution", root)
+	groups = read_data("PokemonGroups", root)
 	nationalDex = nationalDex|>
 		left_join(groups, by = "name")
 
