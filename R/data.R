@@ -125,10 +125,10 @@
 #'   \item{Japanese_Kana}{\code{character} Japanese Kana name of the Pokemon.}
 #'   \item{Japanese_Hepburn}{\code{character} Japanese Hepburn name of the Pokemon.}
 #'   \item{Japanese_Trademarked}{\code{character} Japanese Trademarked name of the Pokemon.}
-#'   \item{German_german}{\code{character} German name of the Pokemon.}
-#'   \item{French_french}{\code{character} French name of the Pokemon.}
-#'   \item{Spanish_spanish}{\code{character} Spanish name of the Pokemon.}
-#'   \item{Italian_italian}{\code{character} Italian name of the Pokemon.}
+#'   \item{German}{\code{character} German name of the Pokemon.}
+#'   \item{French}{\code{character} French name of the Pokemon.}
+#'   \item{Spanish}{\code{character} Spanish name of the Pokemon.}
+#'   \item{Italian}{\code{character} Italian name of the Pokemon.}
 #'   \item{Korean_Hangul}{\code{character} Korean Hangul name of the Pokemon.}
 #'   \item{Korean_Revised}{\code{character} Korean Revised name of the Pokemon.}
 #'   \item{Korean_McCune-Reischauer}{\code{character} Korean McCune-Reischauer name of the Pokemon.}
@@ -139,10 +139,10 @@
 #'   \item{Chinese_Yale}{\code{character} Chinese Yale name of the Pokemon.}
 #'   \item{Chinese_Former names}{\code{character} Chinese Former names of the Pokemon.}
 #'   \item{Brazilian_Portuguese_brazilian_portuguese}{\code{character} Brazilian Portuguese name of the Pokemon.}
-#'   \item{Turkish_turkish}{\code{character} Turkish name of the Pokemon.}
+#'   \item{Turkish}{\code{character} Turkish name of the Pokemon.}
 #'   \item{Russian_Cyrillic}{\code{character} Russian Cyrillic name of the Pokemon.}
 #'   \item{Russian_Romanization}{\code{character} Russian Romanization name of the Pokemon.}
-#'   \item{Thai_Thai}{\code{character} Thai name of the Pokemon.}
+#'   \item{Thai}{\code{character} Thai name of the Pokemon.}
 #'   \item{Thai_RTGS}{\code{character} Thai RTGS name of the Pokemon.}
 #'   \item{Hindi_Devanāgarī}{\code{character} Hindi Devanāgarī name of the Pokemon.}
 #'   \item{Hindi_Transliteration}{\code{character} Hindi Transliteration name of the Pokemon.}

@@ -108,10 +108,10 @@ As of now the language columns are in the format of `<Language>_<language subset
 - `Japanese_Kana` (`character`): Japanese Kana name of the Pokemon.
 - `Japanese_Hepburn` (`character`): Japanese Hepburn name of the Pokemon.
 - `Japanese_Trademarked` (`character`): Japanese Trademarked name of the Pokemon.
-- `German_german` (`character`): German name of the Pokemon.
-- `French_french` (`character`): French name of the Pokemon.
-- `Spanish_spanish` (`character`): Spanish name of the Pokemon.
-- `Italian_italian` (`character`): Italian name of the Pokemon.
+- `German` (`character`): German name of the Pokemon.
+- `French` (`character`): French name of the Pokemon.
+- `Spanish` (`character`): Spanish name of the Pokemon.
+- `Italian` (`character`): Italian name of the Pokemon.
 - `Korean_Hangul` (`character`): Korean Hangul name of the Pokemon.
 - `Korean_Revised` (`character`): Korean Revised name of the Pokemon.
 - `Korean_McCune-Reischauer` (`character`): Korean McCune-Reischauer name of the Pokemon.
@@ -122,10 +122,10 @@ As of now the language columns are in the format of `<Language>_<language subset
 - `Chinese_Yale` (`character`): Chinese Yale name of the Pokemon.
 - `Chinese_Former names` (`character`): Chinese Former names of the Pokemon.
 - `Brazilian_Portuguese_brazilian_portuguese` (`character`): Brazilian Portuguese name of the Pokemon.
-- `Turkish_turkish` (`character`): Turkish name of the Pokemon.
+- `Turkish` (`character`): Turkish name of the Pokemon.
 - `Russian_Cyrillic` (`character`): Russian Cyrillic name of the Pokemon.
 - `Russian_Romanization` (`character`): Russian Romanization name of the Pokemon.
-- `Thai_Thai` (`character`): Thai name of the Pokemon.
+- `Thai` (`character`): Thai name of the Pokemon.
 - `Thai_RTGS` (`character`): Thai RTGS name of the Pokemon.
 - `Hindi_Devanāgarī` (`character`): Hindi Devanāgarī name of the Pokemon.
 - `Hindi_Transliteration` (`character`): Hindi Transliteration name of the Pokemon.
