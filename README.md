@@ -1,6 +1,22 @@
 # ZekDex
 
-ZekDex is an R package that provides datasets about Pokémon, including National Dex information, Legendary and Mythical Pokémon groupings, base stats, evolution and family information, and more. It also includes functions to generate random Pokémon.
+ZekDex is an R package that provides datasets about Pokémon, including National Dex information,
+Legendary and Mythical Pokémon groupings, base stats, evolution and family information, and more.
+It also includes functions to generate random Pokémon.
+
+ZekDex aims to provide upto data and accurate iformation about Pokémon based off of Bulbapedia.
+As of writing this it includes generations I-IX and allows users to generate upto date iformation if this ever falls behind.
+
+## Installation
+
+You can install the package from GitHub with:
+
+```r
+# If devtools is not installed:
+install.packages("devtools")
+# Install the package ZekDex from https://github.com/zekrom-vale/ZekDex
+devtools::install_github("zekrom-vale/ZekDex")
+```
 
 ## Datasets
 
@@ -10,8 +26,8 @@ The package includes the following datasets:
 Pokemon National dex information
 - `ndex` (`integer`):  National Pokedex number.
 - `name` (`character`): Name of the Pokemon.
-- `form` (`character`): Form of the Pokemon. NA if the Pokemon does not have a special form.
-- `regional` (`character`): Regional form of the Pokemon. NA if the Pokemon does not have a regional form.
+- `form` (`character`): Form of the Pokemon. NA if the Pokemon is not a special form.
+- `regional` (`character`): Regional form of the Pokemon. NA if the Pokemon is not a regional form.
 - `type` (`character`): Primary type of the Pokemon.
 - `type2` (`character`): Secondary type of the Pokemon. NA if the Pokemon does not have a secondary type.
 - `generation` (`integer`): The generation the Pokemon was introduced in.
@@ -19,7 +35,7 @@ Pokemon National dex information
 - `isMythical` (`logical`): Whether the Pokemon is Mythical.
 - `isUltraBeast` (`logical`): Whether the Pokemon is an Ultra Beast.
 - `family` (`character`): Legendary / Mythical family group of the Pokemon. NA if the Pokemon does not belong to a family group.
-- `size` (`character`): Legendary / Mythical family size. NA if the Pokemon does not belong to a family group.
+- `size` (`character`): Legendary / Mythical family size. NA if the Pokemon does not belong to a Legendary / Mythical family group.
 
 ### groups
 Legendary and Mythical Pokémon Groupings
@@ -28,7 +44,7 @@ Legendary and Mythical Pokémon Groupings
 - `size` (`character`): The size category of the family grouping. Categories include 'duos', 'trios', 'quartets', and 'quintets'.
 
 ### stats
-Base stats of Pokémon
+Base stats of Pokémon including various forms / sizes of Pokémon.
 - `ndex` (`integer`): National Pokédex number
 - `name` (`character`): Pokémon name
 - `HP` (`integer`): Hit Points
@@ -43,7 +59,8 @@ Base stats of Pokémon
 - `SpDefense` (`integer`): Special Defense strength (NA for Gen I)
 
 ### family
-Pokemon evolution and family information
+Pokemon evolution and family information.
+This dataset is good if you want to know the evolution tree.
 - `family` (`character`): The family to which the Pokemon belongs.
 - `base` (`character`): The prior form of the pokemon or the base form
 - `form` (`character`): The specific form of the Pokemon. NA if not applicable.
@@ -58,7 +75,9 @@ Pokemon evolution and family information
 - `firstRegional` (`character`): The regional first form of the Pokemon. NA if not applicable.
 
 ### familyLong
-Extended Pokémon family information
+Extended Pokémon family information.
+This dataset looses the evolution tree, but is good for finding what Pokémon is in each family.
+TODO fixing the `family.x` and `family.y`
 - `family.x` (`character`): The family of the Pokemon
 - `transition` (`character`): The transition stage of the Pokemon
 - `first` (`character`): The first form of the Pokemon
@@ -72,7 +91,8 @@ Extended Pokémon family information
 - `size` (`character`): The size of the legendary family
 
 ### languages
-Pokémon National Dex information in multiple languages
+Pokémon National Dex information in multiple languages.
+As of now the language columns are in the format of `<Language>_<language subset>` if there is no subset it's `<Language>_<language>`.
 - `ndex` (`integer`): National Pokedex number.
 - `name` (`character`): Name of the Pokemon.
 - `form` (`character`): Form of the Pokemon. NA if the Pokemon does not have a special form.
@@ -112,7 +132,8 @@ Pokémon National Dex information in multiple languages
 - `Hindi_Romanization` (`character`): Hindi Romanization name of the Pokemon.
 
 ### regionalDex
-Pokémon information from the Regional Dex
+Pokémon information from the Regional Dex.
+As of now the regionalDex columns are in the format of `<Generation>_<Game>_<DexName>`, `NA` if that data is missing.
 - `ndex` (`integer`): National Pokedex number.
 - `name` (`character`): Name of the Pokemon.
 - `form` (`character`): Form of the Pokemon. NA if the Pokemon does not have a special form.
@@ -154,8 +175,9 @@ Pokémon information from the Regional Dex
 - `NA_Kitakami_Kdex` (`integer`): Kitakami Pokedex number.
 
 ### types
-Information about various Pokémon types
-- `types` (`character`): The types of Pokemon. Possible types include "Grass", "Fire", "Water", "Bug", "Normal", "Dark", "Poison", "Electric", "Ground", "Ice", "Fairy", "Steel", "Fighting", "Psychic", "Rock", "Ghost", "Dragon", "Flying".
+Information about various Pokémon types.
+- `types` (`character`): The types of Pokemon.
+Types include "Grass", "Fire", "Water", "Bug", "Normal", "Dark", "Poison", "Electric", "Ground", "Ice", "Fairy", "Steel", "Fighting", "Psychic", "Rock", "Ghost", "Dragon", "Flying".
 
 
 You can load any dataset with the `data()` function. For example, `data(nationalDex)`.
@@ -174,22 +196,24 @@ The package provides the following functions:
   - `replace` (`logical`): Should sampling be with replacement?
   - `size` (`integer`): The number of random Pokémon to generate on each call.
 
-## Installation
-
-You can install the package from GitHub with:
-
-```r
-devtools::install_github("zekrom-vale/ZekDex")
-```
+- `gen_*()`: Regenerates parts of the dataset
+  - `write` (`logical`): Should it write the data to a file?  (Recomended to save the output if `FALSE` as this takes time)
+  - `root` (`character`): Where to look for files and write them
+  - `file` (`character`): Where to save the data without extention if `write == TRUE`
+  - `file*` (`character`): Same as file but for other datasets generated
+  - NOTE: These functions scrape Bulbapedia, do not call them more then once.  Save the data to file and use it, updating only when required.
 
 ## License
 
-This package is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License. For more details, see the [LICENSE.md](LICENSE.md) file.
+This package is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License.
+For more details, see the [LICENSE](LICENSE) file.
 
 ## Attribution
 
-The data in this package is sourced from Bulbapedia. For more details on the data sources and their attribution, see the [ATTRIBUTION.md](ATTRIBUTION.md) file.
+The data in this package is sourced from Bulbapedia.
+For more details on the data sources and their attribution, see the [ATTRIBUTION.md](ATTRIBUTION.md) file.
 
 ## Data Formats
 
-The data is provided in .rda format for use in this R package. You can also find .csv files for use in other programs in the /data directory.
+The data is provided in .rda format for use in this R package.
+You can also find .csv files for use in other programs in the /data directory.
