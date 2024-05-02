@@ -52,6 +52,34 @@ gen_stats = function(
 	})|>
 		bind_rows()
 
+	national = read_data("PokemonNational", root)
+
+	pokemon = national|>
+		select(ndex, name)|>
+		distinct()
+
+	# TODO regenerate nationalDex data
+	# Extract subset data stats = ZekDex::stats
+	stats = stats|>
+		rename(form = name)|>
+		# Join by ndex
+		left_join(pokemon, by = "ndex")|>
+		# Extract the mega / primal information
+		extract(form, into = c("form", "MegaOrPrimal", "Mega"), regex = "^(.*?)(?:(?= (Mega|Primal) )(.*))?$")|>
+		mutate(
+			form = str_trim(str_remove(form, name)),
+			# For form, MegaOrPrimal, Mega
+			across(
+				c(form, MegaOrPrimal, Mega),
+				# trim and blank is set to NA
+				.fns = ~if_else(str_trim(.) == "", NA_character_, str_trim(.))
+			)
+		)|>
+		rename(SpAttack = `Sp. Attack`, SpDefense = `Sp. Defense`)|>
+		# Reorder
+		select(ndex, name, everything())
+
+
 	statsWide = stats|>
 		pivot_wider(names_from = "Gen", values_from = c("HP", "Attack", "Defense", "Speed", "Special", "Total", "Average", "Sp. Attack", "Sp. Defense"))
 

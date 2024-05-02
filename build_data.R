@@ -15,11 +15,11 @@ gen_groups(write = TRUE)
 gen_national(write = TRUE)
 
 
-gen_stats(write = TRUE)
 # Requires PokemonGroups
 gen_evos(write = TRUE)
 
 # Requires PokemonNational
+gen_stats(write = TRUE)
 gen_lang(write = TRUE)
 gen_reginal(write = TRUE)
 gen_type(write = TRUE)
