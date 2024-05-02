@@ -51,22 +51,28 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational")
 		# Rename the 'type_2' column to 'type2'
 		rename(type2 = "type_2")|>
 		# Deal with forms
-		# (\\w[[:lower:]\\d]+(?:[\\-.: ] ?[[:upper:]][[:lower:]]*)?): This is the first capture group.
-		# \\w[[:lower:]\\d]+: Matches one or more word characters (\\w), lowercase letters ([[:lower:]]), or digits (\\d).
-		# (?:[\\-.: ] ?[[:upper:]]?[[:lower:]]*)?: This is a non-capturing group (indicated by ?:), which means it groups the included pattern but does not create a separate capture group for it. It matches zero or one occurrence of the following pattern:
-		# [\\-.: ] ?: Matches a hyphen, dot, colon, or space, followed by an optional space.
-		# [[:upper:]]?[[:lower:]]*: Matches an optional uppercase letter followed by zero or more lowercase letters.
-		# ([\\w\\- :]+)?: This is the second capture group.
-		# \\w\\- :: Matches any word character, hyphen, or space.
-		# +: Matches one or more of the preceding element.
-		# ?: Makes the entire second capture group optional, meaning it will match even if this group is not present in the string.
+		# The regex pattern is divided into three main capture groups:
+		# (\\p{L}[\\p{Ll}\u2640\u2642']+(?:[\\-.: ] ?[[:upper:]]?[[:lower:].]*)?): This is the first capture group.
+			# It matches a word character (\\p{L})
+			# Followed by a sequence of lowercase letters ([\\p{Ll}]), the female (\u2640) and male (\u2642) symbols, or an apostrophe (')
+			# Followed by an optional non-capturing group.
+				# The non-capturing group matches a hyphen, dot, colon, or space
+				# Optionally followed by a space
+				# An optional uppercase letter
+				# And zero or more lowercase letters or dot (\\.).
+
+		# ([^()\\n\\r]+)?: This is the second capture group.
+			# It matches one or more of any characters except parentheses, newline (\\n), and carriage return (\\r).
+			# This group is optional, meaning it will match even if this group is not present in the string.
+
 		# (?:\\(([^()]+)\\))?: This is the third capture group.
-	# \\( and \\): Matches the literal parentheses “(” and “)”.
-	# [^()]+: Matches one or more of any characters except parentheses.
-	# The entire group is made optional by the trailing ?.
+			# It matches a literal opening parenthesis (\\()
+			# Followed by one or more of any characters except parentheses
+			# And a literal closing parenthesis (\\)).
+			# The entire group is optional, meaning it will match even if this group is not present in the string.
 	extract(
-		pokemon,
-		regex = "(\\w[[:lower:]\\d]+(?:[\\-.: ] ?[[:upper:]]?[[:lower:]]*)?)([\\w\\- :]+)?(?:\\(([^()]+)\\))?",
+		pokemon, # Fix NidoranM/F, Farfetch'd, and Mime Jr.
+		regex = "(\\p{L}[\\p{Ll}\u2640\u2642']+(?:[\\-.: ] ?[[:upper:]]?[[:lower:].]*)?)([^()\\n\\r]+)?(?:\\(([^()]+)\\))?",
 		into = c("pokemon", "form", "form2")
 	)|>
 		# Fix duplicate types and clean up the 'ndex', 'form', and 'form2' columns
@@ -77,21 +83,19 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational")
 			# Arceus technically not correct
 			# Koraidon and Miraidon forms are incomplete
 			# Furfrou does not have the trimed forms
-			# Fix Zygarde50 and Zygarde10
 			form = case_when(
-				pokemon == "Zygarde50" ~ "50% Form",
-				pokemon == "Zygarde10" ~ "10% Form",
-				# Fix Oricorio Pa'u Style
-				ndex == 741 & form == "Pa" ~ "Pa'u Style",
-				# Fix Groudon and Kyoger
-				form == pokemon | form == "" ~ NA_character_,
+				# Fix Groudon and Kyoger. Fix Porygon2
+				form == pokemon | form == "" | ndex == 233 ~ NA_character_,
+				# Fix Genesect ndex == 649
+				ndex == 649 ~ form2,
 				.default = form
 			),
-			pokemon = if_else(ndex == 718, "Zygarde", pokemon),
 			# TODO extract from https://bulbapedia.bulbagarden.net/wiki/Alolan_form
 			# Fix Genesect ndex == 649
-			form = if_else(ndex == 649, form2, form),
 			form2 = if_else(ndex == 649, NA_character_, form2),
+
+			# fix Porygon2
+			pokemon = if_else(ndex == 233, "Porygon2", pokemon),
 
 			# Move Alolan Galarian Hisuian Paldean forms to form 2
 			temp = if_else(str_detect(form, regionalForm(re=TRUE)), form, NA_character_, NA_character_),
