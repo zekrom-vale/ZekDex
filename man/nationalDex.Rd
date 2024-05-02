@@ -7,18 +7,18 @@
 \format{
 A data frame with 12 variables:
 \describe{
-\item{ndex}{National Pokedex number. Integer.}
-\item{name}{Name of the Pokemon. Character.}
-\item{form}{Form of the Pokemon. Character. NA if the Pokemon does not have a special form.}
-\item{regional}{Regional form of the Pokemon. Character. NA if the Pokemon does not have a regional form.}
-\item{type}{Primary type of the Pokemon. Character.}
-\item{type2}{Secondary type of the Pokemon. Character. NA if the Pokemon does not have a secondary type.}
-\item{generation}{The generation the Pokemon was introduced in. Integer.}
-\item{isLegendary}{Whether the Pokemon is Legendary. Logical.}
-\item{isMythical}{Whether the Pokemon is Mythical. Logical.}
-\item{isUltraBeast}{Whether the Pokemon is an Ultra Beast. Logical.}
-\item{family}{Legendary / Mythical family group of the Pokemon. Character. NA if the Pokemon does not belong to a family group.}
-\item{size}{Legendary / Mythical family size. NA if the Pokemon does not belong to a family group.}
+\item{ndex}{\code{integer} National Pokedex number.}
+\item{name}{\code{character} Name of the Pokemon.}
+\item{form}{\code{character} Form of the Pokemon. NA if the Pokemon does not have a special form.}
+\item{regional}{\code{character} Regional form of the Pokemon. NA if the Pokemon does not have a regional form.}
+\item{type}{\code{character} Primary type of the Pokemon.}
+\item{type2}{\code{character} Secondary type of the Pokemon. NA if the Pokemon does not have a secondary type.}
+\item{generation}{\code{integer} The generation the Pokemon was introduced in.}
+\item{isLegendary}{\code{logical} Whether the Pokemon is Legendary.}
+\item{isMythical}{\code{logical} Whether the Pokemon is Mythical.}
+\item{isUltraBeast}{\code{logical} Whether the Pokemon is an Ultra Beast.}
+\item{family}{\code{character} Legendary / Mythical family group of the Pokemon. NA if the Pokemon does not belong to a family group.}
+\item{size}{\code{character} Legendary / Mythical family size. NA if the Pokemon does not belong to a family group.}
 }
 }
 \source{

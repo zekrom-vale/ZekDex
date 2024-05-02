@@ -7,46 +7,49 @@
 \format{
 A data frame with the following variables:
 \describe{
-\item{ndex}{National Pokedex number.}
-\item{name}{Name of the Pokemon.}
-\item{form}{Form of the Pokemon.}
-\item{regional}{Regional form of the Pokemon.}
-\item{type}{Primary type of the Pokemon.}
-\item{type2}{Secondary type of the Pokemon.}
-\item{generation}{Generation of the Pokemon.}
-\item{isLegendary}{Boolean indicating if the Pokemon is Legendary.}
-\item{isMythical}{Boolean indicating if the Pokemon is Mythical.}
-\item{isUltraBeast}{Boolean indicating if the Pokemon is an Ultra Beast.}
-\item{family}{Family of the Pokemon.}
-\item{size}{Size of the Pokemon.}
-\item{NA_Kanto_Kdex}{Kanto Pokedex number.}
-\item{NA_Johto_Jdex}{Johto Pokedex number.}
-\item{GenerationIII_Hoenn_Hdex}{Hoenn Pokedex number in Generation III.}
-\item{GenerationVI_Hoenn_Hdex}{Hoenn Pokedex number in Generation VI.}
-\item{NA_Sinnoh_Sdex}{Sinnoh Pokedex number.}
-\item{BlackandWhite_Unova_Udex}{Unova Pokedex number in Black and White.}
-\item{Black2andWhite2_Unova_Udex}{Unova Pokedex number in Black 2 and White 2.}
-\item{NA_Blueberry_BBdex}{Blueberry Pokedex number.}
-\item{NA_Kalos_CeKdex}{Central Kalos Pokedex number.}
-\item{NA_Kalos_CoKdex}{Coastal Kalos Pokedex number.}
-\item{NA_Kalos_MoKdex}{Mountain Kalos Pokedex number.}
-\item{SunandMoon_Alola_Adex}{Alola Pokedex number in Sun and Moon.}
-\item{SunandMoon_Alola_Melemele}{Melemele Pokedex number in Sun and Moon.}
-\item{SunandMoon_Alola_Akala}{Akala Pokedex number in Sun and Moon.}
-\item{SunandMoon_Alola_Ula'ula}{Ula'ula Pokedex number in Sun and Moon.}
-\item{SunandMoon_Alola_Poni}{Poni Pokedex number in Sun and Moon.}
-\item{UltraSunandUltraMoon_Alola_Adex}{Alola Pokedex number in Ultra Sun and Ultra Moon.}
-\item{UltraSunandUltraMoon_Alola_Melemele}{Melemele Pokedex number in Ultra Sun and Ultra Moon.}
-\item{UltraSunandUltraMoon_Alola_Akala}{Akala Pokedex number in Ultra Sun and Ultra Moon.}
-\item{UltraSunandUltraMoon_Alola_Ula'ula}{Ula'ula Pokedex number in Ultra Sun and Ultra Moon.}
-\item{UltraSunandUltraMoon_Alola_Poni}{Poni Pokedex number in Ultra Sun and Ultra Moon.}
-\item{NA_Galar_Gdex}{Galar Pokedex number.}
-\item{NA_IsleofArmor_IoAdex}{Isle of Armor Pokedex number.}
-\item{NA_CrownTundra_CTdex}{Crown Tundra Pokedex number.}
-\item{NA_Hisui_LAdex}{Hisui Pokedex number.}
-\item{NA_Paldea_Pdex}{Paldea Pokedex number.}
-\item{NA_Kitakami_Kdex}{Kitakami Pokedex number.}
+\item{ndex}{\code{integer} National Pokedex number.}
+\item{name}{\code{character} Name of the Pokemon.}
+\item{form}{\code{character} Form of the Pokemon.}
+\item{regional}{\code{character} Regional form of the Pokemon.}
+\item{type}{\code{character} Primary type of the Pokemon.}
+\item{type2}{\code{character} Secondary type of the Pokemon.}
+\item{generation}{\code{integer} Generation of the Pokemon.}
+\item{isLegendary}{\code{logical} Boolean indicating if the Pokemon is Legendary.}
+\item{isMythical}{\code{logical} Boolean indicating if the Pokemon is Mythical.}
+\item{isUltraBeast}{\code{logical} Boolean indicating if the Pokemon is an Ultra Beast.}
+\item{family}{\code{character} Family of the Pokemon.}
+\item{size}{\code{character} Size of the Pokemon.}
+\item{NA_Kanto_Kdex}{\code{integer} Kanto Pokedex number.}
+\item{NA_Johto_Jdex}{\code{integer} Johto Pokedex number.}
+\item{GenerationIII_Hoenn_Hdex}{\code{integer} Hoenn Pokedex number in Generation III.}
+\item{GenerationVI_Hoenn_Hdex}{\code{integer} Hoenn Pokedex number in Generation VI.}
+\item{NA_Sinnoh_Sdex}{\code{integer} Sinnoh Pokedex number.}
+\item{BlackandWhite_Unova_Udex}{\code{integer} Unova Pokedex number in Black and White.}
+\item{Black2andWhite2_Unova_Udex}{\code{integer} Unova Pokedex number in Black 2 and White 2.}
+\item{NA_Blueberry_BBdex}{\code{integer} Blueberry Pokedex number.}
+\item{NA_Kalos_CeKdex}{\code{integer} Central Kalos Pokedex number.}
+\item{NA_Kalos_CoKdex}{\code{integer} Coastal Kalos Pokedex number.}
+\item{NA_Kalos_MoKdex}{\code{integer} Mountain Kalos Pokedex number.}
+\item{SunandMoon_Alola_Adex}{\code{integer} Alola Pokedex number in Sun and Moon.}
+\item{SunandMoon_Alola_Melemele}{\code{integer} Melemele Pokedex number in Sun and Moon.}
+\item{SunandMoon_Alola_Akala}{\code{integer} Akala Pokedex number in Sun and Moon.}
+\item{SunandMoon_Alola_Ula'ula}{\code{integer} Ula'ula Pokedex number in Sun and Moon.}
+\item{SunandMoon_Alola_Poni}{\code{integer} Poni Pokedex number in Sun and Moon.}
+\item{UltraSunandUltraMoon_Alola_Adex}{\code{integer} Alola Pokedex number in Ultra Sun and Ultra Moon.}
+\item{UltraSunandUltraMoon_Alola_Melemele}{\code{integer} Melemele Pokedex number in Ultra Sun and Ultra Moon.}
+\item{UltraSunandUltraMoon_Alola_Akala}{\code{integer} Akala Pokedex number in Ultra Sun and Ultra Moon.}
+\item{UltraSunandUltraMoon_Alola_Ula'ula}{\code{integer} Ula'ula Pokedex number in Ultra Sun and Ultra Moon.}
+\item{UltraSunandUltraMoon_Alola_Poni}{\code{integer} Poni Pokedex number in Ultra Sun and Ultra Moon.}
+\item{NA_Galar_Gdex}{\code{integer} Galar Pokedex number.}
+\item{NA_IsleofArmor_IoAdex}{\code{integer} Isle of Armor Pokedex number.}
+\item{NA_CrownTundra_CTdex}{\code{integer} Crown Tundra Pokedex number.}
+\item{NA_Hisui_LAdex}{\code{integer} Hisui Pokedex number.}
+\item{NA_Paldea_Pdex}{\code{integer} Paldea Pokedex number.}
+\item{NA_Kitakami_Kdex}{\code{integer} Kitakami Pokedex number.}
 }
+}
+\source{
+Bulbapedia
 }
 \usage{
 regionalDex

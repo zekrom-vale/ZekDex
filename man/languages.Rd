@@ -7,43 +7,43 @@
 \format{
 A data frame with 37 variables:
 \describe{
-\item{ndex}{National Pokedex number. Integer.}
-\item{name}{Name of the Pokemon. Character.}
-\item{form}{Form of the Pokemon. Character. NA if the Pokemon does not have a special form.}
-\item{regional}{Regional form of the Pokemon. Character. NA if the Pokemon does not have a regional form.}
-\item{type}{Primary type of the Pokemon. Character.}
-\item{type2}{Secondary type of the Pokemon. Character. NA if the Pokemon does not have a secondary type.}
-\item{generation}{The generation the Pokemon was introduced in. Integer.}
-\item{isLegendary}{Whether the Pokemon is Legendary. Logical.}
-\item{isMythical}{Whether the Pokemon is Mythical. Logical.}
-\item{isUltraBeast}{Whether the Pokemon is an Ultra Beast. Logical.}
-\item{family}{Legendary / Mythical family group of the Pokemon. Character. NA if the Pokemon does not belong to a family group.}
-\item{size}{Legendary / Mythical family size. NA if the Pokemon does not belong to a family group.}
-\item{Japanese_Kana}{Japanese Kana name of the Pokemon. Character.}
-\item{Japanese_Hepburn}{Japanese Hepburn name of the Pokemon. Character.}
-\item{Japanese_Trademarked}{Japanese Trademarked name of the Pokemon. Character.}
-\item{German_german}{German name of the Pokemon. Character.}
-\item{French_french}{French name of the Pokemon. Character.}
-\item{Spanish_spanish}{Spanish name of the Pokemon. Character.}
-\item{Italian_italian}{Italian name of the Pokemon. Character.}
-\item{Korean_Hangul}{Korean Hangul name of the Pokemon. Character.}
-\item{Korean_Revised}{Korean Revised name of the Pokemon. Character.}
-\item{Korean_McCune-Reischauer}{Korean McCune-Reischauer name of the Pokemon. Character.}
-\item{Korean_Official}{Korean Official name of the Pokemon. Character.}
-\item{Chinese_Traditional}{Chinese Traditional name of the Pokemon. Character.}
-\item{Chinese_Simplified}{Chinese Simplified name of the Pokemon. Character.}
-\item{Chinese_Pinyin}{Chinese Pinyin name of the Pokemon. Character.}
-\item{Chinese_Yale}{Chinese Yale name of the Pokemon. Character.}
-\item{Chinese_Former names}{Chinese Former names of the Pokemon. Character.}
-\item{Brazilian_Portuguese_brazilian_portuguese}{Brazilian Portuguese name of the Pokemon. Character.}
-\item{Turkish_turkish}{Turkish name of the Pokemon. Character.}
-\item{Russian_Cyrillic}{Russian Cyrillic name of the Pokemon. Character.}
-\item{Russian_Romanization}{Russian Romanization name of the Pokemon. Character.}
-\item{Thai_Thai}{Thai name of the Pokemon. Character.}
-\item{Thai_RTGS}{Thai RTGS name of the Pokemon. Character.}
-\item{Hindi_Devanāgarī}{Hindi Devanāgarī name of the Pokemon. Character.}
-\item{Hindi_Transliteration}{Hindi Transliteration name of the Pokemon. Character.}
-\item{Hindi_Romanization}{Hindi Romanization name of the Pokemon. Character.}
+\item{ndex}{\code{integer} National Pokedex number.}
+\item{name}{\code{character} Name of the Pokemon.}
+\item{form}{\code{character} Form of the Pokemon. NA if the Pokemon does not have a special form.}
+\item{regional}{\code{character} Regional form of the Pokemon. NA if the Pokemon does not have a regional form.}
+\item{type}{\code{character} Primary type of the Pokemon.}
+\item{type2}{\code{character} Secondary type of the Pokemon. NA if the Pokemon does not have a secondary type.}
+\item{generation}{\code{integer} The generation the Pokemon was introduced in.}
+\item{isLegendary}{\code{logical} Whether the Pokemon is Legendary.}
+\item{isMythical}{\code{logical} Whether the Pokemon is Mythical.}
+\item{isUltraBeast}{\code{logical} Whether the Pokemon is an Ultra Beast.}
+\item{family}{\code{character} Legendary / Mythical family group of the Pokemon. NA if the Pokemon does not belong to a family group.}
+\item{size}{\code{character} Legendary / Mythical family size. NA if the Pokemon does not belong to a family group.}
+\item{Japanese_Kana}{\code{character} Japanese Kana name of the Pokemon.}
+\item{Japanese_Hepburn}{\code{character} Japanese Hepburn name of the Pokemon.}
+\item{Japanese_Trademarked}{\code{character} Japanese Trademarked name of the Pokemon.}
+\item{German_german}{\code{character} German name of the Pokemon.}
+\item{French_french}{\code{character} French name of the Pokemon.}
+\item{Spanish_spanish}{\code{character} Spanish name of the Pokemon.}
+\item{Italian_italian}{\code{character} Italian name of the Pokemon.}
+\item{Korean_Hangul}{\code{character} Korean Hangul name of the Pokemon.}
+\item{Korean_Revised}{\code{character} Korean Revised name of the Pokemon.}
+\item{Korean_McCune-Reischauer}{\code{character} Korean McCune-Reischauer name of the Pokemon.}
+\item{Korean_Official}{\code{character} Korean Official name of the Pokemon.}
+\item{Chinese_Traditional}{\code{character} Chinese Traditional name of the Pokemon.}
+\item{Chinese_Simplified}{\code{character} Chinese Simplified name of the Pokemon.}
+\item{Chinese_Pinyin}{\code{character} Chinese Pinyin name of the Pokemon.}
+\item{Chinese_Yale}{\code{character} Chinese Yale name of the Pokemon.}
+\item{Chinese_Former names}{\code{character} Chinese Former names of the Pokemon.}
+\item{Brazilian_Portuguese_brazilian_portuguese}{\code{character} Brazilian Portuguese name of the Pokemon.}
+\item{Turkish_turkish}{\code{character} Turkish name of the Pokemon.}
+\item{Russian_Cyrillic}{\code{character} Russian Cyrillic name of the Pokemon.}
+\item{Russian_Romanization}{\code{character} Russian Romanization name of the Pokemon.}
+\item{Thai_Thai}{\code{character} Thai name of the Pokemon.}
+\item{Thai_RTGS}{\code{character} Thai RTGS name of the Pokemon.}
+\item{Hindi_Devanāgarī}{\code{character} Hindi Devanāgarī name of the Pokemon.}
+\item{Hindi_Transliteration}{\code{character} Hindi Transliteration name of the Pokemon.}
+\item{Hindi_Romanization}{\code{character} Hindi Romanization name of the Pokemon.}
 }
 }
 \source{

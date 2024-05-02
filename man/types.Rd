@@ -7,8 +7,11 @@
 \format{
 A data frame with one column:
 \describe{
-\item{types}{The types of Pokemon. Possible types include "Grass", "Fire", "Water", "Bug", "Normal", "Dark", "Poison", "Electric", "Ground", "Ice", "Fairy", "Steel", "Fighting", "Psychic", "Rock", "Ghost", "Dragon", "Flying".}
+\item{types}{\code{character} The types of Pokemon. Possible types include "Grass", "Fire", "Water", "Bug", "Normal", "Dark", "Poison", "Electric", "Ground", "Ice", "Fairy", "Steel", "Fighting", "Psychic", "Rock", "Ghost", "Dragon", "Flying".}
 }
+}
+\source{
+Bulbapedia
 }
 \usage{
 types

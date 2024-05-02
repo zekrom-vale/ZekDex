@@ -7,18 +7,18 @@
 \format{
 A data frame with the following variables:
 \describe{
-\item{family}{Character. The family to which the Pokemon belongs.}
-\item{base}{Character. The prior form of the pokemon or the base form}
-\item{form}{Character. The specific form of the Pokemon. NA if not applicable.}
-\item{method}{Character. The method of evolution.}
-\item{evo}{Character. The next stage of the Pokemon.}
-\item{evoForm}{Character. The form of next stage of the Pokemon. NA if not applicable.}
-\item{transition}{Character. The transition stage of the Pokemon.}
-\item{first}{Character. The first form of the Pokemon.}
-\item{firstForm}{Character. The specific first form of the Pokemon. NA if not applicable.}
-\item{regional}{Character. The regional form of the Pokemon. NA if not applicable.}
-\item{evoRegional}{Character. The regional evolved form of the Pokemon. NA if not applicable.}
-\item{firstRegional}{Character. The regional first form of the Pokemon. NA if not applicable.}
+\item{family}{\code{character} The family to which the Pokemon belongs.}
+\item{base}{\code{character} The prior form of the pokemon or the base form}
+\item{form}{\code{character} The specific form of the Pokemon. NA if not applicable.}
+\item{method}{\code{character} The method of evolution.}
+\item{evo}{\code{character} The next stage of the Pokemon.}
+\item{evoForm}{\code{character} The form of next stage of the Pokemon. NA if not applicable.}
+\item{transition}{\code{character} The transition stage of the Pokemon.}
+\item{first}{\code{character} The first form of the Pokemon.}
+\item{firstForm}{\code{character} The specific first form of the Pokemon. NA if not applicable.}
+\item{regional}{\code{character} The regional form of the Pokemon. NA if not applicable.}
+\item{evoRegional}{\code{character} The regional evolved form of the Pokemon. NA if not applicable.}
+\item{firstRegional}{\code{character} The regional first form of the Pokemon. NA if not applicable.}
 }
 }
 \source{

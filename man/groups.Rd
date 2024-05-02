@@ -7,9 +7,9 @@
 \format{
 A data frame with 3 variables:
 \describe{
-\item{family}{The family grouping of the Pokémon. Character. Examples include 'Tao trio', 'Super-ancient Pokémon', 'Paradox duo', etc.}
-\item{name}{The name of the individual Pokémon within the family grouping. Character.}
-\item{size}{The size category of the family grouping. Character. Categories include 'duos', 'trios', 'quartets', and 'quintets'.}
+\item{family}{\code{character} The family grouping of the Pokémon. Examples include 'Tao trio', 'Super-ancient Pokémon', 'Paradox duo', etc.}
+\item{name}{\code{character} The name of the individual Pokémon within the family grouping.}
+\item{size}{\code{character} The size category of the family grouping. Categories include 'duos', 'trios', 'quartets', and 'quintets'.}
 }
 }
 \source{

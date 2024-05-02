@@ -7,17 +7,17 @@
 \format{
 A data frame with the following variables:
 \describe{
-\item{family.x}{The family of the Pokemon}
-\item{transition}{The transition stage of the Pokemon}
-\item{first}{The first form of the Pokemon}
-\item{firstForm}{The first form of the Pokemon if it has multiple forms}
-\item{firstRegional}{The first regional form of the Pokemon}
-\item{name}{The name of the Pokemon}
-\item{form}{The form of the Pokemon}
-\item{regional}{The regional form of the Pokemon}
-\item{stage}{The stage of the Pokemon}
-\item{family.y}{The legendary family of the Pokemon}
-\item{size}{The size of the legendary family}
+\item{family.x}{\code{character} The family of the Pokemon}
+\item{transition}{\code{character} The transition stage of the Pokemon}
+\item{first}{\code{character} The first form of the Pokemon}
+\item{firstForm}{\code{character} The first form of the Pokemon if it has multiple forms}
+\item{firstRegional}{\code{character} The first regional form of the Pokemon}
+\item{name}{\code{character} The name of the Pokemon}
+\item{form}{\code{character} The form of the Pokemon}
+\item{regional}{\code{character} The regional form of the Pokemon}
+\item{stage}{\code{character} The stage of the Pokemon}
+\item{family.y}{\code{character} The legendary family of the Pokemon}
+\item{size}{\code{character} The size of the legendary family}
 }
 }
 \source{
