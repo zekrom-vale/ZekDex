@@ -1,3 +1,5 @@
+# This file contains information about the generated datasets, there is no code in this file
+
 #' Pokemon Data
 #'
 #' Pokemon National dex information
@@ -53,8 +55,8 @@
 #'   \item{Total}{\code{integer} Total of all stats}
 #'   \item{Average}{\code{numeric} Average of all stats}
 #'   \item{Gen}{\code{factor} Generation}
-#'   \item{Sp. Attack}{\code{integer} Special Attack strength (NA for Gen I)}
-#'   \item{Sp. Defense}{\code{integer} Special Defense strength (NA for Gen I)}
+#'   \item{SpAttack}{\code{integer} Special Attack strength (NA for Gen I)}
+#'   \item{SpDefense}{\code{integer} Special Defense strength (NA for Gen I)}
 #' }
 #' @source Bulbapedia
 "stats"
