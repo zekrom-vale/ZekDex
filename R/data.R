@@ -104,7 +104,7 @@
 #' @source Bulbapedia
 "familyLong"
 
-#' Pokemon National Dex Information
+#' Pokémon National Dex information in multiple languages
 #'
 #' This dataset contains information about Pokemon from the National Dex.
 #'
