@@ -52,7 +52,7 @@ gen_stats = function(
 	})|>
 		bind_rows()
 
-	national = read_data("PokemonNational", root)
+	national = read_data("PokemonNational", root, g="nationalDex")
 
 	pokemon = national|>
 		select(ndex, name)|>

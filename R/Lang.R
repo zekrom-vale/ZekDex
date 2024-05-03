@@ -23,7 +23,7 @@ gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
 	if(pkgload::is_loading()) return()
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
 
-	national = read_data("PokemonNational", root)
+	national = read_data("PokemonNational", root, g="nationalDex")
 
 	# Extract HTML table data
 	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")

@@ -20,7 +20,7 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 	# Check if the 'rvest' package is installed. If not, stop the function and ask the user to install it.
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
 
-	national = read_data("PokemonNational", root)
+	national = read_data("PokemonNational", root, g="nationalDex")
 
 	# Read the HTML of the webpage containing the list of Pokemon by National Pokedex number
 	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")

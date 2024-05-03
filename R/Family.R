@@ -194,7 +194,7 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonFamily", fileL
 		ungroup()
 
 	# Add groups
-	groups = read_data("PokemonGroups", root)
+	groups = read_data("PokemonGroups", root, g="groups")
 	familyLong = familyLong|>
 		left_join(groups, by = "name")
 

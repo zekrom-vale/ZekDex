@@ -15,7 +15,7 @@
 #' @importFrom pkgload is_loading
 gen_type = function(write = FALSE, root = "data/", file = "PokemonTypes"){
 	if(pkgload::is_loading()) return()
-	national = read_data("PokemonNational", root)
+	national = read_data("PokemonNational", root, g="nationalDex")
 
 	# Extract the 'type' column from 'national' using 'pull', concatenate it with the 'type2' column using 'c',
 	# remove duplicate values using 'unique', and remove NA values using 'discard(is.na)'

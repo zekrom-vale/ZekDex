@@ -177,7 +177,6 @@ paste_non_unique  = function(vec1, vec2, sep = ""){
 #' # 2 #0001 ""    Bulbasaur  フシギダネ Fushigidane Fushigidane
 #' # 3 #0002 ""    Ivysaur    フシギソウ Fushigisō   Fushigisou
 #' # 4 #0003 ""    Venusaur   フシギバナ Fushigibana Fushigibana
-name_from_row = Vectorize(function(df, row_number = 1, prepend = "", postpend = "", test = TRUE, bind = TRUE){
 .name_from_row = function(df, row_number = 1, prepend = "", postpend = "", test = TRUE, bind = TRUE){
 	# If the input dataframe is NULL, return NULL
 	if(is.null(df))return(NULL)
@@ -498,7 +497,7 @@ save_data = function(
 #' @importFrom readr read_csv
 #' @importFrom glue glue
 #' @export
-read_data = function(data, root, ns = asNamespace("ZekDex"), one = TRUE){
+read_data = function(data, root, ns = asNamespace("ZekDex"), one = TRUE, g=NULL){
 	if(pkgload::is_loading()) return()
 	if(!is.null(root)){
 		if(file.exists(glue("{root}{data}.rda"))){
@@ -510,6 +509,9 @@ read_data = function(data, root, ns = asNamespace("ZekDex"), one = TRUE){
 		if(file.exists(glue("{root}{data}.csv"))){
 			return(read_csv(glue("{root}{data}.csv")))
 		}
+	}
+	if(!is.null(g) && exists(g, where = ns)){
+		return(get(g, envir = ns))
 	}
 	if(exists(data, where = ns)){
 		return(get(data, envir = ns))
