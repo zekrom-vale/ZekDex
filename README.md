@@ -22,12 +22,13 @@ devtools::install_github("zekrom-vale/ZekDex")
 
 The package includes the following datasets:
 
+
 ### nationalDex
 Pokemon National dex information
-- `ndex` (`integer`):  National Pokedex number.
+- `ndex` (`integer`): National Pokedex number.
 - `name` (`character`): Name of the Pokemon.
-- `form` (`character`): Form of the Pokemon. NA if the Pokemon is not a special form.
-- `regional` (`character`): Regional form of the Pokemon. NA if the Pokemon is not a regional form.
+- `form` (`character`): Form of the Pokemon. NA if the Pokemon does not have a special form.
+- `regional` (`character`): Regional form of the Pokemon. NA if the Pokemon does not have a regional form.
 - `type` (`character`): Primary type of the Pokemon.
 - `type2` (`character`): Secondary type of the Pokemon. NA if the Pokemon does not have a secondary type.
 - `generation` (`integer`): The generation the Pokemon was introduced in.
@@ -35,10 +36,10 @@ Pokemon National dex information
 - `isMythical` (`logical`): Whether the Pokemon is Mythical.
 - `isUltraBeast` (`logical`): Whether the Pokemon is an Ultra Beast.
 - `family` (`character`): Legendary / Mythical family group of the Pokemon. NA if the Pokemon does not belong to a family group.
-- `size` (`character`): Legendary / Mythical family size. NA if the Pokemon does not belong to a Legendary / Mythical family group.
+- `size` (`character`): Legendary / Mythical family size. NA if the Pokemon does not belong to a family group.
 
 ### groups
-Legendary and Mythical Pokémon Groupings.  A dataset containing Legendary and Mythical Pokémon categorized by their family groupings and sizes.
+A dataset containing Legendary and Mythical Pokémon categorized by their family groupings and sizes.
 - `family` (`character`): The family grouping of the Pokémon. Examples include 'Tao trio', 'Super-ancient Pokémon', 'Paradox duo', etc.
 - `name` (`character`): The name of the individual Pokémon within the family grouping.
 - `size` (`character`): The size category of the family grouping. Categories include 'duos', 'trios', 'quartets', and 'quintets'.
@@ -91,7 +92,6 @@ TODO fixing the `family.x` and `family.y`
 - `size` (`character`): The size of the legendary family
 
 ### languages
-Pokémon National Dex information in multiple languages.
 As of now the language columns are in the format of `<Language>_<language subset>` if there is no subset it's `<Language>_<language>`.
 - `ndex` (`integer`): National Pokedex number.
 - `name` (`character`): Name of the Pokemon.
@@ -132,20 +132,19 @@ As of now the language columns are in the format of `<Language>_<language subset
 - `Hindi_Romanization` (`character`): Hindi Romanization name of the Pokemon.
 
 ### regionalDex
-Pokémon information from the Regional Dex.
 As of now the regionalDex columns are in the format of `<Game>_<Region>_<DexName>`, `NA` if that data is missing.
 - `ndex` (`integer`): National Pokedex number.
 - `name` (`character`): Name of the Pokemon.
-- `form` (`character`): Form of the Pokemon. NA if the Pokemon does not have a special form.
-- `regional` (`character`): Regional form of the Pokemon. NA if the Pokemon does not have a regional form.
+- `form` (`character`): Form of the Pokemon.
+- `regional` (`character`): Regional form of the Pokemon.
 - `type` (`character`): Primary type of the Pokemon.
-- `type2` (`character`): Secondary type of the Pokemon. NA if the Pokemon does not have a secondary type.
-- `generation` (`integer`): The generation the Pokemon was introduced in.
-- `isLegendary` (`logical`): Whether the Pokemon is Legendary.
-- `isMythical` (`logical`): Whether the Pokemon is Mythical.
-- `isUltraBeast` (`logical`): Whether the Pokemon is an Ultra Beast.
-- `family` (`character`): Legendary / Mythical family group of the Pokemon. NA if the Pokemon does not belong to a family group.
-- `size` (`character`): Legendary / Mythical family size. NA if the Pokemon does not belong to a family group.
+- `type2` (`character`): Secondary type of the Pokemon.
+- `generation` (`integer`): Generation of the Pokemon.
+- `isLegendary` (`logical`): Boolean indicating if the Pokemon is Legendary.
+- `isMythical` (`logical`): Boolean indicating if the Pokemon is Mythical.
+- `isUltraBeast` (`logical`): Boolean indicating if the Pokemon is an Ultra Beast.
+- `family` (`character`): Family of the Pokemon.
+- `size` (`character`): Size of the Pokemon.
 - `NA_Kanto_Kdex` (`integer`): Kanto Pokedex number.
 - `NA_Johto_Jdex` (`integer`): Johto Pokedex number.
 - `GenerationIII_Hoenn_Hdex` (`integer`): Hoenn Pokedex number in Generation III.
@@ -175,10 +174,8 @@ As of now the regionalDex columns are in the format of `<Game>_<Region>_<DexName
 - `NA_Kitakami_Kdex` (`integer`): Kitakami Pokedex number.
 
 ### types
-Information about various Pokémon types.
-- `types` (`character`): The types of Pokemon.
-Types include "Grass", "Fire", "Water", "Bug", "Normal", "Dark", "Poison", "Electric", "Ground", "Ice", "Fairy", "Steel", "Fighting", "Psychic", "Rock", "Ghost", "Dragon", "Flying".
-
+This dataset contains information about various Pokemon types.
+- `types` (`character`): The types of Pokemon. Possible types include "Grass", "Fire", "Water", "Bug", "Normal", "Dark", "Poison", "Electric", "Ground", "Ice", "Fairy", "Steel", "Fighting", "Psychic", "Rock", "Ghost", "Dragon", "Flying".
 
 You can load any dataset with the `data()` function. For example, `data(nationalDex)`.
 
