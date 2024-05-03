@@ -34,3 +34,30 @@ gen_type = function(write = FALSE, root = "data/", file = "PokemonTypes"){
 	types
 }
 
+gen_type_chart = function(write = FALSE, root = "data/", file = "PokemonTypeChart", fileWide = "PokemonTypeChartWide"){
+	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/Type")
+	# Columns are Defending type
+	# Rows are Attacking type
+	typeChartWide = rvest::html_table(HTML)[[2]]|>
+		as_tibble(.name_repair = "unique")|>
+		select(-1)|>
+		.name_from_row(1, prepend = "Defending_", test = FALSE)|>
+		rename(Attacking = 1)|>
+		mutate(
+			across(starts_with("Defending_"), function(x){
+				# Find "½×" set to .5 else remove non digits and cast to numeric
+				if_else(x == "\u00BD\u00D7", .5, as.numeric(str_remove_all(x, "[^\\d.]")))
+			})
+		)|>
+		filter(!is.na(Defending_Dragon))
+
+	typeChart = typeChartWide|>
+		pivot_longer(
+			cols = starts_with("Defending_"),
+			names_to = "Defending"
+		)|>
+		mutate(Defending = str_remove(Defending, "Defending_"))
+
+	if(write)save_data("typeChart", root, file)
+	if(write)save_data("typeChartWide", root, fileWide)
+}

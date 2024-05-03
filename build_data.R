@@ -10,6 +10,7 @@ devtools::install() # Or clean and install in Build
 
 
 gen_groups(write = TRUE)
+gen_type_chart(write = TRUE)
 
 # Requires PokemonGroups
 gen_national(write = TRUE)

@@ -178,8 +178,7 @@ paste_non_unique  = function(vec1, vec2, sep = ""){
 #' # 3 #0002 ""    Ivysaur    フシギソウ Fushigisō   Fushigisou
 #' # 4 #0003 ""    Venusaur   フシギバナ Fushigibana Fushigibana
 name_from_row = Vectorize(function(df, row_number = 1, prepend = "", postpend = "", test = TRUE, bind = TRUE){
-	# Check if the 'janitor' package is installed. If not, stop the function and ask the user to install it.
-	if(!requireNamespace("janitor", quietly = TRUE))stop("janitor required.  Use install.packages(\"janitor\")")
+.name_from_row = function(df, row_number = 1, prepend = "", postpend = "", test = TRUE, bind = TRUE){
 	# If the input dataframe is NULL, return NULL
 	if(is.null(df))return(NULL)
 	# Store the original column names of the dataframe
@@ -187,8 +186,7 @@ name_from_row = Vectorize(function(df, row_number = 1, prepend = "", postpend = 
 	# Check if all column names are unique
 	test = test && length(oldNames)==length(unique(oldNames))
 	# Clean the column names of the dataframe and convert it to a tibble
-	df = janitor::clean_names(df)|>
-		as_tibble()
+	df = as_tibble(df, .name_repair = "unique")
 	# If the 'test' condition is TRUE and both 'prepend' and 'postpend' are empty, return the dataframe as is
 	if(test){
 		if(prepend==""&&postpend=="")return(df)
@@ -224,8 +222,32 @@ name_from_row = Vectorize(function(df, row_number = 1, prepend = "", postpend = 
 	df|>
 		rename(!!!names_vector)|>
 		slice(-row_number)
-}, vectorize.args = "df", SIMPLIFY = FALSE)
+}
 
+
+#' Renames columns of a dataframe based on a specific row
+#'
+#' @param df A dataframe to operate on
+#' @param row_number The row number to use for renaming columns, default is 1
+#' @param prepend A string to prepend to the new column names, default is ""
+#' @param postpend A string to append to the new column names, default is ""
+#' @param test A logical value indicating whether to check for unique column names, default is TRUE
+#' @param bind A logical value indicating whether to bind rows with duplicate values, default is TRUE
+#'
+#' @return A dataframe with renamed columns
+#' @importFrom dplyr rename slice
+#' @importFrom stringr str_detect
+#' @export
+#' @examples
+#' # Deal with the odd header
+#' # A tibble: 152 × 6
+#' # 	Ndex  MS    English    Japanese   Japanese    Japanese
+#' # <chr> <chr> <chr>      <chr>      <chr>       <chr>
+#' # 	1 Ndex  "MS"  English    Kana       Hepburn     Trademarked
+#' # 2 #0001 ""    Bulbasaur  フシギダネ Fushigidane Fushigidane
+#' # 3 #0002 ""    Ivysaur    フシギソウ Fushigisō   Fushigisou
+#' # 4 #0003 ""    Venusaur   フシギバナ Fushigibana Fushigibana
+name_from_row = Vectorize(.name_from_row, vectorize.args = "df", SIMPLIFY = FALSE)
 
 #' Drops all rows with NA values in specified columns
 #'
