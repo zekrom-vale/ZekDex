@@ -3,7 +3,7 @@
 \docType{data}
 \name{regionalDex}
 \alias{regionalDex}
-\title{Pokemon Dataset}
+\title{Pokémon information from the Regional Dex.}
 \format{
 A data frame with the following variables:
 \describe{
@@ -55,6 +55,6 @@ Bulbapedia
 regionalDex
 }
 \description{
-This dataset contains information about various Pokemon.
+As of now the regionalDex columns are in the format of \verb{<Game>_<Region>_<DexName>}, \code{NA} if that data is missing.
 }
 \keyword{datasets}

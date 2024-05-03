@@ -27,6 +27,8 @@ Bulbapedia
 familyLong
 }
 \description{
-This dataset contains evolution and family information.
+Extended Pokémon family information.
+This dataset looses the evolution tree, but is good for finding what Pokémon is in each family.
+TODO fixing the \code{family.x} and \code{family.y}
 }
 \keyword{datasets}

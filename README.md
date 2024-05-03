@@ -38,7 +38,7 @@ Pokemon National dex information
 - `size` (`character`): Legendary / Mythical family size. NA if the Pokemon does not belong to a Legendary / Mythical family group.
 
 ### groups
-Legendary and Mythical Pokémon Groupings
+Legendary and Mythical Pokémon Groupings.  A dataset containing Legendary and Mythical Pokémon categorized by their family groupings and sizes.
 - `family` (`character`): The family grouping of the Pokémon. Examples include 'Tao trio', 'Super-ancient Pokémon', 'Paradox duo', etc.
 - `name` (`character`): The name of the individual Pokémon within the family grouping.
 - `size` (`character`): The size category of the family grouping. Categories include 'duos', 'trios', 'quartets', and 'quintets'.
@@ -133,7 +133,7 @@ As of now the language columns are in the format of `<Language>_<language subset
 
 ### regionalDex
 Pokémon information from the Regional Dex.
-As of now the regionalDex columns are in the format of `<Generation>_<Game>_<DexName>`, `NA` if that data is missing.
+As of now the regionalDex columns are in the format of `<Game>_<Region>_<DexName>`, `NA` if that data is missing.
 - `ndex` (`integer`): National Pokedex number.
 - `name` (`character`): Name of the Pokemon.
 - `form` (`character`): Form of the Pokemon. NA if the Pokemon does not have a special form.

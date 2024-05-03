@@ -3,7 +3,7 @@
 \docType{data}
 \name{nationalDex}
 \alias{nationalDex}
-\title{Pokemon Data}
+\title{National PokeDex}
 \format{
 A data frame with 12 variables:
 \describe{

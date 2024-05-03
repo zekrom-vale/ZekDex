@@ -28,6 +28,7 @@ Bulbapedia
 family
 }
 \description{
-This dataset contains evolution and family information.
+Pokemon evolution and family information.
+This dataset is good if you want to know the evolution tree.
 }
 \keyword{datasets}

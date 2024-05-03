@@ -17,8 +17,8 @@ A data frame with 91 rows and 11 variables:
 \item{Total}{\code{integer} Total of all stats}
 \item{Average}{\code{numeric} Average of all stats}
 \item{Gen}{\code{factor} Generation}
-\item{Sp. Attack}{\code{integer} Special Attack strength (NA for Gen I)}
-\item{Sp. Defense}{\code{integer} Special Defense strength (NA for Gen I)}
+\item{SpAttack}{\code{integer} Special Attack strength (NA for Gen I)}
+\item{SpDefense}{\code{integer} Special Defense strength (NA for Gen I)}
 }
 }
 \source{
@@ -28,6 +28,6 @@ Bulbapedia
 stats
 }
 \description{
-This dataset contains the base stats of Pokémon.
+Base stats of Pokémon including various forms / sizes of Pokémon.
 }
 \keyword{datasets}
