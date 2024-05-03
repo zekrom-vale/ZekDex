@@ -15,8 +15,7 @@ library(glue)
 #' @importFrom glue glue
 #' @importFrom base ifelse
 #'
-#' @return NULL
-#' @export
+#' @return The markdown text
 convert_text = function(input_file) {
 	# Read the input file
 	input_text = read_lines(input_file)
@@ -86,12 +85,39 @@ convert_text = function(input_file) {
 	output_text
 }
 
-# Use the function to convert the text
-write_file(
-	str_replace(
-		read_file("README_SRC.md"),
-		"<<<<<DATASETS>>>>>",
-		paste(convert_text("R/data.R"), collapse = "\n")
-	),
-	"README.md"
-)
+#' Render README.md file
+#'
+#' This function generates a README.md file based on tags.
+#' It reads from a source file, replaces specific tags with content, and writes to a destination file.
+#'
+#' @param from Character string specifying the path to the source file. Default is "README_SRC.md".
+#' @param to Character string specifying the path to the destination file. Default is "README.md".
+#' @importFrom readr read_file
+#' @importFrom readr write_file
+#' @importFrom stringr str_replace
+#' @return NULL
+#' @examples
+#' render_readme("README_SRC.md", "README.md")
+render_readme = function(from = "README_SRC.md", to = "README.md"){
+	file = read_file(from)
+	file = file|>
+		str_remove_all(regex("\\s*--.*", multiline = TRUE))
+	file = file|>
+		str_replace(
+			"<<<<<DATASETS>>>>>",
+			paste(convert_text("R/data.R"), collapse = "\n")
+		)
+	file = file|>
+		str_replace(
+			"<<<<<ATTRIBUTION>>>>>",
+			read_file("ATTRIBUTION.md")
+		)
+
+	# Use the function to convert the text
+	write_file(
+		file,
+		to
+	)
+}
+
+render_readme()

@@ -1,4 +1,4 @@
-# ZekDex
+# ZekDex -- This is the source file of the README.md to be compiled into the README.md
 
 ZekDex is an R package that provides datasets about Pokémon, including National Dex information,
 Legendary and Mythical Pokémon groupings, base stats, evolution and family information, and more.
@@ -22,7 +22,7 @@ devtools::install_github("zekrom-vale/ZekDex")
 
 The package includes the following datasets:
 
-<<<<<DATASETS>>>>>
+<<<<<DATASETS>>>>> -- To be replaced with the datasets in R/data.R
 
 You can load any dataset with the `data()` function. For example, `data(nationalDex)`.
 
@@ -52,12 +52,9 @@ The package provides the following functions:
 This package is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License.
 For more details, see the [LICENSE](LICENSE) file.
 
-## Attribution
-
-The data in this package is sourced from Bulbapedia.
-For more details on the data sources and their attribution, see the [ATTRIBUTION.md](ATTRIBUTION.md) file.
-
 ## Data Formats
 
 The data is provided in .rda format for use in this R package.
 You can also find .csv files for use in other programs in the /data directory.
+
+<<<<<ATTRIBUTION>>>>> -- To be replaced with ATTRIBUTION.md
