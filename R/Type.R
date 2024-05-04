@@ -98,17 +98,17 @@ gen_type_chart = function(write = FALSE, root = "data/", file = "PokemonTypeChar
 #' @source Bulbapedia
 #' @export
 #' @examples
-#' efectivness_list$Standard
-#' efectivness_list$LegendsArceus
-#' efectivness_list$MysteryDungeonRedBlue
-#' efectivness_list$ExplorersTimeDarknessSky
-#' efectivness_list$ErraticIQskill
-#' efectivness_list$Rumble
-#' efectivness_list$Shuffle
-#' efectivness_list$GO
-#' efectivness_list$GO2018
-#' efectivness_list$GO2017
-efectivness_list = list(
+#' effectiveness_list$Standard
+#' effectiveness_list$LegendsArceus
+#' effectiveness_list$MysteryDungeonRedBlue
+#' effectiveness_list$ExplorersTimeDarknessSky
+#' effectiveness_list$ErraticIQskill
+#' effectiveness_list$Rumble
+#' effectiveness_list$Shuffle
+#' effectiveness_list$GO
+#' effectiveness_list$GO2018
+#' effectiveness_list$GO2017
+effectiveness_list = list(
 	Standard =                 c(  0, 0.25, 0.5, 1, 2  , 4),
 	LegendsArceus =            c(  0, 0.4,  0.5, 1, 2  , 2.5),
 	MysteryDungeonRedBlue =    c(0.5, 0.5,  0.9, 1, 1.5, 1.5), #??
@@ -127,12 +127,12 @@ efectivness_list = list(
 #' It uses a logarithmic mapping to determine the effectiveness.
 #'
 #' @param eft Numeric value representing the effectiveness of an attack.
-#' @param efect Numeric vector representing the effectiveness list. Default is efectivness_list$Standard.
+#' @param efect Numeric vector representing the effectiveness list. Default is effectiveness_list$Standard.
 #' @return Numeric value representing the computed effectiveness.
 #' @export
 #' @examples
-#' efect_fun(2, efectivness_list$Standard)
-efect_fun = function(eft, efect = efectivness_list$Standard){
+#' efect_fun(2, effectiveness_list$Standard)
+efect_fun = function(eft, efect = effectiveness_list$Standard){
 	# 2*2 = 4
 	# 2*1 = 2
 	# 1*1 = 1
@@ -152,14 +152,17 @@ efect_fun = function(eft, efect = efectivness_list$Standard){
 #'
 #' @param attack Character string representing the attacking type.
 #' @param defender Character vector representing the defending types.
-#' @param efect Numeric vector representing the effectiveness list. Default is efectivness_list$Standard.
+#' @param efect Numeric vector representing the effectiveness list. Default is effectiveness_list$Standard.
 #' @importFrom dplyr filter
 #' @importFrom dplyr pull
 #' @return Numeric value representing the effectiveness of the attack.
 #' @export
 #' @examples
-#' efectivness("Fire", c("Grass", "Bug"), efectivness_list$Standard)
-efectivness = function(attack, defender, efect = efectivness_list$Standard){
+#' effectiveness("Fire", c("Grass", "Bug"), effectiveness_list$Standard)
+effectiveness = function(attack, defender, efect = effectiveness_list$Standard){
+	# TODO Add stab https://bulbapedia.bulbagarden.net/wiki/Same-type_attack_bonus
+	if(!(attack %in% types$types))stop(paste("Attack type not found:", attack))
+	if(!(defender %in% types$types))stop(paste("Defender type not found:", defender))
 	eft1 = typeChart|>
 		filter(Attacking == attack & Defending == defender[1])|>
 		pull(Effectiveness)
@@ -167,7 +170,56 @@ efectivness = function(attack, defender, efect = efectivness_list$Standard){
 	eft2 = typeChart|>
 		filter(Attacking == attack & Defending == defender[2])|>
 		pull(Effectiveness)
-
 	efect_fun(eft1 * eft2, efect)
+}
+
+
+#' Compute Effectiveness of an Attack for a Pokémon
+#'
+#' This function computes the effectiveness of an attack against a specific Pokémon.
+#' It uses the type chart to determine the effectiveness of the attack.
+#'
+#' @param attack Character string representing the attacking type.
+#' @param pokemon Either a character string representing the Pokémon's name or a data frame containing Pokémon data.
+#' @param regional Character string representing the regional form of the Pokémon. Default is NA.
+#' @param form Character string representing the form of the Pokémon. Default is NA.
+#' @param efect Numeric vector representing the effectiveness list. Default is effectiveness_list$Standard.
+#' @importFrom dplyr filter
+#' @importFrom dplyr select
+#' @importFrom purrr pmap
+#' @return Numeric value representing the effectiveness of the attack.
+#' @export
+#' @examples
+#' effectivenessPokemon("Fire", "Zekrom", efect = effectiveness_list$Standard)
+effectivenessPokemon = function(attack, pokemon, regional=NA_character_, form=NA_character_, efect = effectiveness_list$Standard){
+	inner_effectivenessPokemon = function(attack, pokemon, efect){
+		if(dim(pokemon)[1]==0)stop("Empty tibble")
+		type = pokemon|>
+			select(type, type2)|>
+			pmap(function(...) as.character(c(...)))
+		return(
+			Vectorize(effectiveness, vectorize.args = "defender")(attack, type, efect = efect)
+		)
+	}
+
+	# If passed a dataframe
+	if(is.data.frame(pokemon)){
+		return(inner_effectivenessPokemon(attack, pokemon, efect))
+	}
+	r = regional
+	f = form
+	dex = nationalDex|>
+		filter(name == pokemon)
+	if(!is.na(regional))dex = dex|>
+		filter(regional == r)
+	else dex = dex|>
+		filter(is.na(regional))
+	if(!is.na(form))dex = dex|>
+		filter(form == f)
+	else dex = dex|>
+		filter(is.na(form))
+	if(dim(dex)[1]==0)stop(paste("Pokemon not found:", pokemon, regional, form))
+
+	return(inner_effectivenessPokemon(attack, dex, efect))
 }
 
