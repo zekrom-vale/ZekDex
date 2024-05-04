@@ -1,4 +1,17 @@
-# This file contains information about the generated datasets, there is no code in this file
+#' This file contains information about the generated datasets, there is no code in this file
+#' TEMPLATE FORMAT:
+#' <Title>
+#'
+#' <Explanation>
+#'
+#' [@format <Format>]
+#' \describe{
+#'   \item{<Column>}{`<Type>` <Description>}
+#'   [...]
+#' }
+#' [@source <Source>]
+NULL
+
 
 #' National PokeDex
 #'
@@ -215,3 +228,56 @@
 #' }
 #' @source Bulbapedia
 "types"
+
+#' Pokémon Type Effectiveness Dataset
+#'
+#' This dataset outlines the effectiveness of various attacking Pokémon types against defending types.
+#' Each cell in the dataset represents the effectiveness multiplier when a Pokémon type attacks another.
+#' The effectiveness is represented by numerical values:
+#' - **0** denotes immunity (the attack has no effect)
+#' - **0.5** means the attack is not very effective (half damage)
+#' - **1** means the attack is effective (causes regular damage)
+#' - **2** means the attack is very effective (causes double damage)
+#'
+#' @format data.frame
+#' \describe{
+#'   \item{Attacking}{`factor` The Pokémon type of the attacking move.}
+#'   \item{Defending_Normal}{`numeric` Effectiveness against Normal type.}
+#'   \item{Defending_Fighting}{`numeric` Effectiveness against Fighting type.}
+#'   \item{Defending_Flying}{`numeric` Effectiveness against Flying type.}
+#'   \item{Defending_Poison}{`numeric` Effectiveness against Poison type.}
+#'   \item{Defending_Ground}{`numeric` Effectiveness against Ground type.}
+#'   \item{Defending_Rock}{`numeric` Effectiveness against Rock type.}
+#'   \item{Defending_Bug}{`numeric` Effectiveness against Bug type.}
+#'   \item{Defending_Ghost}{`numeric` Effectiveness against Ghost type.}
+#'   \item{Defending_Steel}{`numeric` Effectiveness against Steel type.}
+#'   \item{Defending_Fire}{`numeric` Effectiveness against Fire type.}
+#'   \item{Defending_Water}{`numeric` Effectiveness against Water type.}
+#'   \item{Defending_Grass}{`numeric` Effectiveness against Grass type.}
+#'   \item{Defending_Electric}{`numeric` Effectiveness against Electric type.}
+#'   \item{Defending_Psychic}{`numeric` Effectiveness against Psychic type.}
+#'   \item{Defending_Ice}{`numeric` Effectiveness against Ice type.}
+#'   \item{Defending_Dragon}{`numeric` Effectiveness against Dragon type.}
+#'   \item{Defending_Dark}{`numeric` Effectiveness against Dark type.}
+#'   \item{Defending_Fairy}{`numeric` Effectiveness against Fairy type.}
+#' }
+#' @source Bulbapedia
+"typeChartWide"
+
+#' Extended Pokémon Type Effectiveness Dataset
+#'
+#' This dataset provides detailed effectiveness values for attacks between different Pokémon types.
+#' It lists the effectiveness of an attacking type against a defending type, with numerical values indicating the level of effectiveness:
+#' - **0** denotes immunity (no effect)
+#' - **0.5** means the attack is not very effective (half damage)
+#' - **1** means the attack is effective (regular damage)
+#' - **2** means the attack is very effective (double damage)
+#'
+#' @format data.frame
+#' \describe{
+#'   \item{Attacking}{`factor` The Pokémon type of the attacking move.}
+#'   \item{Defending}{`factor` The Pokémon type of the defending Pokémon.}
+#'   \item{Effectiveness}{`numeric` The multiplier for the effectiveness of the attack.}
+#' }
+#' @source Bulbapedia
+"typeChart"
