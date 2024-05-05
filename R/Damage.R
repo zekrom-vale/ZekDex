@@ -17,7 +17,8 @@ library(tidyverse)
 #' @param attackStat The effective Attack stat of the attacking Pokemon.
 #' @param defenseStat The effective Defense stat of the target Pokemon.
 #' @param power The power of the used move.
-#' @param effectiveness The product of STAB, Type1, and Type2.
+#' @param effectiveness The product of Type, and Type2.
+#' @param stab Logical. If TRUE, add the same type attack bonus
 #' @param critical Logical. If TRUE, it's a critical hit. Default is FALSE.
 #' @param random Character string. If "yes", a random uniformly distributed integer between 217 and 255 is used. If "minmax", the min and max values are returned. If anything else, the average is used. Default is "yes".
 #'
@@ -31,6 +32,7 @@ pokemon_damage_I = function(
 		defenseStat,
 		power,
 		effectiveness,
+		stab = FALSE,
 		critical = FALSE,
 		random = "yes"
 	) {
@@ -38,6 +40,7 @@ pokemon_damage_I = function(
 	if(effectiveness == 0)return(0)
 	# Logical to set values
 	critical = critical + 1
+	stab = stab + 1
 
 	# Check if attackStat or defenseStat are greater than 255
 	if (attackStat > 255 | defenseStat > 255) {
@@ -53,7 +56,7 @@ pokemon_damage_I = function(
 	else rand = (217 + 255) / 255 / 2
 
 	# Calculate damage
-	damage = (((((2 * level * critical / 5) + 2) * power * attackStat / defenseStat) / 50) + 2) * effectiveness * rand
+	damage = (((((2 * level * critical / 5) + 2) * power * attackStat / defenseStat) / 50) + 2) * effectiveness * stab * rand
 	if(damage == 0) return(1)
 	damage
 }
@@ -71,7 +74,8 @@ pokemon_damage_I = function(
 #' @param attackStat The effective Attack stat of the attacking Pokemon.
 #' @param defenseStat The effective Defense stat of the target Pokemon.
 #' @param power The power of the used move.
-#' @param effectiveness The product of STAB, Type1, and Type2.
+#' @param effectiveness The product of Type, and Type2.
+#' @param stab Logical. If TRUE, add the same type attack bonus
 #' @param item Logical. If TRUE, the attacker is holding an type-enhancing held item corresponding to the attack type Default is FALSE.
 #' @param TK The TK multiplier for Triple Kick. Default is 1.
 #' @param weather The weather multiplier. Default is 1.
@@ -91,6 +95,7 @@ pokemon_damage_II <- function(
 		defenseStat,
 		power,
 		effectiveness,
+		stab = FALSE,
 		item = FALSE,
 		TK = 1,
 		weather = 1,
@@ -105,6 +110,7 @@ pokemon_damage_II <- function(
 	# Logical to set values
 	item = ifelse(item, 1.1, 1)
 	critical = critical + 1
+	stab = stab + 1
 	badge = ifelse(badge, 1.125, 1)
 	doubleDmg = doubleDmg + 1
 
@@ -130,7 +136,7 @@ pokemon_damage_II <- function(
 				) * power * attackStat / defenseStat
 			) / 50
 		) * item * critical + 2
-	) * TK * weather * badge * effectiveness * moveMod * rand * doubleDmg
+	) * TK * weather * badge * effectiveness * stab * moveMod * rand * doubleDmg
 	if(damage == 0) return(1)
 	damage
 }
@@ -148,7 +154,8 @@ pokemon_damage_II <- function(
 #' @param attackStat The effective Attack stat of the attacking Pokemon.
 #' @param defenseStat The effective Defense stat of the target Pokemon.
 #' @param power The power of the used move.
-#' @param effectiveness The product of STAB, Type1, and Type2.
+#' @param effectiveness The product of Type, and Type2.
+#' @param stab Logical. If TRUE, add the same type attack bonus
 #' @param item Logical. If TRUE, the attacker is holding an type-enhancing held item corresponding to the attack type Default is FALSE.
 #' @param TK The TK multiplier for Triple Kick. Default is 1.
 #' @param weather The weather multiplier. Default is 1.
@@ -174,6 +181,7 @@ pokemon_damage_III <- function(
 		defenseStat,
 		power,
 		effectiveness,
+		stab = FALSE,
 		item = FALSE,
 		TK = 1,
 		weather = 1,
@@ -194,6 +202,7 @@ pokemon_damage_III <- function(
 	if(effectiveness == 0)return(0)
 	# Logical to set values
 	item = ifelse(item, 1.1, 1)
+	stab = stab + 1
 	critical = critical + 1
 	badge = ifelse(badge, 1.125, 1)
 	doubleDmg = doubleDmg + 1
@@ -224,7 +233,7 @@ pokemon_damage_III <- function(
 				) * power * attackStat / defenseStat
 			) / 50
 		) * burn * screen * targets * weather * FF + 2
-	) * stockpile * critical * doubleDmg * charge * HH * badge * effectiveness * moveMod * rand
+	) * stockpile * critical * doubleDmg * charge * HH * badge * effectiveness * stab * moveMod * rand
 	if(damage == 0) return(1)
 	damage
 }
@@ -242,7 +251,8 @@ pokemon_damage_III <- function(
 #' @param attackStat The effective Attack stat of the attacking Pokemon.
 #' @param defenseStat The effective Defense stat of the target Pokemon.
 #' @param power The power of the used move.
-#' @param effectiveness The product of STAB, Type1, and Type2.
+#' @param effectiveness The product of Type, and Type2.
+#' @param stab Logical. If TRUE, add the same type attack bonus
 #' @param item Logical. If TRUE, the attacker is holding an type-enhancing held item corresponding to the attack type Default is FALSE.
 #' @param TK The TK multiplier for Triple Kick. Default is 1.
 #' @param weather The weather multiplier. Default is 1.
@@ -273,6 +283,7 @@ pokemon_damage_IV = function(
 		defenseStat,
 		power,
 		effectiveness,
+		stab = FALSE,
 		item = FALSE,
 		TK = 1,
 		weather = 1,
@@ -297,6 +308,7 @@ pokemon_damage_IV = function(
 	if(effectiveness == 0)return(0)
 	# Logical to set values
 	item = ifelse(item, 1.1, 1)
+	stab = stab + 1
 	critical = critical + 1
 	badge = ifelse(badge, 1.125, 1)
 	doubleDmg = doubleDmg + 1
@@ -331,7 +343,7 @@ pokemon_damage_IV = function(
 				) * power * attackStat / defenseStat
 			) / 50
 		) * burn * screen * targets * weather * FF + 2
-	) * critical * item * moveMod * rand * HH * badge * effectiveness * SRF * EB * TL * Berry
+	) * critical * item * moveMod * rand * HH * badge * effectiveness * stab * SRF * EB * TL * Berry
 	if(damage == 0) return(1)
 	damage
 }
@@ -349,7 +361,8 @@ pokemon_damage_IV = function(
 #' @param attackStat The effective Attack stat of the attacking Pokemon.
 #' @param defenseStat The effective Defense stat of the target Pokemon.
 #' @param power The power of the used move.
-#' @param effectiveness The product of STAB, Type1, and Type2.
+#' @param effectiveness The product of Type, and Type2.
+#' @param stab Logical. If TRUE, add the same type attack bonus
 #' @param item Logical. If TRUE, the attacker is holding an type-enhancing held item corresponding to the attack type Default is FALSE.
 #' @param TK The TK multiplier for Triple Kick. Default is 1.
 #' @param weather The weather multiplier. Default is 1.
@@ -383,6 +396,7 @@ pokemon_damage_V = function(
 		defenseStat,
 		power,
 		effectiveness,
+		stab = FALSE,
 		item = FALSE,
 		TK = 1,
 		weather = 1,
@@ -410,6 +424,7 @@ pokemon_damage_V = function(
 	if(effectiveness == 0)return(0)
 	# Logical to set values
 	item = ifelse(item, 1.1, 1)
+	stab = stab + 1
 	critical = critical + 1
 	badge = ifelse(badge, 1.125, 1)
 	doubleDmg = doubleDmg + 1
@@ -446,7 +461,7 @@ pokemon_damage_V = function(
 				) * power * attackStat / defenseStat
 			) / 50
 		) * burn * screen * targets * weather * FF + 2
-	) * critical * item * moveMod * rand * HH * badge * effectiveness * SRF * EB * TL * Berry * other * ZMove * TeraShield
+	) * critical * item * moveMod * rand * HH * badge * effectiveness * stab * SRF * EB * TL * Berry * other * ZMove * TeraShield
 	if(damage == 0 && other >= 1) return(1)
 	damage
 }
