@@ -162,7 +162,7 @@ efect_fun = function(eft, efect = effectiveness_list$Standard){
 effectiveness = function(attack, defender, efect = effectiveness_list$Standard){
 	# TODO Add stab https://bulbapedia.bulbagarden.net/wiki/Same-type_attack_bonus
 	if(!(attack %in% types$types))stop(paste("Attack type not found:", attack))
-	if(!(defender %in% types$types))stop(paste("Defender type not found:", defender))
+	if(!all((defender %in% types$types)))stop(paste("Defender type not found:", defender))
 	eft1 = typeChart|>
 		filter(Attacking == attack & Defending == defender[1])|>
 		pull(Effectiveness)
