@@ -81,7 +81,7 @@ gen_stats = function(
 
 
 	statsWide = stats|>
-		pivot_wider(names_from = "Gen", values_from = c("HP", "Attack", "Defense", "Speed", "Special", "Total", "Average", "Sp. Attack", "Sp. Defense"))
+		pivot_wider(names_from = "Gen", values_from = c("HP", "Attack", "Defense", "Speed", "Special", "Total", "Average", "SpAttack", "SpDefense"))
 
 
 	if(write){

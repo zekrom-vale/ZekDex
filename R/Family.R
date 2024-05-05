@@ -8,7 +8,7 @@
 #' @importFrom purrr map pmap_lgl
 #' @importFrom dplyr select mutate filter bind_rows across everything
 #' @importFrom tidyr fill
-#' @importFrom stringr str_remove
+#' @importFrom stringr str_remove str_trim
 #' @importFrom readr write_csv
 #' @importFrom magrittr "%>%"
 #' @importFrom rvest read_html html_table

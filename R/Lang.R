@@ -1,7 +1,5 @@
 #' Generate the National Dex with Other Language Data
 #'
-#' This function generates a tibble of the National Dex with language information by reading the 'PokemonNational.csv' file and scraping data from Bulbapedia. It extracts language links and reads the HTML pages to compute the languages. It cleans the tables from each language and combines them into one dataframe. If `write = TRUE`, it also writes the tibble to a csv file.
-#'
 #' @param write Logical, if `TRUE`, writes the tibble to a csv file. Default is `FALSE`.
 #' @param path The path where the csv file will be written if `write = TRUE`. Default is `system.file("data/PokemonLang.csv", package = "ZekDex")`.
 #' @return A tibble of the National Dex with language information.
@@ -10,7 +8,7 @@
 #' @importFrom purrr map map2 reduce
 #' @importFrom dplyr select left_join group_by group_modify mutate across bind_rows rename filter
 #' @importFrom readr read_csv write_csv
-#' @importFrom stringr str_extract
+#' @importFrom stringr str_extract str_replace str_remove_all regex
 #' @importFrom glue glue
 #' @importFrom utils data
 #' @importFrom tidyr everything

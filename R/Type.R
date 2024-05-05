@@ -55,6 +55,7 @@ gen_type = function(write = FALSE, root = "data/", file = "PokemonTypes"){
 #' @importFrom tidyr pivot_longer
 #' @importFrom stringr str_remove
 #' @importFrom stringr str_remove_all
+#' @export
 #' @return A list containing two data frames: 'typeChart' and 'typeChartWide'.
 gen_type_chart = function(write = FALSE, root = "data/", file = "PokemonTypeChart", fileWide = "PokemonTypeChartWide"){
 	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/Type")

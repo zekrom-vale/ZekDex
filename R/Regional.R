@@ -89,7 +89,7 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 		# Fix the dexes into ints
 		mutate(
 			across(
-				-names(nationalDex),
+				-names(national),
 				~ as.integer(str_remove_all(., "[^\\d]"))
 			)
 		)
