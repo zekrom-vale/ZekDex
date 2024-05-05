@@ -121,6 +121,34 @@ effectiveness_list = list(
 	GO2017 =                   1.25**(-3:2) # -3 may be wrong
 )
 
+#' List of STAB Multipliers
+#'
+#' This list contains various Same Type Attack Bonus (STAB) multipliers used in different Pokémon games.
+#' Each multiplier represents a different game or game mechanic.
+#'
+#' @format list
+#' @source Bulbapedia
+#' @export
+#' @examples
+#' stab_multiplyer$Standard
+#' stab_multiplyer$Adaptability
+#' stab_multiplyer$LegendsArceus
+#' stab_multiplyer$Terastallized
+#' stab_multiplyer$AdaptabilityTerastallized
+#' stab_multiplyer$MysteryDungeon
+#' stab_multiplyer$GO
+#' stab_multiplyer$GO2017
+stab_multiplyer = list(
+	Standard = 1.5,
+	Adaptability = 2,
+	LegendsArceus = 1.25,
+	Terastallized = 2,
+	AdaptabilityTerastallized = 2.25,
+	MysteryDungeon = 1.5,
+	GO = 1.2,
+	GO2017 = 1.25
+)
+
 #' Compute Effectiveness Function
 #'
 #' This function computes the effectiveness of an attack based on the effectiveness value and the effectiveness list.
@@ -128,21 +156,23 @@ effectiveness_list = list(
 #'
 #' @param eft Numeric value representing the effectiveness of an attack.
 #' @param efect Numeric vector representing the effectiveness list. Default is effectiveness_list$Standard.
+#' @param stab Logical value indicating whether the attack is of the same type as the attacker. Default is FALSE.
+#' @param stab_multiplyer Numeric value representing the STAB multiplier. Default is stab_multiplyer$Standard.
 #' @return Numeric value representing the computed effectiveness.
 #' @export
 #' @examples
 #' efect_fun(2, effectiveness_list$Standard)
-efect_fun = function(eft, efect = effectiveness_list$Standard){
+efect_fun = function(eft, efect = effectiveness_list$Standard, stab = FALSE, stab_multiplyer = stab_multiplyer$Standard){
 	# 2*2 = 4
 	# 2*1 = 2
 	# 1*1 = 1
 	# .5*2 = 1
 	# .5*.5 = .25
 	# 0 * n = 0
-	if(eft == 0)return(efect[1])
+	if(eft == 0)return(ifelse(stab, efect[1]*stab_multiplyer, efect[1]))
 	maping = log2(eft*4)+2
 	if(maping < 2 || maping > 6 || maping%%1 != 0)stop(paste("Got maping =", maping))
-	efect[maping]
+	ifelse(stab, efect[maping]*stab_multiplyer, efect[maping])
 }
 
 #' Compute Effectiveness of an Attack
@@ -153,24 +183,25 @@ efect_fun = function(eft, efect = effectiveness_list$Standard){
 #' @param attack Character string representing the attacking type.
 #' @param defender Character vector representing the defending types.
 #' @param efect Numeric vector representing the effectiveness list. Default is effectiveness_list$Standard.
+#' @param stab Logical value indicating whether the attack is of the same type as the attacker. Default is FALSE.
+#' @param stab_mult Numeric value representing the STAB multiplier. Default is stab_multiplyer$Standard.
 #' @importFrom dplyr filter
 #' @importFrom dplyr pull
 #' @return Numeric value representing the effectiveness of the attack.
 #' @export
 #' @examples
 #' effectiveness("Fire", c("Grass", "Bug"), effectiveness_list$Standard)
-effectiveness = function(attack, defender, efect = effectiveness_list$Standard){
-	# TODO Add stab https://bulbapedia.bulbagarden.net/wiki/Same-type_attack_bonus
+effectiveness = function(attack, defender, stab = FALSE, stab_mult = stab_multiplyer$Standard, efect = effectiveness_list$Standard){
 	if(!(attack %in% types$types))stop(paste("Attack type not found:", attack))
 	if(!all((defender %in% types$types)))stop(paste("Defender type not found:", defender))
 	eft1 = typeChart|>
 		filter(Attacking == attack & Defending == defender[1])|>
 		pull(Effectiveness)
-	if(is.na(defender[2]))return(efect_fun(eft1, efect))
+	if(is.na(defender[2]))return(efect_fun(eft1, efect, stab = stab, stab_mult = stab_mult))
 	eft2 = typeChart|>
 		filter(Attacking == attack & Defending == defender[2])|>
 		pull(Effectiveness)
-	efect_fun(eft1 * eft2, efect)
+	efect_fun(eft1 * eft2, efect, stab = stab, stab_mult = stab_mult)
 }
 
 
@@ -184,6 +215,8 @@ effectiveness = function(attack, defender, efect = effectiveness_list$Standard){
 #' @param regional Character string representing the regional form of the Pokémon. Default is NA.
 #' @param form Character string representing the form of the Pokémon. Default is NA.
 #' @param efect Numeric vector representing the effectiveness list. Default is effectiveness_list$Standard.
+#' @param stab Logical value indicating whether the attack is of the same type as the attacker. Default is FALSE.
+#' @param stab_mult Numeric value representing the STAB multiplier. Default is stab_multiplyer$Standard.
 #' @importFrom dplyr filter
 #' @importFrom dplyr select
 #' @importFrom purrr pmap
@@ -191,14 +224,14 @@ effectiveness = function(attack, defender, efect = effectiveness_list$Standard){
 #' @export
 #' @examples
 #' effectivenessPokemon("Fire", "Zekrom", efect = effectiveness_list$Standard)
-effectivenessPokemon = function(attack, pokemon, regional=NA_character_, form=NA_character_, efect = effectiveness_list$Standard){
+effectivenessPokemon = function(attack, pokemon, regional=NA_character_, form=NA_character_, efect = effectiveness_list$Standard, stab = FALSE, stab_mult = stab_multiplyer$Standard){
 	inner_effectivenessPokemon = function(attack, pokemon, efect){
 		if(dim(pokemon)[1]==0)stop("Empty tibble")
 		type = pokemon|>
 			select(type, type2)|>
 			pmap(function(...) as.character(c(...)))
 		return(
-			Vectorize(effectiveness, vectorize.args = "defender")(attack, type, efect = efect)
+			Vectorize(effectiveness, vectorize.args = "defender")(attack, type, efect = efect, stab = stab, stab_mult = stab_mult)
 		)
 	}
 
@@ -221,5 +254,21 @@ effectivenessPokemon = function(attack, pokemon, regional=NA_character_, form=NA
 	if(dim(dex)[1]==0)stop(paste("Pokemon not found:", pokemon, regional, form))
 
 	return(inner_effectivenessPokemon(attack, dex, efect))
+}
+
+#' Compute STAB Multiplier for an Attack
+#'
+#' This function computes the Same Type Attack Bonus (STAB) multiplier for an attack.
+#' It is to be used with the `effectiveness` and `effectivenessPokemon` functions instead of passing a parameter.
+#'
+#' @param effectiveness Numeric value representing the effectiveness of an attack.
+#' @param stab_multiplyer Numeric value representing the STAB multiplier. Default is stab_multiplyer$Standard.
+#' @return Numeric value representing the effectiveness of the attack with the STAB multiplier applied.
+#' @export
+#' @examples
+#' effectivenessPokemon("Fire", "Zekrom")|>
+#'   stab()
+stab = function(effectiveness, stab_multiplyer = stab_multiplyer$Standard){
+	effectiveness * stab_multiplyer
 }
 
