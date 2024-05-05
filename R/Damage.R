@@ -34,6 +34,9 @@ pokemon_damage_I = function(
 		critical = FALSE,
 		random = "yes"
 	) {
+	# If immune return 0
+	if(effectiveness == 0)return(0)
+	# Logical to set values
 	critical = critical + 1
 
 	# Check if attackStat or defenseStat are greater than 255
@@ -50,7 +53,9 @@ pokemon_damage_I = function(
 	else rand = (217 + 255) / 255 / 2
 
 	# Calculate damage
-	(((((2 * level * critical / 5) + 2) * power * attackStat / defenseStat) / 50) + 2) * effectiveness * rand
+	damage = (((((2 * level * critical / 5) + 2) * power * attackStat / defenseStat) / 50) + 2) * effectiveness * rand
+	if(damage == 0) return(1)
+	damage
 }
 
 #' Pokemon Damage Calculation Generation II
@@ -95,6 +100,9 @@ pokemon_damage_II <- function(
 		critical = FALSE,
 		random = "yes"
 	) {
+	# If immune return 0
+	if(effectiveness == 0)return(0)
+	# Logical to set values
 	item = ifelse(item, 1.1, 1)
 	critical = critical + 1
 	badge = ifelse(badge, 1.125, 1)
@@ -114,7 +122,7 @@ pokemon_damage_II <- function(
 	else rand = (217 + 255) / 255 / 2
 
 	# Calculate damage
-	(
+	damage = (
 		(
 			(
 				(
@@ -123,6 +131,8 @@ pokemon_damage_II <- function(
 			) / 50
 		) * item * critical + 2
 	) * TK * weather * badge * effectiveness * moveMod * rand * doubleDmg
+	if(damage == 0) return(1)
+	damage
 }
 
 #' Pokemon Damage Calculation Generation III
@@ -180,6 +190,9 @@ pokemon_damage_III <- function(
 		critical = FALSE,
 		random = "yes"
 ) {
+	# If immune return 0
+	if(effectiveness == 0)return(0)
+	# Logical to set values
 	item = ifelse(item, 1.1, 1)
 	critical = critical + 1
 	badge = ifelse(badge, 1.125, 1)
@@ -203,7 +216,7 @@ pokemon_damage_III <- function(
 	else rand = (85 + 100) / 100 / 2
 
 	# Calculate damage
-	(
+	damage = (
 		(
 			(
 				(
@@ -212,6 +225,8 @@ pokemon_damage_III <- function(
 			) / 50
 		) * burn * screen * targets * weather * FF + 2
 	) * stockpile * critical * doubleDmg * charge * HH * badge * effectiveness * moveMod * rand
+	if(damage == 0) return(1)
+	damage
 }
 
 #' Pokemon Damage Calculation Generation IV
@@ -278,6 +293,9 @@ pokemon_damage_IV = function(
 		critical = FALSE,
 		random = "yes"
 ) {
+	# If immune return 0
+	if(effectiveness == 0)return(0)
+	# Logical to set values
 	item = ifelse(item, 1.1, 1)
 	critical = critical + 1
 	badge = ifelse(badge, 1.125, 1)
@@ -305,7 +323,7 @@ pokemon_damage_IV = function(
 	else rand = (85 + 100) / 100 / 2
 
 	# Calculate damage
-	(
+	damage = (
 		(
 			(
 				(
@@ -314,6 +332,8 @@ pokemon_damage_IV = function(
 			) / 50
 		) * burn * screen * targets * weather * FF + 2
 	) * critical * item * moveMod * rand * HH * badge * effectiveness * SRF * EB * TL * Berry
+	if(damage == 0) return(1)
+	damage
 }
 
 #' Pokemon Damage Calculation Generation V and onward
@@ -386,6 +406,9 @@ pokemon_damage_V = function(
 		critical = FALSE,
 		random = "yes"
 ) {
+	# If immune return 0
+	if(effectiveness == 0)return(0)
+	# Logical to set values
 	item = ifelse(item, 1.1, 1)
 	critical = critical + 1
 	badge = ifelse(badge, 1.125, 1)
@@ -415,7 +438,7 @@ pokemon_damage_V = function(
 	else rand = (85 + 100) / 100 / 2
 
 	# Calculate damage
-	(
+	damage = (
 		(
 			(
 				(
@@ -424,4 +447,6 @@ pokemon_damage_V = function(
 			) / 50
 		) * burn * screen * targets * weather * FF + 2
 	) * critical * item * moveMod * rand * HH * badge * effectiveness * SRF * EB * TL * Berry * other * ZMove * TeraShield
+	if(damage == 0 && other >= 1) return(1)
+	damage
 }
