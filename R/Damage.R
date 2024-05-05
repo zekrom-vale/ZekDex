@@ -1,10 +1,3 @@
-# In the first four generations, during the calculation, all operations are carried out on integers
-# internally—this means that all division operations are truncated integer division
-# (i.e. rounding down if the result is not an integer), and the results of multiplication operations
-# are rounded down afterwards (truncating any fractional part). From Generation V onward,
-# there are three different types of rounding; a flooring (the same as previous generations),
-# rounding to the nearest integer while rounding down at 0.5, and rounding to the nearest integer
-# while rounding up at 0.5.
 # Load the tidyverse package
 library(tidyverse)
 
@@ -56,9 +49,23 @@ pokemon_damage_I = function(
 	else rand = (217 + 255) / 255 / 2
 
 	# Calculate damage
-	damage = (((((2 * level * critical / 5) + 2) * power * attackStat / defenseStat) / 50) + 2) * effectiveness * stab * rand
+	base = floor(
+		floor(
+			(
+				floor(2 * level / 5) + 2
+			) * power * floor(attackStat / defenseStat)
+		) / 50
+	)
+	floor_mult = function(x,y) floor(x*y)
+
+	damage = (base + 2)|>
+		floor_mult(stab)|>
+		floor_mult(effectiveness)|>
+		floor_mult(rand)
+
 	if(damage == 0) return(1)
 	damage
+
 }
 
 #' Pokemon Damage Calculation Generation II
@@ -75,34 +82,29 @@ pokemon_damage_I = function(
 #' @param defenseStat The effective Defense stat of the target Pokemon.
 #' @param power The power of the used move.
 #' @param effectiveness The product of Type, and Type2.
-#' @param stab Logical. If TRUE, add the same type attack bonus
-#' @param item Logical. If TRUE, the attacker is holding an type-enhancing held item corresponding to the attack type Default is FALSE.
-#' @param TK The TK multiplier for Triple Kick. Default is 1.
-#' @param weather The weather multiplier. Default is 1.
-#' @param badge Logical. If TRUE, the attacking Pokémon is controlled by the player and if the player has obtained the Badge corresponding to the used move's type. Default is FALSE.
-#' @param moveMod The move modifier. Default is 1.
-#' @param doubleDmg Logical. If TRUE, double the damage of the move. Default is FALSE.
+#' @param stab Logical. If TRUE, add the same type attack bonus.
+#' @param item Logical. If TRUE, the attacker is holding an type-enhancing held item corresponding to the attack type. Default is FALSE.
 #' @param critical Logical. If TRUE, it's a critical hit. Default is FALSE.
 #' @param random Character string. If "yes", a random uniformly distributed integer between 217 and 255 is used. If "minmax", the min and max values are returned. If anything else, the average is used. Default is "yes".
 #'
 #' @return The calculated damage.
 #' @importFrom stats runif
 #' @export
-#'
 pokemon_damage_II <- function(
 		level,
 		attackStat,
 		defenseStat,
 		power,
 		effectiveness,
-		stab = FALSE,
+
 		item = FALSE,
+		critical = FALSE,
 		TK = 1,
 		weather = 1,
 		badge = FALSE,
+		stab = FALSE,
 		moveMod = 1,
 		doubleDmg = FALSE,
-		critical = FALSE,
 		random = "yes"
 	) {
 	# If immune return 0
@@ -128,15 +130,29 @@ pokemon_damage_II <- function(
 	else rand = (217 + 255) / 255 / 2
 
 	# Calculate damage
-	damage = (
-		(
+	base = floor(
+		floor(
 			(
-				(
-					(2 * level / 5) + 2
-				) * power * attackStat / defenseStat
-			) / 50
-		) * item * critical + 2
-	) * TK * weather * badge * effectiveness * stab * moveMod * rand * doubleDmg
+				floor(2 * level / 5) + 2
+			) * power * floor(attackStat / defenseStat)
+		) / 50
+	)
+	floor_mult = function(x,y) floor(x*y)
+
+	inner = base|>
+		floor_mult(item)|>
+		floor_mult(critical)|>
+
+	damage = (inner + 2)|>
+		floor_mult(TK)|>
+		floor_mult(weather)|>
+		floor_mult(badge)|>
+		floor_mult(stab)|>
+		floor_mult(effectiveness)|>
+		floor_mult(moveMod)|>
+		floor_mult(rand)|>
+		floor_mult(doubleDmg)
+
 	if(damage == 0) return(1)
 	damage
 }
@@ -155,56 +171,47 @@ pokemon_damage_II <- function(
 #' @param defenseStat The effective Defense stat of the target Pokemon.
 #' @param power The power of the used move.
 #' @param effectiveness The product of Type, and Type2.
-#' @param stab Logical. If TRUE, add the same type attack bonus
-#' @param item Logical. If TRUE, the attacker is holding an type-enhancing held item corresponding to the attack type Default is FALSE.
-#' @param TK The TK multiplier for Triple Kick. Default is 1.
-#' @param weather The weather multiplier. Default is 1.
-#' @param badge Logical. If TRUE, the attacking Pokémon is controlled by the player and if the player has obtained the Badge corresponding to the used move's type. Default is FALSE.
-#' @param moveMod The move modifier. Default is 1.
-#' @param doubleDmg Logical. If TRUE, double the damage of the move. Default is FALSE.
+#' @param stab Logical. If TRUE, add the same type attack bonus.
 #' @param burn Logical. If TRUE, the attacker is burned, its Ability is not Guts, and the used move is a physical move. Default is FALSE.
 #' @param screen The screen multiplier. Default is 1.
 #' @param targets The targets multiplier. Default is 1.
+#' @param weather The weather multiplier. Default is 1.
 #' @param FF Logical. If TRUE, the used move is Fire-type, and the attacker's Ability is Flash Fire that has been activated by a Fire-type move. Default is FALSE.
 #' @param stockpile The stockpile multiplier. Default is 1.
+#' @param critical Logical. If TRUE, it's a critical hit. Default is FALSE.
+#' @param doubleDmg Logical. If TRUE, double the damage of the move. Default is FALSE.
 #' @param charge Logical. If TRUE, the move is Electric-type and Charge takes effect. Default is FALSE.
 #' @param HH Logical. If TRUE, the attacker's ally in a Double Battle has used Helping Hand on it. Default is FALSE.
-#' @param critical Logical. If TRUE, it's a critical hit. Default is FALSE.
 #' @param random Character string. If "yes", a random uniformly distributed integer between 85 and 100 is used. If "minmax", the min and max values are returned. If anything else, the average is used. Default is "yes".
+#'
 #' @return The calculated damage.
 #' @importFrom stats runif
 #' @export
-#'
-pokemon_damage_III <- function(
+pokemon_damage_III = function(
 		level,
 		attackStat,
 		defenseStat,
 		power,
 		effectiveness,
-		stab = FALSE,
-		item = FALSE,
-		TK = 1,
-		weather = 1,
-		badge = FALSE,
-		moveMod = 1,
-		doubleDmg = FALSE,
+
 		burn = FALSE,
 		screen = 1,
 		targets = 1,
+		weather = 1,
 		FF = FALSE,
 		stockpile = 1,
+		critical = FALSE,
+		doubleDmg = FALSE,
 		charge = FALSE,
 		HH = FALSE,
-		critical = FALSE,
+		stab = FALSE,
 		random = "yes"
 ) {
 	# If immune return 0
 	if(effectiveness == 0)return(0)
 	# Logical to set values
-	item = ifelse(item, 1.1, 1)
 	stab = stab + 1
 	critical = critical + 1
-	badge = ifelse(badge, 1.125, 1)
 	doubleDmg = doubleDmg + 1
 	burn = ifelse(burn, 0.5, 1)
 	FF = ifelse(FF, 1.5, 1)
@@ -225,16 +232,32 @@ pokemon_damage_III <- function(
 	else rand = (85 + 100) / 100 / 2
 
 	# Calculate damage
-	damage = (
-		(
+	base = floor(
+		floor(
 			(
-				(
-					(2 * level / 5) + 2
-				) * power * attackStat / defenseStat
-			) / 50
-		) * burn * screen * targets * weather * FF + 2
-	) * stockpile * critical * doubleDmg * charge * HH * badge * effectiveness * stab * moveMod * rand
-	if(damage == 0) return(1)
+				(floor(2 * level / 5)) + 2
+			) * power * floor(attackStat / defenseStat)
+		) / 50
+	)
+
+	floor_mult = function(x,y) floor(x*y)
+	inner = base|>
+		floor_mult(burn)|>
+		floor_mult(screen)|>
+		floor_mult(targets)|>
+		floor_mult(weather)|>
+		floor_mult(FF)
+
+	damage = (inner + 2)|>
+		floor_mult(stockpile)|>
+		floor_mult(critical)|>
+		floor_mult(doubleDmg)|>
+		floor_mult(charge)|>
+		floor_mult(HH)|>
+		floor_mult(stab)|>
+		floor_mult(effectiveness)|>
+		floor_mult(rand)
+	if(damage == 0 && other >= 1) return(1)
 	damage
 }
 
@@ -252,56 +275,44 @@ pokemon_damage_III <- function(
 #' @param defenseStat The effective Defense stat of the target Pokemon.
 #' @param power The power of the used move.
 #' @param effectiveness The product of Type, and Type2.
-#' @param stab Logical. If TRUE, add the same type attack bonus
-#' @param item Logical. If TRUE, the attacker is holding an type-enhancing held item corresponding to the attack type Default is FALSE.
-#' @param TK The TK multiplier for Triple Kick. Default is 1.
-#' @param weather The weather multiplier. Default is 1.
-#' @param badge Logical. If TRUE, the attacking Pokémon is controlled by the player and if the player has obtained the Badge corresponding to the used move's type. Default is FALSE.
-#' @param moveMod The move modifier. Default is 1.
-#' @param doubleDmg Logical. If TRUE, double the damage of the move. Default is FALSE.
+#' @param stab Logical. If TRUE, add the same type attack bonus.
 #' @param burn Logical. If TRUE, the attacker is burned, its Ability is not Guts, and the used move is a physical move. Default is FALSE.
 #' @param screen The screen multiplier. Default is 1.
 #' @param targets The targets multiplier. Default is 1.
+#' @param weather The weather multiplier. Default is 1.
 #' @param FF Logical. If TRUE, the used move is Fire-type, and the attacker's Ability is Flash Fire that has been activated by a Fire-type move. Default is FALSE.
-#' @param stockpile The stockpile multiplier. Default is 1.
-#' @param charge Logical. If TRUE, the move is Electric-type and Charge takes effect. Default is FALSE.
-#' @param HH Logical. If TRUE, the attacker's ally in a Double Battle has used Helping Hand on it. Default is FALSE.
+#' @param critical Logical. If TRUE, it's a critical hit. Default is FALSE.
+#' @param item Logical. If TRUE, the attacker is holding an type-enhancing held item corresponding to the attack type. Default is FALSE.
+#' @param first Logical. If TRUE, the used move was stolen with Me First. Default is FALSE.
 #' @param SRF Logical. If TRUE, the used move is super effective, the target's Ability is Solid Rock or Filter, and the attacker's Ability is not Mold Breaker. Default is FALSE.
 #' @param EB Logical. If TRUE, the used move is super effective and the attacker is holding an Expert Belt. Default is FALSE.
 #' @param TL Logical. If TRUE, the used move is not very effective and the attacker's Ability is Tinted Lens. Default is FALSE.
 #' @param Berry Logical. If TRUE, the used move is super effective and the target is holding the Berry that weakens it, or Normal-type and the target is holding a Chilan Berry. Default is FALSE.
-#' @param critical Logical. If TRUE, it's a critical hit. Default is FALSE.
 #' @param random Character string. If "yes", a random uniformly distributed integer between 85 and 100 is used. If "minmax", the min and max values are returned. If anything else, the average is used. Default is "yes".
 #'
 #' @return The calculated damage.
 #' @importFrom stats runif
 #' @export
-#'
 pokemon_damage_IV = function(
 		level,
 		attackStat,
 		defenseStat,
 		power,
 		effectiveness,
-		stab = FALSE,
-		item = FALSE,
-		TK = 1,
-		weather = 1,
-		badge = FALSE,
-		moveMod = 1,
-		doubleDmg = FALSE,
+
 		burn = FALSE,
 		screen = 1,
 		targets = 1,
+		weather = 1,
 		FF = FALSE,
-		stockpile = 1,
-		charge = FALSE,
-		HH = FALSE,
+		critical = FALSE,
+		item = FALSE,
+		first = FALSE,
+		stab = FALSE,
 		SRF = FALSE,
 		EB = FALSE,
 		TL = FALSE,
 		Berry = FALSE,
-		critical = FALSE,
 		random = "yes"
 ) {
 	# If immune return 0
@@ -310,16 +321,13 @@ pokemon_damage_IV = function(
 	item = ifelse(item, 1.1, 1)
 	stab = stab + 1
 	critical = critical + 1
-	badge = ifelse(badge, 1.125, 1)
-	doubleDmg = doubleDmg + 1
 	burn = ifelse(burn, 0.5, 1)
 	FF = ifelse(FF, 1.5, 1)
-	charge = ifelse(charge, 2, 1)
-	HH = ifelse(HH, 1.5, 1)
 	SRF = ifelse(SRF, 0.75, 1)
 	EB = ifelse(EB, 1.2, 1)
 	TL = ifelse(TL, 2, 1)
 	Berry = ifelse(Berry, 0.5, 1)
+	first = ifelse(first, 1.5, 1)
 
 	# Check if attackStat or defenseStat are greater than 255
 	if (attackStat > 255 | defenseStat > 255) {
@@ -335,16 +343,34 @@ pokemon_damage_IV = function(
 	else rand = (85 + 100) / 100 / 2
 
 	# Calculate damage
-	damage = (
-		(
+	base = floor(
+		floor(
 			(
-				(
-					(2 * level / 5) + 2
-				) * power * attackStat / defenseStat
-			) / 50
-		) * burn * screen * targets * weather * FF + 2
-	) * critical * item * moveMod * rand * HH * badge * effectiveness * stab * SRF * EB * TL * Berry
-	if(damage == 0) return(1)
+				(floor(2 * level / 5)) + 2
+			) * power * floor(attackStat / defenseStat)
+		) / 50
+	)
+
+	floor_mult = function(x,y) floor(x*y)
+	inner = base|>
+		floor_mult(burn)|>
+		floor_mult(screen)|>
+		floor_mult(targets)|>
+		floor_mult(weather)|>
+		floor_mult(FF)
+
+	damage = (inner + 2)|>
+		floor_mult(critical)|>
+		floor_mult(item)|>
+		floor_mult(first)|>
+		floor_mult(rand)|>
+		floor_mult(stab)|>
+		floor_mult(effectiveness)|>
+		floor_mult(SRF)|>
+		floor_mult(EB)|>
+		floor_mult(TL)|>
+		floor_mult(Berry)
+	if(damage == 0 && other >= 1) return(1)
 	damage
 }
 
@@ -362,80 +388,51 @@ pokemon_damage_IV = function(
 #' @param defenseStat The effective Defense stat of the target Pokemon.
 #' @param power The power of the used move.
 #' @param effectiveness The product of Type, and Type2.
-#' @param stab Logical. If TRUE, add the same type attack bonus
-#' @param item Logical. If TRUE, the attacker is holding an type-enhancing held item corresponding to the attack type Default is FALSE.
-#' @param TK The TK multiplier for Triple Kick. Default is 1.
+#' @param stab Logical. If TRUE, add the same type attack bonus.
+#' @param PB Logical. If TRUE, the move is the second strike of Parental Bond. Default is FALSE.
 #' @param weather The weather multiplier. Default is 1.
-#' @param badge Logical. If TRUE, the attacking Pokémon is controlled by the player and if the player has obtained the Badge corresponding to the used move's type. Default is FALSE.
-#' @param moveMod The move modifier. Default is 1.
-#' @param doubleDmg Logical. If TRUE, double the damage of the move. Default is FALSE.
+#' @param GlaiveRush Logical. If TRUE, the target used the move Glaive Rush in the previous turn. Default is FALSE.
+#' @param critical Logical. If TRUE, it's a critical hit. Default is FALSE.
 #' @param burn Logical. If TRUE, the attacker is burned, its Ability is not Guts, and the used move is a physical move. Default is FALSE.
-#' @param screen The screen multiplier. Default is 1.
-#' @param targets The targets multiplier. Default is 1.
-#' @param FF Logical. If TRUE, the used move is Fire-type, and the attacker's Ability is Flash Fire that has been activated by a Fire-type move. Default is FALSE.
-#' @param stockpile The stockpile multiplier. Default is 1.
-#' @param charge Logical. If TRUE, the move is Electric-type and Charge takes effect. Default is FALSE.
-#' @param HH Logical. If TRUE, the attacker's ally in a Double Battle has used Helping Hand on it. Default is FALSE.
-#' @param SRF Logical. If TRUE, the used move is super effective, the target's Ability is Solid Rock or Filter, and the attacker's Ability is not Mold Breaker. Default is FALSE.
-#' @param EB Logical. If TRUE, the used move is super effective and the attacker is holding an Expert Belt. Default is FALSE.
-#' @param TL Logical. If TRUE, the used move is not very effective and the attacker's Ability is Tinted Lens. Default is FALSE.
-#' @param Berry Logical. If TRUE, the used move is super effective and the target is holding the Berry that weakens it, or Normal-type and the target is holding a Chilan Berry. Default is FALSE.
 #' @param other The other multiplier. Default is 1.
 #' @param ZMove Logical. If TRUE, the move is a Z-Move or Max Move and the target would be protected from that move (e.g. by Protect). Default is FALSE.
 #' @param TeraShield Logical. If TRUE, it is applied in Tera Raid Battles when the Raid boss's shield is active. Default is FALSE.
-#' @param critical Logical. If TRUE, it's a critical hit. Default is FALSE.
+#' @param targets The targets multiplier. Default is 1.
 #' @param random Character string. If "yes", a random uniformly distributed integer between 85 and 100 is used. If "minmax", the min and max values are returned. If anything else, the average is used. Default is "yes".
+#' @param .criticalVal The critical hit multiplier. Default is 1.5 (2 in Generation V).
+#' @param .PBVal The Parental Bond multiplier. Default is 0.25 (0.5 in Generation VI).
 #'
 #' @return The calculated damage.
 #' @importFrom stats runif
 #' @export
-#'
 pokemon_damage_V = function(
 		level,
 		attackStat,
 		defenseStat,
 		power,
 		effectiveness,
-		stab = FALSE,
-		item = FALSE,
-		TK = 1,
+
+		PB = FALSE,
 		weather = 1,
-		badge = FALSE,
-		moveMod = 1,
-		doubleDmg = FALSE,
+		GlaiveRush = FALSE,
+		critical = FALSE,
+		stab = FALSE,
 		burn = FALSE,
-		screen = 1,
-		targets = 1,
-		FF = FALSE,
-		stockpile = 1,
-		charge = FALSE,
-		HH = FALSE,
-		SRF = FALSE,
-		EB = FALSE,
-		TL = FALSE,
-		Berry = FALSE,
 		other = 1,
 		ZMove = FALSE,
 		TeraShield = FALSE,
-		critical = FALSE,
-		random = "yes"
+		targets = 1,
+		random = "yes",
+		.criticalVal = 1.5, # 1.5 (2 in Generation V)
+		.PBVal = 0.25 # 0.25 (0.5 in Generation VI)
 ) {
 	# If immune return 0
 	if(effectiveness == 0)return(0)
 	# Logical to set values
-	item = ifelse(item, 1.1, 1)
 	stab = stab + 1
-	critical = critical + 1
-	badge = ifelse(badge, 1.125, 1)
-	doubleDmg = doubleDmg + 1
+	critical = ifelse(critical, .criticalVal, 1)
 	burn = ifelse(burn, 0.5, 1)
-	FF = ifelse(FF, 1.5, 1)
-	charge = ifelse(charge, 2, 1)
-	HH = ifelse(HH, 1.5, 1)
-	SRF = ifelse(SRF, 0.75, 1)
-	EB = ifelse(EB, 1.2, 1)
-	TL = ifelse(TL, 2, 1)
-	Berry = ifelse(Berry, 0.5, 1)
+	PB = ifelse(PB, 1, .PBVal)
 	ZMove = ifelse(ZMove, 0.25, 1)
 	TeraShield = ifelse(TeraShield, 0.2, 1)
 
@@ -453,15 +450,31 @@ pokemon_damage_V = function(
 	else rand = (85 + 100) / 100 / 2
 
 	# Calculate damage
-	damage = (
-		(
+	base = round(
+		round(
 			(
-				(
-					(2 * level / 5) + 2
-				) * power * attackStat / defenseStat
-			) / 50
-		) * burn * screen * targets * weather * FF + 2
-	) * critical * item * moveMod * rand * HH * badge * effectiveness * stab * SRF * EB * TL * Berry * other * ZMove * TeraShield
+				(round(2 * level / 5)) + 2
+			) * power * round(attackStat / defenseStat)
+		) / 50
+	)
+
+	# base * burn * screen * targets * weather * FF
+	floor_mult = function(x,y) floor(x*y)
+
+	# (inner + 2) * critical * item * moveMod * rand * HH * badge * effectiveness * stab * SRF * EB * TL * Berry * other * ZMove * TeraShield
+	damage = (base + 2)|>
+		floor_mult(targets)|>
+		floor_mult(PB)|>
+		floor_mult(weather)|>
+		floor_mult(GlaiveRush)|>
+		floor_mult(critical)|>
+		floor_mult(rand)|>
+		floor_mult(stab)|>
+		floor_mult(effectiveness)|>
+		floor_mult(burn)|>
+		floor_mult(other)|>
+		floor_mult(ZMove)|>
+		floor_mult(TeraShield)
 	if(damage == 0 && other >= 1) return(1)
 	damage
 }
