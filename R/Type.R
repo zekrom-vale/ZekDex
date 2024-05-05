@@ -54,8 +54,6 @@ gen_type = function(write = FALSE, root = "data/", file = "PokemonTypes"){
 #' @importFrom dplyr filter
 #' @importFrom tidyr pivot_longer
 #' @importFrom stringr str_remove
-#' @importFrom base if_else
-#' @importFrom base as.numeric
 #' @importFrom stringr str_remove_all
 #' @return A list containing two data frames: 'typeChart' and 'typeChartWide'.
 gen_type_chart = function(write = FALSE, root = "data/", file = "PokemonTypeChart", fileWide = "PokemonTypeChartWide"){

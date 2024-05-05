@@ -4,7 +4,7 @@
 \alias{read_data}
 \title{Read Data from CSV or RDA}
 \usage{
-read_data(data, root, ns = asNamespace("ZekDex"), one = TRUE)
+read_data(data, root, ns = asNamespace("ZekDex"), one = TRUE, g = NULL)
 }
 \arguments{
 \item{data}{The name of the data to load.}

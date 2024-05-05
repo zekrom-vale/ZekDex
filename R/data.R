@@ -1,15 +1,15 @@
-#' This file contains information about the generated datasets, there is no code in this file
-#' TEMPLATE FORMAT:
-#' <Title>
-#'
-#' <Explanation>
-#'
-#' [@format <Format>]
-#' \describe{
-#'   \item{<Column>}{`<Type>` <Description>}
-#'   [...]
-#' }
-#' [@source <Source>]
+# This file contains information about the generated datasets, there is no code in this file
+# TEMPLATE FORMAT:
+# <Title>
+#
+# <Explanation>
+#
+# [@format <Format>]
+# \describe{
+#   \item{<Column>}{`<Type>` <Description>}
+#   [...]
+# }
+# [@source <Source>]
 NULL
 
 
