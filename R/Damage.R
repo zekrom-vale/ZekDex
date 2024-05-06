@@ -29,13 +29,11 @@ pokemon_damage_I = function(
 		critical = FALSE,
 		random = "yes"
 	) {
-	# If immune return 0
-	if(effectiveness == 0)return(0)
 	# Logical to set values
 	critical = critical + 1
 	stab = stab + 1
 
-	rand = damage_random(random, length(effectiveness), .min = 217, .max = 255)
+	rand = damage_random(random, .min = 217, .max = 255)
 
 	# Calculate damage
 	base = damage_base(level, power, attackStat, defenseStat, .round = round)
@@ -43,11 +41,13 @@ pokemon_damage_I = function(
 
 	damage = (base + 2)|>
 		floor_mult(stab)|>
-		floor_mult(effectiveness)|>
-		floor_mult(rand)
+		floor_mult(effectiveness)
 
-	if(damage == 0) return(1)
-	damage
+	map(rand, function(x){
+		d=damage|>
+			floor_mult(rand)
+		ifelse(d == 0 & other >= 1, 1, d)
+	})
 
 }
 
@@ -90,8 +90,6 @@ pokemon_damage_II <- function(
 		doubleDmg = FALSE,
 		random = "yes"
 	) {
-	# If immune return 0
-	if(effectiveness == 0)return(0)
 	# Logical to set values
 	item = ifelse(item, 1.1, 1)
 	critical = critical + 1
@@ -99,7 +97,7 @@ pokemon_damage_II <- function(
 	badge = ifelse(badge, 1.125, 1)
 	doubleDmg = doubleDmg + 1
 
-	rand = damage_random(random, length(effectiveness), .min = 217, .max = 255)
+	rand = damage_random(random, .min = 217, .max = 255)
 
 	# Calculate damage
 	base = damage_base(level, power, attackStat, defenseStat, .round = round)
@@ -115,12 +113,14 @@ pokemon_damage_II <- function(
 		floor_mult(badge)|>
 		floor_mult(stab)|>
 		floor_mult(effectiveness)|>
-		floor_mult(moveMod)|>
-		floor_mult(rand)|>
-		floor_mult(doubleDmg)
+		floor_mult(moveMod)
 
-	if(damage == 0) return(1)
-	damage
+	map(rand, function(x){
+		d=damage|>
+			floor_mult(rand)|>
+			floor_mult(doubleDmg)
+		ifelse(d == 0 & other >= 1, 1, d)
+	})
 }
 
 #' Pokemon Damage Calculation Generation III
@@ -173,8 +173,6 @@ pokemon_damage_III = function(
 		stab = FALSE,
 		random = "yes"
 ) {
-	# If immune return 0
-	if(effectiveness == 0)return(0)
 	# Logical to set values
 	stab = stab + 1
 	critical = critical + 1
@@ -184,7 +182,7 @@ pokemon_damage_III = function(
 	charge = ifelse(charge, 2, 1)
 	HH = ifelse(HH, 1.5, 1)
 
-	rand = damage_random(random, length(effectiveness))
+	rand = damage_random(random)
 
 	# Calculate damage
 	base = damage_base(level, power, attackStat, defenseStat, .round = round)
@@ -204,10 +202,13 @@ pokemon_damage_III = function(
 		floor_mult(charge)|>
 		floor_mult(HH)|>
 		floor_mult(stab)|>
-		floor_mult(effectiveness)|>
-		floor_mult(rand)
-	if(damage == 0 && other >= 1) return(1)
-	damage
+		floor_mult(effectiveness)
+
+	map(rand, function(x){
+		d=damage|>
+			floor_mult(rand)
+		ifelse(d == 0 & other >= 1, 1, d)
+	})
 }
 
 #' Pokemon Damage Calculation Generation IV
@@ -264,8 +265,6 @@ pokemon_damage_IV = function(
 		Berry = FALSE,
 		random = "yes"
 ) {
-	# If immune return 0
-	if(effectiveness == 0)return(0)
 	# Logical to set values
 	item = ifelse(item, 1.1, 1)
 	stab = stab + 1
@@ -278,7 +277,7 @@ pokemon_damage_IV = function(
 	Berry = ifelse(Berry, 0.5, 1)
 	first = ifelse(first, 1.5, 1)
 
-	rand = damage_random(random, length(effectiveness))
+	rand = damage_random(random)
 
 	# Calculate damage
 	base = damage_base(level, power, attackStat, defenseStat)
@@ -294,16 +293,19 @@ pokemon_damage_IV = function(
 	damage = (inner + 2)|>
 		floor_mult(critical)|>
 		floor_mult(item)|>
-		floor_mult(first)|>
-		floor_mult(rand)|>
-		floor_mult(stab)|>
-		floor_mult(effectiveness)|>
-		floor_mult(SRF)|>
-		floor_mult(EB)|>
-		floor_mult(TL)|>
-		floor_mult(Berry)
-	if(damage == 0 && other >= 1) return(1)
-	damage
+		floor_mult(first)
+
+	map(rand, function(x){
+		d=damage|>
+			floor_mult(x)|>
+			floor_mult(stab)|>
+			floor_mult(effectiveness)|>
+			floor_mult(SRF)|>
+			floor_mult(EB)|>
+			floor_mult(TL)|>
+			floor_mult(Berry)
+		ifelse(d == 0 & other >= 1, 1, d)
+	})
 }
 
 #' Pokemon Damage Calculation Generation V and onward
@@ -358,8 +360,6 @@ pokemon_damage_V = function(
 		.criticalVal = 1.5, # 1.5 (2 in Generation V)
 		.PBVal = 0.25 # 0.25 (0.5 in Generation VI)
 ) {
-	# If immune return 0
-	if(effectiveness == 0)return(0)
 	# Logical to set values
 	stab = stab + 1
 	critical = ifelse(critical, .criticalVal, 1)
@@ -368,7 +368,7 @@ pokemon_damage_V = function(
 	ZMove = ifelse(ZMove, 0.25, 1)
 	TeraShield = ifelse(TeraShield, 0.2, 1)
 
-	rand = damage_random(random, length(effectiveness))
+	rand = damage_random(random)
 
 	# Calculate damage
 	base = damage_base(level, power, attackStat, defenseStat, .round = round)
@@ -382,16 +382,19 @@ pokemon_damage_V = function(
 		floor_mult(PB)|>
 		floor_mult(weather)|>
 		floor_mult(GlaiveRush)|>
-		floor_mult(critical)|>
-		floor_mult(rand)|>
-		floor_mult(stab)|>
-		floor_mult(effectiveness)|>
-		floor_mult(burn)|>
-		floor_mult(other)|>
-		floor_mult(ZMove)|>
-		floor_mult(TeraShield)
-	if(damage == 0 && other >= 1) return(1)
-	damage
+		floor_mult(critical)
+
+	map(rand, function(x){
+		d=damage|>
+			floor_mult(x)|>
+			floor_mult(stab)|>
+			floor_mult(effectiveness)|>
+			floor_mult(burn)|>
+			floor_mult(other)|>
+			floor_mult(ZMove)|>
+			floor_mult(TeraShield)
+		ifelse(d == 0 & other >= 1, 1, d)
+	})
 }
 
 #' Pokemon Damage Calculation Base
@@ -428,21 +431,17 @@ damage_base = function(level, power, attackStat, defenseStat, .round = floor){
 #' Gen I-II uses `.min = 217, .max = 255`, while Gen III+ uses `.min = 85, .max = 100`
 #'
 #' @param random How to generate the random number.
-#' @param leng The length of the `effectiveness`.
 #' @param .min The min random number to generate to be divided by `.max`.
 #' @param .max The max random number to generate to be divided by `.max`.
 #'
 #' @return The random factor.
 #' @importFrom stats runif
 #' @export
-damage_random = function(random, leng, .min = 85, .max = 100){
+damage_random = function(random, .min = 85, .max = 100){
 	# Calculate random uniformly distributed integer between 85 and 100 if random is yes
 	if(random == "yes") return(runif(leng, .min, .max) / .max)
 	# If random is passed minmax give the min and max
-	else if(random == "minmax"){
-		if(leng == 1) return(rand = c(.min, .max) / .max)
-		return(outer(random, c(.min, .max) / .max, "*"))
-	}
+	else if(random == "minmax")return(list(.min, .max) / .max)
 	# Else give the average
 	else return((.min + .max) / .max / 2)
 }
