@@ -31,7 +31,7 @@ pokemon_damage_I = function(
 	) {
 	# Logical to set values
 	critical = critical + 1
-	stab = stab + 1
+	stab = ifelse(stab, 1.5, 1)
 
 	rand = damage_random(random, .min = 217, .max = 255)
 
@@ -105,7 +105,7 @@ pokemon_damage_II <- function(
 
 	inner = base|>
 		floor_mult(item)|>
-		floor_mult(critical)|>
+		floor_mult(critical)
 
 	damage = (inner + 2)|>
 		floor_mult(TK)|>
@@ -174,7 +174,7 @@ pokemon_damage_III = function(
 		random = "yes"
 ) {
 	# Logical to set values
-	stab = stab + 1
+	stab = ifelse(stab, 1.5, 1)
 	critical = critical + 1
 	doubleDmg = doubleDmg + 1
 	burn = ifelse(burn, 0.5, 1)
@@ -267,7 +267,7 @@ pokemon_damage_IV = function(
 ) {
 	# Logical to set values
 	item = ifelse(item, 1.1, 1)
-	stab = stab + 1
+	stab = ifelse(stab, 1.5, 1)
 	critical = critical + 1
 	burn = ifelse(burn, 0.5, 1)
 	FF = ifelse(FF, 1.5, 1)
@@ -339,6 +339,10 @@ pokemon_damage_IV = function(
 #' @return The calculated damage.
 #' @importFrom stats runif
 #' @export
+#' @examples
+#' # From https://bulbapedia.bulbagarden.net/wiki/Damage#Example
+#' pokemon_damage_V(75, 123, 163, 65, stab = TRUE, effectiveness = 4, random = "minmax")
+#' pokemon_damage_V(75, 123, 163, 71, stab = TRUE, effectiveness = 4, critical = TRUE, random = "minmax")
 pokemon_damage_V = function(
 		level,
 		attackStat,
@@ -360,13 +364,15 @@ pokemon_damage_V = function(
 		.criticalVal = 1.5, # 1.5 (2 in Generation V)
 		.PBVal = 0.25 # 0.25 (0.5 in Generation VI)
 ) {
+	browser()
 	# Logical to set values
-	stab = stab + 1
+	stab = ifelse(stab, 1.5, 1)
 	critical = ifelse(critical, .criticalVal, 1)
 	burn = ifelse(burn, 0.5, 1)
-	PB = ifelse(PB, 1, .PBVal)
+	PB = ifelse(PB, .PBVal, 1)
 	ZMove = ifelse(ZMove, 0.25, 1)
 	TeraShield = ifelse(TeraShield, 0.2, 1)
+	GlaiveRush = GlaiveRush + 1
 
 	rand = damage_random(random)
 
@@ -420,7 +426,7 @@ damage_base = function(level, power, attackStat, defenseStat, .round = floor){
 		.round(
 			(
 				(.round(2 * level / 5)) + 2
-			) * power * .round(attackStat / defenseStat)
+			) * power * attackStat / defenseStat
 		) / 50
 	)
 }
@@ -439,9 +445,34 @@ damage_base = function(level, power, attackStat, defenseStat, .round = floor){
 #' @export
 damage_random = function(random, .min = 85, .max = 100){
 	# Calculate random uniformly distributed integer between 85 and 100 if random is yes
-	if(random == "yes") return(runif(leng, .min, .max) / .max)
+	if(random == "yes") return(runif(1, .min, .max) / .max)
 	# If random is passed minmax give the min and max
-	else if(random == "minmax")return(list(.min, .max) / .max)
+	else if(random == "minmax")return(list(.min / .max, .max / .max))
 	# Else give the average
 	else return((.min + .max) / .max / 2)
+}
+
+
+#' Pokemon Damage Function
+#'
+#' This function calculates the damage for a Pokemon based on the generation.
+#'
+#' @param ... Additional arguments passed to the generation specific damage functions.
+#' @param .gen The generation to use for calculating damage. Default is "V".
+#' @inheritParams pokemon_damage_V
+#' @inheritParams pokemon_damage_IV
+#' @inheritParams pokemon_damage_III
+#' @inheritParams pokemon_damage_II
+#' @inheritParams pokemon_damage_I
+#' @return The calculated damage.
+#' @export
+#'
+pokemon_damage = function(..., .gen = "V"){
+	switch (.gen,
+			"V" = pokemon_damage_V(...),
+			"IV" = pokemon_damage_IV(...),
+			"III" = pokemon_damage_III(...),
+			"II" = pokemon_damage_II(...),
+			"I" = pokemon_damage_I(...)
+	)
 }
