@@ -35,27 +35,10 @@ pokemon_damage_I = function(
 	critical = critical + 1
 	stab = stab + 1
 
-	# Check if attackStat or defenseStat are greater than 255
-	if (attackStat > 255 | defenseStat > 255) {
-		attackStat = attackStat / 4
-		defenseStat = defenseStat / 4
-	}
-
-	# Calculate random uniformly distributed integer between 217 and 255 if random is yes
-	if(random == "yes") rand = runif(1, 217, 255) / 255
-	# If random is passed minmax give the min and max
-	else if(random == "minmax") rand = c(217, 255) / 255
-	# Else give the average
-	else rand = (217 + 255) / 255 / 2
+	rand = damage_random(random, length(effectiveness), .min = 217, .max = 255)
 
 	# Calculate damage
-	base = floor(
-		floor(
-			(
-				floor(2 * level / 5) + 2
-			) * power * floor(attackStat / defenseStat)
-		) / 50
-	)
+	base = damage_base(level, power, attackStat, defenseStat, .round = round)
 	floor_mult = function(x,y) floor(x*y)
 
 	damage = (base + 2)|>
@@ -116,27 +99,10 @@ pokemon_damage_II <- function(
 	badge = ifelse(badge, 1.125, 1)
 	doubleDmg = doubleDmg + 1
 
-	# Check if attackStat or defenseStat are greater than 255
-	if (attackStat > 255 | defenseStat > 255) {
-		attackStat = attackStat / 4
-		defenseStat = defenseStat / 4
-	}
-
-	# Calculate random uniformly distributed integer between 217 and 255 if random is yes
-	if(random == "yes") rand = runif(1, 217, 255) / 255
-	# If random is passed minmax give the min and max
-	else if(random == "minmax") rand = c(217, 255) / 255
-	# Else give the average
-	else rand = (217 + 255) / 255 / 2
+	rand = damage_random(random, length(effectiveness), .min = 217, .max = 255)
 
 	# Calculate damage
-	base = floor(
-		floor(
-			(
-				floor(2 * level / 5) + 2
-			) * power * floor(attackStat / defenseStat)
-		) / 50
-	)
+	base = damage_base(level, power, attackStat, defenseStat, .round = round)
 	floor_mult = function(x,y) floor(x*y)
 
 	inner = base|>
@@ -218,27 +184,10 @@ pokemon_damage_III = function(
 	charge = ifelse(charge, 2, 1)
 	HH = ifelse(HH, 1.5, 1)
 
-	# Check if attackStat or defenseStat are greater than 255
-	if (attackStat > 255 | defenseStat > 255) {
-		attackStat = attackStat / 4
-		defenseStat = defenseStat / 4
-	}
-
-	# Calculate random uniformly distributed integer between 85 and 100 if random is yes
-	if(random == "yes") rand = runif(1, 85, 100) / 100
-	# If random is passed minmax give the min and max
-	else if(random == "minmax") rand = c(85, 100) / 100
-	# Else give the average
-	else rand = (85 + 100) / 100 / 2
+	rand = damage_random(random, length(effectiveness))
 
 	# Calculate damage
-	base = floor(
-		floor(
-			(
-				(floor(2 * level / 5)) + 2
-			) * power * floor(attackStat / defenseStat)
-		) / 50
-	)
+	base = damage_base(level, power, attackStat, defenseStat, .round = round)
 
 	floor_mult = function(x,y) floor(x*y)
 	inner = base|>
@@ -329,27 +278,10 @@ pokemon_damage_IV = function(
 	Berry = ifelse(Berry, 0.5, 1)
 	first = ifelse(first, 1.5, 1)
 
-	# Check if attackStat or defenseStat are greater than 255
-	if (attackStat > 255 | defenseStat > 255) {
-		attackStat = attackStat / 4
-		defenseStat = defenseStat / 4
-	}
-
-	# Calculate random uniformly distributed integer between 85 and 100 if random is yes
-	if(random == "yes") rand = runif(1, 85, 100) / 100
-	# If random is passed minmax give the min and max
-	else if(random == "minmax") rand = c(85, 100) / 100
-	# Else give the average
-	else rand = (85 + 100) / 100 / 2
+	rand = damage_random(random, length(effectiveness))
 
 	# Calculate damage
-	base = floor(
-		floor(
-			(
-				(floor(2 * level / 5)) + 2
-			) * power * floor(attackStat / defenseStat)
-		) / 50
-	)
+	base = damage_base(level, power, attackStat, defenseStat)
 
 	floor_mult = function(x,y) floor(x*y)
 	inner = base|>
@@ -436,27 +368,10 @@ pokemon_damage_V = function(
 	ZMove = ifelse(ZMove, 0.25, 1)
 	TeraShield = ifelse(TeraShield, 0.2, 1)
 
-	# Check if attackStat or defenseStat are greater than 255
-	if (attackStat > 255 | defenseStat > 255) {
-		attackStat = attackStat / 4
-		defenseStat = defenseStat / 4
-	}
-
-	# Calculate random uniformly distributed integer between 85 and 100 if random is yes
-	if(random == "yes") rand = runif(1, 85, 100) / 100
-	# If random is passed minmax give the min and max
-	else if(random == "minmax") rand = c(85, 100) / 100
-	# Else give the average
-	else rand = (85 + 100) / 100 / 2
+	rand = damage_random(random, length(effectiveness))
 
 	# Calculate damage
-	base = round(
-		round(
-			(
-				(round(2 * level / 5)) + 2
-			) * power * round(attackStat / defenseStat)
-		) / 50
-	)
+	base = damage_base(level, power, attackStat, defenseStat, .round = round)
 
 	# base * burn * screen * targets * weather * FF
 	floor_mult = function(x,y) floor(x*y)
@@ -477,4 +392,57 @@ pokemon_damage_V = function(
 		floor_mult(TeraShield)
 	if(damage == 0 && other >= 1) return(1)
 	damage
+}
+
+#' Pokemon Damage Calculation Base
+#'
+#' This function calculates the base damage inflicted during a Pokemon battle.
+#' Gen I-IV uses `.round = floor`, while Gen V+ uses `.round = round`
+#'
+#' @param level The level of the attacking Pokemon.
+#' @param power The power of the used move.
+#' @param attackStat The effective Attack stat of the attacking Pokemon.
+#' @param defenseStat The effective Defense stat of the target Pokemon.
+#' @param .round The rounding function to use. Gen I-IV uses `floor()` (truncated) and Gen V+ uses `round()` (.5 and under is truncated, above is rounded up).
+#'
+#' @return The base damage.
+#' @export
+damage_base = function(level, power, attackStat, defenseStat, .round = floor){
+	# Check if attackStat or defenseStat are greater than 255
+	if (attackStat > 255 | defenseStat > 255) {
+		attackStat = attackStat / 4
+		defenseStat = defenseStat / 4
+	}
+	.round(
+		.round(
+			(
+				(.round(2 * level / 5)) + 2
+			) * power * .round(attackStat / defenseStat)
+		) / 50
+	)
+}
+
+#' Pokemon Damage Calculation Random
+#'
+#' This function calculates the random factor in Pokemon damage calculation.
+#' Gen I-II uses `.min = 217, .max = 255`, while Gen III+ uses `.min = 85, .max = 100`
+#'
+#' @param random How to generate the random number.
+#' @param leng The length of the `effectiveness`.
+#' @param .min The min random number to generate to be divided by `.max`.
+#' @param .max The max random number to generate to be divided by `.max`.
+#'
+#' @return The random factor.
+#' @importFrom stats runif
+#' @export
+damage_random = function(random, leng, .min = 85, .max = 100){
+	# Calculate random uniformly distributed integer between 85 and 100 if random is yes
+	if(random == "yes") return(runif(leng, .min, .max) / .max)
+	# If random is passed minmax give the min and max
+	else if(random == "minmax"){
+		if(leng == 1) return(rand = c(.min, .max) / .max)
+		return(outer(random, c(.min, .max) / .max, "*"))
+	}
+	# Else give the average
+	else return((.min + .max) / .max / 2)
 }
