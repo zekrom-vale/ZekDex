@@ -114,7 +114,6 @@ gen_height = function(write = FALSE, root = "data/", file = "PokemonHeight"){
 #' The function can optionally write the resulting data frame to a file.
 #'
 #' @importFrom dplyr inner_join filter mutate select distinct bind_rows
-#' @importFrom tidyverse read_data save_data
 #'
 #' @param write Logical, whether to write the resulting data frame to a file.
 #' @param root Character, the root directory where the data files are located.

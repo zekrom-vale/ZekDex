@@ -457,16 +457,10 @@ damage_random = function(random, .min = 85, .max = 100){
 #'
 #' This function calculates the damage for a Pokemon based on the generation.
 #'
-#' @param ... Additional arguments passed to the generation specific damage functions.
 #' @param .gen The generation to use for calculating damage. Default is "V".
-#' @inheritParams pokemon_damage_V
-#' @inheritParams pokemon_damage_IV
-#' @inheritParams pokemon_damage_III
-#' @inheritParams pokemon_damage_II
-#' @inheritParams pokemon_damage_I
 #' @return The calculated damage.
+#' @seealso \code{\link{pokemon_damage_V}}, \code{\link{pokemon_damage_IV}}, \code{\link{pokemon_damage_III}}, \code{\link{pokemon_damage_II}}, \code{\link{pokemon_damage_I}} for the generation specific damage functions.
 #' @export
-#'
 pokemon_damage = function(..., .gen = "V"){
 	switch (.gen,
 			"V" = pokemon_damage_V(...),
