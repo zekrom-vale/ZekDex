@@ -107,11 +107,66 @@ gen_height = function(write = FALSE, root = "data/", file = "PokemonHeight"){
 	height
 }
 
-
-gen_physicalAttr = function(write = FALSE, root = "data/", fileHeight = "PokemonHeight", fileWeight = "PokemonWeight"){
+#' Generate Physical Attributes of Pokemon
+#'
+#' This function generates a data frame of physical attributes (weight and height) of Pokemon.
+#' It performs two inner joins on the weight and height data frames and combines the results.
+#' The function can optionally write the resulting data frame to a file.
+#'
+#' @importFrom dplyr inner_join filter mutate select distinct bind_rows
+#' @importFrom tidyverse read_data save_data
+#'
+#' @param write Logical, whether to write the resulting data frame to a file.
+#' @param root Character, the root directory where the data files are located.
+#' @param file Character, the name of the file to write the resulting data frame to.
+#' @param fileHeight Character, the name of the file containing the height data.
+#' @param fileWeight Character, the name of the file containing the weight data.
+#' @return A data frame of physical attributes of Pokemon.
+gen_physicalAttr = function(write = FALSE, root = "data/", file = "PokemonPhysicalAttr", fileHeight = "PokemonHeight", fileWeight = "PokemonWeight"){
 	weight = gen_weight(write = write, root = root, file = fileWeight)
 	height = gen_height(write = write, root = root, file = fileHeight)
+
+	# Join 'weight' and 'height' data frames on "name", "form", "regional", and "MegaOrPrimal" columns
+	# This is an inner join, so only rows with matching values in these columns in both data frames will be included
+	attr1 = weight|>
+		inner_join(
+			height,
+			by = c("name", "form", "regional", "MegaOrPrimal")
+		)
+
+	# Join 'weight' and 'height' data frames on "name", "regional", and "MegaOrPrimal" columns
+	# This is also an inner join, but "form" column is not included in the join
+	# 'relationship = "many-to-many"' indicates that there can be multiple matching rows in both data frames for each row in the other data frame
+	# This will be dealt with the filter function
+	attr2 = weight|>
+		inner_join(
+			height,
+			by = c("name", "regional", "MegaOrPrimal"),
+			relationship = "many-to-many"
+		)|>
+		# Filter out rows where both 'form.x' and 'form.y' are NA or both are not NA
+		filter(xor(is.na(form.x), is.na(form.y)))|>
+		# Replace NA values in 'form.x' with corresponding values from 'form.y', and remove 'form.y'
+		mutate(
+			form.x = coalesce(form.x, form.y),
+			form.y = NULL
+		)|>
+		# Rename 'form.x' to 'form'
+		rename(form = form.x)
+
+	# Combine 'attr1' and 'attr2' into a single data frame
+	physicalAttr = bind_rows(attr1, attr2)
+
 	national = read_data("PokemonNational", root, g="nationalDex")
 
-
+	physicalAttr = national|>
+		select(-form)|>
+		distinct()|>
+		left_join(
+			physicalAttr,
+			by = c("name", "regional"),
+			relationship = "many-to-many"
+		)
+	if(write)save_data("physicalAttr", root, file)
+	height
 }
