@@ -41,8 +41,8 @@ gen_weight = function(write = FALSE, root = "data/", file = "PokemonWeight"){
 			kg = as.numeric(str_extract(kg, "[\\d.]+")),
 			lightest = as.integer(row_number()),
 			heaveiest = max(lightest) - lightest + 1L,
-			reginal = str_extract(name, regionalForm(re=TRUE)),
-			reginal = if_else(reginal == "", NA_character_, reginal),
+			regional = str_extract(name, regionalForm(re=TRUE)),
+			regional = if_else(regional == "", NA_character_, regional),
 			name = str_trim(str_remove_all(name, regionalForm(re=TRUE))),
 			MegaOrPrimal = str_trim(str_extract(name, "Mega|Primal")),
 			MegaOrPrimal = if_else(MegaOrPrimal == "", NA_character_, MegaOrPrimal, NA_character_),
@@ -96,11 +96,11 @@ gen_height = function(write = FALSE, root = "data/", file = "PokemonHeight"){
 			m = as.numeric(str_extract(m, "[\\d.]+")),
 			smallest = as.integer(row_number()),
 			bigest = max(smallest) - smallest + 1L,
-			reginal = str_extract(name, regionalForm(re=TRUE)),
-			reginal = if_else(reginal == "", NA_character_, reginal),
+			regional = str_extract(name, regionalForm(re=TRUE)),
+			regional = if_else(regional == "", NA_character_, regional),
 			name = str_trim(str_remove_all(name, regionalForm(re=TRUE))),
 			MegaOrPrimal = str_trim(str_extract(name, "Mega|Primal")),
-			if_else(MegaOrPrimal == "", NA_character_, MegaOrPrimal, NA_character_),
+			MegaOrPrimal = if_else(MegaOrPrimal == "", NA_character_, MegaOrPrimal, NA_character_),
 			name = str_trim(str_remove(name, "Mega|Primal"))
 		)
 	if(write)save_data("height", root, file)
