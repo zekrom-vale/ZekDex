@@ -1,15 +1,18 @@
 # This file contains information about the generated datasets, there is no code in this file
+# Using this format generate roxogen documentation of the following dataset
+#
+#
 # TEMPLATE FORMAT:
 # <Title>
 #
 # <Explanation>
 #
-# [@format <Format>]
+# [@format <Format>] # As input is limited ignore the row count
 # \describe{
 #   \item{<Column>}{`<Type>` <Description>}
 #   [...]
 # }
-# [@source <Source>]
+# [@source <Source>] # Tends to be from Bulbapedia
 NULL
 
 
@@ -281,3 +284,77 @@ NULL
 #' }
 #' @source Bulbapedia
 "typeChart"
+
+
+#' Pokemon Weight Dataset
+#'
+#' This dataset contains information about the weight of various Pokemon in both pounds (lbs) and kilograms (kg).
+#' It also includes details about the lightest and heaviest Pokemon, their regional forms, and whether they have a Mega or Primal form.
+#'
+#' @format A data frame with 8 variables:
+#' \describe{
+#'   \item{name}{`character` Name of the Pokemon}
+#'   \item{form}{`character` The form of the Pokemon, NA if it does not have another form}
+#'   \item{lbs}{`numeric` Weight of the Pokemon in pounds}
+#'   \item{kg}{`numeric` Weight of the Pokemon in kilograms}
+#'   \item{lightest}{`integer` Rank of the Pokemon from lightest (1) to heaviest (1181)}
+#'   \item{heaviest}{`integer` Rank of the Pokemon from heaviest (1) to lightest (1181)}
+#'   \item{regional}{`character` The regional form of the Pokemon, NA if it does not have a regional form}
+#'   \item{MegaOrPrimal}{`character` Is the Pokémon in a Mega or Primal form}
+#' }
+#' @source Bulbapedia
+"weight"
+
+#' Height Dataset
+#'
+#' This dataset contains information about the height of different Pokémon forms.
+#' The height is represented in different units such as feet (ft), meters (m), and inches (inch).
+#' It also includes the ranking of each Pokémon form from smallest to biggest,
+#' and information about regional forms and Mega or Primal forms.
+#'
+#' @format A data frame with 8 variables:
+#' \describe{
+#'   \item{name}{`character` Name of the Pokémon}
+#'   \item{form}{`character` Specific form of the Pokémon}
+#'   \item{ft}{`numeric` Height of the Pokémon in feet}
+#'   \item{m}{`numeric` Height of the Pokémon in meters}
+#'   \item{inch}{`numeric` Height of the Pokémon in inches}
+#'   \item{smallest}{`integer` Ranking of the Pokémon from smallest to biggest}
+#'   \item{bigest}{`integer` Ranking of the Pokémon from biggest to smallest}
+#'   \item{regional}{`character` Regional form of the Pokémon, if any}
+#'   \item{MegaOrPrimal}{`character` Is the Pokémon in a Mega or Primal form}
+#' }
+#' @source Bulbapedia
+"height"
+
+#' Physical Attributes of Pokémon
+#'
+#' This dataset contains information about the physical attributes of Pokémon, including their type, generation, weight, height, and other characteristics.
+#'
+#' @format A data frame with 20 variables:
+#' \describe{
+#'   \item{ndex}{`integer` National Pokédex number}
+#'   \item{name}{`character` Name of the Pokémon}
+#'   \item{regional}{`character` Regional variant, if any}
+#'   \item{type}{`character` Primary type of the Pokémon}
+#'   \item{type2}{`character` Secondary type of the Pokémon, if any}
+#'   \item{generation}{`integer` Generation of the Pokémon}
+#'   \item{isLegendary}{`logical` Indicates if the Pokémon is Legendary}
+#'   \item{isMythical}{`logical` Indicates if the Pokémon is Mythical}
+#'   \item{isUltraBeast}{`logical` Indicates if the Pokémon is an Ultra Beast}
+#'   \item{family}{`character` Family of the Pokémon, if any}
+#'   \item{size}{`character` Size of the Pokémon, if any}
+#'   \item{form}{`character` Form of the Pokémon, if any}
+#'   \item{lbs}{`numeric` Weight of the Pokémon in pounds}
+#'   \item{kg}{`numeric` Weight of the Pokémon in kilograms}
+#'   \item{lightest}{`integer` Lightest weight of the Pokémon in the Pokédex}
+#'   \item{heaveiest}{`integer` Heaviest weight of the Pokémon in the Pokédex}
+#'   \item{MegaOrPrimal}{`character` Is the Pokémon in a Mega or Primal form}
+#'   \item{ft}{`character` Height of the Pokémon in feet}
+#'   \item{m}{`numeric` Height of the Pokémon in meters}
+#'   \item{inch}{`integer` Height of the Pokémon in inches}
+#'   \item{smallest}{`integer` Smallest height of the Pokémon in the Pokédex}
+#'   \item{bigest}{`integer` Biggest height of the Pokémon in the Pokédex}
+#' }
+#' @source Bulbapedia
+"physicalAttr"

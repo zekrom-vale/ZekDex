@@ -216,6 +216,58 @@ It lists the effectiveness of an attacking type against a defending type, with n
 - `Defending` (`factor`): The Pokémon type of the defending Pokémon.
 - `Effectiveness` (`numeric`): The multiplier for the effectiveness of the attack.
 
+### weight
+This dataset contains information about the weight of various Pokemon in both pounds (lbs) and kilograms (kg).
+It also includes details about the lightest and heaviest Pokemon, their regional forms, and whether they have a Mega or Primal form.
+- `name` (`character`): Name of the Pokemon
+- `form` (`character`): The form of the Pokemon, NA if it does not have another form
+- `lbs` (`numeric`): Weight of the Pokemon in pounds
+- `kg` (`numeric`): Weight of the Pokemon in kilograms
+- `lightest` (`integer`): Rank of the Pokemon from lightest (1) to heaviest (1181)
+- `heaviest` (`integer`): Rank of the Pokemon from heaviest (1) to lightest (1181)
+- `regional` (`character`): The regional form of the Pokemon, NA if it does not have a regional form
+- `MegaOrPrimal` (`character`): Is the Pokémon in a Mega or Primal form
+
+### height
+This dataset contains information about the height of different Pokémon forms.
+The height is represented in different units such as feet (ft), meters (m), and inches (inch).
+It also includes the ranking of each Pokémon form from smallest to biggest,
+and information about regional forms and Mega or Primal forms.
+- `name` (`character`): Name of the Pokémon
+- `form` (`character`): Specific form of the Pokémon
+- `ft` (`numeric`): Height of the Pokémon in feet
+- `m` (`numeric`): Height of the Pokémon in meters
+- `inch` (`numeric`): Height of the Pokémon in inches
+- `smallest` (`integer`): Ranking of the Pokémon from smallest to biggest
+- `bigest` (`integer`): Ranking of the Pokémon from biggest to smallest
+- `regional` (`character`): Regional form of the Pokémon, if any
+- `MegaOrPrimal` (`character`): Is the Pokémon in a Mega or Primal form
+
+### physicalAttr
+This dataset contains information about the physical attributes of Pokémon, including their type, generation, weight, height, and other characteristics.
+- `ndex` (`integer`): National Pokédex number
+- `name` (`character`): Name of the Pokémon
+- `regional` (`character`): Regional variant, if any
+- `type` (`character`): Primary type of the Pokémon
+- `type2` (`character`): Secondary type of the Pokémon, if any
+- `generation` (`integer`): Generation of the Pokémon
+- `isLegendary` (`logical`): Indicates if the Pokémon is Legendary
+- `isMythical` (`logical`): Indicates if the Pokémon is Mythical
+- `isUltraBeast` (`logical`): Indicates if the Pokémon is an Ultra Beast
+- `family` (`character`): Family of the Pokémon, if any
+- `size` (`character`): Size of the Pokémon, if any
+- `form` (`character`): Form of the Pokémon, if any
+- `lbs` (`numeric`): Weight of the Pokémon in pounds
+- `kg` (`numeric`): Weight of the Pokémon in kilograms
+- `lightest` (`integer`): Lightest weight of the Pokémon in the Pokédex
+- `heaveiest` (`integer`): Heaviest weight of the Pokémon in the Pokédex
+- `MegaOrPrimal` (`character`): Is the Pokémon in a Mega or Primal form
+- `ft` (`character`): Height of the Pokémon in feet
+- `m` (`numeric`): Height of the Pokémon in meters
+- `inch` (`integer`): Height of the Pokémon in inches
+- `smallest` (`integer`): Smallest height of the Pokémon in the Pokédex
+- `bigest` (`integer`): Biggest height of the Pokémon in the Pokédex
+
 You can load any dataset with the `data()` function. For example, `data(nationalDex)`.
 
 ## Functions
