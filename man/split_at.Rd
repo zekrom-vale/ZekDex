@@ -18,5 +18,7 @@ A list of lists, split at elements where the condition is TRUE.
 This function splits a list at elements that satisfy a condition. It returns a list of lists, split at elements where the condition is TRUE.
 }
 \examples{
+\dontrun{
 split_at(list(1, 2, 3, 4, 5), function(x) x \%\% 2 == 0)
+}
 }

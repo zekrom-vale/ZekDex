@@ -45,8 +45,6 @@ gen_type = function(write = FALSE, root = "data/", file = "PokemonTypes"){
 #' @param root Character string specifying the root directory where the files should be written. Default is "data/".
 #' @param file Character string specifying the filename for the long version of the chart. Default is "PokemonTypeChart".
 #' @param fileWide Character string specifying the filename for the wide version of the chart. Default is "PokemonTypeChartWide".
-#' @importFrom rvest read_html
-#' @importFrom rvest html_table
 #' @importFrom tibble as_tibble
 #' @importFrom dplyr select
 #' @importFrom dplyr rename
@@ -161,7 +159,12 @@ stab_multiplyer = list(
 #' @export
 #' @examples
 #' efect_fun(2, effectiveness_list$Standard)
-efect_fun = function(eft, efect = effectiveness_list$Standard, stab = FALSE, stab_multiplyer = stab_multiplyer$Standard){
+efect_fun = function(
+		eft,
+		efect = effectiveness_list$Standard,
+		stab = FALSE,
+		stab_multiplyer = stab_multiplyer$Standard
+	){
 	# 2*2 = 4
 	# 2*1 = 2
 	# 1*1 = 1
@@ -190,7 +193,13 @@ efect_fun = function(eft, efect = effectiveness_list$Standard, stab = FALSE, sta
 #' @export
 #' @examples
 #' effectiveness("Fire", c("Grass", "Bug"), effectiveness_list$Standard)
-effectiveness = function(attack, defender, stab = FALSE, stab_mult = stab_multiplyer$Standard, efect = effectiveness_list$Standard){
+effectiveness = function(
+		attack,
+		defender,
+		stab = FALSE,
+		stab_mult = stab_multiplyer$Standard,
+		efect = effectiveness_list$Standard
+	){
 	if(!(attack %in% types$types))stop(paste("Attack type not found:", attack))
 	if(!all((defender %in% types$types)))stop(paste("Defender type not found:", defender))
 	eft1 = typeChart|>
@@ -223,7 +232,15 @@ effectiveness = function(attack, defender, stab = FALSE, stab_mult = stab_multip
 #' @export
 #' @examples
 #' effectivenessPokemon("Fire", "Zekrom", efect = effectiveness_list$Standard)
-effectivenessPokemon = function(attack, pokemon, regional=NA_character_, form=NA_character_, efect = effectiveness_list$Standard, stab = FALSE, stab_mult = stab_multiplyer$Standard){
+effectivenessPokemon = function(
+		attack,
+		pokemon,
+		regional=NA_character_,
+		form=NA_character_,
+		efect = effectiveness_list$Standard,
+		stab = FALSE,
+		stab_mult = stab_multiplyer$Standard
+	){
 	inner_effectivenessPokemon = function(attack, pokemon, efect){
 		if(dim(pokemon)[1]==0)stop("Empty tibble")
 		type = pokemon|>
@@ -261,13 +278,13 @@ effectivenessPokemon = function(attack, pokemon, regional=NA_character_, form=NA
 #' It is to be used with the `effectiveness` and `effectivenessPokemon` functions instead of passing a parameter.
 #'
 #' @param effectiveness Numeric value representing the effectiveness of an attack.
-#' @param stab_multiplyer Numeric value representing the STAB multiplier. Default is stab_multiplyer$Standard.
+#' @param stab_mult Numeric value representing the STAB multiplier. Default is stab_multiplyer$Standard.
 #' @return Numeric value representing the effectiveness of the attack with the STAB multiplier applied.
 #' @export
 #' @examples
 #' effectivenessPokemon("Fire", "Zekrom")|>
 #'   stab()
-stab = function(effectiveness, stab_multiplyer = stab_multiplyer$Standard){
-	effectiveness * stab_multiplyer
+stab = function(effectiveness, stab_mult = stab_multiplyer$Standard){
+	effectiveness * stab_mult
 }
 

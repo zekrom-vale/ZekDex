@@ -11,11 +11,9 @@
 #' @importFrom stringr str_remove str_trim
 #' @importFrom readr write_csv
 #' @importFrom magrittr "%>%"
-#' @importFrom rvest read_html html_table
 #' @importFrom pkgload is_loading
 #' @export
 gen_evos = function(write = FALSE, root = "data/", file = "PokemonFamily", fileLong = "PokemonFamilyLong"){
-	# library(tidyverse)
 	if(pkgload::is_loading()) return()
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
 

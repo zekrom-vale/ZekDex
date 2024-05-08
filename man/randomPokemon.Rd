@@ -63,7 +63,7 @@ randomPokemon(n = -1, type = "Dragon", swap = TRUE)
 # > "Zygarde10"
 
 # Return the dex number instead
-randomPokemon(n = -1, type = "Dragon", swap = TRUE, p = "Ndex")
+randomPokemon(n = -1, type = "Dragon", swap = TRUE, p = ndex)
 # > 1011, 1019, 371, 633, 634, 841, 334, 691,
 # > 644, 718, 782, 381, 445, 804, 840, 704,
 # > 799, 886, 380, 330, 842, 880, 714, 147,

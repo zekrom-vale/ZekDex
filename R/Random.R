@@ -57,7 +57,7 @@ randomType = function(n=1, replace = FALSE, types = types$types){
 #' # > "Zygarde10"
 #'
 #' # Return the dex number instead
-#' randomPokemon(n = -1, type = "Dragon", swap = TRUE, p = "Ndex")
+#' randomPokemon(n = -1, type = "Dragon", swap = TRUE, p = ndex)
 #' # > 1011, 1019, 371, 633, 634, 841, 334, 691,
 #' # > 644, 718, 782, 381, 445, 804, 840, 704,
 #' # > 799, 886, 380, 330, 842, 880, 714, 147,
@@ -191,6 +191,7 @@ filterByType = function(
 #' @importFrom utils data
 #' @importFrom dplyr pull
 #' @examples
+#' \dontrun{
 #' # Create a random Pokemon generator for any type of Pokemon
 #' gen_any <- randomPokemonGen()
 #' # Generate a random Pokemon
@@ -239,7 +240,7 @@ filterByType = function(
 #' # > "Zygarde10"
 #'
 #' # Return the dex number instead
-#' gen_dex <- randomPokemonGen(type = "Dragon", swap = TRUE, p = Ndex)
+#' gen_dex <- randomPokemonGen(type = "Dragon", swap = TRUE, p = ndex)
 #' # Generate all Dragon type Pokemon dex numbers
 #' while(!coro::exhausted(gen_dex)) {
 #'   pokemon = gen_dex()
@@ -260,6 +261,7 @@ filterByType = function(
 #' # Generate 5 random Dragon type Pokemon with replacement
 #' replicate(5, gen_dragon_replace())
 #' # > "Zekrom" "Rayquaza" "Garchomp" "Zekrom" "Haxorus"
+#' }
 #' @export
 randomPokemonGen = function(
 		...,

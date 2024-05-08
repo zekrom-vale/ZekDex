@@ -5,14 +5,10 @@
 #' @param root Character, the root directory where the data file will be saved, default is "data/".
 #' @param file Character, the name of the file where the data will be saved, default is "PokemonGroups".
 #' @return A tibble of legendary/mythical groups of Pokemon.
-#' @importFrom rvest read_html html_table
 #' @importFrom purrr map
-#' @importFrom janitor clean_names
 #' @importFrom dplyr rename_with mutate filter bind_rows
 #' @importFrom tidyr fill pivot_longer
 #' @importFrom stringr str_split
-#' @importFrom rvest read_html html_table
-#' @importFrom janitor clean_names
 #' @importFrom pkgload is_loading
 #' @export
 gen_groups = function(write = FALSE, root = "data/", file = "PokemonGroups"){

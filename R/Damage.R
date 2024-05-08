@@ -1,6 +1,3 @@
-# Load the tidyverse package
-library(tidyverse)
-
 #' Pokemon Damage Calculation Generation I
 #'
 #' This function calculates the damage inflicted during a Pokemon battle.
@@ -364,7 +361,6 @@ pokemon_damage_V = function(
 		.criticalVal = 1.5, # 1.5 (2 in Generation V)
 		.PBVal = 0.25 # 0.25 (0.5 in Generation VI)
 ) {
-	browser()
 	# Logical to set values
 	stab = ifelse(stab, 1.5, 1)
 	critical = ifelse(critical, .criticalVal, 1)
