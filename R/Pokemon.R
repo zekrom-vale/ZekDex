@@ -10,8 +10,6 @@
 #' @importFrom purrr map
 #' @importFrom stringr str_extract
 #' @importFrom readr write_rds read_rds
-#' @examples
-#' scrape_pokemon()
 scrape_pokemon = function(path = "E:\\html\\"){
 	if(pkgload::is_loading()) return()
 	# Import the required package 'rvest' for web scraping
@@ -40,6 +38,7 @@ scrape_pokemon = function(path = "E:\\html\\"){
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' new_node = function(tag, val){
 #' xml2::read_html(glue::glue("<{tag}>{val}</{tag}>"))|>
 #'    xml2::xml_child()|>
@@ -75,6 +74,7 @@ scrape_pokemon = function(path = "E:\\html\\"){
 #' # > [[1]][[2]][[1]]
 #' # > {html_node}
 #' # > <div>
+#' }
 relevel_matched_node <- function(lst, level = 1){
 	if(pkgload::is_loading()) return()
 	tags <- c("h2", "h3", "h4")

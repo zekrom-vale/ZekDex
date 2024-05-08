@@ -6,7 +6,6 @@
 #' @param file The name of the file where the data should be saved.
 #' @return A tibble containing the Pokemon weight data.
 #' @export
-#' @importFrom rvest read_html html_elements html_text
 #' @importFrom purrr map
 #' @importFrom dplyr mutate if_else bind_rows
 #' @importFrom stringr str_trim str_remove str_extract
@@ -60,7 +59,6 @@ gen_weight = function(write = FALSE, root = "data/", file = "PokemonWeight"){
 #' @param file The name of the file where the data should be saved.
 #' @return A tibble containing the Pokemon height data.
 #' @export
-#' @importFrom rvest read_html html_elements html_text
 #' @importFrom purrr map
 #' @importFrom dplyr mutate if_else bind_rows
 #' @importFrom stringr str_trim str_remove str_extract

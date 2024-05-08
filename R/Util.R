@@ -362,7 +362,9 @@ filter_non_unique_each = function(df, ...) {
 #' @importFrom purrr map_lgl map2
 #' @importFrom magrittr "%>%"
 #' @examples
+#' \dontrun{
 #' split_at(list(1, 2, 3, 4, 5), function(x) x %% 2 == 0)
+#' }
 split_at = function(lst, condition) {
 	# Return as is if it's length 1
 	if(length(lst)==1)return(lst)
@@ -396,7 +398,9 @@ split_at = function(lst, condition) {
 #' @importFrom purrr map
 #' @importFrom magrittr "%>%"
 #' @examples
+#' \dontrun{
 #' split_each(list("h1", "h2", "h3", "h4"), c("h2", "h3", "h4"))
+#' }
 split_each = function(lst, tags = c("h2", "h3", "h4")) {
 	# If it has external pointers as a type just return it as it is
 	if (length(tags) == 1) {
@@ -480,7 +484,7 @@ save_data = function(
 		csv = TRUE, rda = TRUE
 ){
 	if(pkgload::is_loading()) return()
-	if(rda)save(list = sym, file = glue("{root}/{file}.rda"), envir = parent.frame())
+	if(rda)save(list = sym, file = glue("{root}/{file}.rda"), envir = parent.frame()) # TODO compress
 	if(csv)write_csv(get(sym, envir = parent.frame()), glue("{root}/{file}.csv"))
 	if(!csv&&!rda)warning("Nothing saved")
 }

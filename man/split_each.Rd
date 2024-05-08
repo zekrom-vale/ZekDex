@@ -18,5 +18,7 @@ A list of lists, split at each specified tag.
 This function splits a list at each specified tag. It returns a list of lists, split at each specified tag.
 }
 \examples{
+\dontrun{
 split_each(list("h1", "h2", "h3", "h4"), c("h2", "h3", "h4"))
+}
 }

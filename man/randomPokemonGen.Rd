@@ -26,6 +26,7 @@ randomPokemonGen(..., p = name, replace = FALSE, size = 1)
 Returns a random Pokemon Generator
 }
 \examples{
+\dontrun{
 # Create a random Pokemon generator for any type of Pokemon
 gen_any <- randomPokemonGen()
 # Generate a random Pokemon
@@ -74,7 +75,7 @@ while(!coro::exhausted(gen_all_dragon)) {
 # > "Zygarde10"
 
 # Return the dex number instead
-gen_dex <- randomPokemonGen(type = "Dragon", swap = TRUE, p = Ndex)
+gen_dex <- randomPokemonGen(type = "Dragon", swap = TRUE, p = ndex)
 # Generate all Dragon type Pokemon dex numbers
 while(!coro::exhausted(gen_dex)) {
   pokemon = gen_dex()
@@ -95,4 +96,5 @@ gen_dragon_replace <- randomPokemonGen(type = "Dragon", replace = TRUE)
 # Generate 5 random Dragon type Pokemon with replacement
 replicate(5, gen_dragon_replace())
 # > "Zekrom" "Rayquaza" "Garchomp" "Zekrom" "Haxorus"
+}
 }

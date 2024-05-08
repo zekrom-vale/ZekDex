@@ -4,12 +4,12 @@
 \alias{stab}
 \title{Compute STAB Multiplier for an Attack}
 \usage{
-stab(effectiveness, stab_multiplyer = stab_multiplyer$Standard)
+stab(effectiveness, stab_mult = stab_multiplyer$Standard)
 }
 \arguments{
 \item{effectiveness}{Numeric value representing the effectiveness of an attack.}
 
-\item{stab_multiplyer}{Numeric value representing the STAB multiplier. Default is stab_multiplyer$Standard.}
+\item{stab_mult}{Numeric value representing the STAB multiplier. Default is stab_multiplyer$Standard.}
 }
 \value{
 Numeric value representing the effectiveness of the attack with the STAB multiplier applied.

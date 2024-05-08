@@ -15,7 +15,6 @@
 #' @importFrom tidyselect matches where
 #' @importFrom magrittr "%>%"
 #' @importFrom tibble as_tibble
-#' @importFrom rvest read_html html_elements html_attr
 #' @importFrom pkgload is_loading
 gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
 	if(pkgload::is_loading()) return()

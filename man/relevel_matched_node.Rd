@@ -20,6 +20,7 @@ The modified list
 Relevels the structure of a list of xml_nodes and xml_nodesets
 }
 \examples{
+\dontrun{
 new_node = function(tag, val){
 xml2::read_html(glue::glue("<{tag}>{val}</{tag}>"))|>
    xml2::xml_child()|>
@@ -55,4 +56,5 @@ v = t|>
 # > [[1]][[2]][[1]]
 # > {html_node}
 # > <div>
+}
 }

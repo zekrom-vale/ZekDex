@@ -14,7 +14,6 @@
 #' @importFrom readr write_csv
 #' @importFrom stringr str_extract
 #' @importFrom magrittr "%>%"
-#' @importFrom rvest read_html html_table html_elements html_attr
 #' @importFrom pkgload is_loading
 gen_stats = function(
 		write = FALSE,
