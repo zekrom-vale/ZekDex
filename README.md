@@ -1,30 +1,43 @@
 # ZekDex
 
 
-ZekDex is a comprehensive R package that serves as a rich resource for Pokémon enthusiasts and data scientists alike. It offers a wide array of datasets about Pokémon, encompassing a multitude of aspects that make these creatures unique.
+ZekDex is a comprehensive R package that serves as a rich resource for Pokémon enthusiasts and data scientists alike.
+It offers a wide array of datasets about Pokémon, encompassing a multitude of aspects that make these creatures unique.
 
 Key features of ZekDex include:
 - **National Dex Information**: This provides a complete listing of Pokémon as per the National Dex, which is a catalogue of Pokémon species in the order they were discovered.
 - **Legendary and Mythical Pokémon Groupings**: This categorizes Pokémon into their respective Legendary and Mythical groups, offering insights into their rarity and special attributes.
-- **Base Stats**: This includes the fundamental statistics of each Pokémon, such as their attack power, defense, speed, and more.
+- **Base Stats**: This includes the fundamental statistics of each Pokémon, such as their attack power, defense, speed, and more per generation.
 - **Evolution and Family Information**: This provides details about the evolutionary stages of Pokémon and their familial connections.
 - **Random Pokémon Generation**: ZekDex also includes functions that allow users to generate random Pokémon, adding an element of surprise and discovery.
+- And much more!
 
-ZekDex is committed to providing up-to-date and accurate information about Pokémon. It draws its data from Bulbapedia, a community-driven Pokémon encyclopedia. As of the time of writing, ZekDex includes data for Pokémon generations I through IX. 
+ZekDex is committed to providing up-to-date and accurate information about Pokémon. It draws its data from Bulbapedia, a community-driven Pokémon encyclopedia.
+As of the time of writing, ZekDex includes data for Pokémon generations I through IX. 
 
-One of the standout features of ZekDex is its ability to stay current. If the package's data ever falls behind, users have the capability to generate up-to-date information. This ensures that ZekDex remains a reliable and timely resource for Pokémon data.
+One of the standout features of ZekDex is its ability to stay current.
+If the package's data ever falls behind, users have the capability to generate up-to-date information.
+This ensures that ZekDex remains a reliable and timely resource for Pokémon data.
 
-Whether you're a researcher conducting a data analysis project, or a fan interested in the fascinating world of Pokémon, ZekDex is a valuable tool to have in your R library.
+Whether you're a researcher conducting a data analysis project, or a fan interested in the fascinating world of Pokémon,
+ZekDex is a valuable tool to have in your R library.
 
 ## Data Formats and Accessibility
 
-The datasets incorporated in this package are primarily stored in the `.rda` format, which is a binary format native to R. This format is particularly beneficial for R users as it allows for efficient storage and quick data loading, thereby enhancing the overall user experience with this package.
+The datasets incorporated in this package are primarily stored in the `.rda` format, which is a binary format native to R.
+This format is particularly beneficial for R users as it allows for efficient storage and quick data loading,
+thereby enhancing the overall user experience with this package.
 
-However, we understand that users might want to utilize this data outside the R environment. To cater to this need, we also provide the data in the universally recognized `.csv` format. These `.csv` files can be easily imported into various data analysis software and programming languages, offering users the flexibility to work with the data in an environment of their choice.
+However, we understand that users might want to utilize this data outside the R environment.
+To cater to this need, we also provide the data in the universally recognized `.csv` format.
+These `.csv` files can be easily imported into various data analysis software and programming languages,
+offering users the flexibility to work with the data in an environment of their choice.
 
-You can locate these `.csv` files in the `/data` directory of the package. This directory has been structured to ensure easy navigation and quick access to the required datasets.
+You can locate these `.csv` files in the `/data` directory of the package.
+This directory has been structured to ensure easy navigation and quick access to the required datasets.
 
-In summary, whether you're working within the R ecosystem or venturing outside it, we've got you covered with our dual data format availability. Happy data exploring!
+In summary, whether you're working within the R ecosystem or venturing outside it,
+we've got you covered with our dual data format availability. Happy data exploring!
 
 
 ## Installation
@@ -34,14 +47,17 @@ You can install the package from GitHub with:
 ```r
 # If devtools is not installed:
 install.packages("devtools")
-# Install the package ZekDex from https://github.com/zekrom-vale/ZekDex
-devtools::install_github("zekrom-vale/ZekDex")
+
+# Install the stable branch of the package ZekDex (recommended)
+devtools::install_github("zekrom-vale/ZekDex", ref = "stable")
+
+# Or, install the main branch of the package ZekDex (May be in an unusable state)
+devtools::install_github("zekrom-vale/ZekDex", ref = "main")
 ```
 
 ## Datasets
 
 The package includes the following datasets:
-
 
 ### nationalDex
 Pokemon National dex information
@@ -305,7 +321,7 @@ The package provides the following functions:
   - `size` (`integer`): The number of random Pokémon to generate on each call.
 
 - `gen_*()`: Regenerates parts of the dataset
-  - `write` (`logical`): Should it write the data to a file?  (Recomended to save the output if `FALSE` as this takes time)
+  - `write` (`logical`): Should it write the data to a file?  (Recomended to save the output as this takes time)
   - `root` (`character`): Where to look for files and write them
   - `file` (`character`): Where to save the data without extention if `write == TRUE`
   - `file*` (`character`): Same as file but for other datasets generated
