@@ -358,3 +358,21 @@ NULL
 #' }
 #' @source Bulbapedia
 "physicalAttr"
+
+#' Catch Rate Dataset
+#'
+#' This dataset provides the catch rate for each Pokémon. The catch rate is a
+#' statistic that determines how easy it is to catch a Pokémon. The higher the
+#' catch rate, the easier it is to catch the Pokémon. In the context of Pokémon Legends: Arceus,
+#' many Pokémon were given heightened catch rates to make catching them outside of battle much easier.
+#'
+#' @format A data frame with 5 variables:
+#' \describe{
+#'   \item{Ndex}{`integer` National Pokédex number}
+#'   \item{name}{`character` Name of the Pokémon}
+#'   \item{catchRate}{`integer` Catch rate of the Pokémon}
+#'   \item{note}{`character` Additional notes about the catch rate}
+#'   \item{Hdex}{`integer` Pokémon Legends: Arceus Pokédex number}
+#' }
+#' @source Bulbapedia
+"catchRate"
