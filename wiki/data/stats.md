@@ -1,0 +1,13 @@
+Base stats of Pokémon including various forms / sizes of Pokémon.
+- `ndex` (`integer`): National Pokédex number
+- `name` (`character`): Pokémon name
+- `HP` (`integer`): Hit Points
+- `Attack` (`integer`): Attack strength
+- `Defense` (`integer`): Defensive strength
+- `Speed` (`integer`): Speed
+- `Special` (`integer`): Special attack or special defense strength
+- `Total` (`integer`): Total of all stats
+- `Average` (`numeric`): Average of all stats
+- `Gen` (`factor`): Generation
+- `SpAttack` (`integer`): Special Attack strength (NA for Gen I)
+- `SpDefense` (`integer`): Special Defense strength (NA for Gen I)

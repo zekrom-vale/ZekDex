@@ -1,0 +1,13 @@
+Pokemon National dex information
+- `ndex` (`integer`): National Pokedex number.
+- `name` (`character`): Name of the Pokemon.
+- `form` (`character`): Form of the Pokemon. NA if the Pokemon does not have a special form.
+- `regional` (`character`): Regional form of the Pokemon. NA if the Pokemon does not have a regional form.
+- `type` (`character`): Primary type of the Pokemon.
+- `type2` (`character`): Secondary type of the Pokemon. NA if the Pokemon does not have a secondary type.
+- `generation` (`integer`): The generation the Pokemon was introduced in.
+- `isLegendary` (`logical`): Whether the Pokemon is Legendary.
+- `isMythical` (`logical`): Whether the Pokemon is Mythical.
+- `isUltraBeast` (`logical`): Whether the Pokemon is an Ultra Beast.
+- `family` (`character`): Legendary / Mythical family group of the Pokemon. NA if the Pokemon does not belong to a family group.
+- `size` (`character`): Legendary / Mythical family size. NA if the Pokemon does not belong to a family group.

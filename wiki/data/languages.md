@@ -1,0 +1,38 @@
+As of now the language columns are in the format of `<Language>_<language subset>` if there is no subset it's `<Language>_<language>`.
+- `ndex` (`integer`): National Pokedex number.
+- `name` (`character`): Name of the Pokemon.
+- `form` (`character`): Form of the Pokemon. NA if the Pokemon does not have a special form.
+- `regional` (`character`): Regional form of the Pokemon. NA if the Pokemon does not have a regional form.
+- `type` (`character`): Primary type of the Pokemon.
+- `type2` (`character`): Secondary type of the Pokemon. NA if the Pokemon does not have a secondary type.
+- `generation` (`integer`): The generation the Pokemon was introduced in.
+- `isLegendary` (`logical`): Whether the Pokemon is Legendary.
+- `isMythical` (`logical`): Whether the Pokemon is Mythical.
+- `isUltraBeast` (`logical`): Whether the Pokemon is an Ultra Beast.
+- `family` (`character`): Legendary / Mythical family group of the Pokemon. NA if the Pokemon does not belong to a family group.
+- `size` (`character`): Legendary / Mythical family size. NA if the Pokemon does not belong to a family group.
+- `Japanese_Kana` (`character`): Japanese Kana name of the Pokemon.
+- `Japanese_Hepburn` (`character`): Japanese Hepburn name of the Pokemon.
+- `Japanese_Trademarked` (`character`): Japanese Trademarked name of the Pokemon.
+- `German` (`character`): German name of the Pokemon.
+- `French` (`character`): French name of the Pokemon.
+- `Spanish` (`character`): Spanish name of the Pokemon.
+- `Italian` (`character`): Italian name of the Pokemon.
+- `Korean_Hangul` (`character`): Korean Hangul name of the Pokemon.
+- `Korean_Revised` (`character`): Korean Revised name of the Pokemon.
+- `Korean_McCune-Reischauer` (`character`): Korean McCune-Reischauer name of the Pokemon.
+- `Korean_Official` (`character`): Korean Official name of the Pokemon.
+- `Chinese_Traditional` (`character`): Chinese Traditional name of the Pokemon.
+- `Chinese_Simplified` (`character`): Chinese Simplified name of the Pokemon.
+- `Chinese_Pinyin` (`character`): Chinese Pinyin name of the Pokemon.
+- `Chinese_Yale` (`character`): Chinese Yale name of the Pokemon.
+- `Chinese_Former names` (`character`): Chinese Former names of the Pokemon.
+- `Brazilian_Portuguese_brazilian_portuguese` (`character`): Brazilian Portuguese name of the Pokemon.
+- `Turkish` (`character`): Turkish name of the Pokemon.
+- `Russian_Cyrillic` (`character`): Russian Cyrillic name of the Pokemon.
+- `Russian_Romanization` (`character`): Russian Romanization name of the Pokemon.
+- `Thai` (`character`): Thai name of the Pokemon.
+- `Thai_RTGS` (`character`): Thai RTGS name of the Pokemon.
+- `Hindi_Devanāgarī` (`character`): Hindi Devanāgarī name of the Pokemon.
+- `Hindi_Transliteration` (`character`): Hindi Transliteration name of the Pokemon.
+- `Hindi_Romanization` (`character`): Hindi Romanization name of the Pokemon.

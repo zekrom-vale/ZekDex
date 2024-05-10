@@ -1,0 +1,40 @@
+As of now the regionalDex columns are in the format of `<Game>_<Region>_<DexName>`, `NA` if that data is missing.
+- `ndex` (`integer`): National Pokedex number.
+- `name` (`character`): Name of the Pokemon.
+- `form` (`character`): Form of the Pokemon.
+- `regional` (`character`): Regional form of the Pokemon.
+- `type` (`character`): Primary type of the Pokemon.
+- `type2` (`character`): Secondary type of the Pokemon.
+- `generation` (`integer`): Generation of the Pokemon.
+- `isLegendary` (`logical`): Boolean indicating if the Pokemon is Legendary.
+- `isMythical` (`logical`): Boolean indicating if the Pokemon is Mythical.
+- `isUltraBeast` (`logical`): Boolean indicating if the Pokemon is an Ultra Beast.
+- `family` (`character`): Family of the Pokemon.
+- `size` (`character`): Size of the Pokemon.
+- `NA_Kanto_Kdex` (`integer`): Kanto Pokedex number.
+- `NA_Johto_Jdex` (`integer`): Johto Pokedex number.
+- `GenerationIII_Hoenn_Hdex` (`integer`): Hoenn Pokedex number in Generation III.
+- `GenerationVI_Hoenn_Hdex` (`integer`): Hoenn Pokedex number in Generation VI.
+- `NA_Sinnoh_Sdex` (`integer`): Sinnoh Pokedex number.
+- `BlackandWhite_Unova_Udex` (`integer`): Unova Pokedex number in Black and White.
+- `Black2andWhite2_Unova_Udex` (`integer`): Unova Pokedex number in Black 2 and White 2.
+- `NA_Blueberry_BBdex` (`integer`): Blueberry Pokedex number.
+- `NA_Kalos_CeKdex` (`integer`): Central Kalos Pokedex number.
+- `NA_Kalos_CoKdex` (`integer`): Coastal Kalos Pokedex number.
+- `NA_Kalos_MoKdex` (`integer`): Mountain Kalos Pokedex number.
+- `SunandMoon_Alola_Adex` (`integer`): Alola Pokedex number in Sun and Moon.
+- `SunandMoon_Alola_Melemele` (`integer`): Melemele Pokedex number in Sun and Moon.
+- `SunandMoon_Alola_Akala` (`integer`): Akala Pokedex number in Sun and Moon.
+- `SunandMoon_Alola_Ula'ula` (`integer`): Ula'ula Pokedex number in Sun and Moon.
+- `SunandMoon_Alola_Poni` (`integer`): Poni Pokedex number in Sun and Moon.
+- `UltraSunandUltraMoon_Alola_Adex` (`integer`): Alola Pokedex number in Ultra Sun and Ultra Moon.
+- `UltraSunandUltraMoon_Alola_Melemele` (`integer`): Melemele Pokedex number in Ultra Sun and Ultra Moon.
+- `UltraSunandUltraMoon_Alola_Akala` (`integer`): Akala Pokedex number in Ultra Sun and Ultra Moon.
+- `UltraSunandUltraMoon_Alola_Ula'ula` (`integer`): Ula'ula Pokedex number in Ultra Sun and Ultra Moon.
+- `UltraSunandUltraMoon_Alola_Poni` (`integer`): Poni Pokedex number in Ultra Sun and Ultra Moon.
+- `NA_Galar_Gdex` (`integer`): Galar Pokedex number.
+- `NA_IsleofArmor_IoAdex` (`integer`): Isle of Armor Pokedex number.
+- `NA_CrownTundra_CTdex` (`integer`): Crown Tundra Pokedex number.
+- `NA_Hisui_LAdex` (`integer`): Hisui Pokedex number.
+- `NA_Paldea_Pdex` (`integer`): Paldea Pokedex number.
+- `NA_Kitakami_Kdex` (`integer`): Kitakami Pokedex number.
