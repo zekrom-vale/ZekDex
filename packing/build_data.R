@@ -12,6 +12,7 @@ dir.create("data", showWarnings = FALSE)
 
 gen_groups(write = TRUE)
 gen_type_chart(write = TRUE)
+gen_catch(write = TRUE)
 
 # Requires PokemonGroups
 gen_national(write = TRUE)

@@ -1,12 +1,20 @@
 Package: ZekDex
 Type: Package
-Title: Provides a package and extractor for Pokemon data from Bulbapedia
-Version: 0.0.1
+Title: Comprehensive Pokémon Datasets from Bulbapedia
+Version: 0.1.1
 Author: ZekromVale
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: CC0 1.0 Universal
+Maintainer: ZekromVale <zekrom-vale@users.noreply.github.com>
+Description: 
+    ZekDex is a comprehensive R package that serves as a rich resource for 
+    Pokémon enthusiasts and data scientists alike. It offers a wide array of 
+    datasets about Pokémon, encompassing a multitude of aspects that make these 
+    creatures unique. Key features of ZekDex include National Dex Information, 
+    Legendary and Mythical Pokémon Groupings, Base Stats, Evolution and Family 
+    Information, and Random Pokémon Generation. ZekDex is committed to providing 
+    up-to-date and accurate information about Pokémon, drawing its data from 
+    Bulbapedia. As of the time of writing, ZekDex includes data for Pokémon 
+    generations I through IX.
+License: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License (CC BY-NC-SA 4.0)
 Encoding: UTF-8
 LazyData: true
 Depends: 
@@ -16,3 +24,5 @@ Imports: dplyr, magrittr, purrr, readr, rlang, stringr, tibble, tidyr, glue, tid
 Suggests: rvest, janitor, coro, xml2
 RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)
+URL: https://github.com/zekrom-vale/ZekDex
+BugReports: https://github.com/zekrom-vale/ZekDex/issues
