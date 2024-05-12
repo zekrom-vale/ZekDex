@@ -1,0 +1,12 @@
+#' {name}
+#'
+#' {description}
+#' @format {format}:
+#' \describe{{
+{variables}
+#' }}
+#' @source {source}
+#' @examples
+{examples}
+"{dataset_name}"
+
