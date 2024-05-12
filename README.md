@@ -58,69 +58,122 @@ devtools::install_github("zekrom-vale/ZekDex", ref = "main")
 ## Datasets
 
 The package includes the following datasets:
+### National PokeDex (`nationalDex`)
+The National PokeDex is a comprehensive database that records information on all Pokémon known to exist,
+instead of just ones native in a particular region.
+This dataset provides information about Pokémon as per the National Pokédex,
+which includes Pokémon from the Kanto region first, followed by those from Johto,
+Hoenn, Sinnoh, Unova, Kalos, Alola, Galar, Hisui, and Paldea.
 
-### nationalDex
-Pokemon National dex information
 
-### groups
-A dataset containing Legendary and Mythical Pokémon categorized by their family groupings and sizes.
+### Legendary and Mythical Pokémon Groupings (`groups`)
+This dataset contains information about Legendary and Mythical Pokémon,
+which are a special group of Pokémon that are incredibly rare and often very powerful.
+These Pokémon are categorized by their family groupings and sizes.
+Family groupings are often based on common themes or characteristics among the Pokémon.
 
-### stats
-Base stats of Pokémon including various forms / sizes of Pokémon.
+For example, the 'Tao trio' refers to Reshiram, Zekrom, and Kyurem,
+which are associated with the concept of yin, yang, and wuji.
 
-### family
-Pokemon evolution and family information.
-This dataset is good if you want to know the evolution tree.
+The 'Super-ancient Pokémon' refers to Kyogre, Groudon, and Rayquaza,
+which are ancient Pokémon with powerful weather abilities.
 
-### familyLong
-Extended Pokémon family information.
-This dataset looses the evolution tree, but is good for finding what Pokémon is in each family.
-TODO fixing the `family.x` and `family.y`
+The 'Paradox duo' refers to Koraidon and Miraidon, which are associated with different timelines.
 
-### languages
-As of now the language columns are in the format of `<Language>_<language subset>` if there is no subset it's `<Language>_<language>`.
 
-### regionalDex
-As of now the regionalDex columns are in the format of `<Game>_<Region>_<DexName>`, `NA` if that data is missing.
+### Pokemon Stats (`stats`)
+This dataset contains the base stats of Pokémon, including various forms and sizes of Pokémon. Base stats are an important defining characteristic of each Pokémon species. They determine the potential of each Pokémon in terms of their HP (Hit Points), Attack, Defense, Speed, and Special abilities. These stats can be influenced by other factors such as level, nature, and effort values.
 
-### types
+
+### Pokemon Evolution Dataset (`family`)
+This dataset contains information about Pokémon evolution and family groupings.
+It provides a comprehensive view of the evolution tree of each Pokémon,
+making it an excellent resource for understanding how different Pokémon are related to each other and how they evolve.
+The dataset includes Pokémon from all generations and covers various forms and regional variants.
+
+
+### Extended Pokemon Evolution Dataset (`familyLong`)
+This dataset contains detailed information about Pokémon evolution and family groupings. It provides a comprehensive view of the evolution tree of each Pokémon, making it an excellent resource for understanding how different Pokémon are related to each other and how they evolve. The dataset includes Pokémon from all generations and covers various forms and regional variants.
+
+While this dataset loses the hierarchical structure of the evolution tree, it is particularly useful for identifying which Pokémon belong to each family. It provides a flat structure that can be easily filtered and sorted to find specific Pokémon and their families.
+
+Note: The `family.x` and `family.y` variables need to be reconciled to ensure consistency across the dataset.
+
+
+### Pokémon National Dex information in multiple languages (`languages`)
+This dataset contains the names of Pokémon in various languages.
+Each Pokémon has a unique name in each language, and these names often reflect the culture and
+language patterns of their respective regions. The dataset includes names in multiple languages,
+including but not limited to English, Japanese, German, French, Spanish, Italian, Korean, Chinese,
+Brazilian Portuguese, Turkish, Russian, Thai, and Hindi. The language columns are in the format of
+`<Language>_<language subset>`. If there is no subset, it's `<Language>`.
+
+
+### Pokémon Information from the Regional Dex (`regionalDex`)
+This dataset contains information about Pokémon as per the Regional Pokédex.
+The regionalDex columns are in the format of `<Game>_<Region>_<DexName>`.
+If the data is missing, it is represented as `NA`.
+
+
+### Pokemon Types Dataset (`types`)
 This dataset contains information about various Pokemon types.
 
-### typeChartWide
-This dataset outlines the effectiveness of various attacking Pokémon types against defending types.
-Each cell in the dataset represents the effectiveness multiplier when a Pokémon type attacks another.
-The effectiveness is represented by numerical values:
-- **0** denotes immunity (the attack has no effect)
-- **0.5** means the attack is not very effective (half damage)
-- **1** means the attack is effective (causes regular damage)
-- **2** means the attack is very effective (causes double damage)
 
-### typeChart
+### Pokémon Type Effectiveness Dataset (`typeChartWide`)
+This dataset provides a matrix of effectiveness multipliers for different types of Pokémon attacks.
+Each Pokémon has a type, such as Fire, Water, Grass, etc., and each type has different effectiveness against other types.
+This effectiveness is represented by a multiplier that is applied to the attack's damage.
+
+The dataset is structured as a wide format, with each column representing a defending Pokémon's type and
+each row representing an attacking Pokémon's type.
+
+
+### Extended Pokémon Type Effectiveness Dataset (`typeChart`)
 This dataset provides detailed effectiveness values for attacks between different Pokémon types.
-It lists the effectiveness of an attacking type against a defending type, with numerical values indicating the level of effectiveness:
-- **0** denotes immunity (no effect)
-- **0.5** means the attack is not very effective (half damage)
-- **1** means the attack is effective (regular damage)
-- **2** means the attack is very effective (double damage)
 
-### weight
-This dataset contains information about the weight of various Pokemon in both pounds (lbs) and kilograms (kg).
-It also includes details about the lightest and heaviest Pokemon, their regional forms, and whether they have a Mega or Primal form.
+It is structured in a long format, with each row representing an interaction between an attacking type and a defending type.
+The 'Effectiveness' column provides the multiplier for the effectiveness of the attack.
 
-### height
+
+### Pokemon Weight Dataset (`weight`)
+This dataset contains information about the weight of various Pokémon.
+Each Pokémon's weight is recorded in both pounds (lbs) and kilograms (kg), providing flexibility for different uses.
+The dataset also includes details about the lightest and heaviest Pokémon, their regional forms, and whether they have a Mega or Primal form.
+This can be useful for a variety of analyses, such as studying the distribution of Pokémon weights,
+identifying trends and patterns, or informing game strategies.
+
+
+### Height Dataset (`height`)
 This dataset contains information about the height of different Pokémon forms.
-The height is represented in different units such as feet (ft), meters (m), and inches (inch).
-It also includes the ranking of each Pokémon form from smallest to biggest,
-and information about regional forms and Mega or Primal forms.
+The height is represented in different units such as feet (ft), meters (m), and inches (inch),
+providing flexibility for different uses.
+It also includes the ranking of each Pokémon form from smallest to biggest, and information about regional forms and Mega or Primal forms.
+This can be useful for a variety of analyses, such as studying the distribution of Pokémon heights,
+identifying trends and patterns, or informing game strategies.
 
-### physicalAttr
-This dataset contains information about the physical attributes of Pokémon, including their type, generation, weight, height, and other characteristics.
 
-### catchRate
-This dataset provides the catch rate for each Pokémon. The catch rate is a
-statistic that determines how easy it is to catch a Pokémon. The higher the
-catch rate, the easier it is to catch the Pokémon. In the context of Pokémon Legends: Arceus,
-many Pokémon were given heightened catch rates to make catching them outside of battle much easier.
+### Physical Attributes of Pokémon (`physicalAttr`)
+This dataset provides a comprehensive overview of the physical attributes of Pokémon, including their type,
+generation, weight, height, and other characteristics.
+It includes information about each Pokémon's National Pokédex number, name, regional variant,
+primary and secondary types, generation, legendary status, mythical status, ultra beast status,
+family, size, form, weight in pounds and kilograms, lightest and heaviest weight rankings in the Pokédex,
+Mega or Primal form status, height in feet, meters, and inches, and smallest and
+biggest height rankings in the Pokédex.
+
+This dataset can be useful for a variety of analyses, such as studying the distribution of Pokémon
+weights and heights, identifying trends and patterns, or informing game strategies.
+
+
+### Catch Rate Dataset (`catchRate`)
+This dataset provides information about the catch rate of each Pokémon.
+The catch rate is a statistic that determines the probability of capturing a Pokémon.
+A higher catch rate means that the Pokémon is easier to catch.
+
+In the context of Pokémon Legends: Arceus, many Pokémon were given heightened catch rates to facilitate catching them
+outside of battle.
+
+
 
 You can load any dataset with the `data()` function. For example, `data(nationalDex)`.
 
@@ -179,4 +232,4 @@ We would like to express our gratitude to the contributors of [Bulbagarden](http
 Under no circumstance should anyone use rvest to attack or slowdown the site.  All `gen_*()` functions are intended to be used only for when major updates occur on Bulbagarden.
 
 Please note that this project is not affiliated with, endorsed by, or directly associated with Bulbagarden or the official Pokémon franchise.
-
+
