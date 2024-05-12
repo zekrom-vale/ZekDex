@@ -1,26 +1,25 @@
-This dataset outlines the effectiveness of various attacking Pokémon types against defending types.
-Each cell in the dataset represents the effectiveness multiplier when a Pokémon type attacks another.
-The effectiveness is represented by numerical values:
-- **0** denotes immunity (the attack has no effect)
-- **0.5** means the attack is not very effective (half damage)
-- **1** means the attack is effective (causes regular damage)
-- **2** means the attack is very effective (causes double damage)
-- `Attacking` (`factor`): The Pokémon type of the attacking move.
-- `Defending_Normal` (`numeric`): Effectiveness against Normal type.
-- `Defending_Fighting` (`numeric`): Effectiveness against Fighting type.
-- `Defending_Flying` (`numeric`): Effectiveness against Flying type.
-- `Defending_Poison` (`numeric`): Effectiveness against Poison type.
-- `Defending_Ground` (`numeric`): Effectiveness against Ground type.
-- `Defending_Rock` (`numeric`): Effectiveness against Rock type.
-- `Defending_Bug` (`numeric`): Effectiveness against Bug type.
-- `Defending_Ghost` (`numeric`): Effectiveness against Ghost type.
-- `Defending_Steel` (`numeric`): Effectiveness against Steel type.
-- `Defending_Fire` (`numeric`): Effectiveness against Fire type.
-- `Defending_Water` (`numeric`): Effectiveness against Water type.
-- `Defending_Grass` (`numeric`): Effectiveness against Grass type.
-- `Defending_Electric` (`numeric`): Effectiveness against Electric type.
-- `Defending_Psychic` (`numeric`): Effectiveness against Psychic type.
-- `Defending_Ice` (`numeric`): Effectiveness against Ice type.
-- `Defending_Dragon` (`numeric`): Effectiveness against Dragon type.
-- `Defending_Dark` (`numeric`): Effectiveness against Dark type.
-- `Defending_Fairy` (`numeric`): Effectiveness against Fairy type.
+# Pokémon Type Effectiveness Dataset (`typeChartWide`)
+
+This dataset provides a matrix of effectiveness multipliers for different types of Pokémon attacks.
+Each Pokémon has a type, such as Fire, Water, Grass, etc., and each type has different effectiveness against other types.
+This effectiveness is represented by a multiplier that is applied to the attack's damage.
+
+The dataset is structured as a wide format, with each column representing a defending Pokémon's type and
+each row representing an attacking Pokémon's type.
+
+
+## Columns
+  - Attacking: (`factor`) The type of the attacking Pokémon's move. There are 18 types in total.
+  - Defending_*: (`numeric`) The effectiveness of the attacking type against the defending type. This is represented by a multiplier (0, 0.5, 1, 2) applied to the attack's damage. Each 'Defending_*' represents a different Pokémon type.
+
+## Sourced from
+  - [Bulbapedia Type](https://bulbapedia.bulbagarden.net/wiki/Type)
+
+## Reffers to
+  - Nothing
+
+## Examples
+```
+data(typeChartWide)
+```
+
