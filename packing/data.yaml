@@ -3,194 +3,208 @@
 nationalDex:
     name: National PokeDex
     description: |
-        Pokemon National dex information
+        The National PokeDex is a comprehensive database that records information on all Pokémon known to exist,
+        instead of just ones native in a particular region.
+        This dataset provides information about Pokémon as per the National Pokédex,
+        which includes Pokémon from the Kanto region first, followed by those from Johto,
+        Hoenn, Sinnoh, Unova, Kalos, Alola, Galar, Hisui, and Paldea.
     format: A data frame with 12 variables
     describe:
-        - [ndex, integer, National Pokedex number.]
-        - [name, character, Name of the Pokemon.]
-        - [form, character, Form of the Pokemon. NA if the Pokemon does not have a special form.]
-        - [regional, character, Regional form of the Pokemon. NA if the Pokemon does not have a regional form.]
-        - [type, character, Primary type of the Pokemon.]
-        - [type2, character, Secondary type of the Pokemon. NA if the Pokemon does not have a secondary type.]
-        - [generation, integer, The generation the Pokemon was introduced in.]
-        - [isLegendary, logical, Whether the Pokemon is Legendary.]
-        - [isMythical, logical, Whether the Pokemon is Mythical.]
-        - [isUltraBeast, logical, Whether the Pokemon is an Ultra Beast.]
-        - [family, character, Legendary / Mythical family group of the Pokemon. NA if the Pokemon does not belong to a family group.]
-        - [size, character, Legendary / Mythical family size. NA if the Pokemon does not belong to a family group.]
-    source: Bulbapedia
-    examples: |
-        data(nationalDex)
+        - [ndex, integer, "National Pokedex number. This is the unique identifier for each Pokémon in the National Pokédex."]
+        - [name, character, "Name of the Pokemon. This is the common name used to identify a particular Pokémon."]
+        - [form, character, "Form of the Pokemon. This refers to the different physical forms that Pokémon can take. NA if the Pokemon does not have a special form."]
+        - [regional, character, "Regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form."]
+        - [type, character, "Primary type of the Pokemon. This is the main elemental category the Pokémon belongs to, such as Water, Fire, Grass, etc."]
+        - [type2, character, "Secondary type of the Pokemon. This is the secondary elemental category the Pokémon belongs to, if any. NA if the Pokemon does not have a secondary type."]
+        - [generation, integer, "The generation the Pokemon was introduced in. This refers to the different stages of Pokémon games, each introducing new Pokémon, regions, and gameplay concepts."]
+        - [isLegendary, logical, "Whether the Pokemon is Legendary. This indicates if the Pokémon is a Legendary Pokémon, which are a group of incredibly rare and often very powerful Pokémon."]
+        - [isMythical, logical, "Whether the Pokemon is Mythical. This indicates if the Pokémon is a Mythical Pokémon, which are a group of Pokémon seen so rarely in the Pokémon world that some question their very existence."]
+        - [isUltraBeast, logical, "Whether the Pokemon is an Ultra Beast. This indicates if the Pokémon is an Ultra Beast, which are a group of extradimensional Pokémon originating from Ultra Space."]
+        - [family, character, "Legendary / Mythical family group of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group."]
+        - [size, character, "Legendary / Mythical family size. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group."]
+    source:
+        - "[List of Pokémon by National Pokédex number. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pokémon_by_National_Pokédex_number)"
+    references:
+        - "[National Pokédex. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/National_Pokédex)"
 
 groups:
     name: Legendary and Mythical Pokémon Groupings
     description: |
-        A dataset containing Legendary and Mythical Pokémon categorized by their family groupings and sizes.
+        This dataset contains information about Legendary and Mythical Pokémon,
+        which are a special group of Pokémon that are incredibly rare and often very powerful.
+        These Pokémon are categorized by their family groupings and sizes.
+        Family groupings are often based on common themes or characteristics among the Pokémon.
+        
+        For example, the 'Tao trio' refers to Reshiram, Zekrom, and Kyurem,
+        which are associated with the concept of yin, yang, and wuji.
+        
+        The 'Super-ancient Pokémon' refers to Kyogre, Groudon, and Rayquaza,
+        which are ancient Pokémon with powerful weather abilities.
+        
+        The 'Paradox duo' refers to Koraidon and Miraidon, which are associated with different timelines.
     format: A data frame with 3 variables
     describe:
-        - [family, character, "The family grouping of the Pokémon. Examples include 'Tao trio', 'Super-ancient Pokémon', 'Paradox duo', etc."]
-        - [name, character, "The name of the individual Pokémon within the family grouping."]
-        - [size, character, "The size category of the family grouping. Categories include 'duos', 'trios', 'quartets', and 'quintets'."]
-    source: "Bulbapedia"
-    examples: |
-        data(groups)
-
+        - [family, character, "The family grouping of the Pokémon. This refers to the thematic or characteristic-based group that the Pokémon belongs to. Examples include 'Tao trio', 'Super-ancient Pokémon', 'Paradox duo', etc."]
+        - [name, character, "The name of the individual Pokémon within the family grouping. This is the common name used to identify a particular Pokémon."]
+        - [size, character, "The size category of the family grouping. This refers to the number of Pokémon in the family grouping. Categories include 'duos', 'trios', 'quartets', and 'quintets'."]
+    source: "[Groups of Legendary and Mythical Pokémon. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/Groups_of_Legendary_and_Mythical_Pok%C3%A9mon)"
+    
 stats:
-    name: "Pokemon Data"
+    name: Pokemon Stats
     description: |
-        Base stats of Pokémon including various forms / sizes of Pokémon.
+        This dataset contains the base stats of Pokémon, including various forms and sizes of Pokémon. Base stats are an important defining characteristic of each Pokémon species. They determine the potential of each Pokémon in terms of their HP (Hit Points), Attack, Defense, Speed, and Special abilities. These stats can be influenced by other factors such as level, nature, and effort values.
     format: A data frame with 11 variables
     describe:
-        - [ndex, integer, National Pokédex number]
-        - [name, character, Pokémon name]
-        - [HP, integer, Hit Points]
-        - [Attack, integer, Attack strength]
-        - [Defense, integer, Defensive strength]
-        - [Speed, integer, Speed]
-        - [Special, integer, Special attack or special defense strength]
-        - [Total, integer, Total of all stats]
-        - [Average, numeric, Average of all stats]
-        - [Gen, factor, Generation]
-        - [SpAttack, integer, Special Attack strength (NA for Gen I)]
-        - [SpDefense, integer, Special Defense strength (NA for Gen I)]
-    source: Bulbapedia
-    examples: |
-        data(stats)
+        - [ndex, integer, "National Pokédex number. This is the unique identifier for each Pokémon in the National Pokédex."]
+        - [name, character, "Pokémon name. This is the common name used to identify a particular Pokémon."]
+        - [HP, integer, "Hit Points. This determines how much damage a Pokémon can receive before fainting."]
+        - [Attack, integer, "Attack strength. This determines how much damage a Pokémon can deal with physical moves."]
+        - [Defense, integer, "Defensive strength. This determines how much damage a Pokémon can resist from physical moves."]
+        - [Speed, integer, "Speed. This determines the order of Pokémon that can act in battle."]
+        - [Special, integer, "Special attack or special defense strength. This determines how much damage a Pokémon can deal with special moves or resist from special moves. Note that this stat is combined into one in Generation I."]
+        - [Total, integer, "Total of all stats. This is the sum of all the base stats of a Pokémon."]
+        - [Average, numeric, "Average of all stats. This is the average value of all the base stats of a Pokémon."]
+        - [Gen, factor, "Generation. This indicates the generation of games in which the Pokémon was introduced."]
+        - [SpAttack, integer, "Special Attack strength. This determines how much damage a Pokémon can deal with special moves. This stat is not applicable for Generation I as 'Special' stat is used instead."]
+        - [SpDefense, integer, "Special Defense strength. This determines how much damage a Pokémon can resist from special moves. This stat is not applicable for Generation I as 'Special' stat is used instead."]
+    source: 
+        - "[List of Pokémon by base stats (Generation I). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_I))"
+        - "[List of Pokémon by base stats (Generation II-V). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_II-V))"
+        - "[List of Pokémon by base stats (Generation VI). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_VI))"
+        - "[List of Pokémon by base stats (Generation VII). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_VII))"
+        - "[List of Pokémon by base stats (Generation VIII). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_VIII))"
+        - "[List of Pokémon by base stats (Generation IX). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_IX))"
 
 family:
     name: Pokemon Evolution Dataset
     description: |
-        Pokemon evolution and family information.
-        This dataset is good if you want to know the evolution tree.
+        This dataset contains information about Pokémon evolution and family groupings.
+        It provides a comprehensive view of the evolution tree of each Pokémon,
+        making it an excellent resource for understanding how different Pokémon are related to each other and how they evolve.
+        The dataset includes Pokémon from all generations and covers various forms and regional variants.
     format: A data frame with the following variables
     describe:
-        - [family, character, The family to which the Pokemon belongs.]
-        - [base, character, The prior form of the pokemon or the base form]
-        - [form, character, The specific form of the Pokemon. NA if not applicable.]
-        - [method, character, The method of evolution.]
-        - [evo, character, The next stage of the Pokemon.]
-        - [evoForm, character, The form of next stage of the Pokemon. NA if not applicable.]
-        - [transition, character, The transition stage of the Pokemon.]
-        - [first, character, The first form of the Pokemon.]
-        - [firstForm, character, The specific first form of the Pokemon. NA if not applicable.]
-        - [regional, character, The regional form of the Pokemon. NA if not applicable.]
-        - [evoRegional, character, The regional evolved form of the Pokemon. NA if not applicable.]
-        - [firstRegional, character, The regional first form of the Pokemon. NA if not applicable.]
-    source: Bulbapedia
+        - [family, character, "The family to which the Pokemon belongs. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon."]
+        - [base, character, "The prior form of the pokemon or the base form. This is the form from which the Pokémon evolves."]
+        - [form, character, "The specific form of the Pokemon. This refers to the different physical forms that Pokémon can take. NA if the Pokemon does not have a special form."]
+        - [method, character, "The method of evolution. This refers to the specific condition or trigger that causes the Pokémon to evolve. Examples include leveling up, exposure to an evolution stone, trading, and more."]
+        - [evo, character, "The next stage of the Pokemon. This is the form that the Pokémon evolves into."]
+        - [evoForm, character, "The form of next stage of the Pokemon. This refers to the specific form that the Pokémon takes after evolution. NA if the Pokemon does not change form upon evolution."]
+        - [transition, character, "The transition stage of the Pokemon. This refers to any intermediate stages that occur during the Pokémon's evolution."]
+        - [first, character, "The first form of the Pokemon. This is the initial form of the Pokémon before any evolutions."]
+        - [firstForm, character, "The specific first form of the Pokemon. This refers to the specific form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a special form at the initial stage."]
+        - [regional, character, "The regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form."]
+        - [evoRegional, character, "The regional evolved form of the Pokemon. This refers to the regional form that the Pokémon takes after evolution. NA if the Pokemon does not change form upon evolution in a specific region."]
+        - [firstRegional, character, "The regional first form of the Pokemon. This refers to the regional form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a regional form at the initial stage."]
+    source: 
+        - "[List of Pokémon by evolution family. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_evolution_family)"
+    references:
+        - "[Methods of evolution. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution)"
 
 familyLong:
-    name: Pokemon Dataset
+    name: Extended Pokemon Evolution Dataset
     description: |
-        Extended Pokémon family information.
-        This dataset looses the evolution tree, but is good for finding what Pokémon is in each family.
-        TODO fixing the `family.x` and `family.y`
+        This dataset contains detailed information about Pokémon evolution and family groupings. It provides a comprehensive view of the evolution tree of each Pokémon, making it an excellent resource for understanding how different Pokémon are related to each other and how they evolve. The dataset includes Pokémon from all generations and covers various forms and regional variants.
+        
+        While this dataset loses the hierarchical structure of the evolution tree, it is particularly useful for identifying which Pokémon belong to each family. It provides a flat structure that can be easily filtered and sorted to find specific Pokémon and their families.
+        
+        Note: The `family.x` and `family.y` variables need to be reconciled to ensure consistency across the dataset.
     format: A data frame with the following variables
     describe:
-        - [family.x, character, The family of the Pokemon]
-        - [transition, character, The transition stage of the Pokemon]
-        - [first, character, The first form of the Pokemon]
-        - [firstForm, character, The first form of the Pokemon if it has multiple forms]
-        - [firstRegional, character, The first regional form of the Pokemon]
-        - [name, character, The name of the Pokemon]
-        - [form, character, The form of the Pokemon]
-        - [regional, character, The regional form of the Pokemon]
-        - [stage, character, The stage of the Pokemon]
-        - [family.y, character, The legendary family of the Pokemon]
-        - [size, character, The size of the legendary family]
-    source: Bulbapedia
-
-languages:
-    name: Pokémon National Dex information in multiple languages
-    description: |
-        As of now the language columns are in the format of `<Language>_<language subset>` if there is no subset it's `<Language>_<language>`.
-    format: A data frame with 37 variables
-    describe:
-        - [ndex, integer, National Pokedex number.]
-        - [name, character, Name of the Pokemon.]
-        - [form, character, Form of the Pokemon. NA if the Pokemon does not have a special form.]
-        - [regional, character, Regional form of the Pokemon. NA if the Pokemon does not have a regional form.]
-        - [type, character, Primary type of the Pokemon.]
-        - [type2, character, Secondary type of the Pokemon. NA if the Pokemon does not have a secondary type.]
-        - [generation, integer, The generation the Pokemon was introduced in.]
-        - [isLegendary, logical, Whether the Pokemon is Legendary.]
-        - [isMythical, logical, Whether the Pokemon is Mythical.]
-        - [isUltraBeast, logical, Whether the Pokemon is an Ultra Beast.]
-        - [family, character, Legendary / Mythical family group of the Pokemon. NA if the Pokemon does not belong to a family group.]
-        - [size, character, Legendary / Mythical family size. NA if the Pokemon does not belong to a family group.]
-        - [Japanese_Kana, character, Japanese Kana name of the Pokemon.]
-        - [Japanese_Hepburn, character, Japanese Hepburn name of the Pokemon.]
-        - [Japanese_Trademarked, character, Japanese Trademarked name of the Pokemon.]
-        - [German, character, German name of the Pokemon.]
-        - [French, character, French name of the Pokemon.]
-        - [Spanish, character, Spanish name of the Pokemon.]
-        - [Italian, character, Italian name of the Pokemon.]
-        - [Korean_Hangul, character, Korean Hangul name of the Pokemon.]
-        - [Korean_Revised, character, Korean Revised name of the Pokemon.]
-        - [Korean_McCune-Reischauer, character, Korean McCune-Reischauer name of the Pokemon.]
-        - [Korean_Official, character, Korean Official name of the Pokemon.]
-        - [Chinese_Traditional, character, Chinese Traditional name of the Pokemon.]
-        - [Chinese_Simplified, character, Chinese Simplified name of the Pokemon.]
-        - [Chinese_Pinyin, character, Chinese Pinyin name of the Pokemon.]
-        - [Chinese_Yale, character, Chinese Yale name of the Pokemon.]
-        - [Chinese_Former names, character, Chinese Former names of the Pokemon.]
-        - [Brazilian_Portuguese_brazilian_portuguese, character, Brazilian Portuguese name of the Pokemon.]
-        - [Turkish, character, Turkish name of the Pokemon.]
-        - [Russian_Cyrillic, character, Russian Cyrillic name of the Pokemon.]
-        - [Russian_Romanization, character, Russian Romanization name of the Pokemon.]
-        - [Thai, character, Thai name of the Pokemon.]
-        - [Thai_RTGS, character, Thai RTGS name of the Pokemon.]
-        - [Hindi_Devanāgarī, character, Hindi Devanāgarī name of the Pokemon.]
-        - [Hindi_Transliteration, character, Hindi Transliteration name of the Pokemon.]
-        - [Hindi_Romanization, character, Hindi Romanization name of the Pokemon.]
-    source: Bulbapedia
+        - [family.x, character, "The family of the Pokemon. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon."]
+        - [transition, character, "The transition stage of the Pokemon. This refers to any intermediate stages that occur during the Pokémon's evolution."]
+        - [first, character, "The first form of the Pokemon. This is the initial form of the Pokémon before any evolutions."]
+        - [firstForm, character, "The first form of the Pokemon if it has multiple forms. This refers to the specific form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a special form at the initial stage."]
+        - [firstRegional, character, "The first regional form of the Pokemon. This refers to the regional form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a regional form at the initial stage."]
+        - [name, character, "The name of the Pokemon. This is the common name used to identify a particular Pokémon."]
+        - [form, character, "The form of the Pokemon. This refers to the different physical forms that Pokémon can take. NA if the Pokemon does not have a special form."]
+        - [regional, character, "The regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form."]
+        - [stage, character, "The stage of the Pokemon. This refers to the stage in the Pokémon's evolution process, such as 'base', 'stage 1', 'stage 2', etc."]
+        - [family.y, character, "The legendary family of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group."]
+        - [size, character, "The size of the legendary family. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group."]
+    source: 
+        - "[List of Pokémon by National Pokédex number. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number)"
+        - "[List of Japanese Pokémon names. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_Pok%C3%A9mon_names)"
+        - "[List of German Pokémon names. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_German_Pok%C3%A9mon_names)"
+        - "[List of French Pokémon names. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_French_Pok%C3%A9mon_names)"
+        - "[List of Spanish Pokémon names. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Spanish_Pok%C3%A9mon_names)"
+        - "[List of Italian Pokémon names. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_Pok%C3%A9mon_names)"
+        - "[List of Korean Pokémon names. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Korean_Pok%C3%A9mon_names)"
+        - "[List of Chinese Pokémon names. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Chinese_Pok%C3%A9mon_names)"
+        - "[List of Brazilian Portuguese Pokémon names. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Brazilian_Portuguese_Pok%C3%A9mon_names)"
+        - "[List of Turkish Pokémon names. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Turkish_Pok%C3%A9mon_names)"
+        - "[List of Russian Pokémon names. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Russian_Pok%C3%A9mon_names)"
+        - "[List of Thai Pokémon names. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Thai_Pok%C3%A9mon_names)"
+        - "[List of Hindi Pokémon names. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Hindi_Pok%C3%A9mon_names)"
 
 regionalDex:
-    name: Pokémon information from the Regional Dex
+    name: Pokémon Information from the Regional Dex
     description: |
-        As of now the regionalDex columns are in the format of `<Game>_<Region>_<DexName>`, `NA` if that data is missing.
+        This dataset contains information about Pokémon as per the Regional Pokédex.
+        The regionalDex columns are in the format of `<Game>_<Region>_<DexName>`.
+        If the data is missing, it is represented as `NA`.
     format: A data frame with the following variables
     describe:
-        - [ndex, integer, National Pokedex number.]
-        - [name, character, Name of the Pokemon.]
-        - [form, character, Form of the Pokemon.]
-        - [regional, character, Regional form of the Pokemon.]
-        - [type, character, Primary type of the Pokemon.]
-        - [type2, character, Secondary type of the Pokemon.]
-        - [generation, integer, Generation of the Pokemon.]
-        - [isLegendary, logical, Boolean indicating if the Pokemon is Legendary.]
-        - [isMythical, logical, Boolean indicating if the Pokemon is Mythical.]
-        - [isUltraBeast, logical, Boolean indicating if the Pokemon is an Ultra Beast.]
-        - [family, character, Family of the Pokemon.]
-        - [size, character, Size of the Pokemon.]
-        - [NA_Kanto_Kdex, integer, Kanto Pokedex number.]
-        - [NA_Johto_Jdex, integer, Johto Pokedex number.]
-        - [GenerationIII_Hoenn_Hdex, integer, Hoenn Pokedex number in Generation III.]
-        - [GenerationVI_Hoenn_Hdex, integer, Hoenn Pokedex number in Generation VI.]
-        - [NA_Sinnoh_Sdex, integer, Sinnoh Pokedex number.]
-        - [BlackandWhite_Unova_Udex, integer, Unova Pokedex number in Black and White.]
-        - [Black2andWhite2_Unova_Udex, integer, Unova Pokedex number in Black 2 and White 2.]
-        - [NA_Blueberry_BBdex, integer, Blueberry Pokedex number.]
-        - [NA_Kalos_CeKdex, integer, Central Kalos Pokedex number.]
-        - [NA_Kalos_CoKdex, integer, Coastal Kalos Pokedex number.]
-        - [NA_Kalos_MoKdex, integer, Mountain Kalos Pokedex number.]
-        - [SunandMoon_Alola_Adex, integer, Alola Pokedex number in Sun and Moon.]
-        - [SunandMoon_Alola_Melemele, integer, Melemele Pokedex number in Sun and Moon.]
-        - [SunandMoon_Alola_Akala, integer, Akala Pokedex number in Sun and Moon.]
-        - [SunandMoon_Alola_Ula'ula, integer, Ula'ula Pokedex number in Sun and Moon.]
-        - [SunandMoon_Alola_Poni, integer, Poni Pokedex number in Sun and Moon.]
-        - [UltraSunandUltraMoon_Alola_Adex, integer, Alola Pokedex number in Ultra Sun and Ultra Moon.]
-        - [UltraSunandUltraMoon_Alola_Melemele, integer, Melemele Pokedex number in Ultra Sun and Ultra Moon.]
-        - [UltraSunandUltraMoon_Alola_Akala, integer, Akala Pokedex number in Ultra Sun and Ultra Moon.]
-        - [UltraSunandUltraMoon_Alola_Ula'ula, integer, Ula'ula Pokedex number in Ultra Sun and Ultra Moon.]
-        - [UltraSunandUltraMoon_Alola_Poni, integer, Poni Pokedex number in Ultra Sun and Ultra Moon.]
-        - [NA_Galar_Gdex, integer, Galar Pokedex number.]
-        - [NA_IsleofArmor_IoAdex, integer, Isle of Armor Pokedex number.]
-        - [NA_CrownTundra_CTdex, integer, Crown Tundra Pokedex number.]
-        - [NA_Hisui_LAdex, integer, Hisui Pokedex number.]
-        - [NA_Paldea_Pdex, integer, Paldea Pokedex number.]
-        - [NA_Kitakami_Kdex, integer, Kitakami Pokedex number.]
-    source: Bulbapedia
-
+        - [ndex, integer, "The National Pokédex number of the Pokémon."]
+        - [name, character, "The name of the Pokémon."]
+        - [form, character, "The form of the Pokémon. This refers to the different physical forms that Pokémon can take."]
+        - [regional, character, "The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions."]
+        - [type, character, "The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses."]
+        - [type2, character, "The secondary type of the Pokémon. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses."]
+        - [generation, integer, "The generation of the Pokémon. This refers to the generation of games in which the Pokémon was first introduced."]
+        - [isLegendary, logical, "A boolean indicating if the Pokémon is Legendary. Legendary Pokémon are a group of incredibly rare and often very powerful Pokémon."]
+        - [isMythical, logical, "A boolean indicating if the Pokémon is Mythical. Mythical Pokémon are a related but separate group of Pokémon, which are usually event-exclusive."]
+        - [isUltraBeast, logical, "A boolean indicating if the Pokémon is an Ultra Beast. Ultra Beasts is a term introduced in Generation VII to classify seven known Pokémon."]
+        - [family, character, "The family of the Pokémon. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon."]
+        - [size, character, "The size of the Pokémon. This refers to the height and weight of the Pokémon."]
+        - [NA_Kanto_Kdex, integer, "The Kanto Pokédex number. This is the number assigned to the Pokémon in the Kanto Regional Pokédex."]
+        - [NA_Johto_Jdex, integer, "The Johto Pokédex number. This is the number assigned to the Pokémon in the Johto Regional Pokédex."]
+        - [GenerationIII_Hoenn_Hdex, integer, "The Hoenn Pokédex number in Generation III. This is the number assigned to the Pokémon in the Hoenn Regional Pokédex in Generation III games."]
+        - [GenerationVI_Hoenn_Hdex, integer, "The Hoenn Pokédex number in Generation VI. This is the number assigned to the Pokémon in the Hoenn Regional Pokédex in Generation VI games."]
+        - [NA_Sinnoh_Sdex, integer, "The Sinnoh Pokédex number. This is the number assigned to the Pokémon in the Sinnoh Regional Pokédex."]
+        - [BlackandWhite_Unova_Udex, integer, "The Unova Pokédex number in Black and White. This is the number assigned to the Pokémon in the Unova Regional Pokédex in Pokémon Black and White."]
+        - [Black2andWhite2_Unova_Udex, integer, "The Unova Pokédex number in Black 2 and White 2. This is the number assigned to the Pokémon in the Unova Regional Pokédex in Pokémon Black 2 and White 2."]
+        - [NA_Blueberry_BBdex, integer, "The Blueberry Pokédex number. This is the number assigned to the Pokémon in the Blueberry Regional Pokédex."]
+        - [NA_Kalos_CeKdex, integer, "The Central Kalos Pokédex number. This is the number assigned to the Pokémon in the Central Kalos Regional Pokédex."]
+        - [NA_Kalos_CoKdex, integer, "The Coastal Kalos Pokédex number. This is the number assigned to the Pokémon in the Coastal Kalos Regional Pokédex."]
+        - [NA_Kalos_MoKdex, integer, "The Mountain Kalos Pokédex number. This is the number assigned to the Pokémon in the Mountain Kalos Regional Pokédex."]
+        - [SunandMoon_Alola_Adex, integer, "The Alola Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Alola Regional Pokédex in Pokémon Sun and Moon."]
+        - [SunandMoon_Alola_Melemele, integer, "The Melemele Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Melemele Regional Pokédex in Pokémon Sun and Moon."]
+        - [SunandMoon_Alola_Akala, integer, "The Akala Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Akala Regional Pokédex in Pokémon Sun and Moon."]
+        - [SunandMoon_Alola_Ula'ula, integer, "The Ula'ula Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Sun and Moon."]
+        - [SunandMoon_Alola_Poni, integer, "The Poni Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Poni Regional Pokédex in Pokémon Sun and Moon."]
+        - [UltraSunandUltraMoon_Alola_Adex, integer, "The Alola Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Alola Regional Pokédex in Pokémon Ultra Sun and Ultra Moon."]
+        - [UltraSunandUltraMoon_Alola_Melemele, integer, "The Melemele Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Melemele Regional Pokédex in Pokémon Ultra Sun and Ultra Moon."]
+        - [UltraSunandUltraMoon_Alola_Akala, integer, "The Akala Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Akala Regional Pokédex in Pokémon Ultra Sun and Ultra Moon."]
+        - [UltraSunandUltraMoon_Alola_Ula'ula, integer, "The Ula'ula Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Ultra Sun and Ultra Moon."]
+        - [UltraSunandUltraMoon_Alola_Poni, integer, "The Poni Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Poni Regional Pokédex in Pokémon Ultra Sun and Ultra Moon."]
+        - [NA_Galar_Gdex, integer, "The Galar Pokédex number. This is the number assigned to the Pokémon in the Galar Regional Pokédex."]
+        - [NA_IsleofArmor_IoAdex, integer, "The Isle of Armor Pokédex number. This is the number assigned to the Pokémon in the Isle of Armor Regional Pokédex."]
+        - [NA_CrownTundra_CTdex, integer, "The Crown Tundra Pokédex number. This is the number assigned to the Pokémon in the Crown Tundra Regional Pokédex."]
+        - [NA_Hisui_LAdex, integer, "The Hisui Pokédex number. This is the number assigned to the Pokémon in the Hisui Regional Pokédex."]
+        - [NA_Paldea_Pdex, integer, "The Paldea Pokédex number. This is the number assigned to the Pokémon in the Paldea Regional Pokédex."]
+        - [NA_Kitakami_Kdex, integer, "The Kitakami Pokédex number. This is the number assigned to the Pokémon in the Kitakami Regional Pokédex."]
+    source: 
+        - "[List of Pokémon by Kanto Pokédex number. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Kanto_Pok%C3%A9dex_number)"
+        - "[List of Pokémon by New Pokédex number. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_New_Pok%C3%A9dex_number)"
+        - "[List of Pokémon by Johto Pokédex number. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Johto_Pok%C3%A9dex_number)"
+        - "[List of Pokémon by Hoenn Pokédex number (Generation III). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Hoenn_Pok%C3%A9dex_number_(Generation_III))"
+        - "[List of Pokémon by Hoenn Pokédex number (Generation VI). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Hoenn_Pok%C3%A9dex_number_(Generation_VI))"
+        - "[List of Pokémon by Sinnoh Pokédex number. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Sinnoh_Pok%C3%A9dex_number)"
+        - "[List of Pokémon by Unova Pokédex number (Black and White). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Unova_Pok%C3%A9dex_number_(Black_and_White))"
+        - "[List of Pokémon by Unova Pokédex number (Black 2 and White 2). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Unova_Pok%C3%A9dex_number_(Black_2_and_White_2))"
+        - "[List of Pokémon by Blueberry Pokédex number. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Blueberry_Pok%C3%A9dex_number)"
+        - "[List of Pokémon by Kalos Pokédex number. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Kalos_Pok%C3%A9dex_number)"
+        - "[List of Pokémon by Alola Pokédex number (Sun and Moon). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Alola_Pok%C3%A9dex_number_(Sun_and_Moon))"
+        - "[List of Pokémon by Alola Pokédex number (Ultra Sun and Ultra Moon). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Alola_Pok%C3%A9dex_number_(Ultra_Sun_and_Ultra_Moon))"
+        - "[List of Pokémon by Galar Pokédex number. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Galar_Pok%C3%A9dex_number)"
+        - "[List of Pokémon by Isle of Armor Pokédex number. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Isle_of_Armor_Pok%C3%A9dex_number)"
+        - "[List of Pokémon by Crown Tundra Pokédex number. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Crown_Tundra_Pok%C3%A9dex_number)"
+        - "[List of Pokémon by Hisui Pokédex number. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Hisui_Pok%C3%A9dex_number)"
+        - "[List of Pokémon by Paldea Pokédex number. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Paldea_Pok%C3%A9dex_number)"
+        - "[List of Pokémon by Kitakami Pokédex number. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Kitakami_Pok%C3%A9dex_number)"
+#        - "[Unown Mode. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/Unown_Mode)"
+ 
 types:
     name: Pokemon Types Dataset
     description: |
@@ -198,144 +212,167 @@ types:
     format: A data frame with one column
     describe:
         - [types, character, "The types of Pokemon. Possible types include `Grass`, `Fire`, `Water`, `Bug`, `Normal`, `Dark`, `Poison`, `Electric`, `Ground`, `Ice`, `Fairy`, `Steel`, `Fighting`, `Psychic`, `Rock`, `Ghost`, `Dragon`, `Flying`."]
-    source: Bulbapedia
+    source:
+        - "[Bulbapedia Type](https://bulbapedia.bulbagarden.net/wiki/Type)"
 
 typeChartWide:
     name: Pokémon Type Effectiveness Dataset
     description: |
-        This dataset outlines the effectiveness of various attacking Pokémon types against defending types.
-        Each cell in the dataset represents the effectiveness multiplier when a Pokémon type attacks another.
-        The effectiveness is represented by numerical values:
-        - **0** denotes immunity (the attack has no effect)
-        - **0.5** means the attack is not very effective (half damage)
-        - **1** means the attack is effective (causes regular damage)
-        - **2** means the attack is very effective (causes double damage)
-    format: data.frame
+        This dataset provides a matrix of effectiveness multipliers for different types of Pokémon attacks.
+        Each Pokémon has a type, such as Fire, Water, Grass, etc., and each type has different effectiveness against other types.
+        This effectiveness is represented by a multiplier that is applied to the attack's damage.
+        
+        The dataset is structured as a wide format, with each column representing a defending Pokémon's type and
+        each row representing an attacking Pokémon's type.
+    format: A data frame with 19 variables (1 for the attacking type and 18 for each defending type)
     describe:
-        - [Attacking, factor, The Pokémon type of the attacking move.]
-        - [Defending_Normal, numeric, Effectiveness against Normal type.]
-        - [Defending_Fighting, numeric, Effectiveness against Fighting type.]
-        - [Defending_Flying, numeric, Effectiveness against Flying type.]
-        - [Defending_Poison, numeric, Effectiveness against Poison type.]
-        - [Defending_Ground, numeric, Effectiveness against Ground type.]
-        - [Defending_Rock, numeric, Effectiveness against Rock type.]
-        - [Defending_Bug, numeric, Effectiveness against Bug type.]
-        - [Defending_Ghost, numeric, Effectiveness against Ghost type.]
-        - [Defending_Steel, numeric, Effectiveness against Steel type.]
-        - [Defending_Fire, numeric, Effectiveness against Fire type.]
-        - [Defending_Water, numeric, Effectiveness against Water type.]
-        - [Defending_Grass, numeric, Effectiveness against Grass type.]
-        - [Defending_Electric, numeric, Effectiveness against Electric type.]
-        - [Defending_Psychic, numeric, Effectiveness against Psychic type.]
-        - [Defending_Ice, numeric, Effectiveness against Ice type.]
-        - [Defending_Dragon, numeric, Effectiveness against Dragon type.]
-        - [Defending_Dark, numeric, Effectiveness against Dark type.]
-        - [Defending_Fairy, numeric, Effectiveness against Fairy type.]
-    source: Bulbapedia
+        - [Attacking, factor, "The type of the attacking Pokémon's move. There are 18 types in total."]
+        - [Defending_*, numeric, "The effectiveness of the attacking type against the defending type. This is represented by a multiplier (0, 0.5, 1, 2) applied to the attack's damage. Each 'Defending_*' represents a different Pokémon type."]
+    source:
+        - "[Bulbapedia Type](https://bulbapedia.bulbagarden.net/wiki/Type)"
 
 typeChart:
     name: Extended Pokémon Type Effectiveness Dataset
     description: |
         This dataset provides detailed effectiveness values for attacks between different Pokémon types.
-    format: data.frame
+        
+        It is structured in a long format, with each row representing an interaction between an attacking type and a defending type.
+        The 'Effectiveness' column provides the multiplier for the effectiveness of the attack.
+    format: A data frame with 3 variables
     describe:
-        - - Attacking
-          - factor
-          - The Pokémon type of the attacking move.
-        - - Defending
-          - factor
-          - The Pokémon type of the defending Pokémon.
-        - - Effectiveness
-          - numeric
-          - |
-                The multiplier for the effectiveness of the attack.
-                It lists the effectiveness of an attacking type against a defending type, with numerical values indicating the level of effectiveness:
-                - **0** denotes immunity (no effect)
-                - **0.5** means the attack is not very effective (half damage)
-                - **1** means the attack is effective (regular damage)
-                - **2** means the attack is very effective (double damage)
-    source: Bulbapedia
+        - [Attacking, factor, "The type of the attacking Pokémon's move. There are 18 types in total."]
+        - [Defending, factor, "The type of the defending Pokémon. There are 18 types in total."]
+        - [Effectiveness, numeric, "The multiplier for the effectiveness of the attack. It lists the effectiveness of an attacking type against a defending type, with numerical values indicating the level of effectiveness: 0 denotes immunity (no effect), 0.5 means the attack is not very effective (half damage), 1 means the attack is effective (regular damage), and 2 means the attack is very effective (double damage)."]
+    source:
+        - "[Bulbapedia Type](https://bulbapedia.bulbagarden.net/wiki/Type)"
 
 weight:
     name: Pokemon Weight Dataset
     description: |
-        This dataset contains information about the weight of various Pokemon in both pounds (lbs) and kilograms (kg).
-        It also includes details about the lightest and heaviest Pokemon, their regional forms, and whether they have a Mega or Primal form.
+        This dataset contains information about the weight of various Pokémon.
+        Each Pokémon's weight is recorded in both pounds (lbs) and kilograms (kg), providing flexibility for different uses.
+        The dataset also includes details about the lightest and heaviest Pokémon, their regional forms, and whether they have a Mega or Primal form.
+        This can be useful for a variety of analyses, such as studying the distribution of Pokémon weights,
+        identifying trends and patterns, or informing game strategies.
     format: A data frame with 8 variables
     describe:
-        - [name, character, Name of the Pokemon]
-        - [form, character, The form of the Pokemon, NA if it does not have another form]
-        - [lbs, numeric, Weight of the Pokemon in pounds]
-        - [kg, numeric, Weight of the Pokemon in kilograms]
-        - [lightest, integer, Rank of the Pokemon from lightest (1) to heaviest (1181)]
-        - [heaviest, integer, Rank of the Pokemon from heaviest (1) to lightest (1181)]
-        - [regional, character, The regional form of the Pokemon, NA if it does not have a regional form]
-        - [MegaOrPrimal, character, Is the Pokémon in a Mega or Primal form]
-    source: Bulbapedia
+        - [name, character, "The name of the Pokémon."]
+        - [form, character, "The form of the Pokémon. This refers to the different physical forms that Pokémon can take. 'NA' if the Pokémon does not have another form."]
+        - [lbs, numeric, "The weight of the Pokémon in pounds."]
+        - [kg, numeric, "The weight of the Pokémon in kilograms."]
+        - [lightest, integer, "The rank of the Pokémon from lightest (1) to heaviest (1181)."]
+        - [heaviest, integer, "The rank of the Pokémon from heaviest (1) to lightest (1181)."]
+        - [regional, character, "The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. 'NA' if the Pokémon does not have a regional form."]
+        - [MegaOrPrimal, character, "Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take."]
+    source:
+        - "[Bulbapedia Weight](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_weight)"
+
 
 height:
     name: Height Dataset
     description: |
         This dataset contains information about the height of different Pokémon forms.
-        The height is represented in different units such as feet (ft), meters (m), and inches (inch).
-        It also includes the ranking of each Pokémon form from smallest to biggest,
-        and information about regional forms and Mega or Primal forms.
+        The height is represented in different units such as feet (ft), meters (m), and inches (inch),
+        providing flexibility for different uses.
+        It also includes the ranking of each Pokémon form from smallest to biggest, and information about regional forms and Mega or Primal forms.
+        This can be useful for a variety of analyses, such as studying the distribution of Pokémon heights,
+        identifying trends and patterns, or informing game strategies.
     format: A data frame with 8 variables
     describe:
-        - [name, character, Name of the Pokémon]
-        - [form, character, Specific form of the Pokémon]
-        - [ft, numeric, Height of the Pokémon in feet]
-        - [m, numeric, Height of the Pokémon in meters]
-        - [inch, numeric, Height of the Pokémon in inches]
-        - [smallest, integer, Ranking of the Pokémon from smallest to biggest]
-        - [bigest, integer, Ranking of the Pokémon from biggest to smallest]
-        - [regional, character, Regional form of the Pokémon, if any]
-        - [MegaOrPrimal, character, Is the Pokémon in a Mega or Primal form]
-    source: Bulbapedia
+        - [name, character, "The name of the Pokémon."]
+        - [form, character, "The specific form of the Pokémon. This refers to the different physical forms that Pokémon can take."]
+        - [ft, numeric, "The height of the Pokémon in feet."]
+        - [m, numeric, "The height of the Pokémon in meters."]
+        - [inch, numeric, "The height of the Pokémon in inches."]
+        - [smallest, integer, "The ranking of the Pokémon from smallest to biggest."]
+        - [bigest, integer, "The ranking of the Pokémon from biggest to smallest."]
+        - [regional, character, "The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions."]
+        - [MegaOrPrimal, character, "Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take."]
+    source:
+        - "[Bulbapedia Height](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_height)"
+
 
 physicalAttr:
     name: Physical Attributes of Pokémon
     description: |
-        This dataset contains information about the physical attributes of Pokémon,
-        including their type, generation, weight, height, and other characteristics.
-    format: A data frame with 20 variables
+        This dataset provides a comprehensive overview of the physical attributes of Pokémon, including their type,
+        generation, weight, height, and other characteristics.
+        It includes information about each Pokémon's National Pokédex number, name, regional variant,
+        primary and secondary types, generation, legendary status, mythical status, ultra beast status,
+        family, size, form, weight in pounds and kilograms, lightest and heaviest weight rankings in the Pokédex,
+        Mega or Primal form status, height in feet, meters, and inches, and smallest and
+        biggest height rankings in the Pokédex.
+        
+        This dataset can be useful for a variety of analyses, such as studying the distribution of Pokémon
+        weights and heights, identifying trends and patterns, or informing game strategies.
+    format: A data frame with 22 variables
     describe:
-        - [ndex, integer, National Pokédex number]
-        - [name, character, Name of the Pokémon]
-        - [regional, character, "Regional variant, if any"]
-        - [type, character, Primary type of the Pokémon]
-        - [type2, character, "Secondary type of the Pokémon, if any"]
-        - [generation, integer, Generation of the Pokémon]
-        - [isLegendary, logical, Indicates if the Pokémon is Legendary]
-        - [isMythical, logical, Indicates if the Pokémon is Mythical]
-        - [isUltraBeast, logical, Indicates if the Pokémon is an Ultra Beast]
-        - [family, character, "Family of the Pokémon, if any"]
-        - [size, character, Size of the Pokémon]
-        - [form, character, "Form of the Pokémon, if any"]
-        - [lbs, numeric, Weight of the Pokémon in pounds]
-        - [kg, numeric, Weight of the Pokémon in kilograms]
-        - [lightest, integer, Lightest weight of the Pokémon in the Pokédex]
-        - [heaveiest, integer, Heaviest weight of the Pokémon in the Pokédex]
-        - [MegaOrPrimal, character, Is the Pokémon in a Mega or Primal form]
-        - [ft, character, Height of the Pokémon in feet]
-        - [m, numeric, Height of the Pokémon in meters]
-        - [inch, integer, Height of the Pokémon in inches]
-        - [smallest, integer, Smallest height of the Pokémon in the Pokédex]
-        - [bigest, integer, Biggest height of the Pokémon in the Pokédex]
-    source: Bulbapedia
+        - [ndex, integer, "The National Pokédex number of the Pokémon. This is the official numbering scheme that is used in every Pokémon game and media."]
+        - [name, character, "The name of the Pokémon. This is the common name used to identify a particular Pokémon."]
+        - [regional, character, "The regional variant of the Pokémon, if any. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions."]
+        - [type, character, "The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses."]
+        - [type2, character, "The secondary type of the Pokémon, if any. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses."]
+        - [generation, integer, "The generation of the Pokémon. This refers to the generation of games in which the Pokémon was first introduced."]
+        - [isLegendary, logical, "A boolean indicating if the Pokémon is Legendary. Legendary Pokémon are a group of incredibly rare and often very powerful Pokémon."]
+        - [isMythical, logical, "A boolean indicating if the Pokémon is Mythical. Mythical Pokémon are a related but separate group of Pokémon, which are usually event-exclusive."]
+        - [isUltraBeast, logical, "A boolean indicating if the Pokémon is an Ultra Beast. Ultra Beasts is a term introduced in Generation VII to classify seven known Pokémon."]
+        - [family, character, "The family of the Pokémon. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon."]
+        - [size, character, "The size of the Pokémon. This refers to the height and weight of the Pokémon."]
+        - [form, character, "The form of the Pokémon. This refers to the different physical forms that Pokémon can take."]
+        - [lbs, numeric, "The weight of the Pokémon in pounds."]
+        - [kg, numeric, "The weight of the Pokémon in kilograms."]
+        - [lightest, integer, "The rank of the Pokémon from lightest (1) to heaviest (1181)."]
+        - [heaveiest, integer, "The rank of the Pokémon from heaviest (1) to lightest (1181)."]
+        - [MegaOrPrimal, character, "Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take."]
+        - [ft, character, "The height of the Pokémon in feet."]
+        - [m, numeric, "The height of the Pokémon in meters."]
+        - [inch, integer, "The height of the Pokémon in inches."]
+        - [smallest, integer, "The ranking of the Pokémon from smallest to biggest."]
+        - [bigest, integer, "The ranking of the Pokémon from biggest to smallest."]
+    source:
+        - "[Bulbapedia Weight](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_weight)"
+        - "[Bulbapedia Height](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_height)"
 
 catchRate:
     name: Catch Rate Dataset
     description: |
-        This dataset provides the catch rate for each Pokémon. The catch rate is a
-        statistic that determines how easy it is to catch a Pokémon. The higher the
-        catch rate, the easier it is to catch the Pokémon. In the context of Pokémon Legends: Arceus,
-        many Pokémon were given heightened catch rates to make catching them outside of battle much easier.
+        This dataset provides information about the catch rate of each Pokémon.
+        The catch rate is a statistic that determines the probability of capturing a Pokémon.
+        A higher catch rate means that the Pokémon is easier to catch.
+        
+        In the context of Pokémon Legends: Arceus, many Pokémon were given heightened catch rates to facilitate catching them
+        outside of battle.
     format: A data frame with 5 variables
     describe:
-        - [Ndex, integer, National Pokédex number]
-        - [name, character, Name of the Pokémon]
-        - [catchRate, integer, Catch rate of the Pokémon]
-        - [note, character, Additional notes about the catch rate]
-        - [Hdex, integer, "Pokémon Legends: Arceus Pokédex number"]
-    source: Bulbapedia
+        - [Ndex, integer, "The National Pokédex number of the Pokémon. This is the unique identifier for each Pokémon in the National Pokédex."]
+        - [name, character, "The name of the Pokémon. This is the common name used to identify a particular Pokémon."]
+        - [catchRate, integer, "The catch rate of the Pokémon. This is a value that represents the probability of capturing the Pokémon. Higher values indicate a higher probability of capture."]
+        - [note, character, "Additional notes about the catch rate of the Pokémon. This may include information about specific conditions or factors that can influence the catch rate."]
+        - [Hdex, integer, "The Pokémon Legends: Arceus Pokédex number. This is the unique identifier for each Pokémon in the Pokémon Legends: Arceus Pokédex."]
+    note: |
+        Additional notes about the catch rate.
+        This includes specific changes to catch rates in different games.
+        
+        For example, in Pokémon Colosseum and Pokémon XD:
+        Gale of Darkness, the catch rates of most Shadow Pokémon were adjusted to make them easier or harder to capture.
+        
+        In Pokémon Omega Ruby and Alpha Sapphire, the catch rates of certain game mascots were changed to 3,
+        while the catch rate of Rayquaza was raised from 3 to 45.
+        
+        In Pokémon Ultra Sun and Ultra Moon,
+        the catch rates of six Ultra Beasts were changed to 45, and the catch rate of Necrozma was raised from 3 to 255.
+        
+        In Pokémon: Let's Go, Pikachu! and Let's Go, Eevee!, the catch rate of Bulbasaur was raised from 45 to 120.
+        
+        In Pokémon Sword and Shield,
+        the catch rate of Bulbasaur was changed back to 45, and the catch rates of Poipole, Naganadel, Stakataka, and Blacephalon
+        were changed to 45, 45, 30, and 30, respectively.
+        
+        In Pokémon Scarlet and Violet, the catch rates of
+        Rayquaza and Necrozma were changed back to 3, the catch rates of Cosmog, Cosmoem, Solgaleo,
+        and Lunala were all changed from 45 to 3.
+        
+        In Pokémon Scarlet and Violet's 2.0.1 update,
+        the catch rate of Basculin was raised from 25 to 190.
+    source: 
+        - "[Bulbapedia Catch Rate](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_catch_rate)"

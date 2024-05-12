@@ -5,7 +5,10 @@
 #' \describe{{
 {variables}
 #' }}
-#' @source {source}
+{source}
+#'
+{references}
+#'
 #' @examples
 {examples}
 "{dataset_name}"

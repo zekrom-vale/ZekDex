@@ -11,6 +11,18 @@ convert_yaml_to_roxygen = function(yaml_data, dataset_name) {
 	# Read the template from a file
 	roxygen_template = read_file("packing/data.roxogen.template")
 
+	# Format the source field to be multiline
+	if("source" %in% names(yaml_data)) {
+		yaml_data$source = paste("#' @source", paste(yaml_data$source, collapse = "\n"))
+	}
+	else yaml_data$source = "#' "
+
+	# Format the references field to be multiline
+	if("references" %in% names(yaml_data)) {
+		yaml_data$references = paste("#' @references", paste(yaml_data$references, collapse = "\n"))
+	}
+	else yaml_data$references = "#' "
+
 	# Replace "\n" with "\n#' " in all values
 	yaml_data =  map(
 		yaml_data,
@@ -42,11 +54,13 @@ convert_yaml_to_roxygen = function(yaml_data, dataset_name) {
 	if(!"examples" %in% names(yaml_data))yaml_data$examples = glue("data({dataset_name})")
 	yaml_data$examples = paste("#'", str_trim(yaml_data$examples))
 
+
 	# Use glue to fill in the template
 	roxygen = glue_data(yaml_data, roxygen_template, .sep = "")
 
 	return(roxygen)
 }
+
 
 
 # Use purrr's map function to convert the YAML to roxygen
