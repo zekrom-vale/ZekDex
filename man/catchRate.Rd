@@ -7,23 +7,29 @@
 \format{
 A data frame with 5 variables:
 \describe{
-\item{Ndex}{\code{integer} National Pokédex number}
-\item{name}{\code{character} Name of the Pokémon}
-\item{catchRate}{\code{integer} Catch rate of the Pokémon}
-\item{note}{\code{character} Additional notes about the catch rate}
-\item{Hdex}{\code{integer} Pokémon Legends: Arceus Pokédex number}
+\item{Ndex}{\code{integer} The National Pokédex number of the Pokémon. This is the unique identifier for each Pokémon in the National Pokédex.}
+\item{name}{\code{character} The name of the Pokémon. This is the common name used to identify a particular Pokémon.}
+\item{catchRate}{\code{integer} The catch rate of the Pokémon. This is a value that represents the probability of capturing the Pokémon. Higher values indicate a higher probability of capture.}
+\item{note}{\code{character} Additional notes about the catch rate of the Pokémon. This may include information about specific conditions or factors that can influence the catch rate.}
+\item{Hdex}{\code{integer} The Pokémon Legends: Arceus Pokédex number. This is the unique identifier for each Pokémon in the Pokémon Legends: Arceus Pokédex.}
 }
 }
 \source{
-Bulbapedia
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_catch_rate}{Bulbapedia Catch Rate}
 }
 \usage{
 catchRate
 }
 \description{
-This dataset provides the catch rate for each Pokémon. The catch rate is a
-statistic that determines how easy it is to catch a Pokémon. The higher the
-catch rate, the easier it is to catch the Pokémon. In the context of Pokémon Legends: Arceus,
-many Pokémon were given heightened catch rates to make catching them outside of battle much easier.
+This dataset provides information about the catch rate of each Pokémon.
+The catch rate is a statistic that determines the probability of capturing a Pokémon.
+A higher catch rate means that the Pokémon is easier to catch.
+}
+\details{
+In the context of Pokémon Legends: Arceus, many Pokémon were given heightened catch rates to facilitate catching them
+outside of battle.
+}
+\examples{
+data(catchRate)
 }
 \keyword{datasets}

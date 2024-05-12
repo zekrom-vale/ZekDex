@@ -135,6 +135,61 @@
 #'	\item{family.y}{`character` The legendary family of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
 #'	\item{size}{`character` The size of the legendary family. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
 #' }
+#' @source [Methods of evolution. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution)
+#'
+#'
+#'
+#' @examples
+#' data(familyLong)
+"familyLong"
+#' Pokémon National Dex information in multiple languages
+#'
+#' This dataset contains the names of Pokémon in various languages.
+#' Each Pokémon has a unique name in each language, and these names often reflect the culture and
+#' language patterns of their respective regions. The dataset includes names in multiple languages,
+#' including but not limited to English, Japanese, German, French, Spanish, Italian, Korean, Chinese,
+#' Brazilian Portuguese, Turkish, Russian, Thai, and Hindi. The language columns are in the format of
+#' `<Language>_<language subset>`. If there is no subset, it's `<Language>`.
+#' @format A data frame with 37 variables:
+#' \describe{
+#'	\item{ndex}{`integer` The National Pokédex number of the Pokémon. This is the unique identifier for each Pokémon in the National Pokédex.}
+#'	\item{name}{`character` The English name of the Pokémon.}
+#'	\item{form}{`character` The form of the Pokémon. This refers to the different physical forms that Pokémon can take. 'NA' if the Pokémon does not have a special form.}
+#'	\item{regional}{`character` The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. 'NA' if the Pokémon does not have a regional form.}
+#'	\item{type}{`character` The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.}
+#'	\item{type2}{`character` The secondary type of the Pokémon. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses. 'NA' if the Pokémon does not have a secondary type.}
+#'	\item{generation}{`integer` The generation of the Pokémon. This refers to the generation of games in which the Pokémon was first introduced.}
+#'	\item{isLegendary}{`logical` A boolean indicating if the Pokémon is Legendary. Legendary Pokémon are a group of incredibly rare and often very powerful Pokémon.}
+#'	\item{isMythical}{`logical` A boolean indicating if the Pokémon is Mythical. Mythical Pokémon are a related but separate group of Pokémon, which are usually event-exclusive.}
+#'	\item{isUltraBeast}{`logical` A boolean indicating if the Pokémon is an Ultra Beast. Ultra Beasts is a term introduced in Generation VII to classify seven known Pokémon.}
+#'	\item{family}{`character` The family of the Pokémon. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon.}
+#'	\item{size}{`character` The size of the Pokémon. This refers to the height and weight of the Pokémon.}
+#'	\item{Japanese_Kana}{`character` The Japanese Kana name of the Pokémon.}
+#'	\item{Japanese_Hepburn}{`character` The Japanese Hepburn name of the Pokémon.}
+#'	\item{Japanese_Trademarked}{`character` The Japanese Trademarked name of the Pokémon.}
+#'	\item{German}{`character` The German name of the Pokémon.}
+#'	\item{French}{`character` The French name of the Pokémon.}
+#'	\item{Spanish}{`character` The Spanish name of the Pokémon.}
+#'	\item{Italian}{`character` The Italian name of the Pokémon.}
+#'	\item{Korean_Hangul}{`character` The Korean Hangul name of the Pokémon.}
+#'	\item{Korean_Revised}{`character` The Korean Revised name of the Pokémon.}
+#'	\item{Korean_McCune-Reischauer}{`character` The Korean McCune-Reischauer name of the Pokémon.}
+#'	\item{Korean_Official}{`character` The Korean Official name of the Pokémon.}
+#'	\item{Chinese_Traditional}{`character` The Chinese Traditional name of the Pokémon.}
+#'	\item{Chinese_Simplified}{`character` The Chinese Simplified name of the Pokémon.}
+#'	\item{Chinese_Pinyin}{`character` The Chinese Pinyin name of the Pokémon.}
+#'	\item{Chinese_Yale}{`character` The Chinese Yale name of the Pokémon.}
+#'	\item{Chinese_Former names}{`character` The Chinese Former names of the Pokémon.}
+#'	\item{Brazilian_Portuguese_brazilian_portuguese}{`character` The Brazilian Portuguese name of the Pokémon.}
+#'	\item{Turkish}{`character` The Turkish name of the Pokémon.}
+#'	\item{Russian_Cyrillic}{`character` The Russian Cyrillic name of the Pokémon.}
+#'	\item{Russian_Romanization}{`character` The Russian Romanization name of the Pokémon.}
+#'	\item{Thai}{`character` The Thai name of the Pokémon.}
+#'	\item{Thai_RTGS}{`character` The Thai RTGS name of the Pokémon.}
+#'	\item{Hindi_Devanāgarī}{`character` The Hindi Devanāgarī name of the Pokémon.}
+#'	\item{Hindi_Transliteration}{`character` The Hindi Transliteration name of the Pokémon.}
+#'	\item{Hindi_Romanization}{`character` The Hindi Romanization name of the Pokémon.}
+#' }
 #' @source [List of Pokémon by National Pokédex number. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number)
 #' [List of Japanese Pokémon names. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_Pok%C3%A9mon_names)
 #' [List of German Pokémon names. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_German_Pok%C3%A9mon_names)
@@ -152,8 +207,8 @@
 #'
 #'
 #' @examples
-#' data(familyLong)
-"familyLong"
+#' data(languages)
+"languages"
 #' Pokémon Information from the Regional Dex
 #'
 #' This dataset contains information about Pokémon as per the Regional Pokédex.

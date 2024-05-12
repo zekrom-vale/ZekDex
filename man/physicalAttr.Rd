@@ -5,39 +5,53 @@
 \alias{physicalAttr}
 \title{Physical Attributes of Pokémon}
 \format{
-A data frame with 20 variables:
+A data frame with 22 variables:
 \describe{
-\item{ndex}{\code{integer} National Pokédex number}
-\item{name}{\code{character} Name of the Pokémon}
-\item{regional}{\code{character} Regional variant, if any}
-\item{type}{\code{character} Primary type of the Pokémon}
-\item{type2}{\code{character} Secondary type of the Pokémon, if any}
-\item{generation}{\code{integer} Generation of the Pokémon}
-\item{isLegendary}{\code{logical} Indicates if the Pokémon is Legendary}
-\item{isMythical}{\code{logical} Indicates if the Pokémon is Mythical}
-\item{isUltraBeast}{\code{logical} Indicates if the Pokémon is an Ultra Beast}
-\item{family}{\code{character} Family of the Pokémon, if any}
-\item{size}{\code{character} Size of the Pokémon, if any}
-\item{form}{\code{character} Form of the Pokémon, if any}
-\item{lbs}{\code{numeric} Weight of the Pokémon in pounds}
-\item{kg}{\code{numeric} Weight of the Pokémon in kilograms}
-\item{lightest}{\code{integer} Lightest weight of the Pokémon in the Pokédex}
-\item{heaveiest}{\code{integer} Heaviest weight of the Pokémon in the Pokédex}
-\item{MegaOrPrimal}{\code{character} Is the Pokémon in a Mega or Primal form}
-\item{ft}{\code{character} Height of the Pokémon in feet}
-\item{m}{\code{numeric} Height of the Pokémon in meters}
-\item{inch}{\code{integer} Height of the Pokémon in inches}
-\item{smallest}{\code{integer} Smallest height of the Pokémon in the Pokédex}
-\item{bigest}{\code{integer} Biggest height of the Pokémon in the Pokédex}
+\item{ndex}{\code{integer} The National Pokédex number of the Pokémon. This is the official numbering scheme that is used in every Pokémon game and media.}
+\item{name}{\code{character} The name of the Pokémon. This is the common name used to identify a particular Pokémon.}
+\item{regional}{\code{character} The regional variant of the Pokémon, if any. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
+\item{type}{\code{character} The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.}
+\item{type2}{\code{character} The secondary type of the Pokémon, if any. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses.}
+\item{generation}{\code{integer} The generation of the Pokémon. This refers to the generation of games in which the Pokémon was first introduced.}
+\item{isLegendary}{\code{logical} A boolean indicating if the Pokémon is Legendary. Legendary Pokémon are a group of incredibly rare and often very powerful Pokémon.}
+\item{isMythical}{\code{logical} A boolean indicating if the Pokémon is Mythical. Mythical Pokémon are a related but separate group of Pokémon, which are usually event-exclusive.}
+\item{isUltraBeast}{\code{logical} A boolean indicating if the Pokémon is an Ultra Beast. Ultra Beasts is a term introduced in Generation VII to classify seven known Pokémon.}
+\item{family}{\code{character} The family of the Pokémon. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon.}
+\item{size}{\code{character} The size of the Pokémon. This refers to the height and weight of the Pokémon.}
+\item{form}{\code{character} The form of the Pokémon. This refers to the different physical forms that Pokémon can take.}
+\item{lbs}{\code{numeric} The weight of the Pokémon in pounds.}
+\item{kg}{\code{numeric} The weight of the Pokémon in kilograms.}
+\item{lightest}{\code{integer} The rank of the Pokémon from lightest (1) to heaviest (1181).}
+\item{heaveiest}{\code{integer} The rank of the Pokémon from heaviest (1) to lightest (1181).}
+\item{MegaOrPrimal}{\code{character} Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
+\item{ft}{\code{character} The height of the Pokémon in feet.}
+\item{m}{\code{numeric} The height of the Pokémon in meters.}
+\item{inch}{\code{integer} The height of the Pokémon in inches.}
+\item{smallest}{\code{integer} The ranking of the Pokémon from smallest to biggest.}
+\item{bigest}{\code{integer} The ranking of the Pokémon from biggest to smallest.}
 }
 }
 \source{
-Bulbapedia
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_weight}{Bulbapedia Weight}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_height}{Bulbapedia Height}
 }
 \usage{
 physicalAttr
 }
 \description{
-This dataset contains information about the physical attributes of Pokémon, including their type, generation, weight, height, and other characteristics.
+This dataset provides a comprehensive overview of the physical attributes of Pokémon, including their type,
+generation, weight, height, and other characteristics.
+It includes information about each Pokémon's National Pokédex number, name, regional variant,
+primary and secondary types, generation, legendary status, mythical status, ultra beast status,
+family, size, form, weight in pounds and kilograms, lightest and heaviest weight rankings in the Pokédex,
+Mega or Primal form status, height in feet, meters, and inches, and smallest and
+biggest height rankings in the Pokédex.
+}
+\details{
+This dataset can be useful for a variety of analyses, such as studying the distribution of Pokémon
+weights and heights, identifying trends and patterns, or informing game strategies.
+}
+\examples{
+data(physicalAttr)
 }
 \keyword{datasets}

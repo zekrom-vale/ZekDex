@@ -7,16 +7,19 @@
 \format{
 A data frame with one column:
 \describe{
-\item{types}{\code{character} The types of Pokemon. Possible types include "Grass", "Fire", "Water", "Bug", "Normal", "Dark", "Poison", "Electric", "Ground", "Ice", "Fairy", "Steel", "Fighting", "Psychic", "Rock", "Ghost", "Dragon", "Flying".}
+\item{types}{\code{character} The types of Pokemon. Possible types include \code{Grass}, \code{Fire}, \code{Water}, \code{Bug}, \code{Normal}, \code{Dark}, \code{Poison}, \code{Electric}, \code{Ground}, \code{Ice}, \code{Fairy}, \code{Steel}, \code{Fighting}, \code{Psychic}, \code{Rock}, \code{Ghost}, \code{Dragon}, \code{Flying}.}
 }
 }
 \source{
-Bulbapedia
+\href{https://bulbapedia.bulbagarden.net/wiki/Type}{Bulbapedia Type}
 }
 \usage{
 types
 }
 \description{
 This dataset contains information about various Pokemon types.
+}
+\examples{
+data(types)
 }
 \keyword{datasets}
