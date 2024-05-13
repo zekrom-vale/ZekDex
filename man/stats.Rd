@@ -19,8 +19,8 @@ A data frame with 14 variables:
 \item{\code{Gen}}{\code{factor} Generation. This indicates the generation of games in which the Pokémon was introduced.}
 \item{\code{SpAttack}}{\code{integer} Special Attack strength. This determines how much damage a Pokémon can deal with special moves. This stat is not applicable for Generation I as 'Special' stat is used instead.}
 \item{\code{SpDefense}}{\code{integer} Special Defense strength. This determines how much damage a Pokémon can resist from special moves. This stat is not applicable for Generation I as 'Special' stat is used instead.}
-\item{\code{Mega}}{\code{logical} A boolean indicating if the Pokémon has a Mega form. These are special forms that certain Pokémon can take.}
-\item{\code{MegaOrPrimal}}{\code{character} Indicates if the Pokémon is in a Mega form. These are special forms that certain Pokémon can take.}
+\item{\code{Mega}}{\code{character} The Mega form. These are special forms that certain Pokémon can take.}
+\item{\code{MegaOrPrimal}}{\code{character} Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
 \item{\code{regional}}{\code{character} The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
 }
 }
