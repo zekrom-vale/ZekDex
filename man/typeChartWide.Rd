@@ -5,44 +5,28 @@
 \alias{typeChartWide}
 \title{Pokémon Type Effectiveness Dataset}
 \format{
-data.frame
+A data frame with 19 variables (1 for the attacking type and 18 for each defending type):
 \describe{
-\item{Attacking}{\code{factor} The Pokémon type of the attacking move.}
-\item{Defending_Normal}{\code{numeric} Effectiveness against Normal type.}
-\item{Defending_Fighting}{\code{numeric} Effectiveness against Fighting type.}
-\item{Defending_Flying}{\code{numeric} Effectiveness against Flying type.}
-\item{Defending_Poison}{\code{numeric} Effectiveness against Poison type.}
-\item{Defending_Ground}{\code{numeric} Effectiveness against Ground type.}
-\item{Defending_Rock}{\code{numeric} Effectiveness against Rock type.}
-\item{Defending_Bug}{\code{numeric} Effectiveness against Bug type.}
-\item{Defending_Ghost}{\code{numeric} Effectiveness against Ghost type.}
-\item{Defending_Steel}{\code{numeric} Effectiveness against Steel type.}
-\item{Defending_Fire}{\code{numeric} Effectiveness against Fire type.}
-\item{Defending_Water}{\code{numeric} Effectiveness against Water type.}
-\item{Defending_Grass}{\code{numeric} Effectiveness against Grass type.}
-\item{Defending_Electric}{\code{numeric} Effectiveness against Electric type.}
-\item{Defending_Psychic}{\code{numeric} Effectiveness against Psychic type.}
-\item{Defending_Ice}{\code{numeric} Effectiveness against Ice type.}
-\item{Defending_Dragon}{\code{numeric} Effectiveness against Dragon type.}
-\item{Defending_Dark}{\code{numeric} Effectiveness against Dark type.}
-\item{Defending_Fairy}{\code{numeric} Effectiveness against Fairy type.}
+\item{\code{Attacking}}{\code{factor} The type of the attacking Pokémon's move. There are 18 types in total.}
+\item{\verb{Defending_*}}{\code{numeric} The effectiveness of the attacking type against the defending type. This is represented by a multiplier (0, 0.5, 1, 2) applied to the attack's damage. Each 'Defending_*' represents a different Pokémon type.}
 }
 }
 \source{
-Bulbapedia
+\href{https://bulbapedia.bulbagarden.net/wiki/Type}{Bulbapedia Type}
 }
 \usage{
 typeChartWide
 }
 \description{
-This dataset outlines the effectiveness of various attacking Pokémon types against defending types.
-Each cell in the dataset represents the effectiveness multiplier when a Pokémon type attacks another.
-The effectiveness is represented by numerical values:
-\itemize{
-\item \strong{0} denotes immunity (the attack has no effect)
-\item \strong{0.5} means the attack is not very effective (half damage)
-\item \strong{1} means the attack is effective (causes regular damage)
-\item \strong{2} means the attack is very effective (causes double damage)
+This dataset provides a matrix of effectiveness multipliers for different types of Pokémon attacks.
+Each Pokémon has a type, such as Fire, Water, Grass, etc., and each type has different effectiveness against other types.
+This effectiveness is represented by a multiplier that is applied to the attack's damage.
 }
+\details{
+The dataset is structured as a wide format, with each column representing a defending Pokémon's type and
+each row representing an attacking Pokémon's type.
+}
+\examples{
+data(typeChartWide)
 }
 \keyword{datasets}

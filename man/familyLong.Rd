@@ -3,32 +3,38 @@
 \docType{data}
 \name{familyLong}
 \alias{familyLong}
-\title{Pokemon Dataset}
+\title{Extended Pokemon Evolution Dataset}
 \format{
 A data frame with the following variables:
 \describe{
-\item{family.x}{\code{character} The family of the Pokemon}
-\item{transition}{\code{character} The transition stage of the Pokemon}
-\item{first}{\code{character} The first form of the Pokemon}
-\item{firstForm}{\code{character} The first form of the Pokemon if it has multiple forms}
-\item{firstRegional}{\code{character} The first regional form of the Pokemon}
-\item{name}{\code{character} The name of the Pokemon}
-\item{form}{\code{character} The form of the Pokemon}
-\item{regional}{\code{character} The regional form of the Pokemon}
-\item{stage}{\code{character} The stage of the Pokemon}
-\item{family.y}{\code{character} The legendary family of the Pokemon}
-\item{size}{\code{character} The size of the legendary family}
+\item{\code{family.x}}{\code{character} The family of the Pokemon. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon.}
+\item{\code{transition}}{\code{character} The transition stage of the Pokemon. This refers to any intermediate stages that occur during the Pokémon's evolution.}
+\item{\code{first}}{\code{character} The first form of the Pokemon. This is the initial form of the Pokémon before any evolutions.}
+\item{\code{firstForm}}{\code{character} The first form of the Pokemon if it has multiple forms. This refers to the specific form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a special form at the initial stage.}
+\item{\code{firstRegional}}{\code{character} The first regional form of the Pokemon. This refers to the regional form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a regional form at the initial stage.}
+\item{\code{name}}{\code{character} The name of the Pokemon. This is the common name used to identify a particular Pokémon.}
+\item{\code{form}}{\code{character} The form of the Pokemon. This refers to the different physical forms that Pokémon can take. NA if the Pokemon does not have a special form.}
+\item{\code{regional}}{\code{character} The regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form.}
+\item{\code{stage}}{\code{character} The stage of the Pokemon. This refers to the stage in the Pokémon's evolution process, such as 'base', 'stage 1', 'stage 2', etc.}
+\item{\code{family.y}}{\code{character} The legendary family of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
+\item{\code{size}}{\code{character} The size of the legendary family. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
 }
 }
 \source{
-Bulbapedia
+\href{https://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution}{Methods of evolution. In Bulbapedia.}
 }
 \usage{
 familyLong
 }
 \description{
-Extended Pokémon family information.
-This dataset looses the evolution tree, but is good for finding what Pokémon is in each family.
-TODO fixing the \code{family.x} and \code{family.y}
+This dataset contains detailed information about Pokémon evolution and family groupings. It provides a comprehensive view of the evolution tree of each Pokémon, making it an excellent resource for understanding how different Pokémon are related to each other and how they evolve. The dataset includes Pokémon from all generations and covers various forms and regional variants.
+}
+\details{
+While this dataset loses the hierarchical structure of the evolution tree, it is particularly useful for identifying which Pokémon belong to each family. It provides a flat structure that can be easily filtered and sorted to find specific Pokémon and their families.
+
+Note: The \code{family.x} and \code{family.y} variables need to be reconciled to ensure consistency across the dataset.
+}
+\examples{
+data(familyLong)
 }
 \keyword{datasets}

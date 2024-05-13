@@ -11,7 +11,7 @@ devtools::install() # Or clean and install in Build
 dir.create("data", showWarnings = FALSE)
 
 gen_groups(write = TRUE)
-gen_type_chart(write = TRUE)
+gen_type_chart(write = TRUE) # Will warn ! NAs introduced by coercion
 gen_catch(write = TRUE)
 
 # Requires PokemonGroups

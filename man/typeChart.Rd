@@ -5,27 +5,27 @@
 \alias{typeChart}
 \title{Extended Pokémon Type Effectiveness Dataset}
 \format{
-data.frame
+A data frame with 3 variables:
 \describe{
-\item{Attacking}{\code{factor} The Pokémon type of the attacking move.}
-\item{Defending}{\code{factor} The Pokémon type of the defending Pokémon.}
-\item{Effectiveness}{\code{numeric} The multiplier for the effectiveness of the attack.}
+\item{\code{Attacking}}{\code{factor} The type of the attacking Pokémon's move. There are 18 types in total.}
+\item{\code{Defending}}{\code{factor} The type of the defending Pokémon. There are 18 types in total.}
+\item{\code{Effectiveness}}{\code{numeric} The multiplier for the effectiveness of the attack. It lists the effectiveness of an attacking type against a defending type, with numerical values indicating the level of effectiveness: 0 denotes immunity (no effect), 0.5 means the attack is not very effective (half damage), 1 means the attack is effective (regular damage), and 2 means the attack is very effective (double damage).}
 }
 }
 \source{
-Bulbapedia
+\href{https://bulbapedia.bulbagarden.net/wiki/Type}{Bulbapedia Type}
 }
 \usage{
 typeChart
 }
 \description{
 This dataset provides detailed effectiveness values for attacks between different Pokémon types.
-It lists the effectiveness of an attacking type against a defending type, with numerical values indicating the level of effectiveness:
-\itemize{
-\item \strong{0} denotes immunity (no effect)
-\item \strong{0.5} means the attack is not very effective (half damage)
-\item \strong{1} means the attack is effective (regular damage)
-\item \strong{2} means the attack is very effective (double damage)
 }
+\details{
+It is structured in a long format, with each row representing an interaction between an attacking type and a defending type.
+The 'Effectiveness' column provides the multiplier for the effectiveness of the attack.
+}
+\examples{
+data(typeChart)
 }
 \keyword{datasets}

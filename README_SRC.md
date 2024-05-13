@@ -59,7 +59,7 @@ devtools::install_github("zekrom-vale/ZekDex", ref = "main")
 
 The package includes the following datasets:
 -- Perhaspse it is best to split this into another file
-<<<<<DATASETS>>>>> -- To be replaced with the datasets in R/data.R
+{DATASETS} -- To be replaced with the datasets in R/data.R
 
 You can load any dataset with the `data()` function. For example, `data(nationalDex)`.
 
@@ -100,4 +100,4 @@ Additionally, you can refer to the [LICENSE](LICENSE) file included with the pac
 
 Please ensure that you understand and comply with the terms of the license when using this package. If you have any questions about the license, it's recommended to consult with a legal expert.
 
-<<<<<ATTRIBUTION>>>>> -- To be replaced with ATTRIBUTION.md
+{ATTRIBUTION} -- To be replaced with ATTRIBUTION.md

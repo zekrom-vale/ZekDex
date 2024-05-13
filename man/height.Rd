@@ -7,27 +7,32 @@
 \format{
 A data frame with 8 variables:
 \describe{
-\item{name}{\code{character} Name of the Pokémon}
-\item{form}{\code{character} Specific form of the Pokémon}
-\item{ft}{\code{numeric} Height of the Pokémon in feet}
-\item{m}{\code{numeric} Height of the Pokémon in meters}
-\item{inch}{\code{numeric} Height of the Pokémon in inches}
-\item{smallest}{\code{integer} Ranking of the Pokémon from smallest to biggest}
-\item{bigest}{\code{integer} Ranking of the Pokémon from biggest to smallest}
-\item{regional}{\code{character} Regional form of the Pokémon, if any}
-\item{MegaOrPrimal}{\code{character} Is the Pokémon in a Mega or Primal form}
+\item{\code{name}}{\code{character} The name of the Pokémon.}
+\item{\code{form}}{\code{character} The specific form of the Pokémon. This refers to the different physical forms that Pokémon can take.}
+\item{\code{ft}}{\code{numeric} The height of the Pokémon in feet.}
+\item{\code{m}}{\code{numeric} The height of the Pokémon in meters.}
+\item{\code{inch}}{\code{numeric} The height of the Pokémon in inches.}
+\item{\code{smallest}}{\code{integer} The ranking of the Pokémon from smallest to biggest.}
+\item{\code{bigest}}{\code{integer} The ranking of the Pokémon from biggest to smallest.}
+\item{\code{regional}}{\code{character} The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
+\item{\code{MegaOrPrimal}}{\code{character} Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
 }
 }
 \source{
-Bulbapedia
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_height}{Bulbapedia Height}
 }
 \usage{
 height
 }
 \description{
 This dataset contains information about the height of different Pokémon forms.
-The height is represented in different units such as feet (ft), meters (m), and inches (inch).
-It also includes the ranking of each Pokémon form from smallest to biggest,
-and information about regional forms and Mega or Primal forms.
+The height is represented in different units such as feet (ft), meters (m), and inches (inch),
+providing flexibility for different uses.
+It also includes the ranking of each Pokémon form from smallest to biggest, and information about regional forms and Mega or Primal forms.
+This can be useful for a variety of analyses, such as studying the distribution of Pokémon heights,
+identifying trends and patterns, or informing game strategies.
+}
+\examples{
+data(height)
 }
 \keyword{datasets}

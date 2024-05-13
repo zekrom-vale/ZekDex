@@ -485,7 +485,7 @@ save_data = function(
 ){
 	if(pkgload::is_loading()) return()
 	if(rda)save(list = sym, file = glue("{root}/{file}.rda"), envir = parent.frame()) # TODO compress
-	if(csv)write_csv(get(sym, envir = parent.frame()), glue("{root}/{file}.csv"))
+	if(csv)write_csv(get(sym, envir = parent.frame()), glue("{root}/{file}.csv"), quote = "all")
 	if(!csv&&!rda)warning("Nothing saved")
 }
 

@@ -3,58 +3,80 @@
 \docType{data}
 \name{regionalDex}
 \alias{regionalDex}
-\title{Pokémon information from the Regional Dex.}
+\title{Pokémon Information from the Regional Dex}
 \format{
 A data frame with the following variables:
 \describe{
-\item{ndex}{\code{integer} National Pokedex number.}
-\item{name}{\code{character} Name of the Pokemon.}
-\item{form}{\code{character} Form of the Pokemon.}
-\item{regional}{\code{character} Regional form of the Pokemon.}
-\item{type}{\code{character} Primary type of the Pokemon.}
-\item{type2}{\code{character} Secondary type of the Pokemon.}
-\item{generation}{\code{integer} Generation of the Pokemon.}
-\item{isLegendary}{\code{logical} Boolean indicating if the Pokemon is Legendary.}
-\item{isMythical}{\code{logical} Boolean indicating if the Pokemon is Mythical.}
-\item{isUltraBeast}{\code{logical} Boolean indicating if the Pokemon is an Ultra Beast.}
-\item{family}{\code{character} Family of the Pokemon.}
-\item{size}{\code{character} Size of the Pokemon.}
-\item{NA_Kanto_Kdex}{\code{integer} Kanto Pokedex number.}
-\item{NA_Johto_Jdex}{\code{integer} Johto Pokedex number.}
-\item{GenerationIII_Hoenn_Hdex}{\code{integer} Hoenn Pokedex number in Generation III.}
-\item{GenerationVI_Hoenn_Hdex}{\code{integer} Hoenn Pokedex number in Generation VI.}
-\item{NA_Sinnoh_Sdex}{\code{integer} Sinnoh Pokedex number.}
-\item{BlackandWhite_Unova_Udex}{\code{integer} Unova Pokedex number in Black and White.}
-\item{Black2andWhite2_Unova_Udex}{\code{integer} Unova Pokedex number in Black 2 and White 2.}
-\item{NA_Blueberry_BBdex}{\code{integer} Blueberry Pokedex number.}
-\item{NA_Kalos_CeKdex}{\code{integer} Central Kalos Pokedex number.}
-\item{NA_Kalos_CoKdex}{\code{integer} Coastal Kalos Pokedex number.}
-\item{NA_Kalos_MoKdex}{\code{integer} Mountain Kalos Pokedex number.}
-\item{SunandMoon_Alola_Adex}{\code{integer} Alola Pokedex number in Sun and Moon.}
-\item{SunandMoon_Alola_Melemele}{\code{integer} Melemele Pokedex number in Sun and Moon.}
-\item{SunandMoon_Alola_Akala}{\code{integer} Akala Pokedex number in Sun and Moon.}
-\item{SunandMoon_Alola_Ula'ula}{\code{integer} Ula'ula Pokedex number in Sun and Moon.}
-\item{SunandMoon_Alola_Poni}{\code{integer} Poni Pokedex number in Sun and Moon.}
-\item{UltraSunandUltraMoon_Alola_Adex}{\code{integer} Alola Pokedex number in Ultra Sun and Ultra Moon.}
-\item{UltraSunandUltraMoon_Alola_Melemele}{\code{integer} Melemele Pokedex number in Ultra Sun and Ultra Moon.}
-\item{UltraSunandUltraMoon_Alola_Akala}{\code{integer} Akala Pokedex number in Ultra Sun and Ultra Moon.}
-\item{UltraSunandUltraMoon_Alola_Ula'ula}{\code{integer} Ula'ula Pokedex number in Ultra Sun and Ultra Moon.}
-\item{UltraSunandUltraMoon_Alola_Poni}{\code{integer} Poni Pokedex number in Ultra Sun and Ultra Moon.}
-\item{NA_Galar_Gdex}{\code{integer} Galar Pokedex number.}
-\item{NA_IsleofArmor_IoAdex}{\code{integer} Isle of Armor Pokedex number.}
-\item{NA_CrownTundra_CTdex}{\code{integer} Crown Tundra Pokedex number.}
-\item{NA_Hisui_LAdex}{\code{integer} Hisui Pokedex number.}
-\item{NA_Paldea_Pdex}{\code{integer} Paldea Pokedex number.}
-\item{NA_Kitakami_Kdex}{\code{integer} Kitakami Pokedex number.}
+\item{\code{ndex}}{\code{integer} The National Pokédex number of the Pokémon.}
+\item{\code{name}}{\code{character} The name of the Pokémon.}
+\item{\code{form}}{\code{character} The form of the Pokémon. This refers to the different physical forms that Pokémon can take.}
+\item{\code{regional}}{\code{character} The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
+\item{\code{type}}{\code{character} The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.}
+\item{\code{type2}}{\code{character} The secondary type of the Pokémon. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses.}
+\item{\code{generation}}{\code{integer} The generation of the Pokémon. This refers to the generation of games in which the Pokémon was first introduced.}
+\item{\code{isLegendary}}{\code{logical} A boolean indicating if the Pokémon is Legendary. Legendary Pokémon are a group of incredibly rare and often very powerful Pokémon.}
+\item{\code{isMythical}}{\code{logical} A boolean indicating if the Pokémon is Mythical. Mythical Pokémon are a related but separate group of Pokémon, which are usually event-exclusive.}
+\item{\code{isUltraBeast}}{\code{logical} A boolean indicating if the Pokémon is an Ultra Beast. Ultra Beasts is a term introduced in Generation VII to classify seven known Pokémon.}
+\item{\code{family}}{\code{character} The family of the Pokémon. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon.}
+\item{\code{size}}{\code{character} The size of the Pokémon. This refers to the height and weight of the Pokémon.}
+\item{\code{NA_Kanto_Kdex}}{\code{integer} The Kanto Pokédex number. This is the number assigned to the Pokémon in the Kanto Regional Pokédex.}
+\item{\code{NA_Johto_Jdex}}{\code{integer} The Johto Pokédex number. This is the number assigned to the Pokémon in the Johto Regional Pokédex.}
+\item{\code{GenerationIII_Hoenn_Hdex}}{\code{integer} The Hoenn Pokédex number in Generation III. This is the number assigned to the Pokémon in the Hoenn Regional Pokédex in Generation III games.}
+\item{\code{GenerationVI_Hoenn_Hdex}}{\code{integer} The Hoenn Pokédex number in Generation VI. This is the number assigned to the Pokémon in the Hoenn Regional Pokédex in Generation VI games.}
+\item{\code{NA_Sinnoh_Sdex}}{\code{integer} The Sinnoh Pokédex number. This is the number assigned to the Pokémon in the Sinnoh Regional Pokédex.}
+\item{\code{BlackandWhite_Unova_Udex}}{\code{integer} The Unova Pokédex number in Black and White. This is the number assigned to the Pokémon in the Unova Regional Pokédex in Pokémon Black and White.}
+\item{\code{Black2andWhite2_Unova_Udex}}{\code{integer} The Unova Pokédex number in Black 2 and White 2. This is the number assigned to the Pokémon in the Unova Regional Pokédex in Pokémon Black 2 and White 2.}
+\item{\code{NA_Blueberry_BBdex}}{\code{integer} The Blueberry Pokédex number. This is the number assigned to the Pokémon in the Blueberry Regional Pokédex.}
+\item{\code{NA_Kalos_CeKdex}}{\code{integer} The Central Kalos Pokédex number. This is the number assigned to the Pokémon in the Central Kalos Regional Pokédex.}
+\item{\code{NA_Kalos_CoKdex}}{\code{integer} The Coastal Kalos Pokédex number. This is the number assigned to the Pokémon in the Coastal Kalos Regional Pokédex.}
+\item{\code{NA_Kalos_MoKdex}}{\code{integer} The Mountain Kalos Pokédex number. This is the number assigned to the Pokémon in the Mountain Kalos Regional Pokédex.}
+\item{\code{SunandMoon_Alola_Adex}}{\code{integer} The Alola Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Alola Regional Pokédex in Pokémon Sun and Moon.}
+\item{\code{SunandMoon_Alola_Melemele}}{\code{integer} The Melemele Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Melemele Regional Pokédex in Pokémon Sun and Moon.}
+\item{\code{SunandMoon_Alola_Akala}}{\code{integer} The Akala Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Akala Regional Pokédex in Pokémon Sun and Moon.}
+\item{\verb{SunandMoon_Alola_Ula'ula}}{\code{integer} The Ula'ula Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Sun and Moon.}
+\item{\code{SunandMoon_Alola_Poni}}{\code{integer} The Poni Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Poni Regional Pokédex in Pokémon Sun and Moon.}
+\item{\code{UltraSunandUltraMoon_Alola_Adex}}{\code{integer} The Alola Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Alola Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.}
+\item{\code{UltraSunandUltraMoon_Alola_Melemele}}{\code{integer} The Melemele Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Melemele Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.}
+\item{\code{UltraSunandUltraMoon_Alola_Akala}}{\code{integer} The Akala Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Akala Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.}
+\item{\verb{UltraSunandUltraMoon_Alola_Ula'ula}}{\code{integer} The Ula'ula Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.}
+\item{\code{UltraSunandUltraMoon_Alola_Poni}}{\code{integer} The Poni Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Poni Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.}
+\item{\code{NA_Galar_Gdex}}{\code{integer} The Galar Pokédex number. This is the number assigned to the Pokémon in the Galar Regional Pokédex.}
+\item{\code{NA_IsleofArmor_IoAdex}}{\code{integer} The Isle of Armor Pokédex number. This is the number assigned to the Pokémon in the Isle of Armor Regional Pokédex.}
+\item{\code{NA_CrownTundra_CTdex}}{\code{integer} The Crown Tundra Pokédex number. This is the number assigned to the Pokémon in the Crown Tundra Regional Pokédex.}
+\item{\code{NA_Hisui_LAdex}}{\code{integer} The Hisui Pokédex number. This is the number assigned to the Pokémon in the Hisui Regional Pokédex.}
+\item{\code{NA_Paldea_Pdex}}{\code{integer} The Paldea Pokédex number. This is the number assigned to the Pokémon in the Paldea Regional Pokédex.}
+\item{\code{NA_Kitakami_Kdex}}{\code{integer} The Kitakami Pokédex number. This is the number assigned to the Pokémon in the Kitakami Regional Pokédex.}
 }
 }
 \source{
-Bulbapedia
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_Kanto_Pok\%C3\%A9dex_number}{List of Pokémon by Kanto Pokédex number. In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_New_Pok\%C3\%A9dex_number}{List of Pokémon by New Pokédex number. In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_Johto_Pok\%C3\%A9dex_number}{List of Pokémon by Johto Pokédex number. In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_Hoenn_Pok\%C3\%A9dex_number_(Generation_III)}{List of Pokémon by Hoenn Pokédex number (Generation III). In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_Hoenn_Pok\%C3\%A9dex_number_(Generation_VI)}{List of Pokémon by Hoenn Pokédex number (Generation VI). In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_Sinnoh_Pok\%C3\%A9dex_number}{List of Pokémon by Sinnoh Pokédex number. In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_Unova_Pok\%C3\%A9dex_number_(Black_and_White)}{List of Pokémon by Unova Pokédex number (Black and White). In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_Unova_Pok\%C3\%A9dex_number_(Black_2_and_White_2)}{List of Pokémon by Unova Pokédex number (Black 2 and White 2). In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_Blueberry_Pok\%C3\%A9dex_number}{List of Pokémon by Blueberry Pokédex number. In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_Kalos_Pok\%C3\%A9dex_number}{List of Pokémon by Kalos Pokédex number. In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_Alola_Pok\%C3\%A9dex_number_(Sun_and_Moon)}{List of Pokémon by Alola Pokédex number (Sun and Moon). In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_Alola_Pok\%C3\%A9dex_number_(Ultra_Sun_and_Ultra_Moon)}{List of Pokémon by Alola Pokédex number (Ultra Sun and Ultra Moon). In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_Galar_Pok\%C3\%A9dex_number}{List of Pokémon by Galar Pokédex number. In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_Isle_of_Armor_Pok\%C3\%A9dex_number}{List of Pokémon by Isle of Armor Pokédex number. In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_Crown_Tundra_Pok\%C3\%A9dex_number}{List of Pokémon by Crown Tundra Pokédex number. In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_Hisui_Pok\%C3\%A9dex_number}{List of Pokémon by Hisui Pokédex number. In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_Paldea_Pok\%C3\%A9dex_number}{List of Pokémon by Paldea Pokédex number. In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_Kitakami_Pok\%C3\%A9dex_number}{List of Pokémon by Kitakami Pokédex number. In Bulbapedia.}
 }
 \usage{
 regionalDex
 }
 \description{
-As of now the regionalDex columns are in the format of \verb{<Game>_<Region>_<DexName>}, \code{NA} if that data is missing.
+This dataset contains information about Pokémon as per the Regional Pokédex.
+The regionalDex columns are in the format of \verb{<Game>_<Region>_<DexName>}.
+If the data is missing, it is represented as \code{NA}.
+}
+\examples{
+data(regionalDex)
 }
 \keyword{datasets}

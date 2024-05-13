@@ -7,24 +7,30 @@
 \format{
 A data frame with 8 variables:
 \describe{
-\item{name}{\code{character} Name of the Pokemon}
-\item{form}{\code{character} The form of the Pokemon, NA if it does not have another form}
-\item{lbs}{\code{numeric} Weight of the Pokemon in pounds}
-\item{kg}{\code{numeric} Weight of the Pokemon in kilograms}
-\item{lightest}{\code{integer} Rank of the Pokemon from lightest (1) to heaviest (1181)}
-\item{heaviest}{\code{integer} Rank of the Pokemon from heaviest (1) to lightest (1181)}
-\item{regional}{\code{character} The regional form of the Pokemon, NA if it does not have a regional form}
-\item{MegaOrPrimal}{\code{character} Is the Pokémon in a Mega or Primal form}
+\item{\code{name}}{\code{character} The name of the Pokémon.}
+\item{\code{form}}{\code{character} The form of the Pokémon. This refers to the different physical forms that Pokémon can take. 'NA' if the Pokémon does not have another form.}
+\item{\code{lbs}}{\code{numeric} The weight of the Pokémon in pounds.}
+\item{\code{kg}}{\code{numeric} The weight of the Pokémon in kilograms.}
+\item{\code{lightest}}{\code{integer} The rank of the Pokémon from lightest (1) to heaviest (1181).}
+\item{\code{heaviest}}{\code{integer} The rank of the Pokémon from heaviest (1) to lightest (1181).}
+\item{\code{regional}}{\code{character} The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. 'NA' if the Pokémon does not have a regional form.}
+\item{\code{MegaOrPrimal}}{\code{character} Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
 }
 }
 \source{
-Bulbapedia
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_weight}{Bulbapedia Weight}
 }
 \usage{
 weight
 }
 \description{
-This dataset contains information about the weight of various Pokemon in both pounds (lbs) and kilograms (kg).
-It also includes details about the lightest and heaviest Pokemon, their regional forms, and whether they have a Mega or Primal form.
+This dataset contains information about the weight of various Pokémon.
+Each Pokémon's weight is recorded in both pounds (lbs) and kilograms (kg), providing flexibility for different uses.
+The dataset also includes details about the lightest and heaviest Pokémon, their regional forms, and whether they have a Mega or Primal form.
+This can be useful for a variety of analyses, such as studying the distribution of Pokémon weights,
+identifying trends and patterns, or informing game strategies.
+}
+\examples{
+data(weight)
 }
 \keyword{datasets}

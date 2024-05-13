@@ -3,31 +3,39 @@
 \docType{data}
 \name{stats}
 \alias{stats}
-\title{Pokemon Data}
+\title{Pokemon Stats}
 \format{
-A data frame with 91 rows and 11 variables:
+A data frame with 11 variables:
 \describe{
-\item{ndex}{\code{integer} National Pokédex number}
-\item{name}{\code{character} Pokémon name}
-\item{HP}{\code{integer} Hit Points}
-\item{Attack}{\code{integer} Attack strength}
-\item{Defense}{\code{integer} Defensive strength}
-\item{Speed}{\code{integer} Speed}
-\item{Special}{\code{integer} Special attack or special defense strength}
-\item{Total}{\code{integer} Total of all stats}
-\item{Average}{\code{numeric} Average of all stats}
-\item{Gen}{\code{factor} Generation}
-\item{SpAttack}{\code{integer} Special Attack strength (NA for Gen I)}
-\item{SpDefense}{\code{integer} Special Defense strength (NA for Gen I)}
+\item{\code{ndex}}{\code{integer} National Pokédex number. This is the unique identifier for each Pokémon in the National Pokédex.}
+\item{\code{name}}{\code{character} Pokémon name. This is the common name used to identify a particular Pokémon.}
+\item{\code{HP}}{\code{integer} Hit Points. This determines how much damage a Pokémon can receive before fainting.}
+\item{\code{Attack}}{\code{integer} Attack strength. This determines how much damage a Pokémon can deal with physical moves.}
+\item{\code{Defense}}{\code{integer} Defensive strength. This determines how much damage a Pokémon can resist from physical moves.}
+\item{\code{Speed}}{\code{integer} Speed. This determines the order of Pokémon that can act in battle.}
+\item{\code{Special}}{\code{integer} Special attack or special defense strength. This determines how much damage a Pokémon can deal with special moves or resist from special moves. Note that this stat is combined into one in Generation I.}
+\item{\code{Total}}{\code{integer} Total of all stats. This is the sum of all the base stats of a Pokémon.}
+\item{\code{Average}}{\code{numeric} Average of all stats. This is the average value of all the base stats of a Pokémon.}
+\item{\code{Gen}}{\code{factor} Generation. This indicates the generation of games in which the Pokémon was introduced.}
+\item{\code{SpAttack}}{\code{integer} Special Attack strength. This determines how much damage a Pokémon can deal with special moves. This stat is not applicable for Generation I as 'Special' stat is used instead.}
+\item{\code{SpDefense}}{\code{integer} Special Defense strength. This determines how much damage a Pokémon can resist from special moves. This stat is not applicable for Generation I as 'Special' stat is used instead.}
 }
 }
 \source{
-Bulbapedia
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_base_stats_(Generation_I)}{List of Pokémon by base stats (Generation I). In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_base_stats_(Generation_II-V)}{List of Pokémon by base stats (Generation II-V). In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_base_stats_(Generation_VI)}{List of Pokémon by base stats (Generation VI). In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_base_stats_(Generation_VII)}{List of Pokémon by base stats (Generation VII). In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_base_stats_(Generation_VIII)}{List of Pokémon by base stats (Generation VIII). In Bulbapedia.}
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_base_stats_(Generation_IX)}{List of Pokémon by base stats (Generation IX). In Bulbapedia.}
 }
 \usage{
 stats
 }
 \description{
-Base stats of Pokémon including various forms / sizes of Pokémon.
+This dataset contains the base stats of Pokémon, including various forms and sizes of Pokémon. Base stats are an important defining characteristic of each Pokémon species. They determine the potential of each Pokémon in terms of their HP (Hit Points), Attack, Defense, Speed, and Special abilities. These stats can be influenced by other factors such as level, nature, and effort values.
+}
+\examples{
+data(stats)
 }
 \keyword{datasets}

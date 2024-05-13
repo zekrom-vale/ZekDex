@@ -7,28 +7,36 @@
 \format{
 A data frame with the following variables:
 \describe{
-\item{family}{\code{character} The family to which the Pokemon belongs.}
-\item{base}{\code{character} The prior form of the pokemon or the base form}
-\item{form}{\code{character} The specific form of the Pokemon. NA if not applicable.}
-\item{method}{\code{character} The method of evolution.}
-\item{evo}{\code{character} The next stage of the Pokemon.}
-\item{evoForm}{\code{character} The form of next stage of the Pokemon. NA if not applicable.}
-\item{transition}{\code{character} The transition stage of the Pokemon.}
-\item{first}{\code{character} The first form of the Pokemon.}
-\item{firstForm}{\code{character} The specific first form of the Pokemon. NA if not applicable.}
-\item{regional}{\code{character} The regional form of the Pokemon. NA if not applicable.}
-\item{evoRegional}{\code{character} The regional evolved form of the Pokemon. NA if not applicable.}
-\item{firstRegional}{\code{character} The regional first form of the Pokemon. NA if not applicable.}
+\item{\code{family}}{\code{character} The family to which the Pokemon belongs. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon.}
+\item{\code{base}}{\code{character} The prior form of the pokemon or the base form. This is the form from which the Pokémon evolves.}
+\item{\code{form}}{\code{character} The specific form of the Pokemon. This refers to the different physical forms that Pokémon can take. NA if the Pokemon does not have a special form.}
+\item{\code{method}}{\code{character} The method of evolution. This refers to the specific condition or trigger that causes the Pokémon to evolve. Examples include leveling up, exposure to an evolution stone, trading, and more.}
+\item{\code{evo}}{\code{character} The next stage of the Pokemon. This is the form that the Pokémon evolves into.}
+\item{\code{evoForm}}{\code{character} The form of next stage of the Pokemon. This refers to the specific form that the Pokémon takes after evolution. NA if the Pokemon does not change form upon evolution.}
+\item{\code{transition}}{\code{character} The transition stage of the Pokemon. This refers to any intermediate stages that occur during the Pokémon's evolution.}
+\item{\code{first}}{\code{character} The first form of the Pokemon. This is the initial form of the Pokémon before any evolutions.}
+\item{\code{firstForm}}{\code{character} The specific first form of the Pokemon. This refers to the specific form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a special form at the initial stage.}
+\item{\code{regional}}{\code{character} The regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form.}
+\item{\code{evoRegional}}{\code{character} The regional evolved form of the Pokemon. This refers to the regional form that the Pokémon takes after evolution. NA if the Pokemon does not change form upon evolution in a specific region.}
+\item{\code{firstRegional}}{\code{character} The regional first form of the Pokemon. This refers to the regional form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a regional form at the initial stage.}
 }
 }
 \source{
-Bulbapedia
+\href{https://bulbapedia.bulbagarden.net/wiki/List_of_Pok\%C3\%A9mon_by_evolution_family}{List of Pokémon by evolution family. In Bulbapedia.}
 }
 \usage{
 family
 }
 \description{
-Pokemon evolution and family information.
-This dataset is good if you want to know the evolution tree.
+This dataset contains information about Pokémon evolution and family groupings.
+It provides a comprehensive view of the evolution tree of each Pokémon,
+making it an excellent resource for understanding how different Pokémon are related to each other and how they evolve.
+The dataset includes Pokémon from all generations and covers various forms and regional variants.
+}
+\examples{
+data(family)
+}
+\references{
+\href{https://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution}{Methods of evolution. In Bulbapedia.}
 }
 \keyword{datasets}
