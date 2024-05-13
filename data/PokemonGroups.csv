@@ -1,66 +1,66 @@
-family,name,size
-Mew duo,Mewtwo,duos
-Mew duo,Mew,duos
-Tower duo,Lugia,duos
-Tower duo,Ho-Oh,duos
-Eon duo,Latias,duos
-Eon duo,Latios,duos
-Lunar duo,Cresselia,duos
-Lunar duo,Darkrai,duos
-Sea guardians,Phione,duos
-Sea guardians,Manaphy,duos
-Legendary heroes,Zacian,duos
-Legendary heroes,Zamazenta,duos
-Paradox duo,Koraidon,duos
-Paradox duo,Miraidon,duos
-Legendary birds,Articuno,trios
-Legendary birds,Zapdos,trios
-Legendary birds,Moltres,trios
-Legendary birds,GalarianArticuno,trios
-Legendary birds,GalarianZapdos,trios
-Legendary birds,GalarianMoltres,trios
-Legendary beasts,Raikou,trios
-Legendary beasts,Entei,trios
-Legendary beasts,Suicune,trios
-Super-ancient Pokémon,Kyogre,trios
-Super-ancient Pokémon,Groudon,trios
-Super-ancient Pokémon,Rayquaza,trios
-Lake guardians,Uxie,trios
-Lake guardians,Mesprit,trios
-Lake guardians,Azelf,trios
-Pokémon of Myth,Dialga,trios
-Pokémon of Myth,Palkia,trios
-Pokémon of Myth,Giratina,trios
-Tao trio,Reshiram,trios
-Tao trio,Zekrom,trios
-Tao trio,Kyurem,trios
-Aura trio,Xerneas,trios
-Aura trio,Yveltal,trios
-Aura trio,Zygarde,trios
-Light trio,Solgaleo,trios
-Light trio,Lunala,trios
-Light trio,Necrozma,trios
-Loyal Three,Okidogi,trios
-Loyal Three,Munkidori,trios
-Loyal Three,Fezandipiti,trios
-Swords of Justice,Cobalion,quartets
-Swords of Justice,Terrakion,quartets
-Swords of Justice,Virizion,quartets
-Swords of Justice,Keldeo,quartets
-Forces of Nature,Tornadus,quartets
-Forces of Nature,Thundurus,quartets
-Forces of Nature,Landorus,quartets
-Forces of Nature,Enamorus,quartets
-Guardian deities,Tapu Koko,quartets
-Guardian deities,Tapu Lele,quartets
-Guardian deities,Tapu Bulu,quartets
-Guardian deities,Tapu Fini,quartets
-Treasures of ruin,Wo-Chien,quartets
-Treasures of ruin,Chien-Pao,quartets
-Treasures of ruin,Ting-Lu,quartets
-Treasures of ruin,Chi-Yu,quartets
-Legendary giants,Regirock,quintets
-Legendary giants,Regice,quintets
-Legendary giants,Registeel,quintets
-Legendary giants,Regieleki,quintets
-Legendary giants,Regidrago,quintets
+"family","name","size"
+"Mew duo","Mewtwo","duos"
+"Mew duo","Mew","duos"
+"Tower duo","Lugia","duos"
+"Tower duo","Ho-Oh","duos"
+"Eon duo","Latias","duos"
+"Eon duo","Latios","duos"
+"Lunar duo","Cresselia","duos"
+"Lunar duo","Darkrai","duos"
+"Sea guardians","Phione","duos"
+"Sea guardians","Manaphy","duos"
+"Legendary heroes","Zacian","duos"
+"Legendary heroes","Zamazenta","duos"
+"Paradox duo","Koraidon","duos"
+"Paradox duo","Miraidon","duos"
+"Legendary birds","Articuno","trios"
+"Legendary birds","Zapdos","trios"
+"Legendary birds","Moltres","trios"
+"Legendary birds","GalarianArticuno","trios"
+"Legendary birds","GalarianZapdos","trios"
+"Legendary birds","GalarianMoltres","trios"
+"Legendary beasts","Raikou","trios"
+"Legendary beasts","Entei","trios"
+"Legendary beasts","Suicune","trios"
+"Super-ancient Pokémon","Kyogre","trios"
+"Super-ancient Pokémon","Groudon","trios"
+"Super-ancient Pokémon","Rayquaza","trios"
+"Lake guardians","Uxie","trios"
+"Lake guardians","Mesprit","trios"
+"Lake guardians","Azelf","trios"
+"Pokémon of Myth","Dialga","trios"
+"Pokémon of Myth","Palkia","trios"
+"Pokémon of Myth","Giratina","trios"
+"Tao trio","Reshiram","trios"
+"Tao trio","Zekrom","trios"
+"Tao trio","Kyurem","trios"
+"Aura trio","Xerneas","trios"
+"Aura trio","Yveltal","trios"
+"Aura trio","Zygarde","trios"
+"Light trio","Solgaleo","trios"
+"Light trio","Lunala","trios"
+"Light trio","Necrozma","trios"
+"Loyal Three","Okidogi","trios"
+"Loyal Three","Munkidori","trios"
+"Loyal Three","Fezandipiti","trios"
+"Swords of Justice","Cobalion","quartets"
+"Swords of Justice","Terrakion","quartets"
+"Swords of Justice","Virizion","quartets"
+"Swords of Justice","Keldeo","quartets"
+"Forces of Nature","Tornadus","quartets"
+"Forces of Nature","Thundurus","quartets"
+"Forces of Nature","Landorus","quartets"
+"Forces of Nature","Enamorus","quartets"
+"Guardian deities","Tapu Koko","quartets"
+"Guardian deities","Tapu Lele","quartets"
+"Guardian deities","Tapu Bulu","quartets"
+"Guardian deities","Tapu Fini","quartets"
+"Treasures of ruin","Wo-Chien","quartets"
+"Treasures of ruin","Chien-Pao","quartets"
+"Treasures of ruin","Ting-Lu","quartets"
+"Treasures of ruin","Chi-Yu","quartets"
+"Legendary giants","Regirock","quintets"
+"Legendary giants","Regice","quintets"
+"Legendary giants","Registeel","quintets"
+"Legendary giants","Regieleki","quintets"
+"Legendary giants","Regidrago","quintets"
