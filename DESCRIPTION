@@ -20,7 +20,7 @@ LazyData: true
 Depends: 
     R (>= 4.1),
     methods
-Imports: dplyr, magrittr, purrr, readr, rlang, stringr, tibble, tidyr, glue, tidyselect, pkgload
+Imports: dplyr, magrittr, purrr, readr, rlang, stringr, tibble, tidyr, glue, tidyselect, pkgload, ggplot2
 Suggests: rvest, janitor, coro, xml2
 RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)
