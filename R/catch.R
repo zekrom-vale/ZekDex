@@ -7,6 +7,7 @@
 #' @param root Character. The root directory where the file will be saved. Default is "data/".
 #' @param file Character. The name of the file where the data will be saved. Default is "PokemonCatch".
 #' @return A tibble of the scraped Pokémon data.
+#' @export
 #' @importFrom purrr map walk
 #' @importFrom dplyr as_tibble select_if rename any_of rename_with mutate coalesce bind_rows
 #' @importFrom tidyr separate

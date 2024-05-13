@@ -119,6 +119,7 @@ gen_height = function(write = FALSE, root = "data/", file = "PokemonHeight"){
 #' @param fileHeight Character, the name of the file containing the height data.
 #' @param fileWeight Character, the name of the file containing the weight data.
 #' @return A data frame of physical attributes of Pokemon.
+#' @export
 gen_physicalAttr = function(write = FALSE, root = "data/", file = "PokemonPhysicalAttr", fileHeight = "PokemonHeight", fileWeight = "PokemonWeight"){
 	weight = gen_weight(write = write, root = root, file = fileWeight)
 	height = gen_height(write = write, root = root, file = fileHeight)
