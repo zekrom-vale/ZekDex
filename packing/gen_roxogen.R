@@ -37,7 +37,7 @@ convert_yaml_to_roxygen = function(yaml_data, dataset_name) {
 		map_chr(function(x){
 			d = str_replace_all(x[3], "\n", "\n#'\t")
 			glue(
-				"#'\t\\item{<x[1]>}{`<x[2]>` <d>}",
+				"#'\t\\item{`<x[1]>`}{`<x[2]>` <d>}",
 				.open = "<",
 				.close = ">"
 			)

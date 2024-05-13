@@ -7,14 +7,14 @@
 \format{
 A data frame with 8 variables:
 \describe{
-\item{name}{\code{character} The name of the Pokémon.}
-\item{form}{\code{character} The form of the Pokémon. This refers to the different physical forms that Pokémon can take. 'NA' if the Pokémon does not have another form.}
-\item{lbs}{\code{numeric} The weight of the Pokémon in pounds.}
-\item{kg}{\code{numeric} The weight of the Pokémon in kilograms.}
-\item{lightest}{\code{integer} The rank of the Pokémon from lightest (1) to heaviest (1181).}
-\item{heaviest}{\code{integer} The rank of the Pokémon from heaviest (1) to lightest (1181).}
-\item{regional}{\code{character} The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. 'NA' if the Pokémon does not have a regional form.}
-\item{MegaOrPrimal}{\code{character} Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
+\item{\code{name}}{\code{character} The name of the Pokémon.}
+\item{\code{form}}{\code{character} The form of the Pokémon. This refers to the different physical forms that Pokémon can take. 'NA' if the Pokémon does not have another form.}
+\item{\code{lbs}}{\code{numeric} The weight of the Pokémon in pounds.}
+\item{\code{kg}}{\code{numeric} The weight of the Pokémon in kilograms.}
+\item{\code{lightest}}{\code{integer} The rank of the Pokémon from lightest (1) to heaviest (1181).}
+\item{\code{heaviest}}{\code{integer} The rank of the Pokémon from heaviest (1) to lightest (1181).}
+\item{\code{regional}}{\code{character} The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. 'NA' if the Pokémon does not have a regional form.}
+\item{\code{MegaOrPrimal}}{\code{character} Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
 }
 }
 \source{

@@ -7,28 +7,28 @@
 \format{
 A data frame with 22 variables:
 \describe{
-\item{ndex}{\code{integer} The National Pokédex number of the Pokémon. This is the official numbering scheme that is used in every Pokémon game and media.}
-\item{name}{\code{character} The name of the Pokémon. This is the common name used to identify a particular Pokémon.}
-\item{regional}{\code{character} The regional variant of the Pokémon, if any. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
-\item{type}{\code{character} The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.}
-\item{type2}{\code{character} The secondary type of the Pokémon, if any. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses.}
-\item{generation}{\code{integer} The generation of the Pokémon. This refers to the generation of games in which the Pokémon was first introduced.}
-\item{isLegendary}{\code{logical} A boolean indicating if the Pokémon is Legendary. Legendary Pokémon are a group of incredibly rare and often very powerful Pokémon.}
-\item{isMythical}{\code{logical} A boolean indicating if the Pokémon is Mythical. Mythical Pokémon are a related but separate group of Pokémon, which are usually event-exclusive.}
-\item{isUltraBeast}{\code{logical} A boolean indicating if the Pokémon is an Ultra Beast. Ultra Beasts is a term introduced in Generation VII to classify seven known Pokémon.}
-\item{family}{\code{character} The family of the Pokémon. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon.}
-\item{size}{\code{character} The size of the Pokémon. This refers to the height and weight of the Pokémon.}
-\item{form}{\code{character} The form of the Pokémon. This refers to the different physical forms that Pokémon can take.}
-\item{lbs}{\code{numeric} The weight of the Pokémon in pounds.}
-\item{kg}{\code{numeric} The weight of the Pokémon in kilograms.}
-\item{lightest}{\code{integer} The rank of the Pokémon from lightest (1) to heaviest (1181).}
-\item{heaveiest}{\code{integer} The rank of the Pokémon from heaviest (1) to lightest (1181).}
-\item{MegaOrPrimal}{\code{character} Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
-\item{ft}{\code{character} The height of the Pokémon in feet.}
-\item{m}{\code{numeric} The height of the Pokémon in meters.}
-\item{inch}{\code{integer} The height of the Pokémon in inches.}
-\item{smallest}{\code{integer} The ranking of the Pokémon from smallest to biggest.}
-\item{bigest}{\code{integer} The ranking of the Pokémon from biggest to smallest.}
+\item{\code{ndex}}{\code{integer} The National Pokédex number of the Pokémon. This is the official numbering scheme that is used in every Pokémon game and media.}
+\item{\code{name}}{\code{character} The name of the Pokémon. This is the common name used to identify a particular Pokémon.}
+\item{\code{regional}}{\code{character} The regional variant of the Pokémon, if any. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
+\item{\code{type}}{\code{character} The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.}
+\item{\code{type2}}{\code{character} The secondary type of the Pokémon, if any. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses.}
+\item{\code{generation}}{\code{integer} The generation of the Pokémon. This refers to the generation of games in which the Pokémon was first introduced.}
+\item{\code{isLegendary}}{\code{logical} A boolean indicating if the Pokémon is Legendary. Legendary Pokémon are a group of incredibly rare and often very powerful Pokémon.}
+\item{\code{isMythical}}{\code{logical} A boolean indicating if the Pokémon is Mythical. Mythical Pokémon are a related but separate group of Pokémon, which are usually event-exclusive.}
+\item{\code{isUltraBeast}}{\code{logical} A boolean indicating if the Pokémon is an Ultra Beast. Ultra Beasts is a term introduced in Generation VII to classify seven known Pokémon.}
+\item{\code{family}}{\code{character} The family of the Pokémon. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon.}
+\item{\code{size}}{\code{character} The size of the Pokémon. This refers to the height and weight of the Pokémon.}
+\item{\code{form}}{\code{character} The form of the Pokémon. This refers to the different physical forms that Pokémon can take.}
+\item{\code{lbs}}{\code{numeric} The weight of the Pokémon in pounds.}
+\item{\code{kg}}{\code{numeric} The weight of the Pokémon in kilograms.}
+\item{\code{lightest}}{\code{integer} The rank of the Pokémon from lightest (1) to heaviest (1181).}
+\item{\code{heaveiest}}{\code{integer} The rank of the Pokémon from heaviest (1) to lightest (1181).}
+\item{\code{MegaOrPrimal}}{\code{character} Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
+\item{\code{ft}}{\code{character} The height of the Pokémon in feet.}
+\item{\code{m}}{\code{numeric} The height of the Pokémon in meters.}
+\item{\code{inch}}{\code{integer} The height of the Pokémon in inches.}
+\item{\code{smallest}}{\code{integer} The ranking of the Pokémon from smallest to biggest.}
+\item{\code{bigest}}{\code{integer} The ranking of the Pokémon from biggest to smallest.}
 }
 }
 \source{

@@ -7,18 +7,18 @@
 \format{
 A data frame with 11 variables:
 \describe{
-\item{ndex}{\code{integer} National Pokédex number. This is the unique identifier for each Pokémon in the National Pokédex.}
-\item{name}{\code{character} Pokémon name. This is the common name used to identify a particular Pokémon.}
-\item{HP}{\code{integer} Hit Points. This determines how much damage a Pokémon can receive before fainting.}
-\item{Attack}{\code{integer} Attack strength. This determines how much damage a Pokémon can deal with physical moves.}
-\item{Defense}{\code{integer} Defensive strength. This determines how much damage a Pokémon can resist from physical moves.}
-\item{Speed}{\code{integer} Speed. This determines the order of Pokémon that can act in battle.}
-\item{Special}{\code{integer} Special attack or special defense strength. This determines how much damage a Pokémon can deal with special moves or resist from special moves. Note that this stat is combined into one in Generation I.}
-\item{Total}{\code{integer} Total of all stats. This is the sum of all the base stats of a Pokémon.}
-\item{Average}{\code{numeric} Average of all stats. This is the average value of all the base stats of a Pokémon.}
-\item{Gen}{\code{factor} Generation. This indicates the generation of games in which the Pokémon was introduced.}
-\item{SpAttack}{\code{integer} Special Attack strength. This determines how much damage a Pokémon can deal with special moves. This stat is not applicable for Generation I as 'Special' stat is used instead.}
-\item{SpDefense}{\code{integer} Special Defense strength. This determines how much damage a Pokémon can resist from special moves. This stat is not applicable for Generation I as 'Special' stat is used instead.}
+\item{\code{ndex}}{\code{integer} National Pokédex number. This is the unique identifier for each Pokémon in the National Pokédex.}
+\item{\code{name}}{\code{character} Pokémon name. This is the common name used to identify a particular Pokémon.}
+\item{\code{HP}}{\code{integer} Hit Points. This determines how much damage a Pokémon can receive before fainting.}
+\item{\code{Attack}}{\code{integer} Attack strength. This determines how much damage a Pokémon can deal with physical moves.}
+\item{\code{Defense}}{\code{integer} Defensive strength. This determines how much damage a Pokémon can resist from physical moves.}
+\item{\code{Speed}}{\code{integer} Speed. This determines the order of Pokémon that can act in battle.}
+\item{\code{Special}}{\code{integer} Special attack or special defense strength. This determines how much damage a Pokémon can deal with special moves or resist from special moves. Note that this stat is combined into one in Generation I.}
+\item{\code{Total}}{\code{integer} Total of all stats. This is the sum of all the base stats of a Pokémon.}
+\item{\code{Average}}{\code{numeric} Average of all stats. This is the average value of all the base stats of a Pokémon.}
+\item{\code{Gen}}{\code{factor} Generation. This indicates the generation of games in which the Pokémon was introduced.}
+\item{\code{SpAttack}}{\code{integer} Special Attack strength. This determines how much damage a Pokémon can deal with special moves. This stat is not applicable for Generation I as 'Special' stat is used instead.}
+\item{\code{SpDefense}}{\code{integer} Special Defense strength. This determines how much damage a Pokémon can resist from special moves. This stat is not applicable for Generation I as 'Special' stat is used instead.}
 }
 }
 \source{

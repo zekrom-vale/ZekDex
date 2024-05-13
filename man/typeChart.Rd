@@ -7,9 +7,9 @@
 \format{
 A data frame with 3 variables:
 \describe{
-\item{Attacking}{\code{factor} The type of the attacking Pokémon's move. There are 18 types in total.}
-\item{Defending}{\code{factor} The type of the defending Pokémon. There are 18 types in total.}
-\item{Effectiveness}{\code{numeric} The multiplier for the effectiveness of the attack. It lists the effectiveness of an attacking type against a defending type, with numerical values indicating the level of effectiveness: 0 denotes immunity (no effect), 0.5 means the attack is not very effective (half damage), 1 means the attack is effective (regular damage), and 2 means the attack is very effective (double damage).}
+\item{\code{Attacking}}{\code{factor} The type of the attacking Pokémon's move. There are 18 types in total.}
+\item{\code{Defending}}{\code{factor} The type of the defending Pokémon. There are 18 types in total.}
+\item{\code{Effectiveness}}{\code{numeric} The multiplier for the effectiveness of the attack. It lists the effectiveness of an attacking type against a defending type, with numerical values indicating the level of effectiveness: 0 denotes immunity (no effect), 0.5 means the attack is not very effective (half damage), 1 means the attack is effective (regular damage), and 2 means the attack is very effective (double damage).}
 }
 }
 \source{

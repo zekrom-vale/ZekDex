@@ -7,8 +7,8 @@
 \format{
 A data frame with 19 variables (1 for the attacking type and 18 for each defending type):
 \describe{
-\item{Attacking}{\code{factor} The type of the attacking Pokémon's move. There are 18 types in total.}
-\item{Defending_\emph{}{\code{numeric} The effectiveness of the attacking type against the defending type. This is represented by a multiplier (0, 0.5, 1, 2) applied to the attack's damage. Each 'Defending_}' represents a different Pokémon type.}
+\item{\code{Attacking}}{\code{factor} The type of the attacking Pokémon's move. There are 18 types in total.}
+\item{\verb{Defending_*}}{\code{numeric} The effectiveness of the attacking type against the defending type. This is represented by a multiplier (0, 0.5, 1, 2) applied to the attack's damage. Each 'Defending_*' represents a different Pokémon type.}
 }
 }
 \source{

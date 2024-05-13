@@ -7,43 +7,43 @@
 \format{
 A data frame with 37 variables:
 \describe{
-\item{ndex}{\code{integer} The National Pokédex number of the Pokémon. This is the unique identifier for each Pokémon in the National Pokédex.}
-\item{name}{\code{character} The English name of the Pokémon.}
-\item{form}{\code{character} The form of the Pokémon. This refers to the different physical forms that Pokémon can take. 'NA' if the Pokémon does not have a special form.}
-\item{regional}{\code{character} The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. 'NA' if the Pokémon does not have a regional form.}
-\item{type}{\code{character} The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.}
-\item{type2}{\code{character} The secondary type of the Pokémon. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses. 'NA' if the Pokémon does not have a secondary type.}
-\item{generation}{\code{integer} The generation of the Pokémon. This refers to the generation of games in which the Pokémon was first introduced.}
-\item{isLegendary}{\code{logical} A boolean indicating if the Pokémon is Legendary. Legendary Pokémon are a group of incredibly rare and often very powerful Pokémon.}
-\item{isMythical}{\code{logical} A boolean indicating if the Pokémon is Mythical. Mythical Pokémon are a related but separate group of Pokémon, which are usually event-exclusive.}
-\item{isUltraBeast}{\code{logical} A boolean indicating if the Pokémon is an Ultra Beast. Ultra Beasts is a term introduced in Generation VII to classify seven known Pokémon.}
-\item{family}{\code{character} The family of the Pokémon. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon.}
-\item{size}{\code{character} The size of the Pokémon. This refers to the height and weight of the Pokémon.}
-\item{Japanese_Kana}{\code{character} The Japanese Kana name of the Pokémon.}
-\item{Japanese_Hepburn}{\code{character} The Japanese Hepburn name of the Pokémon.}
-\item{Japanese_Trademarked}{\code{character} The Japanese Trademarked name of the Pokémon.}
-\item{German}{\code{character} The German name of the Pokémon.}
-\item{French}{\code{character} The French name of the Pokémon.}
-\item{Spanish}{\code{character} The Spanish name of the Pokémon.}
-\item{Italian}{\code{character} The Italian name of the Pokémon.}
-\item{Korean_Hangul}{\code{character} The Korean Hangul name of the Pokémon.}
-\item{Korean_Revised}{\code{character} The Korean Revised name of the Pokémon.}
-\item{Korean_McCune-Reischauer}{\code{character} The Korean McCune-Reischauer name of the Pokémon.}
-\item{Korean_Official}{\code{character} The Korean Official name of the Pokémon.}
-\item{Chinese_Traditional}{\code{character} The Chinese Traditional name of the Pokémon.}
-\item{Chinese_Simplified}{\code{character} The Chinese Simplified name of the Pokémon.}
-\item{Chinese_Pinyin}{\code{character} The Chinese Pinyin name of the Pokémon.}
-\item{Chinese_Yale}{\code{character} The Chinese Yale name of the Pokémon.}
-\item{Chinese_Former names}{\code{character} The Chinese Former names of the Pokémon.}
-\item{Brazilian_Portuguese_brazilian_portuguese}{\code{character} The Brazilian Portuguese name of the Pokémon.}
-\item{Turkish}{\code{character} The Turkish name of the Pokémon.}
-\item{Russian_Cyrillic}{\code{character} The Russian Cyrillic name of the Pokémon.}
-\item{Russian_Romanization}{\code{character} The Russian Romanization name of the Pokémon.}
-\item{Thai}{\code{character} The Thai name of the Pokémon.}
-\item{Thai_RTGS}{\code{character} The Thai RTGS name of the Pokémon.}
-\item{Hindi_Devanāgarī}{\code{character} The Hindi Devanāgarī name of the Pokémon.}
-\item{Hindi_Transliteration}{\code{character} The Hindi Transliteration name of the Pokémon.}
-\item{Hindi_Romanization}{\code{character} The Hindi Romanization name of the Pokémon.}
+\item{\code{ndex}}{\code{integer} The National Pokédex number of the Pokémon. This is the unique identifier for each Pokémon in the National Pokédex.}
+\item{\code{name}}{\code{character} The English name of the Pokémon.}
+\item{\code{form}}{\code{character} The form of the Pokémon. This refers to the different physical forms that Pokémon can take. 'NA' if the Pokémon does not have a special form.}
+\item{\code{regional}}{\code{character} The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. 'NA' if the Pokémon does not have a regional form.}
+\item{\code{type}}{\code{character} The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.}
+\item{\code{type2}}{\code{character} The secondary type of the Pokémon. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses. 'NA' if the Pokémon does not have a secondary type.}
+\item{\code{generation}}{\code{integer} The generation of the Pokémon. This refers to the generation of games in which the Pokémon was first introduced.}
+\item{\code{isLegendary}}{\code{logical} A boolean indicating if the Pokémon is Legendary. Legendary Pokémon are a group of incredibly rare and often very powerful Pokémon.}
+\item{\code{isMythical}}{\code{logical} A boolean indicating if the Pokémon is Mythical. Mythical Pokémon are a related but separate group of Pokémon, which are usually event-exclusive.}
+\item{\code{isUltraBeast}}{\code{logical} A boolean indicating if the Pokémon is an Ultra Beast. Ultra Beasts is a term introduced in Generation VII to classify seven known Pokémon.}
+\item{\code{family}}{\code{character} The family of the Pokémon. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon.}
+\item{\code{size}}{\code{character} The size of the Pokémon. This refers to the height and weight of the Pokémon.}
+\item{\code{Japanese_Kana}}{\code{character} The Japanese Kana name of the Pokémon.}
+\item{\code{Japanese_Hepburn}}{\code{character} The Japanese Hepburn name of the Pokémon.}
+\item{\code{Japanese_Trademarked}}{\code{character} The Japanese Trademarked name of the Pokémon.}
+\item{\code{German}}{\code{character} The German name of the Pokémon.}
+\item{\code{French}}{\code{character} The French name of the Pokémon.}
+\item{\code{Spanish}}{\code{character} The Spanish name of the Pokémon.}
+\item{\code{Italian}}{\code{character} The Italian name of the Pokémon.}
+\item{\code{Korean_Hangul}}{\code{character} The Korean Hangul name of the Pokémon.}
+\item{\code{Korean_Revised}}{\code{character} The Korean Revised name of the Pokémon.}
+\item{\code{Korean_McCune-Reischauer}}{\code{character} The Korean McCune-Reischauer name of the Pokémon.}
+\item{\code{Korean_Official}}{\code{character} The Korean Official name of the Pokémon.}
+\item{\code{Chinese_Traditional}}{\code{character} The Chinese Traditional name of the Pokémon.}
+\item{\code{Chinese_Simplified}}{\code{character} The Chinese Simplified name of the Pokémon.}
+\item{\code{Chinese_Pinyin}}{\code{character} The Chinese Pinyin name of the Pokémon.}
+\item{\code{Chinese_Yale}}{\code{character} The Chinese Yale name of the Pokémon.}
+\item{\verb{Chinese_Former names}}{\code{character} The Chinese Former names of the Pokémon.}
+\item{\code{Brazilian_Portuguese_brazilian_portuguese}}{\code{character} The Brazilian Portuguese name of the Pokémon.}
+\item{\code{Turkish}}{\code{character} The Turkish name of the Pokémon.}
+\item{\code{Russian_Cyrillic}}{\code{character} The Russian Cyrillic name of the Pokémon.}
+\item{\code{Russian_Romanization}}{\code{character} The Russian Romanization name of the Pokémon.}
+\item{\code{Thai}}{\code{character} The Thai name of the Pokémon.}
+\item{\code{Thai_RTGS}}{\code{character} The Thai RTGS name of the Pokémon.}
+\item{\code{Hindi_Devanāgarī}}{\code{character} The Hindi Devanāgarī name of the Pokémon.}
+\item{\code{Hindi_Transliteration}}{\code{character} The Hindi Transliteration name of the Pokémon.}
+\item{\code{Hindi_Romanization}}{\code{character} The Hindi Romanization name of the Pokémon.}
 }
 }
 \source{

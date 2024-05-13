@@ -7,18 +7,18 @@
 \format{
 A data frame with 12 variables:
 \describe{
-\item{ndex}{\code{integer} National Pokedex number. This is the unique identifier for each Pokémon in the National Pokédex.}
-\item{name}{\code{character} Name of the Pokemon. This is the common name used to identify a particular Pokémon.}
-\item{form}{\code{character} Form of the Pokemon. This refers to the different physical forms that Pokémon can take. NA if the Pokemon does not have a special form.}
-\item{regional}{\code{character} Regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form.}
-\item{type}{\code{character} Primary type of the Pokemon. This is the main elemental category the Pokémon belongs to, such as Water, Fire, Grass, etc.}
-\item{type2}{\code{character} Secondary type of the Pokemon. This is the secondary elemental category the Pokémon belongs to, if any. NA if the Pokemon does not have a secondary type.}
-\item{generation}{\code{integer} The generation the Pokemon was introduced in. This refers to the different stages of Pokémon games, each introducing new Pokémon, regions, and gameplay concepts.}
-\item{isLegendary}{\code{logical} Whether the Pokemon is Legendary. This indicates if the Pokémon is a Legendary Pokémon, which are a group of incredibly rare and often very powerful Pokémon.}
-\item{isMythical}{\code{logical} Whether the Pokemon is Mythical. This indicates if the Pokémon is a Mythical Pokémon, which are a group of Pokémon seen so rarely in the Pokémon world that some question their very existence.}
-\item{isUltraBeast}{\code{logical} Whether the Pokemon is an Ultra Beast. This indicates if the Pokémon is an Ultra Beast, which are a group of extradimensional Pokémon originating from Ultra Space.}
-\item{family}{\code{character} Legendary / Mythical family group of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
-\item{size}{\code{character} Legendary / Mythical family size. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
+\item{\code{ndex}}{\code{integer} National Pokedex number. This is the unique identifier for each Pokémon in the National Pokédex.}
+\item{\code{name}}{\code{character} Name of the Pokemon. This is the common name used to identify a particular Pokémon.}
+\item{\code{form}}{\code{character} Form of the Pokemon. This refers to the different physical forms that Pokémon can take. NA if the Pokemon does not have a special form.}
+\item{\code{regional}}{\code{character} Regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form.}
+\item{\code{type}}{\code{character} Primary type of the Pokemon. This is the main elemental category the Pokémon belongs to, such as Water, Fire, Grass, etc.}
+\item{\code{type2}}{\code{character} Secondary type of the Pokemon. This is the secondary elemental category the Pokémon belongs to, if any. NA if the Pokemon does not have a secondary type.}
+\item{\code{generation}}{\code{integer} The generation the Pokemon was introduced in. This refers to the different stages of Pokémon games, each introducing new Pokémon, regions, and gameplay concepts.}
+\item{\code{isLegendary}}{\code{logical} Whether the Pokemon is Legendary. This indicates if the Pokémon is a Legendary Pokémon, which are a group of incredibly rare and often very powerful Pokémon.}
+\item{\code{isMythical}}{\code{logical} Whether the Pokemon is Mythical. This indicates if the Pokémon is a Mythical Pokémon, which are a group of Pokémon seen so rarely in the Pokémon world that some question their very existence.}
+\item{\code{isUltraBeast}}{\code{logical} Whether the Pokemon is an Ultra Beast. This indicates if the Pokémon is an Ultra Beast, which are a group of extradimensional Pokémon originating from Ultra Space.}
+\item{\code{family}}{\code{character} Legendary / Mythical family group of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
+\item{\code{size}}{\code{character} Legendary / Mythical family size. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
 }
 }
 \source{
