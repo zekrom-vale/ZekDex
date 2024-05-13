@@ -40,18 +40,23 @@ nested_list <- build_nested_list(split_files, list())
 # Function to generate Markdown for a list
 generate_markdown <- function(x, name = NULL, level = 0) {
   if (is.list(x) && length(x) > 0) {
-    files_md <- map_chr(x[!sapply(x, is.list)], ~glue("{paste(rep('  ', level), collapse = '')}- [{.}](https://github.com/zekrom-vale/ZekDex/wiki/{.})"))
-    dirs_md <- imap_chr(x[sapply(x, is.list)], ~generate_markdown(.x, name = .y, level = level + 1))
-    inner_md <- c(files_md, unlist(dirs_md))
+    if(level == 0)
+    	files_md <- map_chr(x[!sapply(x, is.list)], ~glue("[{.}](https://github.com/zekrom-vale/ZekDex/wiki/{.})\n\n"))
+    else
+    	files_md <- map_chr(x[!sapply(x, is.list)], ~glue("{strrep('  ', level-1)}- [{.}](https://github.com/zekrom-vale/ZekDex/wiki/{.})"))
+
+  	dirs_md <- imap_chr(x[sapply(x, is.list)], ~generate_markdown(.x, name = .y, level = level + 1))
+
+  	inner_md <- c(files_md, unlist(dirs_md))
     inner_md <- paste(inner_md, collapse = "\n")
 
     if (!is.null(name)) {
-      return(glue("{paste(rep('  ', level-1), collapse = '')}- {name}\n{inner_md}"))
+      return(glue("{strrep('  ', level-1)}{name}\n{inner_md}\n\n"))
     } else {
       return(inner_md)
     }
   } else {
-    return(glue("{paste(rep('  ', level), collapse = '')}- [{x}](https://github.com/zekrom-vale/ZekDex/wiki/{x})"))
+    return(glue("{strrep('  ', level)}- [{x}](https://github.com/zekrom-vale/ZekDex/wiki/{x})"))
   }
 }
 
