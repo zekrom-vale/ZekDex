@@ -2,3 +2,5 @@
 ^\.Rproj\.user$
 ^packing$
 ^data/.*\.csv$
+^wiki$
+^\.git
