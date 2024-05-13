@@ -91,7 +91,9 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 				-names(national),
 				~ as.integer(str_remove_all(., "[^\\d]"))
 			)
-		)
+		)|>
+		rename_with(.fn = ~ str_replace_all(., "\\s+", "_"), .cols = matches("^[A-Z]"))|>
+		rename_with(.fn = ~ str_remove_all(., "'"), .cols = matches("^[A-Z]"))
 
 	# Thses 4 are issues, they have split dexes
 	# https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Kalos_Pok%C3%A9dex_number

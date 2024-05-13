@@ -26,3 +26,4 @@ RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)
 URL: https://github.com/zekrom-vale/ZekDex
 BugReports: https://github.com/zekrom-vale/ZekDex/issues
+Language: en-US

@@ -32,12 +32,12 @@ If the data is missing, it is represented as `NA`.
   - SunandMoon_Alola_Adex: (`integer`) The Alola Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Alola Regional Pokédex in Pokémon Sun and Moon.
   - SunandMoon_Alola_Melemele: (`integer`) The Melemele Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Melemele Regional Pokédex in Pokémon Sun and Moon.
   - SunandMoon_Alola_Akala: (`integer`) The Akala Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Akala Regional Pokédex in Pokémon Sun and Moon.
-  - SunandMoon_Alola_Ula'ula: (`integer`) The Ula'ula Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Sun and Moon.
+  - SunandMoon_Alola_Ulaula: (`integer`) The Ula'ula Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Sun and Moon.
   - SunandMoon_Alola_Poni: (`integer`) The Poni Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Poni Regional Pokédex in Pokémon Sun and Moon.
   - UltraSunandUltraMoon_Alola_Adex: (`integer`) The Alola Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Alola Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.
   - UltraSunandUltraMoon_Alola_Melemele: (`integer`) The Melemele Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Melemele Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.
   - UltraSunandUltraMoon_Alola_Akala: (`integer`) The Akala Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Akala Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.
-  - UltraSunandUltraMoon_Alola_Ula'ula: (`integer`) The Ula'ula Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.
+  - UltraSunandUltraMoon_Alola_Ulaula: (`integer`) The Ula'ula Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.
   - UltraSunandUltraMoon_Alola_Poni: (`integer`) The Poni Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Poni Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.
   - NA_Galar_Gdex: (`integer`) The Galar Pokédex number. This is the number assigned to the Pokémon in the Galar Regional Pokédex.
   - NA_IsleofArmor_IoAdex: (`integer`) The Isle of Armor Pokédex number. This is the number assigned to the Pokémon in the Isle of Armor Regional Pokédex.

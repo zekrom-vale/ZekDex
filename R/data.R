@@ -59,7 +59,7 @@
 #' Pokemon Stats
 #'
 #' This dataset contains the base stats of Pokémon, including various forms and sizes of Pokémon. Base stats are an important defining characteristic of each Pokémon species. They determine the potential of each Pokémon in terms of their HP (Hit Points), Attack, Defense, Speed, and Special abilities. These stats can be influenced by other factors such as level, nature, and effort values.
-#' @format A data frame with 11 variables:
+#' @format A data frame with 14 variables:
 #' \describe{
 #'	\item{`ndex`}{`integer` National Pokédex number. This is the unique identifier for each Pokémon in the National Pokédex.}
 #'	\item{`name`}{`character` Pokémon name. This is the common name used to identify a particular Pokémon.}
@@ -73,6 +73,9 @@
 #'	\item{`Gen`}{`factor` Generation. This indicates the generation of games in which the Pokémon was introduced.}
 #'	\item{`SpAttack`}{`integer` Special Attack strength. This determines how much damage a Pokémon can deal with special moves. This stat is not applicable for Generation I as 'Special' stat is used instead.}
 #'	\item{`SpDefense`}{`integer` Special Defense strength. This determines how much damage a Pokémon can resist from special moves. This stat is not applicable for Generation I as 'Special' stat is used instead.}
+#'	\item{`Mega`}{`logical` A boolean indicating if the Pokémon has a Mega form. These are special forms that certain Pokémon can take.}
+#'	\item{`MegaOrPrimal`}{`character` Indicates if the Pokémon is in a Mega form. These are special forms that certain Pokémon can take.}
+#'	\item{`regional`}{`character` The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
 #' }
 #' @source [List of Pokémon by base stats (Generation I). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_I))
 #' [List of Pokémon by base stats (Generation II-V). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_II-V))
@@ -179,8 +182,8 @@
 #'	\item{`Chinese_Simplified`}{`character` The Chinese Simplified name of the Pokémon.}
 #'	\item{`Chinese_Pinyin`}{`character` The Chinese Pinyin name of the Pokémon.}
 #'	\item{`Chinese_Yale`}{`character` The Chinese Yale name of the Pokémon.}
-#'	\item{`Chinese_Former names`}{`character` The Chinese Former names of the Pokémon.}
-#'	\item{`Brazilian_Portuguese_brazilian_portuguese`}{`character` The Brazilian Portuguese name of the Pokémon.}
+#'	\item{`Chinese_Former_names`}{`character` The Chinese Former names of the Pokémon.}
+#'	\item{`Brazilian_Portuguese_Brazilian_Portuguese`}{`character` The Brazilian Portuguese name of the Pokémon.}
 #'	\item{`Turkish`}{`character` The Turkish name of the Pokémon.}
 #'	\item{`Russian_Cyrillic`}{`character` The Russian Cyrillic name of the Pokémon.}
 #'	\item{`Russian_Romanization`}{`character` The Russian Romanization name of the Pokémon.}
@@ -242,12 +245,12 @@
 #'	\item{`SunandMoon_Alola_Adex`}{`integer` The Alola Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Alola Regional Pokédex in Pokémon Sun and Moon.}
 #'	\item{`SunandMoon_Alola_Melemele`}{`integer` The Melemele Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Melemele Regional Pokédex in Pokémon Sun and Moon.}
 #'	\item{`SunandMoon_Alola_Akala`}{`integer` The Akala Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Akala Regional Pokédex in Pokémon Sun and Moon.}
-#'	\item{`SunandMoon_Alola_Ula'ula`}{`integer` The Ula'ula Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Sun and Moon.}
+#'	\item{`SunandMoon_Alola_Ulaula`}{`integer` The Ula'ula Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Sun and Moon.}
 #'	\item{`SunandMoon_Alola_Poni`}{`integer` The Poni Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Poni Regional Pokédex in Pokémon Sun and Moon.}
 #'	\item{`UltraSunandUltraMoon_Alola_Adex`}{`integer` The Alola Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Alola Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.}
 #'	\item{`UltraSunandUltraMoon_Alola_Melemele`}{`integer` The Melemele Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Melemele Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.}
 #'	\item{`UltraSunandUltraMoon_Alola_Akala`}{`integer` The Akala Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Akala Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.}
-#'	\item{`UltraSunandUltraMoon_Alola_Ula'ula`}{`integer` The Ula'ula Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.}
+#'	\item{`UltraSunandUltraMoon_Alola_Ulaula`}{`integer` The Ula'ula Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.}
 #'	\item{`UltraSunandUltraMoon_Alola_Poni`}{`integer` The Poni Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Poni Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.}
 #'	\item{`NA_Galar_Gdex`}{`integer` The Galar Pokédex number. This is the number assigned to the Pokémon in the Galar Regional Pokédex.}
 #'	\item{`NA_IsleofArmor_IoAdex`}{`integer` The Isle of Armor Pokédex number. This is the number assigned to the Pokémon in the Isle of Armor Regional Pokédex.}
@@ -305,7 +308,24 @@
 #' @format A data frame with 19 variables (1 for the attacking type and 18 for each defending type):
 #' \describe{
 #'	\item{`Attacking`}{`factor` The type of the attacking Pokémon's move. There are 18 types in total.}
-#'	\item{`Defending_*`}{`numeric` The effectiveness of the attacking type against the defending type. This is represented by a multiplier (0, 0.5, 1, 2) applied to the attack's damage. Each 'Defending_*' represents a different Pokémon type.}
+#'	\item{`Defending_Normal`}{`numeric` Effectiveness against Normal type.}
+#'	\item{`Defending_Fighting`}{`numeric` Effectiveness against Fighting type.}
+#'	\item{`Defending_Flying`}{`numeric` Effectiveness against Flying type.}
+#'	\item{`Defending_Poison`}{`numeric` Effectiveness against Poison type.}
+#'	\item{`Defending_Ground`}{`numeric` Effectiveness against Ground type.}
+#'	\item{`Defending_Rock`}{`numeric` Effectiveness against Rock type.}
+#'	\item{`Defending_Bug`}{`numeric` Effectiveness against Bug type.}
+#'	\item{`Defending_Ghost`}{`numeric` Effectiveness against Ghost type.}
+#'	\item{`Defending_Steel`}{`numeric` Effectiveness against Steel type.}
+#'	\item{`Defending_Fire`}{`numeric` Effectiveness against Fire type.}
+#'	\item{`Defending_Water`}{`numeric` Effectiveness against Water type.}
+#'	\item{`Defending_Grass`}{`numeric` Effectiveness against Grass type.}
+#'	\item{`Defending_Electric`}{`numeric` Effectiveness against Electric type.}
+#'	\item{`Defending_Psychic`}{`numeric` Effectiveness against Psychic type.}
+#'	\item{`Defending_Ice`}{`numeric` Effectiveness against Ice type.}
+#'	\item{`Defending_Dragon`}{`numeric` Effectiveness against Dragon type.}
+#'	\item{`Defending_Dark`}{`numeric` Effectiveness against Dark type.}
+#'	\item{`Defending_Fairy`}{`numeric` Effectiveness against Fairy type.}
 #' }
 #' @source [Bulbapedia Type](https://bulbapedia.bulbagarden.net/wiki/Type)
 #'
@@ -347,7 +367,7 @@
 #'	\item{`lbs`}{`numeric` The weight of the Pokémon in pounds.}
 #'	\item{`kg`}{`numeric` The weight of the Pokémon in kilograms.}
 #'	\item{`lightest`}{`integer` The rank of the Pokémon from lightest (1) to heaviest (1181).}
-#'	\item{`heaviest`}{`integer` The rank of the Pokémon from heaviest (1) to lightest (1181).}
+#'	\item{`heaveiest`}{`integer` The rank of the Pokémon from heaviest (1) to lightest (1181).}
 #'	\item{`regional`}{`character` The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. 'NA' if the Pokémon does not have a regional form.}
 #'	\item{`MegaOrPrimal`}{`character` Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
 #' }

@@ -82,6 +82,8 @@ gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
 			where(is.character),
 			~ if_else(.=="", NA_character_, ., NA_character_)
 		))|>
+		# Remove speaces
+		rename_with(.fn = ~ str_replace_all(., "\\s+", "_"), .cols = matches("^[A-Z]"))|>
 		# Fix the redundant names
 		rename_with(.fn = ~ str_replace(., regex("^(.*)_\\1$", ignore_case = TRUE), "\\1"), .cols = matches("^[A-Z]"))
 
