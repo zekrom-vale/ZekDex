@@ -33,12 +33,12 @@ A data frame with the following variables:
 \item{\code{SunandMoon_Alola_Adex}}{\code{integer} The Alola Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Alola Regional Pokédex in Pokémon Sun and Moon.}
 \item{\code{SunandMoon_Alola_Melemele}}{\code{integer} The Melemele Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Melemele Regional Pokédex in Pokémon Sun and Moon.}
 \item{\code{SunandMoon_Alola_Akala}}{\code{integer} The Akala Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Akala Regional Pokédex in Pokémon Sun and Moon.}
-\item{\verb{SunandMoon_Alola_Ula'ula}}{\code{integer} The Ula'ula Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Sun and Moon.}
+\item{\code{SunandMoon_Alola_Ulaula}}{\code{integer} The Ula'ula Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Sun and Moon.}
 \item{\code{SunandMoon_Alola_Poni}}{\code{integer} The Poni Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Poni Regional Pokédex in Pokémon Sun and Moon.}
 \item{\code{UltraSunandUltraMoon_Alola_Adex}}{\code{integer} The Alola Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Alola Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.}
 \item{\code{UltraSunandUltraMoon_Alola_Melemele}}{\code{integer} The Melemele Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Melemele Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.}
 \item{\code{UltraSunandUltraMoon_Alola_Akala}}{\code{integer} The Akala Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Akala Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.}
-\item{\verb{UltraSunandUltraMoon_Alola_Ula'ula}}{\code{integer} The Ula'ula Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.}
+\item{\code{UltraSunandUltraMoon_Alola_Ulaula}}{\code{integer} The Ula'ula Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.}
 \item{\code{UltraSunandUltraMoon_Alola_Poni}}{\code{integer} The Poni Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Poni Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.}
 \item{\code{NA_Galar_Gdex}}{\code{integer} The Galar Pokédex number. This is the number assigned to the Pokémon in the Galar Regional Pokédex.}
 \item{\code{NA_IsleofArmor_IoAdex}}{\code{integer} The Isle of Armor Pokédex number. This is the number assigned to the Pokémon in the Isle of Armor Regional Pokédex.}

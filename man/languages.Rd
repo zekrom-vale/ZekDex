@@ -34,8 +34,8 @@ A data frame with 37 variables:
 \item{\code{Chinese_Simplified}}{\code{character} The Chinese Simplified name of the Pokémon.}
 \item{\code{Chinese_Pinyin}}{\code{character} The Chinese Pinyin name of the Pokémon.}
 \item{\code{Chinese_Yale}}{\code{character} The Chinese Yale name of the Pokémon.}
-\item{\verb{Chinese_Former names}}{\code{character} The Chinese Former names of the Pokémon.}
-\item{\code{Brazilian_Portuguese_brazilian_portuguese}}{\code{character} The Brazilian Portuguese name of the Pokémon.}
+\item{\code{Chinese_Former_names}}{\code{character} The Chinese Former names of the Pokémon.}
+\item{\code{Brazilian_Portuguese_Brazilian_Portuguese}}{\code{character} The Brazilian Portuguese name of the Pokémon.}
 \item{\code{Turkish}}{\code{character} The Turkish name of the Pokémon.}
 \item{\code{Russian_Cyrillic}}{\code{character} The Russian Cyrillic name of the Pokémon.}
 \item{\code{Russian_Romanization}}{\code{character} The Russian Romanization name of the Pokémon.}

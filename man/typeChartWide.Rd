@@ -8,7 +8,24 @@
 A data frame with 19 variables (1 for the attacking type and 18 for each defending type):
 \describe{
 \item{\code{Attacking}}{\code{factor} The type of the attacking Pokémon's move. There are 18 types in total.}
-\item{\verb{Defending_*}}{\code{numeric} The effectiveness of the attacking type against the defending type. This is represented by a multiplier (0, 0.5, 1, 2) applied to the attack's damage. Each 'Defending_*' represents a different Pokémon type.}
+\item{\code{Defending_Normal}}{\code{numeric} Effectiveness against Normal type.}
+\item{\code{Defending_Fighting}}{\code{numeric} Effectiveness against Fighting type.}
+\item{\code{Defending_Flying}}{\code{numeric} Effectiveness against Flying type.}
+\item{\code{Defending_Poison}}{\code{numeric} Effectiveness against Poison type.}
+\item{\code{Defending_Ground}}{\code{numeric} Effectiveness against Ground type.}
+\item{\code{Defending_Rock}}{\code{numeric} Effectiveness against Rock type.}
+\item{\code{Defending_Bug}}{\code{numeric} Effectiveness against Bug type.}
+\item{\code{Defending_Ghost}}{\code{numeric} Effectiveness against Ghost type.}
+\item{\code{Defending_Steel}}{\code{numeric} Effectiveness against Steel type.}
+\item{\code{Defending_Fire}}{\code{numeric} Effectiveness against Fire type.}
+\item{\code{Defending_Water}}{\code{numeric} Effectiveness against Water type.}
+\item{\code{Defending_Grass}}{\code{numeric} Effectiveness against Grass type.}
+\item{\code{Defending_Electric}}{\code{numeric} Effectiveness against Electric type.}
+\item{\code{Defending_Psychic}}{\code{numeric} Effectiveness against Psychic type.}
+\item{\code{Defending_Ice}}{\code{numeric} Effectiveness against Ice type.}
+\item{\code{Defending_Dragon}}{\code{numeric} Effectiveness against Dragon type.}
+\item{\code{Defending_Dark}}{\code{numeric} Effectiveness against Dark type.}
+\item{\code{Defending_Fairy}}{\code{numeric} Effectiveness against Fairy type.}
 }
 }
 \source{
