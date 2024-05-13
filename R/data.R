@@ -266,7 +266,7 @@
 #'	\item{`Russian_Romanization`}{`character` The Russian Romanization name of the Pokémon.}
 #'	\item{`Thai`}{`character` The Thai name of the Pokémon.}
 #'	\item{`Thai_RTGS`}{`character` The Thai RTGS name of the Pokémon.}
-#'	\item{`Hindi_Devanāgarī`}{`character` The Hindi Devanāgarī name of the Pokémon.}
+#'	\item{`Hindi_Devanagari`}{`character` The Hindi Devanāgarī name of the Pokémon.}
 #'	\item{`Hindi_Transliteration`}{`character` The Hindi Transliteration name of the Pokémon.}
 #'	\item{`Hindi_Romanization`}{`character` The Hindi Romanization name of the Pokémon.}
 #' }

@@ -76,16 +76,24 @@ gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
 			if(dim(x)[1]==1) return(x)
 			# Otherwise, filter out rows where 'Hindi_Romanization' is NA
 			x|>
-				filter(!is.na(Hindi_Romanization ))
+				filter(!is.na(Hindi_Romanization))
 		})|>
 		mutate(across(
 			where(is.character),
 			~ if_else(.=="", NA_character_, ., NA_character_)
 		))|>
 		# Remove speaces
-		rename_with(.fn = ~ str_replace_all(., "\\s+", "_"), .cols = matches("^[A-Z]"))|>
 		# Fix the redundant names
-		rename_with(.fn = ~ str_replace(., regex("^(.*)_\\1$", ignore_case = TRUE), "\\1"), .cols = matches("^[A-Z]"))
+		rename_with(
+			.fn = function(.){
+				removeA(.)|>
+					str_replace_all("\\s+", "_")|>
+					str_replace(
+						regex("^(.*)_\\1$", ignore_case = TRUE), "\\1"
+					)
+			},
+			.cols = matches("^[A-Z]")
+		)
 
 	if(write)save_data("languages", root, file)
 	languages

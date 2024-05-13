@@ -71,7 +71,6 @@ str_before_match = function(str, test, ..., .open="(", .close=")?"){
 }
 
 
-
 #' Replaces all accented characters in a string with their unaccented counterparts
 #'
 #' @param str The string in which to replace accented characters
@@ -86,12 +85,19 @@ removeA = function(str){
 		"\u00E0" = "a", "\u00E8" = "e", "\u00EC" = "i", "\u00F2" = "o", "\u00F9" = "u", # Lowercase à, è, ì, ò, ù
 		"\u00C0" = "A", "\u00C8" = "E", "\u00CC" = "I", "\u00D2" = "O", "\u00D9" = "U", # Uppercase À, È, Ì, Ò, Ù
 		"\u00E4" = "a", "\u00EB" = "e", "\u00EF" = "i", "\u00F6" = "o", "\u00FC" = "u", # Lowercase ä, ë, ï, ö, ü
-		"\u00C4" = "A", "\u00CB" = "E", "\u00CF" = "I", "\u00D6" = "O", "\u00DC" = "U"  # Uppercase Ä, Ë, Ï, Ö, Ü
+		"\u00C4" = "A", "\u00CB" = "E", "\u00CF" = "I", "\u00D6" = "O", "\u00DC" = "U", # Uppercase Ä, Ë, Ï, Ö, Ü
+		"\u0101" = "a", "\u012B" = "i", "\u0113" = "e", "\u014D" = "o", "\u016B" = "u", # Lowercase ā, ī, ē, ō, ū
+		"\u0100" = "A", "\u012A" = "I", "\u0112" = "E", "\u014C" = "O", "\u016A" = "U", # Uppercase Ā, Ī, Ē, Ō, Ū
+		"\u00E2" = "a", "\u00EE" = "i", "\u00F4" = "o", "\u00FB" = "u", # Lowercase â, î, ô, û
+		"\u00C2" = "A", "\u00CE" = "I", "\u00D4" = "O", "\u00DB" = "U",  # Uppercase Â, Î, Ô, Û
+		"\u00EA" = "e", "\u00CA" = "E"  # Lowercase ê, Uppercase Ê
 	)
 
 	# Use str_replace_all to replace all instances of the accented characters
 	str_replace_all(str, replacements)
 }
+
+
 
 
 # Make partial name matches

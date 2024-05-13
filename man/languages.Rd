@@ -41,7 +41,7 @@ A data frame with 37 variables:
 \item{\code{Russian_Romanization}}{\code{character} The Russian Romanization name of the Pokémon.}
 \item{\code{Thai}}{\code{character} The Thai name of the Pokémon.}
 \item{\code{Thai_RTGS}}{\code{character} The Thai RTGS name of the Pokémon.}
-\item{\code{Hindi_Devanāgarī}}{\code{character} The Hindi Devanāgarī name of the Pokémon.}
+\item{\code{Hindi_Devanagari}}{\code{character} The Hindi Devanāgarī name of the Pokémon.}
 \item{\code{Hindi_Transliteration}}{\code{character} The Hindi Transliteration name of the Pokémon.}
 \item{\code{Hindi_Romanization}}{\code{character} The Hindi Romanization name of the Pokémon.}
 }

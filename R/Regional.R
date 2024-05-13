@@ -92,18 +92,16 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 				~ as.integer(str_remove_all(., "[^\\d]"))
 			)
 		)|>
-		rename_with(.fn = ~ str_replace_all(., "\\s+", "_"), .cols = matches("^[A-Z]"))|>
-		rename_with(.fn = ~ str_remove_all(., "'"), .cols = matches("^[A-Z]"))
-
-	# Thses 4 are issues, they have split dexes
-	# https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Kalos_Pok%C3%A9dex_number
-	# CeKdex ndex Pokémon    CoKdex MoKdex game  dex
-	# https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Alola_Pok%C3%A9dex_number_(Sun_and_Moon)
-	# Adex  Melemele Akala `Ula'ula` Poni  Ndex  Pokémon    game         dex
-	# Adex  Melemele Akala `Ula'ula` Poni  Ndex  Pokémon    game                     dex
-	# https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Hisui_Pok%C3%A9dex_number
-	# LAdex ObsidianFieldlands CrimsonMirelands CobaltCoastlands CoronetHighlands AlabasterIcelands Ndex  Pokémon    game  dex > Drop odd dexes
-
+		# Remove speaces
+		# Fix the redundant names
+		rename_with(
+			.fn = function(.){
+				removeA(.)|>
+					str_replace_all("\\s+", "_")|>
+					str_remove_all("'")
+			},
+			.cols = matches("^[A-Z]")
+		)
 
 	if(write)save_data("regionalDex", root, file)
 	regionalDex
