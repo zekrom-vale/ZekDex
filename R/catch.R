@@ -53,14 +53,14 @@ gen_catch = function(write = FALSE, root = "data/", file = "PokemonCatch"){
 				select_if(~!is.logical(.))|>
 				# Rename the specified columns if they exist
 				rename(
-					any_of(c(catchRate = "Catch rate", Ndex = "#"))
+					any_of(c(catchRate = "Catch rate", ndex = "#"))
 				)|>
 				# Rename the columns that match the specified patterns to "name"
 				rename_with(~ "name", .cols = matches("^(Name|Pokémon)$"))|>
-				# Mutate the 'Ndex' column by attempting to extract integer values from it,
-				# and if that fails (returns NA), use the original 'Ndex' values
+				# Mutate the 'ndex' column by attempting to extract integer values from it,
+				# and if that fails (returns NA), use the original 'ndex' values
 				mutate(
-					Ndex = dplyr::coalesce(as.integer(str_extract(Ndex, "\\d+")), suppressWarnings(as.integer(Ndex)))
+					ndex = dplyr::coalesce(as.integer(str_extract(ndex, "\\d+")), suppressWarnings(as.integer(ndex)))
 				)
 		})|>
 		# Bind all the tibbles in the list together into a single tibble
@@ -69,8 +69,10 @@ gen_catch = function(write = FALSE, root = "data/", file = "PokemonCatch"){
 		separate(catchRate, into = c("catchRate", "note"), sep = ":!:", fill="right")|>
 		mutate(
 			catchRate = as.integer(catchRate),
-			Hdex = as.integer(str_extract(Ndex, "\\d+"))
-		)
+			Hdex = as.integer(str_extract(Hdex, "\\d+"))
+		)|>
+		rename(hdex = Hdex)
+
 	if(write)save_data("catchRate", root, file)
 	catchRate
 }

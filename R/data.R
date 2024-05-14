@@ -537,11 +537,11 @@
 #' outside of battle.
 #' @format A data frame with 5 variables:
 #' \describe{
-#'	\item{`Ndex`}{`integer` The National Pokédex number of the Pokémon. This is the unique identifier for each Pokémon in the National Pokédex.}
+#'	\item{`ndex`}{`integer` The National Pokédex number of the Pokémon. This is the unique identifier for each Pokémon in the National Pokédex.}
 #'	\item{`name`}{`character` The name of the Pokémon. This is the common name used to identify a particular Pokémon.}
 #'	\item{`catchRate`}{`integer` The catch rate of the Pokémon. This is a value that represents the probability of capturing the Pokémon. Higher values indicate a higher probability of capture.}
 #'	\item{`note`}{`character` Additional notes about the catch rate of the Pokémon. This may include information about specific conditions or factors that can influence the catch rate.}
-#'	\item{`Hdex`}{`integer` The Pokémon Legends: Arceus Pokédex number. This is the unique identifier for each Pokémon in the Pokémon Legends: Arceus Pokédex.}
+#'	\item{`hdex`}{`integer` The Pokémon Legends: Arceus Pokédex number. This is the unique identifier for each Pokémon in the Pokémon Legends: Arceus Pokédex.}
 #' }
 #' @source [Bulbapedia Catch Rate](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_catch_rate)
 #'
