@@ -3,6 +3,13 @@ rstudioapi::restartSession(clean = TRUE)
 # Install package
 devtools::clean_dll()
 rm(list = ls(all.names = TRUE))
+
+# Generate docs
+source("packing/gen_roxogen.R")
+source("packing/gen_readme.R")
+source("packing/gen_md.R")
+source("packing/sidebar.R")
+
 devtools::document()
 devtools::install() # Or clean and install in Build
 # (Required if some data chaged, will cause data coruption issues on the compiled package)
