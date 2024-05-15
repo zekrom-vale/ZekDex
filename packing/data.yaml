@@ -53,7 +53,7 @@ statsWide:
     name: Pokemon Stats (Wide Format)
     description: |
         This dataset is a wide format version of the `stats` dataset. It contains the base stats of Pokémon, including various forms and sizes of Pokémon, across different generations. Base stats are an important defining characteristic of each Pokémon species. They determine the potential of each Pokémon in terms of their HP (Hit Points), Attack, Defense, Speed, and Special abilities. These stats can be influenced by other factors such as level, nature, and effort values.
-    format: A data frame with 57 variables
+    format: A data frame with 49 variables
     describe:
         - [ndex, integer, "National Pokédex number. This is the unique identifier for each Pokémon in the National Pokédex."]
         - [name, character, "Pokémon name. This is the common name used to identify a particular Pokémon."]
@@ -85,11 +85,6 @@ statsWide:
         - [Speed_IX, integer, "Speed for Generation IX. This determines the order of Pokémon that can act in battle."]
         - [Speed_II-V, integer, "Speed for Generations II to V. This determines the order of Pokémon that can act in battle."]
         - [Special_I, integer, "Special attack or special defense strength for Generation I. This determines how much damage a Pokémon can deal with special moves or resist from special moves. Note that this stat is combined into one in Generation I."]
-        - [Special_VI, integer, "Special attack or special defense strength for Generation VI. This determines how much damage a Pokémon can deal with special moves or resist from special moves."]
-        - [Special_VII, integer, "Special attack or special defense strength for Generation VII. This determines how much damage a Pokémon can deal with special moves or resist from special moves."]
-        - [Special_VIII, integer, "Special attack or special defense strength for Generation VIII. This determines how much damage a Pokémon can deal with special moves or resist from special moves."]
-        - [Special_IX, integer, "Special attack or special defense strength for Generation IX. This determines how much damage a Pokémon can deal with special moves or resist from special moves."]
-        - [Special_II-V, integer, "Special attack or special defense strength for Generations II to V. This determines how much damage a Pokémon can deal with special moves or resist from special moves."]
         - [Total_I, integer, "Total of all stats for Generation I. This is the sum of all the base stats of a Pokémon."]
         - [Total_VI, integer, "Total of all stats for Generation VI. This is the sum of all the base stats of a Pokémon."]
         - [Total_VII, integer, "Total of all stats for Generation VII. This is the sum of all the base stats of a Pokémon."]
@@ -102,13 +97,11 @@ statsWide:
         - [Average_VIII, numeric, "Average of all stats for Generation VIII. This is the average value of all the base stats of a Pokémon."]
         - [Average_IX, numeric, "Average of all stats for Generation IX. This is the average value of all the base stats of a Pokémon."]
         - [Average_II-V, numeric, "Average of all stats for Generations II to V. This is the average value of all the base stats of a Pokémon."]
-        - [SpAttack_I, integer, "Special Attack strength for Generation I. This determines how much damage a Pokémon can deal with special moves. This stat is not applicable for Generation I as 'Special' stat is used instead."]
         - [SpAttack_VI, integer, "Special Attack strength for Generation VI. This determines how much damage a Pokémon can deal with special moves."]
         - [SpAttack_VII, integer, "Special Attack strength for Generation VII. This determines how much damage a Pokémon can deal with special moves."]
         - [SpAttack_VIII, integer, "Special Attack strength for Generation VIII. This determines how much damage a Pokémon can deal with special moves."]
         - [SpAttack_IX, integer, "Special Attack strength for Generation IX. This determines how much damage a Pokémon can deal with special moves."]
         - [SpAttack_II-V, integer, "Special Attack strength for Generations II to V. This determines how much damage a Pokémon can deal with special moves."]
-        - [SpDefense_I, integer, "Special Defense strength for Generation I. This determines how much damage a Pokémon can resist from special moves. This stat is not applicable for Generation I as 'Special' stat is used instead."]
         - [SpDefense_VI, integer, "Special Defense strength for Generation VI. This determines how much damage a Pokémon can resist from special moves."]
         - [SpDefense_VII, integer, "Special Defense strength for Generation VII. This determines how much damage a Pokémon can resist from special moves."]
         - [SpDefense_VIII, integer, "Special Defense strength for Generation VIII. This determines how much damage a Pokémon can resist from special moves."]

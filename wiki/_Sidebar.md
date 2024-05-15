@@ -13,6 +13,7 @@ data
 - [physicalAttr](https://github.com/zekrom-vale/ZekDex/wiki/physicalAttr)
 - [regionalDex](https://github.com/zekrom-vale/ZekDex/wiki/regionalDex)
 - [stats](https://github.com/zekrom-vale/ZekDex/wiki/stats)
+- [statsWide](https://github.com/zekrom-vale/ZekDex/wiki/statsWide)
 - [typeChart](https://github.com/zekrom-vale/ZekDex/wiki/typeChart)
 - [typeChartWide](https://github.com/zekrom-vale/ZekDex/wiki/typeChartWide)
 - [types](https://github.com/zekrom-vale/ZekDex/wiki/types)
