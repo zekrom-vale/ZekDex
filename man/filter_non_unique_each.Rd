@@ -9,10 +9,12 @@ filter_non_unique_each(df, ...)
 \arguments{
 \item{df}{A dataframe to operate on}
 
-\item{...}{Columns to check for non-unique values. If no columns are specified, all columns are checked.}
+\item{...}{Columns to check for non-unique values. If no columns are
+specified, all columns are checked.}
 }
 \value{
-A dataframe with rows containing non-unique values in each of the specified columns
+A dataframe with rows containing non-unique values in each of the
+specified columns
 }
 \description{
 Filters rows of a dataframe based on non-unique values in each specified column

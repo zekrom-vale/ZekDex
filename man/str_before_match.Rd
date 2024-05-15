@@ -18,5 +18,5 @@ The string before the match.
 This function returns the string before a match. It uses the \code{str_longest_match} function to find the match and then returns the string before it.
 }
 \examples{
-str_before_match("Zekrom", "Zek")
+ZekDex:::str_before_match("Zekrom", "Zek")
 }

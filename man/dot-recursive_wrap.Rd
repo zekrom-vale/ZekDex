@@ -17,8 +17,9 @@
 A string that is recursively wrapped with the specified opening and closing characters.
 }
 \description{
-This function recursively wraps a string with specified opening and closing characters. It returns a string that is recursively wrapped with the specified opening and closing characters.
+This function recursively wraps a string with specified opening and closing characters.
+It returns a string that is recursively wrapped with the specified opening and closing characters.
 }
 \examples{
-.recursive_wrap("Zekrom")
+ZekDex:::.recursive_wrap("Zekrom")
 }

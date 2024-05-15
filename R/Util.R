@@ -1,17 +1,21 @@
+# Provides utility functions for the rest of the code
+# These functions are not exported by ZekDex, but if needed
+# they can be accessed by `:::` the one exported is `filter_non_unique()` and `regionalForm()`
+
 #' Recursively wraps a string with specified opening and closing characters
 #'
-#' This function recursively wraps a string with specified opening and closing characters. It returns a string that is recursively wrapped with the specified opening and closing characters.
+#' This function recursively wraps a string with specified opening and closing characters.
+#' It returns a string that is recursively wrapped with the specified opening and closing characters.
 #'
 #' @param str The string to be wrapped.
 #' @param .open The opening character(s) for wrapping, default is "(".
 #' @param .close The closing character(s) for wrapping, default is ")?".
 #' @return A string that is recursively wrapped with the specified opening and closing characters.
-#' @export
 #'
 #' @importFrom stringr str_length str_sub
 #' @importFrom glue glue
 #' @examples
-#' .recursive_wrap("Zekrom")
+#' ZekDex:::.recursive_wrap("Zekrom")
 .recursive_wrap = function(str, .open="(", .close=")?"){
 	if(str_length(str) == 1)return(str)
 	return(glue::glue(
@@ -27,7 +31,6 @@
 #' @param str A vector of strings to be wrapped
 #'
 #' @return A vector of strings that are recursively wrapped with the specified opening and closing characters
-#' @export
 recursive_wrap = Vectorize(.recursive_wrap, vectorize.args = "str")
 
 #' Returns the shortest string before a match
@@ -37,12 +40,11 @@ recursive_wrap = Vectorize(.recursive_wrap, vectorize.args = "str")
 #' @param str The string to resize.
 #' @param test The string to test.
 #' @return The shortest string not matching test.
-#' @export
 #'
 #' @importFrom stringr str_extract_all
 #' @importFrom magrittr "%>%"
 #' @examples
-#' str_longest_match("Zekrom", "Zek")
+#' ZekDex:::str_longest_match("Zekrom", "Zek")
 str_longest_match = Vectorize(function(str, test, ..., .open="(", .close=")?"){
 	# args = list(...); if(!is.null(args$literal) && args$literal == TRUE)stop("Cannot match anything when literal is true")
 	matches = str_extract_all(test, regex(.recursive_wrap(str), ...))|>
@@ -58,12 +60,11 @@ str_longest_match = Vectorize(function(str, test, ..., .open="(", .close=")?"){
 #' @param str The string to resize.
 #' @param test The string to test.
 #' @return The string before the match.
-#' @export
 #'
 #' @importFrom stringr str_sub
 #' @importFrom dplyr if_else
 #' @examples
-#' str_before_match("Zekrom", "Zek")
+#' ZekDex:::str_before_match("Zekrom", "Zek")
 str_before_match = function(str, test, ..., .open="(", .close=")?"){
 	match = str_longest_match(str, test, ..., .open="(", .close=")?")
 	match = if_else(match == str, NA_character_, match)
@@ -73,29 +74,54 @@ str_before_match = function(str, test, ..., .open="(", .close=")?"){
 
 #' Replaces all accented characters in a string with their unaccented counterparts
 #'
-#' @param str The string in which to replace accented characters
+#' This function takes a string as input and replaces all accented characters with their unaccented counterparts.
+#' It supports a wide range of accented characters, including those with acute, grave, diaeresis, macron, and circumflex accents.
 #'
-#' @return A string with all accented characters replaced by their unaccented counterparts
+#' @param str The string in which to replace accented characters.
+#'
+#' @return A string with all accented characters replaced by their unaccented counterparts.
+#'
 #' @importFrom stringr str_replace_all
-#' @export
+#'
+#' @examples
+#' # Note: This function is not exported, so we use ::: to access it
+#' ZekDex:::.removeA("Pokémon") # Returns "Pokemon"
+#' ZekDex:::.removeA("résumé") # Returns "resume"
+#' ZekDex:::.removeA("naïve") # Returns "naive"
+#' ZekDex:::.removeA("élève") # Returns "eleve"
+#' ZekDex:::.removeA("hôtel") # Returns "hotel"
+#' ZekDex:::.removeA("Mëtàl") # Returns "Metal"
+#' ZekDex:::.removeA("Pókémòn") # Returns "Pokemon"
 removeA = function(str){
+	# Define the replacements for each accented character
 	replacements = c(
-		"\u00E1" = "a", "\u00E9" = "e", "\u00ED" = "i", "\u00F3" = "o", "\u00FA" = "u", # Lowercase á, é, í, ó, ú
-		"\u00C1" = "A", "\u00C9" = "E", "\u00CD" = "I", "\u00D3" = "O", "\u00DA" = "U", # Uppercase Á, É, Í, Ó, Ú
-		"\u00E0" = "a", "\u00E8" = "e", "\u00EC" = "i", "\u00F2" = "o", "\u00F9" = "u", # Lowercase à, è, ì, ò, ù
-		"\u00C0" = "A", "\u00C8" = "E", "\u00CC" = "I", "\u00D2" = "O", "\u00D9" = "U", # Uppercase À, È, Ì, Ò, Ù
-		"\u00E4" = "a", "\u00EB" = "e", "\u00EF" = "i", "\u00F6" = "o", "\u00FC" = "u", # Lowercase ä, ë, ï, ö, ü
-		"\u00C4" = "A", "\u00CB" = "E", "\u00CF" = "I", "\u00D6" = "O", "\u00DC" = "U", # Uppercase Ä, Ë, Ï, Ö, Ü
-		"\u0101" = "a", "\u012B" = "i", "\u0113" = "e", "\u014D" = "o", "\u016B" = "u", # Lowercase ā, ī, ē, ō, ū
-		"\u0100" = "A", "\u012A" = "I", "\u0112" = "E", "\u014C" = "O", "\u016A" = "U", # Uppercase Ā, Ī, Ē, Ō, Ū
-		"\u00E2" = "a", "\u00EE" = "i", "\u00F4" = "o", "\u00FB" = "u", # Lowercase â, î, ô, û
-		"\u00C2" = "A", "\u00CE" = "I", "\u00D4" = "O", "\u00DB" = "U",  # Uppercase Â, Î, Ô, Û
-		"\u00EA" = "e", "\u00CA" = "E"  # Lowercase ê, Uppercase Ê
+		# Lowercase aeiou with acute accent
+		"\u00E1" = "a", "\u00E9" = "e", "\u00ED" = "i", "\u00F3" = "o", "\u00FA" = "u",
+		# Lowercase aeiou with grave accent
+		"\u00E0" = "a", "\u00E8" = "e", "\u00EC" = "i", "\u00F2" = "o", "\u00F9" = "u",
+		# Lowercase aeiou with diaeresis
+		"\u00E4" = "a", "\u00EB" = "e", "\u00EF" = "i", "\u00F6" = "o", "\u00FC" = "u",
+		# Lowercase aeiou with macron
+		"\u0101" = "a", "\u0113" = "e", "\u012B" = "i", "\u014D" = "o", "\u016B" = "u",
+		# Lowercase aeiou with circumflex
+		"\u00E2" = "a", "\u00EA" = "e", "\u00EE" = "i", "\u00F4" = "o", "\u00FB" = "u",
+		# Uppercase AEIOU with acute accent
+		"\u00C1" = "A", "\u00C9" = "E", "\u00CD" = "I", "\u00D3" = "O", "\u00DA" = "U",
+		# Uppercase AEIOU with grave accent
+		"\u00C0" = "A", "\u00C8" = "E", "\u00CC" = "I", "\u00D2" = "O", "\u00D9" = "U",
+		# Uppercase AEIOU with diaeresis
+		"\u00C4" = "A", "\u00CB" = "E", "\u00CF" = "I", "\u00D6" = "O", "\u00DC" = "U",
+		# Uppercase AEIOU with macron
+		"\u0100" = "A", "\u0112" = "E", "\u012A" = "I", "\u014C" = "O", "\u016A" = "U",
+		# Uppercase AEIOU with circumflex
+		"\u00C2" = "A", "\u00CA" = "E", "\u00CE" = "I", "\u00D4" = "O", "\u00DB" = "U"
 	)
 
 	# Use str_replace_all to replace all instances of the accented characters
 	str_replace_all(str, replacements)
 }
+
+
 
 
 
@@ -118,7 +144,6 @@ str_half = Vectorize(.str_half, vectorize.args = "str")
 #' @param name The value(s) to test
 #' @param match What to check for a vector RegEx
 #' @param val The value to return
-#' @export
 fun = function(names_vector, match, val){
 	# The Vectorize function then allows this operation to be applied to each element of the “name” argument.
 	lapply(names_vector, function(name){
@@ -139,17 +164,22 @@ vLength = function(x){
 
 #' Paste Non-Unique Elements
 #'
-#' This function pastes together elements from two vectors (`vec1` and `vec2`) if the corresponding element in `vec2` is not unique. If the element in `vec2` is unique, it returns the corresponding element from `vec1`.
+#' This function pastes together elements from two vectors (`vec1` and `vec2`)
+#' if the corresponding element in `vec2` is not unique. If the element in `vec2`
+#' is unique, it returns the corresponding element from `vec1`.
 #'
-#' @param vec1 A vector of elements to be pasted with `vec2` if the corresponding element in `vec2` is not unique.
+#' @param vec1 A vector of elements to be pasted with `vec2` if the
+#' corresponding element in `vec2` is not unique.
 #' @param vec2 A vector of elements to be checked for uniqueness.
 #' @param sep A character string to separate the terms. Default is "".
-#' @return A vector where each element is either an element from `vec1` (if the corresponding element in `vec2` is unique) or a string resulting from pasting together the corresponding elements from `vec1` and `vec2` (if the element in `vec2` is not unique).
-#' @export
+#' @return A vector where each element is either an element from `vec1`
+#' (if the corresponding element in `vec2` is unique) or a string resulting from
+#' pasting together the corresponding elements from `vec1` and `vec2`
+#' (if the element in `vec2` is not unique).
 #' @examples
 #' vec1 <- c("apple", "banana", "cherry")
 #' vec2 <- c("fruit", "fruit", "fruit")
-#' paste_non_unique(vec1, vec2, sep = " ")
+#' ZekDex:::paste_non_unique(vec1, vec2, sep = " ")
 paste_non_unique  = function(vec1, vec2, sep = ""){
 	# Identify non-unique elements in vec2
 	non_unique = duplicated(vec2) | duplicated(vec2, fromLast = TRUE)
@@ -173,7 +203,6 @@ paste_non_unique  = function(vec1, vec2, sep = ""){
 #' @return A dataframe with renamed columns
 #' @importFrom dplyr rename slice
 #' @importFrom stringr str_detect
-#' @export
 #' @examples
 #' # Deal with the odd header
 #' # A tibble: 152 × 6
@@ -242,7 +271,6 @@ paste_non_unique  = function(vec1, vec2, sep = ""){
 #' @return A dataframe with renamed columns
 #' @importFrom dplyr rename slice
 #' @importFrom stringr str_detect
-#' @export
 #' @examples
 #' # Deal with the odd header
 #' # A tibble: 152 × 6
@@ -256,12 +284,13 @@ name_from_row = Vectorize(.name_from_row, vectorize.args = "df", SIMPLIFY = FALS
 
 #' Drops all rows with NA values in specified columns
 #'
-#' This function drops all rows with NA values in specified columns from a dataframe. If no columns are specified, all columns are checked.
+#' This function drops all rows with NA values in specified columns from a
+#' dataframe. If no columns are specified, all columns are checked.
 #'
 #' @param df A dataframe to operate on.
-#' @param ... Columns to check for NA values. If no columns are specified, all columns are checked.
+#' @param ... Columns to check for NA values. If no columns are specified,
+#' all columns are checked.
 #' @return A dataframe with rows containing NA values in the specified columns removed.
-#' @export
 #'
 #' @importFrom rlang enquos
 #' @importFrom dplyr filter across everything
@@ -269,7 +298,7 @@ name_from_row = Vectorize(.name_from_row, vectorize.args = "df", SIMPLIFY = FALS
 #' @importFrom tibble tribble
 #' @examples
 #' library(tibble)
-#' drop_all_na(tribble(
+#' ZekDex:::drop_all_na(tribble(
 #'   ~a, ~b,
 #'   1, 3,
 #'   2, NA,
@@ -296,7 +325,6 @@ drop_all_na = function(df, ...) {
 #'
 #' @return A dataframe with columns containing NA values removed
 #' @importFrom dplyr select_if
-#' @export
 drop_na_columns = function(df) {
 	df|>
 		select_if(~!all(is.na(.)))
@@ -304,11 +332,14 @@ drop_na_columns = function(df) {
 
 #' Filters rows of a dataframe based on non-unique values in specified columns
 #'
-#' This function filters rows of a dataframe based on non-unique values in specified columns. If no columns are specified, all columns are checked.
+#' This function filters rows of a dataframe based on non-unique values in
+#' specified columns. If no columns are specified, all columns are checked.
 #'
 #' @param df A dataframe to operate on.
-#' @param ... Columns to check for non-unique values. If no columns are specified, all columns are checked.
-#' @return A dataframe with rows containing non-unique values in the specified columns removed.
+#' @param ... Columns to check for non-unique values. If no columns are
+#' specified, all columns are checked.
+#' @return A dataframe with rows containing non-unique values in the specified
+#' columns removed.
 #' @export
 #'
 #' @importFrom rlang enquos
@@ -338,38 +369,42 @@ filter_non_unique = function(df, ...){
 #' @param x A vector to check for non-unique values
 #'
 #' @return A logical vector indicating which values are non-unique
-#' @export
 non_unique = function(x) duplicated(x) | duplicated(x, fromLast = TRUE)
 
 #' Filters rows of a dataframe based on non-unique values in each specified column
 #'
 #' @param df A dataframe to operate on
-#' @param ... Columns to check for non-unique values. If no columns are specified, all columns are checked.
+#' @param ... Columns to check for non-unique values. If no columns are
+#' specified, all columns are checked.
 #'
-#' @return A dataframe with rows containing non-unique values in each of the specified columns
+#' @return A dataframe with rows containing non-unique values in each of the
+#' specified columns
 #' @importFrom rlang enquos
 #' @importFrom dplyr filter across
-#' @export
 filter_non_unique_each = function(df, ...) {
 	cols = enquos(...)
 	df|>
-		filter(rowSums(across(if (length(cols) == 0) everything() else !!!cols, non_unique)) > 0)
+		filter(rowSums(
+			across(if (length(cols) == 0) everything()
+			else !!!cols, non_unique)
+		) > 0)
 }
 
 #' Splits a list at elements that satisfy a condition
 #'
-#' This function splits a list at elements that satisfy a condition. It returns a list of lists, split at elements where the condition is TRUE.
+#' This function splits a list at elements that satisfy a condition.
+#' It returns a list of lists, split at elements where the condition is TRUE.
 #'
 #' @param lst A list to split.
-#' @param condition A condition function that returns TRUE for elements where the list should be split.
+#' @param condition A condition function that returns TRUE for elements where
+#' the list should be split.
 #' @return A list of lists, split at elements where the condition is TRUE.
-#' @export
 #'
 #' @importFrom purrr map_lgl map2
 #' @importFrom magrittr "%>%"
 #' @examples
 #' \dontrun{
-#' split_at(list(1, 2, 3, 4, 5), function(x) x %% 2 == 0)
+#' ZekDex:::split_at(list(1, 2, 3, 4, 5), function(x) x %% 2 == 0)
 #' }
 split_at = function(lst, condition) {
 	# Return as is if it's length 1
@@ -394,18 +429,18 @@ split_at = function(lst, condition) {
 
 #' Splits a list at each specified tag
 #'
-#' This function splits a list at each specified tag. It returns a list of lists, split at each specified tag.
+#' This function splits a list at each specified tag. It returns a list of
+#' lists, split at each specified tag.
 #'
 #' @param lst A list to split.
 #' @param tags A vector of tags at which to split the list.
 #' @return A list of lists, split at each specified tag.
-#' @export
 #'
 #' @importFrom purrr map
 #' @importFrom magrittr "%>%"
 #' @examples
 #' \dontrun{
-#' split_each(list("h1", "h2", "h3", "h4"), c("h2", "h3", "h4"))
+#' ZekDex:::split_each(list("h1", "h2", "h3", "h4"), c("h2", "h3", "h4"))
 #' }
 split_each = function(lst, tags = c("h2", "h3", "h4")) {
 	# If it has external pointers as a type just return it as it is
@@ -427,7 +462,6 @@ split_each = function(lst, tags = c("h2", "h3", "h4")) {
 #' @param fun A function to operate on the end of the lst
 #'
 #' @return The modified lst
-#' @export
 #'
 #' @importFrom purrr map
 recursive_xml_map = function(lst, fun){
@@ -452,10 +486,10 @@ recursive_xml_map = function(lst, fun){
 #'		level: How deep recursion is currently
 #'		return: A modified list chunk used in the next recursions and returned by recursive_xml_map2
 #' ```
-#' @param level How deep recursion is currently, starts at 1 by default.  Increments every recursion
+#' @param level How deep recursion is currently, starts at 1 by default.
+#' Increments every recursion
 #'
 #' @return The modified lst
-#' @export
 #'
 #' @importFrom purrr map
 recursive_xml_map2 = function(lst, fn, level = 1){
@@ -482,7 +516,6 @@ recursive_xml_map2 = function(lst, fn, level = 1){
 #' @importFrom readr write_csv
 #' @importFrom readr write_rds
 #' @importFrom glue glue
-#' @export
 save_data = function(
 		sym,
 		root = stop("'root' must be specified"),
@@ -506,7 +539,6 @@ save_data = function(
 #'
 #' @importFrom readr read_csv
 #' @importFrom glue glue
-#' @export
 read_data = function(data, root, ns = asNamespace("ZekDex"), one = TRUE, g=NULL){
 	if(pkgload::is_loading()) return()
 	if(!is.null(root)){
@@ -532,16 +564,20 @@ read_data = function(data, root, ns = asNamespace("ZekDex"), one = TRUE, g=NULL)
 #'
 #' This function provides a list or a regex pattern of Pokémon regional forms.
 #'
-#' @param re A logical value. If TRUE, the function returns a regex pattern. If FALSE, it returns a list. Default is FALSE.
-#' @param ext A logical value. If TRUE, the function includes extended regional forms in the output. Default is FALSE.
+#' @param re A logical value. If TRUE, the function returns a regex pattern.
+#' If FALSE, it returns a list. Default is FALSE.
+#' @param ext A logical value. If TRUE, the function includes extended regional
+#' forms in the output. Default is FALSE.
 #'
-#' @return If re is TRUE, a character string representing a regex pattern of Pokémon regional forms. If re is FALSE, a character vector of Pokémon regional forms.
+#' @return If re is TRUE, a character string representing a regex pattern of
+#' Pokémon regional forms. If re is FALSE, a character vector of Pokémon
+#' regional forms.
 #'
+#' @export
 #' @examples
 #' regionalForm(re = TRUE, ext = TRUE)
 #' regionalForm(re = FALSE, ext = FALSE)
 #'
-#' @export
 regionalForm = function(re = FALSE, ext = FALSE){
 	L = c("Alolan","Galarian","Hisuian","Paldean")
 	if(ext) L = c(L, "Kantonian","Hoennian","Unovan","Kalosian")

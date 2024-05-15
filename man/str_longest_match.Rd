@@ -18,5 +18,5 @@ The shortest string not matching test.
 This function returns the shortest string not matching a test string. It uses a recursive wrap function to match the strings.
 }
 \examples{
-str_longest_match("Zekrom", "Zek")
+ZekDex:::str_longest_match("Zekrom", "Zek")
 }

@@ -9,16 +9,18 @@ split_at(lst, condition)
 \arguments{
 \item{lst}{A list to split.}
 
-\item{condition}{A condition function that returns TRUE for elements where the list should be split.}
+\item{condition}{A condition function that returns TRUE for elements where
+the list should be split.}
 }
 \value{
 A list of lists, split at elements where the condition is TRUE.
 }
 \description{
-This function splits a list at elements that satisfy a condition. It returns a list of lists, split at elements where the condition is TRUE.
+This function splits a list at elements that satisfy a condition.
+It returns a list of lists, split at elements where the condition is TRUE.
 }
 \examples{
 \dontrun{
-split_at(list(1, 2, 3, 4, 5), function(x) x \%\% 2 == 0)
+ZekDex:::split_at(list(1, 2, 3, 4, 5), function(x) x \%\% 2 == 0)
 }
 }

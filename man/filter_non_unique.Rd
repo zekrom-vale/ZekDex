@@ -9,13 +9,16 @@ filter_non_unique(df, ...)
 \arguments{
 \item{df}{A dataframe to operate on.}
 
-\item{...}{Columns to check for non-unique values. If no columns are specified, all columns are checked.}
+\item{...}{Columns to check for non-unique values. If no columns are
+specified, all columns are checked.}
 }
 \value{
-A dataframe with rows containing non-unique values in the specified columns removed.
+A dataframe with rows containing non-unique values in the specified
+columns removed.
 }
 \description{
-This function filters rows of a dataframe based on non-unique values in specified columns. If no columns are specified, all columns are checked.
+This function filters rows of a dataframe based on non-unique values in
+specified columns. If no columns are specified, all columns are checked.
 }
 \examples{
 library(tibble)
