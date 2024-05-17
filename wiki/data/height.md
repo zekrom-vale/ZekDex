@@ -16,8 +16,8 @@ identifying trends and patterns, or informing game strategies.
   - inch: (`numeric`) The height of the Pokémon in inches.
   - smallest: (`integer`) The ranking of the Pokémon from smallest to biggest.
   - bigest: (`integer`) The ranking of the Pokémon from biggest to smallest.
-  - regional: (`character`) The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.
-  - MegaOrPrimal: (`character`) Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.
+  - regional: (`factor`) The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.
+  - MegaOrPrimal: (`factor`) Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.
 
 ## Sourced from
   - [Bulbapedia Height](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_height)

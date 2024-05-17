@@ -10,15 +10,15 @@ A data frame with 37 variables:
 \item{\code{ndex}}{\code{integer} The National Pokédex number of the Pokémon. This is the unique identifier for each Pokémon in the National Pokédex.}
 \item{\code{name}}{\code{character} The English name of the Pokémon.}
 \item{\code{form}}{\code{character} The form of the Pokémon. This refers to the different physical forms that Pokémon can take. 'NA' if the Pokémon does not have a special form.}
-\item{\code{regional}}{\code{character} The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. 'NA' if the Pokémon does not have a regional form.}
-\item{\code{type}}{\code{character} The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.}
-\item{\code{type2}}{\code{character} The secondary type of the Pokémon. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses. 'NA' if the Pokémon does not have a secondary type.}
+\item{\code{regional}}{\code{factor} The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. 'NA' if the Pokémon does not have a regional form.}
+\item{\code{type}}{\code{factor} The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.}
+\item{\code{type2}}{\code{factor} The secondary type of the Pokémon. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses. 'NA' if the Pokémon does not have a secondary type.}
 \item{\code{generation}}{\code{integer} The generation of the Pokémon. This refers to the generation of games in which the Pokémon was first introduced.}
 \item{\code{isLegendary}}{\code{logical} A boolean indicating if the Pokémon is Legendary. Legendary Pokémon are a group of incredibly rare and often very powerful Pokémon.}
 \item{\code{isMythical}}{\code{logical} A boolean indicating if the Pokémon is Mythical. Mythical Pokémon are a related but separate group of Pokémon, which are usually event-exclusive.}
 \item{\code{isUltraBeast}}{\code{logical} A boolean indicating if the Pokémon is an Ultra Beast. Ultra Beasts is a term introduced in Generation VII to classify seven known Pokémon.}
-\item{\code{family}}{\code{character} The family of the Pokémon. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon.}
-\item{\code{size}}{\code{character} The size of the Pokémon. This refers to the height and weight of the Pokémon.}
+\item{\code{family}}{\code{factor} Legendary / Mythical family group of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
+\item{\code{size}}{\code{factor} Legendary / Mythical family size. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
 \item{\code{Japanese_Kana}}{\code{character} The Japanese Kana name of the Pokémon.}
 \item{\code{Japanese_Hepburn}}{\code{character} The Japanese Hepburn name of the Pokémon.}
 \item{\code{Japanese_Trademarked}}{\code{character} The Japanese Trademarked name of the Pokémon.}

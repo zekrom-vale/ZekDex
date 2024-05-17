@@ -9,11 +9,11 @@ A data frame with 9 variables:
 \describe{
 \item{\code{ndex}}{\code{integer} The National Pokédex number of the Pokémon.}
 \item{\code{name}}{\code{character} The name of the Pokémon.}
-\item{\code{typeBefore}}{\code{character} The primary type of the Pokémon before Mega Evolution or Primal Reversion.}
-\item{\code{type2Before}}{\code{character} The secondary type of the Pokémon before Mega Evolution or Primal Reversion, if applicable.}
+\item{\code{typeBefore}}{\code{factor} The primary type of the Pokémon before Mega Evolution or Primal Reversion.}
+\item{\code{type2Before}}{\code{factor} The secondary type of the Pokémon before Mega Evolution or Primal Reversion, if applicable.}
 \item{\code{abilityBefore}}{\code{character} The ability of the Pokémon before Mega Evolution or Primal Reversion.}
-\item{\code{typeAfter}}{\code{character} The primary type of the Pokémon after Mega Evolution or Primal Reversion.}
-\item{\code{type2After}}{\code{character} The secondary type of the Pokémon after Mega Evolution or Primal Reversion, if applicable.}
+\item{\code{typeAfter}}{\code{factor} The primary type of the Pokémon after Mega Evolution or Primal Reversion.}
+\item{\code{type2After}}{\code{factor} The secondary type of the Pokémon after Mega Evolution or Primal Reversion, if applicable.}
 \item{\code{abilityAfter}}{\code{character} The ability of the Pokémon after Mega Evolution or Primal Reversion.}
 \item{\code{stone}}{\code{character} The Mega Stone or Orb required for the Pokémon to undergo Mega Evolution or Primal Reversion.  Or a note in case of Rayquaza}
 }

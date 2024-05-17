@@ -75,7 +75,8 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational")
 	)|>
 		# Fix duplicate types and clean up the 'ndex', 'form', and 'form2' columns
 		mutate(
-			type2 = if_else(type == type2, NA_character_, type2, missing = type2),
+			type2 = factor_type(if_else(type == type2, NA_character_, type2, missing = type2)),
+			type = factor_type(type),
 			ndex = as.integer(str_remove_all(ndex, "[^\\d]")),
 			form2 = if_else(form2 == "", NA_character_, form2, NA_character_),
 			# Arceus technically not correct
@@ -98,7 +99,7 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational")
 			# Move Alolan Galarian Hisuian Paldean forms to form 2
 			temp = if_else(str_detect(form, regionalForm(re=TRUE)), form, NA_character_, NA_character_),
 			form = if_else(is.na(temp), form, form2),
-			form2 = if_else(is.na(temp), form2, temp),
+			form2 = factor(if_else(is.na(temp), form2, temp)),
 			temp = NULL
 		)|>
 		# Rename

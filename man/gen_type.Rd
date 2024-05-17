@@ -7,13 +7,15 @@
 gen_type(write = FALSE, root = "data/", file = "PokemonTypes")
 }
 \arguments{
-\item{write}{Logical, if \code{TRUE}, writes the tibble to a csv file. Default is \code{FALSE}.}
+\item{write}{Logical, if \code{TRUE}, writes the tibble to a CSV file. Default is \code{FALSE}.}
 
-\item{path}{The path where the csv file will be written if \code{write = TRUE}. Default is \code{system.file("data/PokemonTypes.csv", package = "ZekDex")}.}
+\item{root}{The root directory where the CSV file will be written if \code{write = TRUE}. Default is \code{"data/"}.}
+
+\item{file}{The name of the CSV file to be written if \code{write = TRUE}. Default is \code{"PokemonTypes"}.}
 }
 \value{
 A tibble with a single column named 'types' containing unique Pokémon types.
 }
 \description{
-This function generates a tibble of Pokémon types by reading the 'PokemonNational.csv' file and extracting the 'type' and 'type2' columns. It removes duplicate and NA values to create a unique list of Pokémon types. If \code{write = TRUE}, it also writes the tibble to a csv file.
+This function generates a tibble of Pokémon types by scraping the Bulbapedia website. It extracts the types from the HTML table on the page and creates a unique list of Pokémon types. It also adds two additional types, 'Stellar' and '???'. If \code{write = TRUE}, it writes the tibble to a CSV file.
 }

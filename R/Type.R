@@ -25,7 +25,8 @@ gen_type = function(write = FALSE, root = "data/", file = "PokemonTypes"){
 		rename(types = 1)|>
 		filter(types != "")|>
 		bind_rows(tibble(types=c("Stellar", "???")))|>
-		distinct()
+		distinct()|>
+		mutate(types = factor(types))
 
 	# If 'write' is TRUE, write the 'types' tibble to a CSV file named 'PokemonTypes.csv' in the 'data' directory
 	if(write)save_data("types", root, file)

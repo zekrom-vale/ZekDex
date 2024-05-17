@@ -7,8 +7,8 @@ This dataset is a wide format version of the `stats` dataset. It contains the ba
   - ndex: (`integer`) National Pokédex number. This is the unique identifier for each Pokémon in the National Pokédex.
   - name: (`character`) Pokémon name. This is the common name used to identify a particular Pokémon.
   - Mega: (`character`) The Mega form. These are special forms that certain Pokémon can take.
-  - MegaOrPrimal: (`character`) Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.
-  - regional: (`character`) The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.
+  - MegaOrPrimal: (`factor`) Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.
+  - regional: (`factor`) The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.
   - HP_I: (`integer`) Hit Points for Generation I. This determines how much damage a Pokémon can receive before fainting.
   - HP_VI: (`integer`) Hit Points for Generation VI. This determines how much damage a Pokémon can receive before fainting.
   - HP_VII: (`integer`) Hit Points for Generation VII. This determines how much damage a Pokémon can receive before fainting.

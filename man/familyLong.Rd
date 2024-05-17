@@ -11,13 +11,13 @@ A data frame with the following variables:
 \item{\code{transition}}{\code{character} The transition stage of the Pokemon. This refers to any intermediate stages that occur during the Pokémon's evolution.}
 \item{\code{first}}{\code{character} The first form of the Pokemon. This is the initial form of the Pokémon before any evolutions.}
 \item{\code{firstForm}}{\code{character} The first form of the Pokemon if it has multiple forms. This refers to the specific form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a special form at the initial stage.}
-\item{\code{firstRegional}}{\code{character} The first regional form of the Pokemon. This refers to the regional form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a regional form at the initial stage.}
+\item{\code{firstRegional}}{\code{factor} The first regional form of the Pokemon. This refers to the regional form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a regional form at the initial stage.}
 \item{\code{name}}{\code{character} The name of the Pokemon. This is the common name used to identify a particular Pokémon.}
 \item{\code{form}}{\code{character} The form of the Pokemon. This refers to the different physical forms that Pokémon can take. NA if the Pokemon does not have a special form.}
-\item{\code{regional}}{\code{character} The regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form.}
-\item{\code{stage}}{\code{character} The stage of the Pokemon. This refers to the stage in the Pokémon's evolution process, such as 'base', 'stage 1', 'stage 2', etc.}
-\item{\code{family.y}}{\code{character} The legendary family of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
-\item{\code{size}}{\code{character} The size of the legendary family. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
+\item{\code{regional}}{\code{factor} The regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form.}
+\item{\code{stage}}{\code{factor} The stage of the Pokemon. This refers to the stage in the Pokémon's evolution process, such as 'base', 'stage 1', 'stage 2', etc.}
+\item{\code{family.y}}{\code{factor} Legendary / Mythical family group of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
+\item{\code{size}}{\code{factor} Legendary / Mythical family size. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
 }
 }
 \source{

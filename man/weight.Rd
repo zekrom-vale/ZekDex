@@ -13,8 +13,8 @@ A data frame with 8 variables:
 \item{\code{kg}}{\code{numeric} The weight of the Pokémon in kilograms.}
 \item{\code{lightest}}{\code{integer} The rank of the Pokémon from lightest (1) to heaviest (1181).}
 \item{\code{heaveiest}}{\code{integer} The rank of the Pokémon from heaviest (1) to lightest (1181).}
-\item{\code{regional}}{\code{character} The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. 'NA' if the Pokémon does not have a regional form.}
-\item{\code{MegaOrPrimal}}{\code{character} Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
+\item{\code{regional}}{\code{factor} The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. 'NA' if the Pokémon does not have a regional form.}
+\item{\code{MegaOrPrimal}}{\code{factor} Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
 }
 }
 \source{

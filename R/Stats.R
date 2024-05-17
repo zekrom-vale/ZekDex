@@ -80,7 +80,8 @@ gen_stats = function(
 				c(form, MegaOrPrimal, Mega, regional),
 				# Trim any leading/trailing whitespace and replace empty strings with NA
 				.fns = ~if_else(str_trim(.) == "", NA_character_, str_trim(.), NA_character_)
-			)
+			),
+			across(c(MegaOrPrimal, Gen), factor)
 		)|>
 		# Rename the 'Sp. Attack' and 'Sp. Defense' columns to 'SpAttack' and 'SpDefense', respectively
 		rename(SpAttack = `Sp. Attack`, SpDefense = `Sp. Defense`)|>

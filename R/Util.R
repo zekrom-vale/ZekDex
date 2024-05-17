@@ -629,3 +629,23 @@ fill_missing_ndex = function(df, known_df, name_var, ndex_var) {
 	# Return the updated dataframe
 	return(df)
 }
+
+
+#' Convert Pokémon Types to Factor
+#'
+#' This function converts a vector of Pokémon types to a factor with levels defined by the unique Pokémon types.
+#'
+#' @param x A character vector of Pokémon types.
+#'
+#' @return A factor with levels defined by the unique Pokémon types.
+#'
+#' @examples
+#' # Assume 'types' is a dataframe with a column 'types' containing unique Pokémon types
+#' pokemon_types <- c("Fire", "Water", "Grass", "Electric")
+#' factor_types <- factor_type(pokemon_types)
+#'
+#' @export
+factor_type <- function(x) {
+	factor(x, levels = types$types)
+}
+

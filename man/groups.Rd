@@ -7,9 +7,9 @@
 \format{
 A data frame with 3 variables:
 \describe{
-\item{\code{family}}{\code{character} The family grouping of the Pokémon. This refers to the thematic or characteristic-based group that the Pokémon belongs to. Examples include 'Tao trio', 'Super-ancient Pokémon', 'Paradox duo', etc.}
+\item{\code{family}}{\code{factor} The family grouping of the Pokémon. This refers to the thematic or characteristic-based group that the Pokémon belongs to. Examples include 'Tao trio', 'Super-ancient Pokémon', 'Paradox duo', etc.}
 \item{\code{name}}{\code{character} The name of the individual Pokémon within the family grouping. This is the common name used to identify a particular Pokémon.}
-\item{\code{size}}{\code{character} The size category of the family grouping. This refers to the number of Pokémon in the family grouping. Categories include 'duos', 'trios', 'quartets', and 'quintets'.}
+\item{\code{size}}{\code{factor} The size category of the family grouping. This refers to the number of Pokémon in the family grouping. Categories include 'duos', 'trios', 'quartets', and 'quintets'.}
 }
 }
 \source{

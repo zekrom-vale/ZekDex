@@ -158,7 +158,8 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonFamily", fileL
 			# Remove  →
 			method = str_remove(method, " \u2192"),
 			# Transition is none if evo is NA
-			transition = if_else(is.na(evo), "None", transition)
+			transition = if_else(is.na(evo), "None", transition),
+			across(matches("[Rr]egional|transition"), factor)
 		)
 
 	# Note this will be sorter than national dex as it does not include swapale

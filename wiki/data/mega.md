@@ -19,11 +19,11 @@ Note that there exist Primal Dialga, hovever this appears to be different from P
 ## Columns
   - ndex: (`integer`) The National Pokédex number of the Pokémon.
   - name: (`character`) The name of the Pokémon.
-  - typeBefore: (`character`) The primary type of the Pokémon before Mega Evolution or Primal Reversion.
-  - type2Before: (`character`) The secondary type of the Pokémon before Mega Evolution or Primal Reversion, if applicable.
+  - typeBefore: (`factor`) The primary type of the Pokémon before Mega Evolution or Primal Reversion.
+  - type2Before: (`factor`) The secondary type of the Pokémon before Mega Evolution or Primal Reversion, if applicable.
   - abilityBefore: (`character`) The ability of the Pokémon before Mega Evolution or Primal Reversion.
-  - typeAfter: (`character`) The primary type of the Pokémon after Mega Evolution or Primal Reversion.
-  - type2After: (`character`) The secondary type of the Pokémon after Mega Evolution or Primal Reversion, if applicable.
+  - typeAfter: (`factor`) The primary type of the Pokémon after Mega Evolution or Primal Reversion.
+  - type2After: (`factor`) The secondary type of the Pokémon after Mega Evolution or Primal Reversion, if applicable.
   - abilityAfter: (`character`) The ability of the Pokémon after Mega Evolution or Primal Reversion.
   - stone: (`character`) The Mega Stone or Orb required for the Pokémon to undergo Mega Evolution or Primal Reversion.  Or a note in case of Rayquaza
 

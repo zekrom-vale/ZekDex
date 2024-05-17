@@ -65,7 +65,8 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 			rename(ndex=Ndex)|>
 			mutate(
 				# Remove duplicate types
-				type2 = if_else(type == type2, NA_character_, type2),
+				type2 = factor_type(if_else(type == type2, NA_character_, type2)),
+				type = factor_type(type),
 				# Fix ndex to int
 				ndex = as.integer(str_remove_all(ndex, "[^\\d]"))
 			)|>
@@ -90,7 +91,9 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 			across(
 				-names(national),
 				~ as.integer(str_remove_all(., "[^\\d]"))
-			)
+			),
+			across(c(regional, family, size), factor),
+			generation = as.integer(generation)
 		)|>
 		# Remove speaces
 		# Fix the redundant names

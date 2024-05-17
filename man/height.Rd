@@ -14,8 +14,8 @@ A data frame with 8 variables:
 \item{\code{inch}}{\code{numeric} The height of the Pokémon in inches.}
 \item{\code{smallest}}{\code{integer} The ranking of the Pokémon from smallest to biggest.}
 \item{\code{bigest}}{\code{integer} The ranking of the Pokémon from biggest to smallest.}
-\item{\code{regional}}{\code{character} The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
-\item{\code{MegaOrPrimal}}{\code{character} Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
+\item{\code{regional}}{\code{factor} The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
+\item{\code{MegaOrPrimal}}{\code{factor} Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
 }
 }
 \source{

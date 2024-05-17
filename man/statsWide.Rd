@@ -10,8 +10,8 @@ A data frame with 49 variables:
 \item{\code{ndex}}{\code{integer} National Pokédex number. This is the unique identifier for each Pokémon in the National Pokédex.}
 \item{\code{name}}{\code{character} Pokémon name. This is the common name used to identify a particular Pokémon.}
 \item{\code{Mega}}{\code{character} The Mega form. These are special forms that certain Pokémon can take.}
-\item{\code{MegaOrPrimal}}{\code{character} Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
-\item{\code{regional}}{\code{character} The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
+\item{\code{MegaOrPrimal}}{\code{factor} Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
+\item{\code{regional}}{\code{factor} The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
 \item{\code{HP_I}}{\code{integer} Hit Points for Generation I. This determines how much damage a Pokémon can receive before fainting.}
 \item{\code{HP_VI}}{\code{integer} Hit Points for Generation VI. This determines how much damage a Pokémon can receive before fainting.}
 \item{\code{HP_VII}}{\code{integer} Hit Points for Generation VII. This determines how much damage a Pokémon can receive before fainting.}

@@ -26,7 +26,7 @@ if the corresponding element in \code{vec2} is not unique. If the element in \co
 is unique, it returns the corresponding element from \code{vec1}.
 }
 \examples{
-vec1 <- c("apple", "banana", "cherry")
-vec2 <- c("fruit", "fruit", "fruit")
+vec1 = c("apple", "banana", "cherry")
+vec2 = c("fruit", "fruit", "fruit")
 ZekDex:::paste_non_unique(vec1, vec2, sep = " ")
 }

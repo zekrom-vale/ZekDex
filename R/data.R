@@ -12,15 +12,15 @@
 #'	\item{`ndex`}{`integer` National Pokedex number. This is the unique identifier for each Pokémon in the National Pokédex.}
 #'	\item{`name`}{`character` Name of the Pokemon. This is the common name used to identify a particular Pokémon.}
 #'	\item{`form`}{`character` Form of the Pokemon. This refers to the different physical forms that Pokémon can take. NA if the Pokemon does not have a special form.}
-#'	\item{`regional`}{`character` Regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form.}
-#'	\item{`type`}{`character` Primary type of the Pokemon. This is the main elemental category the Pokémon belongs to, such as Water, Fire, Grass, etc.}
-#'	\item{`type2`}{`character` Secondary type of the Pokemon. This is the secondary elemental category the Pokémon belongs to, if any. NA if the Pokemon does not have a secondary type.}
+#'	\item{`regional`}{`factor` Regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form.}
+#'	\item{`type`}{`factor` Primary type of the Pokemon. This is the main elemental category the Pokémon belongs to, such as Water, Fire, Grass, etc.}
+#'	\item{`type2`}{`factor` Secondary type of the Pokemon. This is the secondary elemental category the Pokémon belongs to, if any. NA if the Pokemon does not have a secondary type.}
 #'	\item{`generation`}{`integer` The generation the Pokemon was introduced in. This refers to the different stages of Pokémon games, each introducing new Pokémon, regions, and gameplay concepts.}
 #'	\item{`isLegendary`}{`logical` Whether the Pokemon is Legendary. This indicates if the Pokémon is a Legendary Pokémon, which are a group of incredibly rare and often very powerful Pokémon.}
 #'	\item{`isMythical`}{`logical` Whether the Pokemon is Mythical. This indicates if the Pokémon is a Mythical Pokémon, which are a group of Pokémon seen so rarely in the Pokémon world that some question their very existence.}
 #'	\item{`isUltraBeast`}{`logical` Whether the Pokemon is an Ultra Beast. This indicates if the Pokémon is an Ultra Beast, which are a group of extradimensional Pokémon originating from Ultra Space.}
-#'	\item{`family`}{`character` Legendary / Mythical family group of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
-#'	\item{`size`}{`character` Legendary / Mythical family size. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
+#'	\item{`family`}{`factor` Legendary / Mythical family group of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
+#'	\item{`size`}{`factor` Legendary / Mythical family size. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
 #' }
 #' @source [List of Pokémon by National Pokédex number. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pokémon_by_National_Pokédex_number)
 #'
@@ -45,9 +45,9 @@
 #' The 'Paradox duo' refers to Koraidon and Miraidon, which are associated with different timelines.
 #' @format A data frame with 3 variables:
 #' \describe{
-#'	\item{`family`}{`character` The family grouping of the Pokémon. This refers to the thematic or characteristic-based group that the Pokémon belongs to. Examples include 'Tao trio', 'Super-ancient Pokémon', 'Paradox duo', etc.}
+#'	\item{`family`}{`factor` The family grouping of the Pokémon. This refers to the thematic or characteristic-based group that the Pokémon belongs to. Examples include 'Tao trio', 'Super-ancient Pokémon', 'Paradox duo', etc.}
 #'	\item{`name`}{`character` The name of the individual Pokémon within the family grouping. This is the common name used to identify a particular Pokémon.}
-#'	\item{`size`}{`character` The size category of the family grouping. This refers to the number of Pokémon in the family grouping. Categories include 'duos', 'trios', 'quartets', and 'quintets'.}
+#'	\item{`size`}{`factor` The size category of the family grouping. This refers to the number of Pokémon in the family grouping. Categories include 'duos', 'trios', 'quartets', and 'quintets'.}
 #' }
 #' @source [Groups of Legendary and Mythical Pokémon. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/Groups_of_Legendary_and_Mythical_Pok%C3%A9mon)
 #'
@@ -64,8 +64,8 @@
 #'	\item{`ndex`}{`integer` National Pokédex number. This is the unique identifier for each Pokémon in the National Pokédex.}
 #'	\item{`name`}{`character` Pokémon name. This is the common name used to identify a particular Pokémon.}
 #'	\item{`Mega`}{`character` The Mega form. These are special forms that certain Pokémon can take.}
-#'	\item{`MegaOrPrimal`}{`character` Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
-#'	\item{`regional`}{`character` The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
+#'	\item{`MegaOrPrimal`}{`factor` Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
+#'	\item{`regional`}{`factor` The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
 #'	\item{`HP_I`}{`integer` Hit Points for Generation I. This determines how much damage a Pokémon can receive before fainting.}
 #'	\item{`HP_VI`}{`integer` Hit Points for Generation VI. This determines how much damage a Pokémon can receive before fainting.}
 #'	\item{`HP_VII`}{`integer` Hit Points for Generation VII. This determines how much damage a Pokémon can receive before fainting.}
@@ -144,8 +144,8 @@
 #'	\item{`SpAttack`}{`integer` Special Attack strength. This determines how much damage a Pokémon can deal with special moves. This stat is not applicable for Generation I as 'Special' stat is used instead.}
 #'	\item{`SpDefense`}{`integer` Special Defense strength. This determines how much damage a Pokémon can resist from special moves. This stat is not applicable for Generation I as 'Special' stat is used instead.}
 #'	\item{`Mega`}{`character` The Mega form. These are special forms that certain Pokémon can take.}
-#'	\item{`MegaOrPrimal`}{`character` Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
-#'	\item{`regional`}{`character` The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
+#'	\item{`MegaOrPrimal`}{`factor` Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
+#'	\item{`regional`}{`factor` The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
 #' }
 #' @source [List of Pokémon by base stats (Generation I). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_I))
 #' [List of Pokémon by base stats (Generation II-V). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_II-V))
@@ -176,9 +176,9 @@
 #'	\item{`transition`}{`character` The transition stage of the Pokemon. This refers to any intermediate stages that occur during the Pokémon's evolution.}
 #'	\item{`first`}{`character` The first form of the Pokemon. This is the initial form of the Pokémon before any evolutions.}
 #'	\item{`firstForm`}{`character` The specific first form of the Pokemon. This refers to the specific form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a special form at the initial stage.}
-#'	\item{`regional`}{`character` The regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form.}
-#'	\item{`evoRegional`}{`character` The regional evolved form of the Pokemon. This refers to the regional form that the Pokémon takes after evolution. NA if the Pokemon does not change form upon evolution in a specific region.}
-#'	\item{`firstRegional`}{`character` The regional first form of the Pokemon. This refers to the regional form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a regional form at the initial stage.}
+#'	\item{`regional`}{`factor` The regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form.}
+#'	\item{`evoRegional`}{`factor` The regional evolved form of the Pokemon. This refers to the regional form that the Pokémon takes after evolution. NA if the Pokemon does not change form upon evolution in a specific region.}
+#'	\item{`firstRegional`}{`factor` The regional first form of the Pokemon. This refers to the regional form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a regional form at the initial stage.}
 #' }
 #' @source [List of Pokémon by evolution family. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_evolution_family)
 #'
@@ -200,13 +200,13 @@
 #'	\item{`transition`}{`character` The transition stage of the Pokemon. This refers to any intermediate stages that occur during the Pokémon's evolution.}
 #'	\item{`first`}{`character` The first form of the Pokemon. This is the initial form of the Pokémon before any evolutions.}
 #'	\item{`firstForm`}{`character` The first form of the Pokemon if it has multiple forms. This refers to the specific form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a special form at the initial stage.}
-#'	\item{`firstRegional`}{`character` The first regional form of the Pokemon. This refers to the regional form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a regional form at the initial stage.}
+#'	\item{`firstRegional`}{`factor` The first regional form of the Pokemon. This refers to the regional form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a regional form at the initial stage.}
 #'	\item{`name`}{`character` The name of the Pokemon. This is the common name used to identify a particular Pokémon.}
 #'	\item{`form`}{`character` The form of the Pokemon. This refers to the different physical forms that Pokémon can take. NA if the Pokemon does not have a special form.}
-#'	\item{`regional`}{`character` The regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form.}
-#'	\item{`stage`}{`character` The stage of the Pokemon. This refers to the stage in the Pokémon's evolution process, such as 'base', 'stage 1', 'stage 2', etc.}
-#'	\item{`family.y`}{`character` The legendary family of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
-#'	\item{`size`}{`character` The size of the legendary family. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
+#'	\item{`regional`}{`factor` The regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form.}
+#'	\item{`stage`}{`factor` The stage of the Pokemon. This refers to the stage in the Pokémon's evolution process, such as 'base', 'stage 1', 'stage 2', etc.}
+#'	\item{`family.y`}{`factor` Legendary / Mythical family group of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
+#'	\item{`size`}{`factor` Legendary / Mythical family size. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
 #' }
 #' @source [Methods of evolution. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution)
 #'
@@ -228,15 +228,15 @@
 #'	\item{`ndex`}{`integer` The National Pokédex number of the Pokémon. This is the unique identifier for each Pokémon in the National Pokédex.}
 #'	\item{`name`}{`character` The English name of the Pokémon.}
 #'	\item{`form`}{`character` The form of the Pokémon. This refers to the different physical forms that Pokémon can take. 'NA' if the Pokémon does not have a special form.}
-#'	\item{`regional`}{`character` The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. 'NA' if the Pokémon does not have a regional form.}
-#'	\item{`type`}{`character` The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.}
-#'	\item{`type2`}{`character` The secondary type of the Pokémon. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses. 'NA' if the Pokémon does not have a secondary type.}
+#'	\item{`regional`}{`factor` The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. 'NA' if the Pokémon does not have a regional form.}
+#'	\item{`type`}{`factor` The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.}
+#'	\item{`type2`}{`factor` The secondary type of the Pokémon. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses. 'NA' if the Pokémon does not have a secondary type.}
 #'	\item{`generation`}{`integer` The generation of the Pokémon. This refers to the generation of games in which the Pokémon was first introduced.}
 #'	\item{`isLegendary`}{`logical` A boolean indicating if the Pokémon is Legendary. Legendary Pokémon are a group of incredibly rare and often very powerful Pokémon.}
 #'	\item{`isMythical`}{`logical` A boolean indicating if the Pokémon is Mythical. Mythical Pokémon are a related but separate group of Pokémon, which are usually event-exclusive.}
 #'	\item{`isUltraBeast`}{`logical` A boolean indicating if the Pokémon is an Ultra Beast. Ultra Beasts is a term introduced in Generation VII to classify seven known Pokémon.}
-#'	\item{`family`}{`character` The family of the Pokémon. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon.}
-#'	\item{`size`}{`character` The size of the Pokémon. This refers to the height and weight of the Pokémon.}
+#'	\item{`family`}{`factor` Legendary / Mythical family group of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
+#'	\item{`size`}{`factor` Legendary / Mythical family size. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
 #'	\item{`Japanese_Kana`}{`character` The Japanese Kana name of the Pokémon.}
 #'	\item{`Japanese_Hepburn`}{`character` The Japanese Hepburn name of the Pokémon.}
 #'	\item{`Japanese_Trademarked`}{`character` The Japanese Trademarked name of the Pokémon.}
@@ -292,15 +292,15 @@
 #'	\item{`ndex`}{`integer` The National Pokédex number of the Pokémon.}
 #'	\item{`name`}{`character` The name of the Pokémon.}
 #'	\item{`form`}{`character` The form of the Pokémon. This refers to the different physical forms that Pokémon can take.}
-#'	\item{`regional`}{`character` The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
-#'	\item{`type`}{`character` The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.}
-#'	\item{`type2`}{`character` The secondary type of the Pokémon. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses.}
+#'	\item{`regional`}{`factor` The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
+#'	\item{`type`}{`factor` The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.}
+#'	\item{`type2`}{`factor` The secondary type of the Pokémon. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses.}
 #'	\item{`generation`}{`integer` The generation of the Pokémon. This refers to the generation of games in which the Pokémon was first introduced.}
 #'	\item{`isLegendary`}{`logical` A boolean indicating if the Pokémon is Legendary. Legendary Pokémon are a group of incredibly rare and often very powerful Pokémon.}
 #'	\item{`isMythical`}{`logical` A boolean indicating if the Pokémon is Mythical. Mythical Pokémon are a related but separate group of Pokémon, which are usually event-exclusive.}
 #'	\item{`isUltraBeast`}{`logical` A boolean indicating if the Pokémon is an Ultra Beast. Ultra Beasts is a term introduced in Generation VII to classify seven known Pokémon.}
-#'	\item{`family`}{`character` The family of the Pokémon. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon.}
-#'	\item{`size`}{`character` The size of the Pokémon. This refers to the height and weight of the Pokémon.}
+#'	\item{`family`}{`factor` Legendary / Mythical family group of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
+#'	\item{`size`}{`factor` Legendary / Mythical family size. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
 #'	\item{`NA_Kanto_Kdex`}{`integer` The Kanto Pokédex number. This is the number assigned to the Pokémon in the Kanto Regional Pokédex.}
 #'	\item{`NA_Johto_Jdex`}{`integer` The Johto Pokédex number. This is the number assigned to the Pokémon in the Johto Regional Pokédex.}
 #'	\item{`GenerationIII_Hoenn_Hdex`}{`integer` The Hoenn Pokédex number in Generation III. This is the number assigned to the Pokémon in the Hoenn Regional Pokédex in Generation III games.}
@@ -358,7 +358,7 @@
 #' This dataset contains information about various Pokemon types.
 #' @format A data frame with one column:
 #' \describe{
-#'	\item{`types`}{`character` The types of Pokemon. Possible types include `Grass`, `Fire`, `Water`, `Bug`, `Normal`, `Dark`, `Poison`, `Electric`, `Ground`, `Ice`, `Fairy`, `Steel`, `Fighting`, `Psychic`, `Rock`, `Ghost`, `Dragon`, `Flying`.}
+#'	\item{`types`}{`factor` The types of Pokemon. Possible types include `Grass`, `Fire`, `Water`, `Bug`, `Normal`, `Dark`, `Poison`, `Electric`, `Ground`, `Ice`, `Fairy`, `Steel`, `Fighting`, `Psychic`, `Rock`, `Ghost`, `Dragon`, `Flying`.}
 #' }
 #' @source [Bulbapedia Type](https://bulbapedia.bulbagarden.net/wiki/Type)
 #'
@@ -438,8 +438,8 @@
 #'	\item{`kg`}{`numeric` The weight of the Pokémon in kilograms.}
 #'	\item{`lightest`}{`integer` The rank of the Pokémon from lightest (1) to heaviest (1181).}
 #'	\item{`heaveiest`}{`integer` The rank of the Pokémon from heaviest (1) to lightest (1181).}
-#'	\item{`regional`}{`character` The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. 'NA' if the Pokémon does not have a regional form.}
-#'	\item{`MegaOrPrimal`}{`character` Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
+#'	\item{`regional`}{`factor` The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. 'NA' if the Pokémon does not have a regional form.}
+#'	\item{`MegaOrPrimal`}{`factor` Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
 #' }
 #' @source [Bulbapedia Weight](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_weight)
 #'
@@ -465,8 +465,8 @@
 #'	\item{`inch`}{`numeric` The height of the Pokémon in inches.}
 #'	\item{`smallest`}{`integer` The ranking of the Pokémon from smallest to biggest.}
 #'	\item{`bigest`}{`integer` The ranking of the Pokémon from biggest to smallest.}
-#'	\item{`regional`}{`character` The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
-#'	\item{`MegaOrPrimal`}{`character` Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
+#'	\item{`regional`}{`factor` The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
+#'	\item{`MegaOrPrimal`}{`factor` Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
 #' }
 #' @source [Bulbapedia Height](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_height)
 #'
@@ -491,21 +491,21 @@
 #' \describe{
 #'	\item{`ndex`}{`integer` The National Pokédex number of the Pokémon. This is the official numbering scheme that is used in every Pokémon game and media.}
 #'	\item{`name`}{`character` The name of the Pokémon. This is the common name used to identify a particular Pokémon.}
-#'	\item{`regional`}{`character` The regional variant of the Pokémon, if any. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
-#'	\item{`type`}{`character` The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.}
-#'	\item{`type2`}{`character` The secondary type of the Pokémon, if any. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses.}
-#'	\item{`generation`}{`integer` The generation of the Pokémon. This refers to the generation of games in which the Pokémon was first introduced.}
+#'	\item{`regional`}{`factor` The regional variant of the Pokémon, if any. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
+#'	\item{`type`}{`factor` The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.}
+#'	\item{`type2`}{`factor` The secondary type of the Pokémon, if any. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses.}
+#'	\item{`generation`}{`factor` The generation of the Pokémon. This refers to the generation of games in which the Pokémon was first introduced.}
 #'	\item{`isLegendary`}{`logical` A boolean indicating if the Pokémon is Legendary. Legendary Pokémon are a group of incredibly rare and often very powerful Pokémon.}
 #'	\item{`isMythical`}{`logical` A boolean indicating if the Pokémon is Mythical. Mythical Pokémon are a related but separate group of Pokémon, which are usually event-exclusive.}
 #'	\item{`isUltraBeast`}{`logical` A boolean indicating if the Pokémon is an Ultra Beast. Ultra Beasts is a term introduced in Generation VII to classify seven known Pokémon.}
-#'	\item{`family`}{`character` The family of the Pokémon. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon.}
-#'	\item{`size`}{`character` The size of the Pokémon. This refers to the height and weight of the Pokémon.}
+#'	\item{`family`}{`factor` Legendary / Mythical family group of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
+#'	\item{`size`}{`factor` Legendary / Mythical family size. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group.}
 #'	\item{`form`}{`character` The form of the Pokémon. This refers to the different physical forms that Pokémon can take.}
 #'	\item{`lbs`}{`numeric` The weight of the Pokémon in pounds.}
 #'	\item{`kg`}{`numeric` The weight of the Pokémon in kilograms.}
 #'	\item{`lightest`}{`integer` The rank of the Pokémon from lightest (1) to heaviest (1181).}
 #'	\item{`heaveiest`}{`integer` The rank of the Pokémon from heaviest (1) to lightest (1181).}
-#'	\item{`MegaOrPrimal`}{`character` Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
+#'	\item{`MegaOrPrimal`}{`factor` Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
 #'	\item{`ft`}{`character` The height of the Pokémon in feet.}
 #'	\item{`m`}{`numeric` The height of the Pokémon in meters.}
 #'	\item{`inch`}{`integer` The height of the Pokémon in inches.}
@@ -563,11 +563,11 @@
 #' \describe{
 #'	\item{`ndex`}{`integer` The National Pokédex number of the Pokémon.}
 #'	\item{`name`}{`character` The name of the Pokémon.}
-#'	\item{`typeBefore`}{`character` The primary type of the Pokémon before Mega Evolution or Primal Reversion.}
-#'	\item{`type2Before`}{`character` The secondary type of the Pokémon before Mega Evolution or Primal Reversion, if applicable.}
+#'	\item{`typeBefore`}{`factor` The primary type of the Pokémon before Mega Evolution or Primal Reversion.}
+#'	\item{`type2Before`}{`factor` The secondary type of the Pokémon before Mega Evolution or Primal Reversion, if applicable.}
 #'	\item{`abilityBefore`}{`character` The ability of the Pokémon before Mega Evolution or Primal Reversion.}
-#'	\item{`typeAfter`}{`character` The primary type of the Pokémon after Mega Evolution or Primal Reversion.}
-#'	\item{`type2After`}{`character` The secondary type of the Pokémon after Mega Evolution or Primal Reversion, if applicable.}
+#'	\item{`typeAfter`}{`factor` The primary type of the Pokémon after Mega Evolution or Primal Reversion.}
+#'	\item{`type2After`}{`factor` The secondary type of the Pokémon after Mega Evolution or Primal Reversion, if applicable.}
 #'	\item{`abilityAfter`}{`character` The ability of the Pokémon after Mega Evolution or Primal Reversion.}
 #'	\item{`stone`}{`character` The Mega Stone or Orb required for the Pokémon to undergo Mega Evolution or Primal Reversion.  Or a note in case of Rayquaza}
 #' }
