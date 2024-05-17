@@ -9,6 +9,7 @@ data
 - [groups](https://github.com/zekrom-vale/ZekDex/wiki/groups)
 - [height](https://github.com/zekrom-vale/ZekDex/wiki/height)
 - [languages](https://github.com/zekrom-vale/ZekDex/wiki/languages)
+- [mega](https://github.com/zekrom-vale/ZekDex/wiki/mega)
 - [nationalDex](https://github.com/zekrom-vale/ZekDex/wiki/nationalDex)
 - [physicalAttr](https://github.com/zekrom-vale/ZekDex/wiki/physicalAttr)
 - [regionalDex](https://github.com/zekrom-vale/ZekDex/wiki/regionalDex)

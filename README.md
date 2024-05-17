@@ -177,6 +177,23 @@ A higher catch rate means that the Pokémon is easier to catch.
 In the context of Pokémon Legends: Arceus, many Pokémon were given heightened catch rates to facilitate catching them
 outside of battle.
 
+
+### Pokémon Mega Evolution and Primal Reversion (`mega`)
+This dataset contains information about Pokémon that can undergo Mega Evolution and Primal Reversion,
+which are special forms of evolution that Pokémon can undergo during battle to become more powerful.
+These Pokémon are categorized by their National Pokédex number, name, type before and after evolution, ability before and after evolution, and the stone required for the evolution.
+
+For example, ‘Rayquaza’ is a Dragon/Flying type Pokémon with the ability ‘Air Lock’ that can undergo
+Mega Evolution to remain a Dragon/Flying type but with the ability ‘Delta Stream’. Unlike other Pokémon,
+Rayquaza does not require a Mega Stone to undergo Mega Evolution. Instead, Rayquaza must swallow the
+Meteorite and learn Dragon Ascent during the Delta Episode or must be taught Dragon Ascent via move tutor.
+
+The 'Primal Reversion' refers to Kyogre and Groudon,
+which are ancient Pokémon that revert to their primal forms with the Blue Orb and Red Orb respectively,
+changing their abilities to 'Primordial Sea' and 'Desolate Land'.
+
+Note that there exist Primal Dialga, hovever this appears to be different from Primal Reversion.
+
 
 
 You can load any dataset with the `data()` function. For example, `data(nationalDex)`.

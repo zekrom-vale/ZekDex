@@ -177,8 +177,8 @@ vLength = function(x){
 #' pasting together the corresponding elements from `vec1` and `vec2`
 #' (if the element in `vec2` is not unique).
 #' @examples
-#' vec1 <- c("apple", "banana", "cherry")
-#' vec2 <- c("fruit", "fruit", "fruit")
+#' vec1 = c("apple", "banana", "cherry")
+#' vec2 = c("fruit", "fruit", "fruit")
 #' ZekDex:::paste_non_unique(vec1, vec2, sep = " ")
 paste_non_unique  = function(vec1, vec2, sep = ""){
 	# Identify non-unique elements in vec2
@@ -307,15 +307,16 @@ name_from_row = Vectorize(.name_from_row, vectorize.args = "df", SIMPLIFY = FALS
 drop_all_na = function(df, ...) {
 	cols = enquos(...)
 
+	if(length(cols)==0)return(
+		df|>
+			filter(
+				!reduce(across(!!!cols, is.na), `&`)
+			)
+	)
+
 	df|>
 		filter(
-			!reduce(
-				across(
-					if (length(cols) == 0) everything() else !!!cols,
-					is.na
-				),
-				`&`
-			)
+			!reduce(across(!!!cols, is.na), `&`)
 		)
 }
 
@@ -421,7 +422,7 @@ split_at = function(lst, condition) {
 
 	# Add an extra end point if necessary
 	if (length(starts) > length(ends)) {
-		ends <- c(ends, length(lst))
+		ends = c(ends, length(lst))
 	}
 	ret = map2(starts, ends, ~ lst[.x:.y])
 	ret
@@ -497,7 +498,7 @@ recursive_xml_map2 = function(lst, fn, level = 1){
 	purrr::map(lst, function(x){
 		# Again it will not recurce into xml_nodesets
 		if (is.list(x) && !inherits(x, c("xml_node"))) {
-			nx <- fn(x, level)
+			nx = fn(x, level)
 			recursive_xml_map2(nx, fn, level + 1)
 		} else x
 	})
@@ -543,7 +544,7 @@ read_data = function(data, root, ns = asNamespace("ZekDex"), one = TRUE, g=NULL)
 	if(pkgload::is_loading()) return()
 	if(!is.null(root)){
 		if(file.exists(glue("{root}{data}.rda"))){
-			e <- new.env()
+			e = new.env()
 			load(glue("{root}{data}.rda"), envir = e)
 			if(one)return(e[[ls(e)[1]]])
 			else return(e)
@@ -583,4 +584,48 @@ regionalForm = function(re = FALSE, ext = FALSE){
 	if(ext) L = c(L, "Kantonian","Hoennian","Unovan","Kalosian")
 	if(re) return(paste(L, collapse = "|"))
 	L
+}
+
+#' Fill Missing 'ndex' Values in a Dataset
+#'
+#' This function fills missing 'ndex' values in a dataset based on the 'name' column.
+#' It uses a known dataset to look up the missing 'ndex' values.
+#'
+#' @param df A tibble or data frame containing the main dataset.
+#' @param known_df A tibble or data frame containing the known dataset.
+#' @param name_var The name of the 'name' column in the datasets (as a symbol or a string).
+#' @param ndex_var The name of the 'ndex' column in the datasets (as a symbol or a string).
+#'
+#' @return A tibble or data frame with the missing 'ndex' values filled.
+fill_missing_ndex = function(df, known_df, name_var, ndex_var) {
+	# Convert the input to quosures
+	name_var = enquo(name_var)
+	ndex_var = enquo(ndex_var)
+
+	# Ensure the 'name' column is of the same type in both dataframes
+	df = df|>
+		mutate(!!name_var := as.character(!!name_var))
+
+	known_df = known_df|>
+		mutate(!!name_var := as.character(!!name_var))
+
+	# Create a lookup table from the known dataset
+	lookup = known_df|> select(!!ndex_var, !!name_var)
+
+	# Join the lookup table with the main dataframe
+	df = df|>
+		left_join(
+			lookup,
+			by = setNames("name", rlang::quo_text(name_var)),
+			suffix = c("", "_lookup"),
+			relationship = "many-to-many"
+		)
+
+	# Fill the missing 'ndex' values
+	df = df|>
+		mutate(!!ndex_var := if_else(is.na(!!ndex_var), !!rlang::sym(paste0(rlang::quo_text(ndex_var),"_lookup")), !!ndex_var))|>
+		select(-rlang::sym(paste0(rlang::quo_text(ndex_var),"_lookup")))
+
+	# Return the updated dataframe
+	return(df)
 }
