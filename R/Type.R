@@ -1,31 +1,31 @@
 #' Generates Pokémon Types from Scratch
 #'
-#' This function generates a tibble of Pokémon types by reading the 'PokemonNational.csv' file and extracting the 'type' and 'type2' columns. It removes duplicate and NA values to create a unique list of Pokémon types. If `write = TRUE`, it also writes the tibble to a csv file.
+#' This function generates a tibble of Pokémon types by scraping the Bulbapedia website. It extracts the types from the HTML table on the page and creates a unique list of Pokémon types. It also adds two additional types, 'Stellar' and '???'. If `write = TRUE`, it writes the tibble to a CSV file.
 #'
-#' @param write Logical, if `TRUE`, writes the tibble to a csv file. Default is `FALSE`.
-#' @param path The path where the csv file will be written if `write = TRUE`. Default is `system.file("data/PokemonTypes.csv", package = "ZekDex")`.
+#' @param write Logical, if `TRUE`, writes the tibble to a CSV file. Default is `FALSE`.
+#' @param root The root directory where the CSV file will be written if `write = TRUE`. Default is `"data/"`.
+#' @param file The name of the CSV file to be written if `write = TRUE`. Default is `"PokemonTypes"`.
+#'
 #' @return A tibble with a single column named 'types' containing unique Pokémon types.
+#'
 #' @export
 #'
-#' @importFrom readr read_csv write_csv
-#' @importFrom dplyr filter pull
-#' @importFrom purrr discard
+#' @importFrom rvest read_html html_table
+#' @importFrom dplyr select filter bind_rows rename
 #' @importFrom tibble tibble
-#' @importFrom utils data
 #' @importFrom pkgload is_loading
 gen_type = function(write = FALSE, root = "data/", file = "PokemonTypes"){
 	if(pkgload::is_loading()) return()
-	national = read_data("PokemonNational", root, g="nationalDex")
 
-	# Extract the 'type' column from 'national' using 'pull', concatenate it with the 'type2' column using 'c',
-	# remove duplicate values using 'unique', and remove NA values using 'discard(is.na)'
-	types = pull(national, type)|>
-		c(pull(national, type2))|>
-		unique()|>
-		discard(is.na)
-
-	# Convert the 'types' vector into a tibble (a type of dataframe) with a single column named 'types'
-	types = tibble(types = types)
+	URL = "https://bulbapedia.bulbagarden.net/wiki/Type"
+	HTML = rvest::read_html(URL)
+	types = rvest::html_table(HTML)[[1]]|>
+		.name_from_row()|>
+		select(last_col())|>
+		rename(types = 1)|>
+		filter(types != "")|>
+		bind_rows(tibble(types=c("Stellar", "???")))|>
+		distinct()
 
 	# If 'write' is TRUE, write the 'types' tibble to a CSV file named 'PokemonTypes.csv' in the 'data' directory
 	if(write)save_data("types", root, file)
