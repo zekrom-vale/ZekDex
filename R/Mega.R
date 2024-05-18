@@ -86,7 +86,7 @@ gen_mega = function(write = FALSE, root = "data/", file = "PokemonMega"){
 			across(where(is.character), ~if_else(.=="", NA_character_, ., NA_character_)),
 			introduced = factor(introduced),
 			MegaOrPrimal = factor(MegaOrPrimal),
-			across(startsWith("type"), factor_type)
+			across(starts_with("type"), factor_type)
 		)|>
 		drop_all_na(-c(MegaOrPrimal,introduced))|>
 		fill_missing_ndex(nationalDex, name, ndex)

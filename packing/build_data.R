@@ -18,11 +18,11 @@ devtools::install() # Or clean and install in Build
 dir.create("data", showWarnings = FALSE)
 
 
-gen_type(write = TRUE)
+gen_type(write = TRUE) # Note may need to restart if this changes
 
 # Depends on type
 gen_groups(write = TRUE)
-gen_type_chart(write = TRUE) # Will warn ! NAs introduced by coercion
+gen_type_chart(write = TRUE)
 gen_catch(write = TRUE)
 
 # Requires PokemonGroups
@@ -33,8 +33,8 @@ gen_national(write = TRUE)
 gen_evos(write = TRUE)
 
 # Requires PokemonNational
-gen_stats(write = TRUE)
-gen_lang(write = TRUE)
+gen_stats(write = TRUE) # takes a bit
+gen_lang(write = TRUE) # takes a bit
 gen_reginal(write = TRUE)
 gen_physicalAttr(write = TRUE)
 gen_mega(write = TRUE)

@@ -68,7 +68,7 @@ gen_type_chart = function(write = FALSE, root = "data/", file = "PokemonTypeChar
 		mutate(
 			across(starts_with("Defending_"), function(x){
 				# Find "½×" set to .5 else remove non digits and cast to numeric
-				if_else(x == "\u00BD\u00D7", .5, as.numeric(str_remove_all(x, "[^\\d.]")))
+				if_else(x == "\u00BD\u00D7", .5, as.numeric(str_remove_all(x, "[^\\d.]")), NA_character_)
 			})
 		)|>
 		filter(!is.na(Defending_Dragon))

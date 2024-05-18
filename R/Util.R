@@ -310,7 +310,7 @@ drop_all_na = function(df, ...) {
 	if(length(cols)==0)return(
 		df|>
 			filter(
-				!reduce(across(!!!cols, is.na), `&`)
+				!reduce(across(everything(), !!!cols, is.na), `&`)
 			)
 	)
 

@@ -53,8 +53,9 @@ gen_catch = function(write = FALSE, root = "data/", file = "PokemonCatch"){
 				select_if(~!is.logical(.))|>
 				# Rename the specified columns if they exist
 				rename(
-					any_of(c(catchRate = "Catch rate", ndex = "#"))
+					any_of(c(catchRate = "Catch rate", Ndex = "#"))
 				)|>
+				rename(ndex = Ndex)|>
 				# Rename the columns that match the specified patterns to "name"
 				rename_with(~ "name", .cols = matches("^(Name|Pokémon)$"))|>
 				# Mutate the 'ndex' column by attempting to extract integer values from it,
