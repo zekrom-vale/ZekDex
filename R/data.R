@@ -66,6 +66,7 @@
 #'	\item{`Mega`}{`character` The Mega form. These are special forms that certain Pokémon can take.}
 #'	\item{`MegaOrPrimal`}{`factor` Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
 #'	\item{`regional`}{`factor` The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
+#'	\item{`form`}{`character` Form of the Pokemon. This refers to the different physical forms that Pokémon can take. NA if the Pokemon does not have a special form.}
 #'	\item{`HP_I`}{`integer` Hit Points for Generation I. This determines how much damage a Pokémon can receive before fainting.}
 #'	\item{`HP_VI`}{`integer` Hit Points for Generation VI. This determines how much damage a Pokémon can receive before fainting.}
 #'	\item{`HP_VII`}{`integer` Hit Points for Generation VII. This determines how much damage a Pokémon can receive before fainting.}
@@ -146,6 +147,7 @@
 #'	\item{`Mega`}{`character` The Mega form. These are special forms that certain Pokémon can take.}
 #'	\item{`MegaOrPrimal`}{`factor` Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
 #'	\item{`regional`}{`factor` The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
+#'	\item{`form`}{`character` Form of the Pokemon. This refers to the different physical forms that Pokémon can take. NA if the Pokemon does not have a special form.}
 #' }
 #' @source [List of Pokémon by base stats (Generation I). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_I))
 #' [List of Pokémon by base stats (Generation II-V). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_II-V))
@@ -253,7 +255,7 @@
 #'	\item{`Chinese_Pinyin`}{`character` The Chinese Pinyin name of the Pokémon.}
 #'	\item{`Chinese_Yale`}{`character` The Chinese Yale name of the Pokémon.}
 #'	\item{`Chinese_Former_names`}{`character` The Chinese Former names of the Pokémon.}
-#'	\item{`Brazilian_Portuguese_Brazilian_Portuguese`}{`character` The Brazilian Portuguese name of the Pokémon.}
+#'	\item{`Brazilian_Portuguese`}{`character` The Brazilian Portuguese name of the Pokémon.}
 #'	\item{`Turkish`}{`character` The Turkish name of the Pokémon.}
 #'	\item{`Russian_Cyrillic`}{`character` The Russian Cyrillic name of the Pokémon.}
 #'	\item{`Russian_Romanization`}{`character` The Russian Romanization name of the Pokémon.}
@@ -570,6 +572,8 @@
 #'	\item{`type2After`}{`factor` The secondary type of the Pokémon after Mega Evolution or Primal Reversion, if applicable.}
 #'	\item{`abilityAfter`}{`character` The ability of the Pokémon after Mega Evolution or Primal Reversion.}
 #'	\item{`stone`}{`character` The Mega Stone or Orb required for the Pokémon to undergo Mega Evolution or Primal Reversion.  Or a note in case of Rayquaza}
+#'	\item{`MegaOrPrimal`}{`factor` Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
+#'	\item{`introduced`}{`factor` The game in which the Pokémon was introduced.}
 #' }
 #' @source [Mega Evolution. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/Mega_Evolution)
 #' [Primal Reversion. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/Primal_Reversion)

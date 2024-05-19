@@ -14,7 +14,11 @@ gen_evos(
 \arguments{
 \item{write}{Logical, if \code{TRUE}, writes the data frame to a csv file. Default is \code{FALSE}.}
 
-\item{path}{The path where the csv file will be written if \code{write = TRUE}. Default is \code{system.file("data/PokemonEvolution.csv", package = "ZekDex")}.}
+\item{root}{The root directory where the csv file will be written if \code{write = TRUE}. Default is "data/".}
+
+\item{file}{The name of the csv file to be written if \code{write = TRUE}. Default is "PokemonFamily".}
+
+\item{fileLong}{The name of the long format csv file to be written if \code{write = TRUE}. Default is "PokemonFamilyLong".}
 }
 \value{
 A data frame of Pokémon evolution data.

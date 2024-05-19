@@ -16,6 +16,8 @@ A data frame with 9 variables:
 \item{\code{type2After}}{\code{factor} The secondary type of the Pokémon after Mega Evolution or Primal Reversion, if applicable.}
 \item{\code{abilityAfter}}{\code{character} The ability of the Pokémon after Mega Evolution or Primal Reversion.}
 \item{\code{stone}}{\code{character} The Mega Stone or Orb required for the Pokémon to undergo Mega Evolution or Primal Reversion.  Or a note in case of Rayquaza}
+\item{\code{MegaOrPrimal}}{\code{factor} Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
+\item{\code{introduced}}{\code{factor} The game in which the Pokémon was introduced.}
 }
 }
 \source{

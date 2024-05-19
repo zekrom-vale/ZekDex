@@ -32,13 +32,43 @@ pokemon_damage_II(
 
 \item{effectiveness}{The product of Type, and Type2.}
 
-\item{item}{Logical. If TRUE, the attacker is holding an type-enhancing held item corresponding to the attack type. Default is FALSE.}
+\item{item}{Logical. If TRUE, the attacker is holding an type-enhancing held
+item corresponding to the attack type. Default is FALSE.}
 
 \item{critical}{Logical. If TRUE, it's a critical hit. Default is FALSE.}
 
+\item{TK}{Numeric. It is 1, 2, or 3 for each successive hit of Triple Kick,
+or always 1 if the used move is not Triple Kick.}
+
+\item{weather}{Numeric. It is 1.5 if a Water-type move is being used during
+rain or a Fire-type move during harsh sunlight, and 0.5 if a Water-type move
+is used during harsh sunlight or SolarBeam or any Fire-type move during rain,
+and 1 otherwise.}
+
+\item{badge}{Logical. If TRUE, the attacking Pokémon is controlled by the
+player and if the player has obtained the Badge corresponding to the used
+move's type. Default is FALSE.}
+
 \item{stab}{Logical. If TRUE, add the same type attack bonus.}
 
-\item{random}{Character string. If "yes", a random uniformly distributed integer between 217 and 255 is used. If "minmax", the min and max values are returned. If anything else, the average is used. Default is "yes".}
+\item{moveMod}{Numeric. It can be (and if the used move is not any of these,
+MoveMod is 1): If Rollout is used, 2 * (n + d), where n is the amount of
+successful and consecutive hits of the move, up to 4 (for the fifth hit),
+and d is 1 if Defense Curl was used beforehand and 0 otherwise. If Fury
+Cutter is used, 2^n, where n is the number of successful and consecutive
+uses of the move, up to 4. If Rage is used, an integer value corresponding
+to the Rage counter, i.e. the number of times the user of Rage has been
+damaged by an attack while using Rage.}
+
+\item{doubleDmg}{Logical. If TRUE, it is 2 if the used move is Pursuit and the
+target is attempting to switch out, Stomp and the target has previously used
+Minimize, Gust or Twister and the target is in the semi-invulnerable turn of Fly,
+or Earthquake or Magnitude and the target is in the semi-invulnerable turn of Dig,
+and 1 otherwise.}
+
+\item{random}{Character string. If "yes", a random uniformly distributed integer
+between 217 and 255 is used. If "minmax", the min and max values are returned.
+If anything else, the average is used. Default is "yes".}
 }
 \value{
 The calculated damage.
@@ -48,6 +78,7 @@ This function calculates the damage inflicted during a Pokemon battle.
 It uses the formula from Generation II.
 }
 \note{
-this function does not handle the specific conditions mentioned (like Reflect, Light Screen, Explosion, Selfdestruct, etc.).
-You would need to handle these conditions before passing the values to this function
+this function does not handle the specific conditions mentioned (like Reflect,
+Light Screen, Explosion, Selfdestruct, etc.). You would need to handle these
+conditions before passing the values to this function.
 }

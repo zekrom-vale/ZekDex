@@ -37,7 +37,7 @@ Brazilian Portuguese, Turkish, Russian, Thai, and Hindi. The language columns ar
   - Chinese_Pinyin: (`character`) The Chinese Pinyin name of the Pokémon.
   - Chinese_Yale: (`character`) The Chinese Yale name of the Pokémon.
   - Chinese_Former_names: (`character`) The Chinese Former names of the Pokémon.
-  - Brazilian_Portuguese_Brazilian_Portuguese: (`character`) The Brazilian Portuguese name of the Pokémon.
+  - Brazilian_Portuguese: (`character`) The Brazilian Portuguese name of the Pokémon.
   - Turkish: (`character`) The Turkish name of the Pokémon.
   - Russian_Cyrillic: (`character`) The Russian Cyrillic name of the Pokémon.
   - Russian_Romanization: (`character`) The Russian Romanization name of the Pokémon.

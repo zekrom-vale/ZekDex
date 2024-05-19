@@ -7,14 +7,14 @@
 fun(names_vector, match, val)
 }
 \arguments{
+\item{names_vector}{The value(s) to test}
+
 \item{match}{What to check for a vector RegEx}
 
 \item{val}{The value to return}
-
-\item{name}{The value(s) to test}
 }
 \description{
 takes a vector of names, matches them against patterns using str_detect,
-and then returns the corresponding values from patternsT[\link{val}]
+and then returns the corresponding values from \code{patternsT[[val]]}
 where the match is TRUE.
 }

@@ -13,7 +13,12 @@ read_data(data, root, ns = asNamespace("ZekDex"), one = TRUE, g = NULL)
 
 \item{ns}{The namespace from which to load the data.}
 
-\item{one}{Is there one item in the rda file?}
+\item{one}{Logical, if \code{TRUE}, returns the first item in the RDA file. Default is \code{TRUE}.}
+
+\item{g}{The name of the data to load from the namespace \code{ns}. If \code{NULL}, the function will try to load data named \code{data} from \code{ns}.}
+}
+\value{
+The loaded data.
 }
 \description{
 This function reads data from a CSV or RDA file, or from a package namespace.

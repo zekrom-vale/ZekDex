@@ -26,6 +26,8 @@ Note that there exist Primal Dialga, hovever this appears to be different from P
   - type2After: (`factor`) The secondary type of the Pokémon after Mega Evolution or Primal Reversion, if applicable.
   - abilityAfter: (`character`) The ability of the Pokémon after Mega Evolution or Primal Reversion.
   - stone: (`character`) The Mega Stone or Orb required for the Pokémon to undergo Mega Evolution or Primal Reversion.  Or a note in case of Rayquaza
+  - MegaOrPrimal: (`factor`) Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.
+  - introduced: (`factor`) The game in which the Pokémon was introduced.
 
 ## Sourced from
   - [Mega Evolution. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/Mega_Evolution)

@@ -57,7 +57,7 @@ gen_catch = function(write = FALSE, root = "data/", file = "PokemonCatch"){
 				)|>
 				rename(ndex = Ndex)|>
 				# Rename the columns that match the specified patterns to "name"
-				rename_with(~ "name", .cols = matches("^(Name|Pokémon)$"))|>
+				rename_with(~ "name", .cols = matches("^(Name|Pok\u00e9mon)$"))|>
 				# Mutate the 'ndex' column by attempting to extract integer values from it,
 				# and if that fails (returns NA), use the original 'ndex' values
 				mutate(

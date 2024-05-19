@@ -8,14 +8,14 @@
 #' It returns a string that is recursively wrapped with the specified opening and closing characters.
 #'
 #' @param str The string to be wrapped.
-#' @param .open The opening character(s) for wrapping, default is "(".
-#' @param .close The closing character(s) for wrapping, default is ")?".
+#' @param .open The opening character(s) for wrapping. Default is "(".
+#' @param .close The closing character(s) for wrapping. Default is ")?".
 #' @return A string that is recursively wrapped with the specified opening and closing characters.
-#'
 #' @importFrom stringr str_length str_sub
 #' @importFrom glue glue
 #' @examples
 #' ZekDex:::.recursive_wrap("Zekrom")
+#' @export
 .recursive_wrap = function(str, .open="(", .close=")?"){
 	if(str_length(str) == 1)return(str)
 	return(glue::glue(
@@ -28,9 +28,14 @@
 
 #' Vectorized version of the .recursive_wrap function
 #'
-#' @param str A vector of strings to be wrapped
+#' This function is a vectorized version of the .recursive_wrap function. It applies the .recursive_wrap function to each element of a vector of strings.
 #'
-#' @return A vector of strings that are recursively wrapped with the specified opening and closing characters
+#' @param str A vector of strings to be wrapped.
+#' @inheritParams .recursive_wrap
+#' @return A vector of strings that are recursively wrapped with the specified opening and closing characters.
+#' @examples
+#' ZekDex:::recursive_wrap(c("Zekrom", "Reshiram"))
+#' @export
 recursive_wrap = Vectorize(.recursive_wrap, vectorize.args = "str")
 
 #' Returns the shortest string before a match
@@ -39,12 +44,15 @@ recursive_wrap = Vectorize(.recursive_wrap, vectorize.args = "str")
 #'
 #' @param str The string to resize.
 #' @param test The string to test.
+#' @param ... Additional arguments to be passed to the `regex` function.
+#' @param .open The opening character(s) for wrapping in the .recursive_wrap function. Default is "(".
+#' @param .close The closing character(s) for wrapping in the .recursive_wrap function. Default is ")?".
 #' @return The shortest string not matching test.
-#'
 #' @importFrom stringr str_extract_all
 #' @importFrom magrittr "%>%"
 #' @examples
 #' ZekDex:::str_longest_match("Zekrom", "Zek")
+#' @export
 str_longest_match = Vectorize(function(str, test, ..., .open="(", .close=")?"){
 	# args = list(...); if(!is.null(args$literal) && args$literal == TRUE)stop("Cannot match anything when literal is true")
 	matches = str_extract_all(test, regex(.recursive_wrap(str), ...))|>
@@ -57,14 +65,13 @@ str_longest_match = Vectorize(function(str, test, ..., .open="(", .close=")?"){
 #'
 #' This function returns the string before a match. It uses the `str_longest_match` function to find the match and then returns the string before it.
 #'
-#' @param str The string to resize.
-#' @param test The string to test.
+#' @inheritParams str_longest_match
 #' @return The string before the match.
-#'
 #' @importFrom stringr str_sub
 #' @importFrom dplyr if_else
 #' @examples
 #' ZekDex:::str_before_match("Zekrom", "Zek")
+#' @export
 str_before_match = function(str, test, ..., .open="(", .close=")?"){
 	match = str_longest_match(str, test, ..., .open="(", .close=")?")
 	match = if_else(match == str, NA_character_, match)
@@ -85,13 +92,13 @@ str_before_match = function(str, test, ..., .open="(", .close=")?"){
 #'
 #' @examples
 #' # Note: This function is not exported, so we use ::: to access it
-#' ZekDex:::.removeA("Pokémon") # Returns "Pokemon"
-#' ZekDex:::.removeA("résumé") # Returns "resume"
-#' ZekDex:::.removeA("naïve") # Returns "naive"
-#' ZekDex:::.removeA("élève") # Returns "eleve"
-#' ZekDex:::.removeA("hôtel") # Returns "hotel"
-#' ZekDex:::.removeA("Mëtàl") # Returns "Metal"
-#' ZekDex:::.removeA("Pókémòn") # Returns "Pokemon"
+#' ZekDex:::removeA("Pokémon") # Returns "Pokemon"
+#' ZekDex:::removeA("résumé") # Returns "resume"
+#' ZekDex:::removeA("naïve") # Returns "naive"
+#' ZekDex:::removeA("élève") # Returns "eleve"
+#' ZekDex:::removeA("hôtel") # Returns "hotel"
+#' ZekDex:::removeA("Mëtàl") # Returns "Metal"
+#' ZekDex:::removeA("Pókémòn") # Returns "Pokemon"
 removeA = function(str){
 	# Define the replacements for each accented character
 	replacements = c(
@@ -138,10 +145,10 @@ str_half = Vectorize(.str_half, vectorize.args = "str")
 #' @description
 #'
 #' takes a vector of names, matches them against patterns using str_detect,
-#' and then returns the corresponding values from patternsT[[val]]
+#' and then returns the corresponding values from `patternsT[[val]]`
 #' where the match is TRUE.
 #'
-#' @param name The value(s) to test
+#' @param names_vector The value(s) to test
 #' @param match What to check for a vector RegEx
 #' @param val The value to return
 fun = function(names_vector, match, val){
@@ -536,10 +543,13 @@ save_data = function(
 #' @param data The name of the data to load.
 #' @param root The root directory where the file is located.
 #' @param ns The namespace from which to load the data.
-#' @param one Is there one item in the rda file?
-#'
+#' @param one Logical, if `TRUE`, returns the first item in the RDA file. Default is `TRUE`.
+#' @param g The name of the data to load from the namespace `ns`. If `NULL`, the function will try to load data named `data` from `ns`.
+#' @return The loaded data.
 #' @importFrom readr read_csv
 #' @importFrom glue glue
+#' @importFrom pkgload is_loading
+#' @export
 read_data = function(data, root, ns = asNamespace("ZekDex"), one = TRUE, g=NULL){
 	if(pkgload::is_loading()) return()
 	if(!is.null(root)){

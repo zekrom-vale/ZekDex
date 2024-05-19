@@ -19,6 +19,7 @@ This dataset contains the base stats of Pokémon, including various forms and si
   - Mega: (`character`) The Mega form. These are special forms that certain Pokémon can take.
   - MegaOrPrimal: (`factor`) Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.
   - regional: (`factor`) The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.
+  - form: (`character`) Form of the Pokemon. This refers to the different physical forms that Pokémon can take. NA if the Pokemon does not have a special form.
 
 ## Sourced from
   - [List of Pokémon by base stats (Generation I). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_I))

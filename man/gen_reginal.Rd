@@ -8,6 +8,10 @@ gen_reginal(write = FALSE, root = "data/", file = "PokemonRegional")
 }
 \arguments{
 \item{write}{Logical, if \code{TRUE}, writes the tibble to a csv file. Default is \code{FALSE}.}
+
+\item{root}{The root directory where the csv file will be written if \code{write = TRUE}. Default is "data/".}
+
+\item{file}{The name of the csv file to be written if \code{write = TRUE}. Default is "PokemonRegional".}
 }
 \value{
 A tibble of regional dexes.

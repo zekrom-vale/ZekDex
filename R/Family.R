@@ -3,7 +3,9 @@
 #' This function scrapes Pokémon evolution data from Bulbapedia and returns a data frame. If `write = TRUE`, it also writes the data frame to a csv file.
 #'
 #' @param write Logical, if `TRUE`, writes the data frame to a csv file. Default is `FALSE`.
-#' @param path The path where the csv file will be written if `write = TRUE`. Default is `system.file("data/PokemonEvolution.csv", package = "ZekDex")`.
+#' @param root The root directory where the csv file will be written if `write = TRUE`. Default is "data/".
+#' @param file The name of the csv file to be written if `write = TRUE`. Default is "PokemonFamily".
+#' @param fileLong The name of the long format csv file to be written if `write = TRUE`. Default is "PokemonFamilyLong".
 #' @return A data frame of Pokémon evolution data.
 #' @importFrom purrr map pmap_lgl
 #' @importFrom dplyr select mutate filter bind_rows across everything

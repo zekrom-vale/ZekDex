@@ -10,6 +10,12 @@ str_before_match(str, test, ..., .open = "(", .close = ")?")
 \item{str}{The string to resize.}
 
 \item{test}{The string to test.}
+
+\item{...}{Additional arguments to be passed to the \code{regex} function.}
+
+\item{.open}{The opening character(s) for wrapping in the .recursive_wrap function. Default is "(".}
+
+\item{.close}{The closing character(s) for wrapping in the .recursive_wrap function. Default is ")?".}
 }
 \value{
 The string before the match.

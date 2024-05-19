@@ -9,6 +9,7 @@ This dataset is a wide format version of the `stats` dataset. It contains the ba
   - Mega: (`character`) The Mega form. These are special forms that certain Pokémon can take.
   - MegaOrPrimal: (`factor`) Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.
   - regional: (`factor`) The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.
+  - form: (`character`) Form of the Pokemon. This refers to the different physical forms that Pokémon can take. NA if the Pokemon does not have a special form.
   - HP_I: (`integer`) Hit Points for Generation I. This determines how much damage a Pokémon can receive before fainting.
   - HP_VI: (`integer`) Hit Points for Generation VI. This determines how much damage a Pokémon can receive before fainting.
   - HP_VII: (`integer`) Hit Points for Generation VII. This determines how much damage a Pokémon can receive before fainting.

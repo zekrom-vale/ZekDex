@@ -9,9 +9,9 @@
 \arguments{
 \item{str}{The string to be wrapped.}
 
-\item{.open}{The opening character(s) for wrapping, default is "(".}
+\item{.open}{The opening character(s) for wrapping. Default is "(".}
 
-\item{.close}{The closing character(s) for wrapping, default is ")?".}
+\item{.close}{The closing character(s) for wrapping. Default is ")?".}
 }
 \value{
 A string that is recursively wrapped with the specified opening and closing characters.

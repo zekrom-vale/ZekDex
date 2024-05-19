@@ -9,11 +9,13 @@ gen_lang(write = FALSE, root = "data/", file = "PokemonLang")
 \arguments{
 \item{write}{Logical, if \code{TRUE}, writes the tibble to a csv file. Default is \code{FALSE}.}
 
-\item{path}{The path where the csv file will be written if \code{write = TRUE}. Default is \code{system.file("data/PokemonLang.csv", package = "ZekDex")}.}
+\item{root}{The root directory where the csv file will be written if \code{write = TRUE}. Default is "data/".}
+
+\item{file}{The name of the csv file to be written if \code{write = TRUE}. Default is "PokemonLang".}
 }
 \value{
 A tibble of the National Dex with language information.
 }
 \description{
-Generate the National Dex with Other Language Data
+This function generates a tibble of the National Dex with language information.
 }

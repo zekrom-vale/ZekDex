@@ -18,11 +18,11 @@ It supports a wide range of accented characters, including those with acute, gra
 }
 \examples{
 # Note: This function is not exported, so we use ::: to access it
-ZekDex:::.removeA("Pokémon") # Returns "Pokemon"
-ZekDex:::.removeA("résumé") # Returns "resume"
-ZekDex:::.removeA("naïve") # Returns "naive"
-ZekDex:::.removeA("élève") # Returns "eleve"
-ZekDex:::.removeA("hôtel") # Returns "hotel"
-ZekDex:::.removeA("Mëtàl") # Returns "Metal"
-ZekDex:::.removeA("Pókémòn") # Returns "Pokemon"
+ZekDex:::removeA("Pokémon") # Returns "Pokemon"
+ZekDex:::removeA("résumé") # Returns "resume"
+ZekDex:::removeA("naïve") # Returns "naive"
+ZekDex:::removeA("élève") # Returns "eleve"
+ZekDex:::removeA("hôtel") # Returns "hotel"
+ZekDex:::removeA("Mëtàl") # Returns "Metal"
+ZekDex:::removeA("Pókémòn") # Returns "Pokemon"
 }

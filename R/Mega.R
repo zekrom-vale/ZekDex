@@ -46,7 +46,7 @@ gen_mega = function(write = FALSE, root = "data/", file = "PokemonMega"){
 			map2(
 				HTML|>
 					rvest::html_elements('h3 [id^="Introduced_in_"] a')|>
-					rvest::html_text()|>str_remove("^Pok.mon "),
+					rvest::html_text()|>str_remove("^Pok\u00e9mon "),
 				function(x,y)mutate(x, introduced = y)
 			)
 		else if(mega == "Primal")
@@ -63,7 +63,8 @@ gen_mega = function(write = FALSE, root = "data/", file = "PokemonMega"){
 			bind_rows() |> # Combine all elements of 'table' into a single dataframe
 			select(-matches("Image")) |> # Remove the 'Image' column from the dataframe
 			rename_with(~"stone", matches("Mega\\s*Stone|Orb")) |> # Rename the 'Mega Stone' or 'Orb' column to 'stone'
-			rename(ndex = Dex, name = `Pokémon`) |> # Rename the 'Dex' column to 'ndex' and 'Pokémon' column to 'name'
+			rename(ndex = Dex) |> # Rename the 'Dex' column to 'ndex' and 'Pokémon' column to 'name'
+			rename_with(matches("Pok\u00e9mon"), ~"name")|>
 			rename_with(function(x){
 				str_replace(x, "(Type|Ability)(Before|After).*", "\\1\\2") |> # Replace 'TypeBefore', 'TypeAfter', 'AbilityBefore', and 'AbilityAfter' with 'Type' and 'Ability'
 					str_replace("Type|Ability", str_to_lower) # Convert 'Type' and 'Ability' to lowercase

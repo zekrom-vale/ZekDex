@@ -3,9 +3,9 @@
 #' This function generates a tibble of the regional Pokedex by scraping data from Bulbapedia. It extracts the URLs of the regional Pokedex pages from the HTML, reads the HTML of each regional Pokedex page, and combines the regional Pokedex data with the national Pokedex data.
 #'
 #' @param write Logical, if `TRUE`, writes the tibble to a csv file. Default is `FALSE`.
+#' @param root The root directory where the csv file will be written if `write = TRUE`. Default is "data/".
+#' @param file The name of the csv file to be written if `write = TRUE`. Default is "PokemonRegional".
 #' @return A tibble of regional dexes.
-#' @export
-#'
 #' @importFrom purrr map map2 reduce discard transpose
 #' @importFrom dplyr mutate select distinct left_join join_by bind_rows rename rename_with starts_with
 #' @importFrom readr read_csv write_csv
@@ -14,6 +14,7 @@
 #' @importFrom tidyr drop_na
 #' @importFrom magrittr "%>%"
 #' @importFrom pkgload is_loading
+#' @export
 gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 	if(pkgload::is_loading()) return()
 	# Check if the 'rvest' package is installed. If not, stop the function and ask the user to install it.
@@ -71,7 +72,7 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 				ndex = as.integer(str_remove_all(ndex, "[^\\d]"))
 			)|>
 			select(!matches("^(MS|Image|ObsidianFieldlands|CrimsonMirelands|CobaltCoastlands|CoronetHighlands|AlabasterIcelands)$"))|>
-			rename(name = `Pokémon`)|>
+			rename_with(matches("Pok\u00e9mon"), ~"name")|>
 			rename_with(!c(ndex, name, starts_with("type")), .fn = function(.){
 				game = str_remove_all(dex$game, "_")
 				dex = str_remove_all(dex$dexes, "_")

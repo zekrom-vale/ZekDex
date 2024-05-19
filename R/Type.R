@@ -10,7 +10,6 @@
 #'
 #' @export
 #'
-#' @importFrom rvest read_html html_table
 #' @importFrom dplyr select filter bind_rows rename
 #' @importFrom tibble tibble
 #' @importFrom pkgload is_loading

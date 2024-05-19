@@ -14,9 +14,11 @@ gen_stats(
 \arguments{
 \item{write}{Logical, if \code{TRUE}, writes the data frames to csv files. Default is \code{FALSE}.}
 
-\item{path}{The path where the csv file will be written if \code{write = TRUE}. Default is \code{system.file("data/PokemonStats.csv", package = "ZekDex")}.}
+\item{root}{The root directory where the csv file will be written if \code{write = TRUE}. Default is "data/".}
 
-\item{pathWide}{The path where the wide format csv file will be written if \code{write = TRUE}. Default is \code{system.file("data/PokemonStatsWide.csv", package = "ZekDex")}.}
+\item{file}{The name of the csv file to be written if \code{write = TRUE}. Default is "PokemonStats".}
+
+\item{fileWide}{The name of the wide format csv file to be written if \code{write = TRUE}. Default is "PokemonStatsWide".}
 }
 \value{
 A list of two data frames: PokemonStats (long format) and PokemonStatsWide (wide format).
