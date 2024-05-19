@@ -5,14 +5,20 @@ ZekDex is a comprehensive R package that serves as a rich resource for Pokémon 
 It offers a wide array of datasets about Pokémon, encompassing a multitude of aspects that make these creatures unique.
 
 Key features of ZekDex include:
-- **National Dex Information**: This provides a complete listing of Pokémon as per the National Dex, which is a catalogue of Pokémon species in the order they were discovered.
-- **Legendary and Mythical Pokémon Groupings**: This categorizes Pokémon into their respective Legendary and Mythical groups, offering insights into their rarity and special attributes.
-- **Base Stats**: This includes the fundamental statistics of each Pokémon, such as their attack power, defense, speed, and more per generation.
-- **Evolution and Family Information**: This provides details about the evolutionary stages of Pokémon and their familial connections.
-- **Random Pokémon Generation**: ZekDex also includes functions that allow users to generate random Pokémon, adding an element of surprise and discovery.
+- **National Dex Information**: This provides a complete listing of Pokémon as per the National Dex,
+which is a catalogue of Pokémon species in the order they were discovered.
+- **Legendary and Mythical Pokémon Groupings**: This categorizes Pokémon into their respective Legendary
+and Mythical groups, offering insights into their rarity and special attributes.
+- **Base Stats**: This includes the fundamental statistics of each Pokémon, such as their attack power,
+defense, speed, and more per generation.
+- **Evolution and Family Information**: This provides details about the evolutionary stages of Pokémon and
+their familial connections.
+- **Random Pokémon Generation**: ZekDex also includes functions that allow users to generate random Pokémon,
+adding an element of surprise and discovery.
 - And much more!
 
-ZekDex is committed to providing up-to-date and accurate information about Pokémon. It draws its data from Bulbapedia, a community-driven Pokémon encyclopedia.
+ZekDex is committed to providing up-to-date and accurate information about Pokémon.
+It draws its data from Bulbapedia, a community-driven Pokémon encyclopedia.
 As of the time of writing, ZekDex includes data for Pokémon generations I through IX. 
 
 One of the standout features of ZekDex is its ability to stay current.
@@ -49,10 +55,14 @@ You can install the package from GitHub with:
 install.packages("devtools")
 
 # Install the stable branch of the package ZekDex (recommended)
-devtools::install_github("zekrom-vale/ZekDex", ref = "stable")
+devtools::install_github("zekrom-vale/ZekDex")
 
 # Or, install the main branch of the package ZekDex (May be in an unusable state)
 devtools::install_github("zekrom-vale/ZekDex", ref = "main")
+
+# Or, install a specific version of the package ZekDex using a tag
+# For example, to install version v0.1.3-beta:
+devtools::install_github("zekrom-vale/ZekDex", ref = "v0.1.3-beta")
 ```
 
 ## Datasets
@@ -131,7 +141,20 @@ When a Pokémon is defeated in battle, it will give effort values to the Pokémo
 
 
 
-You can load any dataset with the `data()` function. For example, `data(nationalDex)`.
+
+### Loading data
+Data can be loaded in different ways
+```r
+# Save data into global scope with nationalDex
+data(nationalDex, package = "ZekDex")
+
+# Libray and directly access it
+library(ZekDex)
+nationalDex
+
+# Use :: opperatior
+ZekDex::nationalDex
+```
 
 ## Functions
 
@@ -152,23 +175,34 @@ The package provides the following functions:
   - `root` (`character`): Where to look for files and write them
   - `file` (`character`): Where to save the data without extention if `write == TRUE`
   - `file*` (`character`): Same as file but for other datasets generated
-  - NOTE: These functions scrape Bulbapedia, do not call them more then once.  Save the data to file and use it, updating only when required.
+  - NOTE: These functions scrape Bulbapedia, do not call them more then once.  Save the data to file and use it,
+  updating only when required.
 
 ## License
 
-This package is licensed under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License (CC BY-NC-SA 4.0)**. This license allows for redistribution and adaptation of the work under the following terms:
+This package is licensed under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License (CC BY-NC-SA 4.0)**.
+This license allows for redistribution and adaptation of the work under the following terms:
 
-- **Attribution**: You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+- **Attribution**: You must give appropriate credit, provide a link to the license, and indicate if changes were made.
+You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
 - **NonCommercial**: You may not use the material for commercial purposes.
-- **ShareAlike**: If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+- **ShareAlike**: If you remix, transform, or build upon the material, you must distribute your contributions
+under the same license as the original.
 
-This license is designed to protect the rights of the creators while also promoting openness and collaboration. It ensures that the package can be freely used and adapted, as long as appropriate credit is given and the work is not used for commercial purposes. Furthermore, any adaptations of the work must be shared under the same license, promoting the creation of derivative works that are also freely available.
+This license is designed to protect the rights of the creators while also promoting openness and collaboration.
+It ensures that the package can be freely used and adapted, as long as appropriate credit is given and the work
+is not used for commercial purposes. Furthermore, any adaptations of the work must be shared under the same license,
+promoting the creation of derivative works that are also freely available.
 
-For more details about the CC BY-NC-SA 4.0 license, you can visit the [official webpage](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en).
+For more details about the CC BY-NC-SA 4.0 license, you can visit the
+[official webpage](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en).
 
-Additionally, you can refer to the [LICENSE](LICENSE) file included with the package. This file contains the full text of the license, providing a detailed description of the rights and restrictions associated with the use of the package.
+Additionally, you can refer to the [LICENSE](LICENSE) file included with the package.
+This file contains the full text of the license, providing a detailed description of the rights and restrictions
+associated with the use of the package.
 
-Please ensure that you understand and comply with the terms of the license when using this package. If you have any questions about the license, it's recommended to consult with a legal expert.
+Please ensure that you understand and comply with the terms of the license when using this package.
+If you have any questions about the license, it's recommended to consult with a legal expert.
 
 ## Attribution
 
