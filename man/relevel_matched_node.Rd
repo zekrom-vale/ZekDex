@@ -4,7 +4,7 @@
 \alias{relevel_matched_node}
 \title{Relevels the structure of a list of xml_nodes and xml_nodesets}
 \usage{
-relevel_matched_node(lst, level = 1)
+relevel_matched_node(lst, level = 1, tags = c("h2", "h3", "h4"))
 }
 \arguments{
 \item{lst}{The list to modify}

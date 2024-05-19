@@ -12,15 +12,15 @@ Brazilian Portuguese, Turkish, Russian, Thai, and Hindi. The language columns ar
   - ndex: (`integer`) The National Pokédex number of the Pokémon. This is the unique identifier for each Pokémon in the National Pokédex.
   - name: (`character`) The English name of the Pokémon.
   - form: (`character`) The form of the Pokémon. This refers to the different physical forms that Pokémon can take. 'NA' if the Pokémon does not have a special form.
-  - regional: (`character`) The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. 'NA' if the Pokémon does not have a regional form.
-  - type: (`character`) The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.
-  - type2: (`character`) The secondary type of the Pokémon. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses. 'NA' if the Pokémon does not have a secondary type.
+  - regional: (`factor`) The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. 'NA' if the Pokémon does not have a regional form.
+  - type: (`factor`) The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.
+  - type2: (`factor`) The secondary type of the Pokémon. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses. 'NA' if the Pokémon does not have a secondary type.
   - generation: (`integer`) The generation of the Pokémon. This refers to the generation of games in which the Pokémon was first introduced.
   - isLegendary: (`logical`) A boolean indicating if the Pokémon is Legendary. Legendary Pokémon are a group of incredibly rare and often very powerful Pokémon.
   - isMythical: (`logical`) A boolean indicating if the Pokémon is Mythical. Mythical Pokémon are a related but separate group of Pokémon, which are usually event-exclusive.
   - isUltraBeast: (`logical`) A boolean indicating if the Pokémon is an Ultra Beast. Ultra Beasts is a term introduced in Generation VII to classify seven known Pokémon.
-  - family: (`character`) The family of the Pokémon. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon.
-  - size: (`character`) The size of the Pokémon. This refers to the height and weight of the Pokémon.
+  - family: (`factor`) Legendary / Mythical family group of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group.
+  - size: (`factor`) Legendary / Mythical family size. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group.
   - Japanese_Kana: (`character`) The Japanese Kana name of the Pokémon.
   - Japanese_Hepburn: (`character`) The Japanese Hepburn name of the Pokémon.
   - Japanese_Trademarked: (`character`) The Japanese Trademarked name of the Pokémon.
@@ -36,14 +36,14 @@ Brazilian Portuguese, Turkish, Russian, Thai, and Hindi. The language columns ar
   - Chinese_Simplified: (`character`) The Chinese Simplified name of the Pokémon.
   - Chinese_Pinyin: (`character`) The Chinese Pinyin name of the Pokémon.
   - Chinese_Yale: (`character`) The Chinese Yale name of the Pokémon.
-  - Chinese_Former names: (`character`) The Chinese Former names of the Pokémon.
-  - Brazilian_Portuguese_brazilian_portuguese: (`character`) The Brazilian Portuguese name of the Pokémon.
+  - Chinese_Former_names: (`character`) The Chinese Former names of the Pokémon.
+  - Brazilian_Portuguese: (`character`) The Brazilian Portuguese name of the Pokémon.
   - Turkish: (`character`) The Turkish name of the Pokémon.
   - Russian_Cyrillic: (`character`) The Russian Cyrillic name of the Pokémon.
   - Russian_Romanization: (`character`) The Russian Romanization name of the Pokémon.
   - Thai: (`character`) The Thai name of the Pokémon.
   - Thai_RTGS: (`character`) The Thai RTGS name of the Pokémon.
-  - Hindi_Devanāgarī: (`character`) The Hindi Devanāgarī name of the Pokémon.
+  - Hindi_Devanagari: (`character`) The Hindi Devanāgarī name of the Pokémon.
   - Hindi_Transliteration: (`character`) The Hindi Transliteration name of the Pokémon.
   - Hindi_Romanization: (`character`) The Hindi Romanization name of the Pokémon.
 

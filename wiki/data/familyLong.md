@@ -12,13 +12,13 @@ Note: The `family.x` and `family.y` variables need to be reconciled to ensure co
   - transition: (`character`) The transition stage of the Pokemon. This refers to any intermediate stages that occur during the Pokémon's evolution.
   - first: (`character`) The first form of the Pokemon. This is the initial form of the Pokémon before any evolutions.
   - firstForm: (`character`) The first form of the Pokemon if it has multiple forms. This refers to the specific form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a special form at the initial stage.
-  - firstRegional: (`character`) The first regional form of the Pokemon. This refers to the regional form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a regional form at the initial stage.
+  - firstRegional: (`factor`) The first regional form of the Pokemon. This refers to the regional form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a regional form at the initial stage.
   - name: (`character`) The name of the Pokemon. This is the common name used to identify a particular Pokémon.
   - form: (`character`) The form of the Pokemon. This refers to the different physical forms that Pokémon can take. NA if the Pokemon does not have a special form.
-  - regional: (`character`) The regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form.
-  - stage: (`character`) The stage of the Pokemon. This refers to the stage in the Pokémon's evolution process, such as 'base', 'stage 1', 'stage 2', etc.
-  - family.y: (`character`) The legendary family of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group.
-  - size: (`character`) The size of the legendary family. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group.
+  - regional: (`factor`) The regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form.
+  - stage: (`factor`) The stage of the Pokemon. This refers to the stage in the Pokémon's evolution process, such as 'base', 'stage 1', 'stage 2', etc.
+  - family.y: (`factor`) Legendary / Mythical family group of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group.
+  - size: (`factor`) Legendary / Mythical family size. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group.
 
 ## Sourced from
   - [Methods of evolution. In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution)

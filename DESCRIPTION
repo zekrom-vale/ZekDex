@@ -1,7 +1,7 @@
 Package: ZekDex
 Type: Package
 Title: Comprehensive Pokémon Datasets from Bulbapedia
-Version: 0.1.2
+Version: 0.1.3
 Author: ZekromVale
 Maintainer: ZekromVale <zekrom-vale@users.noreply.github.com>
 Description: 
@@ -26,3 +26,4 @@ RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)
 URL: https://github.com/zekrom-vale/ZekDex
 BugReports: https://github.com/zekrom-vale/ZekDex/issues
+Language: en-US

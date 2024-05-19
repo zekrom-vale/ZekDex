@@ -33,7 +33,10 @@ gen_groups = function(write = FALSE, root = "data/", file = "PokemonGroups"){
 				fill(family, .direction = "up")|>
 				filter(x1!=x2)|>
 				pivot_longer(cols = starts_with("x"), values_to = "name", names_to = NULL)|>
-				mutate(size = s)
+				mutate(
+					size = factor(s),
+					family = factor(family)
+				)
 		})|>
 		bind_rows()
 	if(write)save_data("groups", root, file)

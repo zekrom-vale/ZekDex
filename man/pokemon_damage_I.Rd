@@ -30,7 +30,9 @@ pokemon_damage_I(
 
 \item{critical}{Logical. If TRUE, it's a critical hit. Default is FALSE.}
 
-\item{random}{Character string. If "yes", a random uniformly distributed integer between 217 and 255 is used. If "minmax", the min and max values are returned. If anything else, the average is used. Default is "yes".}
+\item{random}{Character string. If "yes", a random uniformly distributed
+integer between 217 and 255 is used. If "minmax", the min and max values are
+returned. If anything else, the average is used. Default is "yes".}
 }
 \value{
 The calculated damage.

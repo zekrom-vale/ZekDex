@@ -16,6 +16,10 @@ This dataset contains the base stats of Pokémon, including various forms and si
   - Gen: (`factor`) Generation. This indicates the generation of games in which the Pokémon was introduced.
   - SpAttack: (`integer`) Special Attack strength. This determines how much damage a Pokémon can deal with special moves. This stat is not applicable for Generation I as 'Special' stat is used instead.
   - SpDefense: (`integer`) Special Defense strength. This determines how much damage a Pokémon can resist from special moves. This stat is not applicable for Generation I as 'Special' stat is used instead.
+  - Mega: (`character`) The Mega form. These are special forms that certain Pokémon can take.
+  - MegaOrPrimal: (`factor`) Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.
+  - regional: (`factor`) The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.
+  - form: (`character`) Form of the Pokemon. This refers to the different physical forms that Pokémon can take. NA if the Pokemon does not have a special form.
 
 ## Sourced from
   - [List of Pokémon by base stats (Generation I). In Bulbapedia.](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_I))

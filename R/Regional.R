@@ -3,9 +3,9 @@
 #' This function generates a tibble of the regional Pokedex by scraping data from Bulbapedia. It extracts the URLs of the regional Pokedex pages from the HTML, reads the HTML of each regional Pokedex page, and combines the regional Pokedex data with the national Pokedex data.
 #'
 #' @param write Logical, if `TRUE`, writes the tibble to a csv file. Default is `FALSE`.
+#' @param root The root directory where the csv file will be written if `write = TRUE`. Default is "data/".
+#' @param file The name of the csv file to be written if `write = TRUE`. Default is "PokemonRegional".
 #' @return A tibble of regional dexes.
-#' @export
-#'
 #' @importFrom purrr map map2 reduce discard transpose
 #' @importFrom dplyr mutate select distinct left_join join_by bind_rows rename rename_with starts_with
 #' @importFrom readr read_csv write_csv
@@ -14,6 +14,7 @@
 #' @importFrom tidyr drop_na
 #' @importFrom magrittr "%>%"
 #' @importFrom pkgload is_loading
+#' @export
 gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 	if(pkgload::is_loading()) return()
 	# Check if the 'rvest' package is installed. If not, stop the function and ask the user to install it.
@@ -65,12 +66,13 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 			rename(ndex=Ndex)|>
 			mutate(
 				# Remove duplicate types
-				type2 = if_else(type == type2, NA_character_, type2),
+				type2 = factor_type(if_else(type == type2, NA_character_, type2)),
+				type = factor_type(type),
 				# Fix ndex to int
 				ndex = as.integer(str_remove_all(ndex, "[^\\d]"))
 			)|>
 			select(!matches("^(MS|Image|ObsidianFieldlands|CrimsonMirelands|CobaltCoastlands|CoronetHighlands|AlabasterIcelands)$"))|>
-			rename(name = `Pokémon`)|>
+			rename_with(matches("Pok\u00e9mon"), ~"name")|>
 			rename_with(!c(ndex, name, starts_with("type")), .fn = function(.){
 				game = str_remove_all(dex$game, "_")
 				dex = str_remove_all(dex$dexes, "_")
@@ -90,18 +92,20 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 			across(
 				-names(national),
 				~ as.integer(str_remove_all(., "[^\\d]"))
-			)
+			),
+			across(c(regional, family, size), factor),
+			generation = as.integer(generation)
+		)|>
+		# Remove speaces
+		# Fix the redundant names
+		rename_with(
+			.fn = function(.){
+				removeA(.)|>
+					str_replace_all("\\s+", "_")|>
+					str_remove_all("'")
+			},
+			.cols = matches("^[A-Z]")
 		)
-
-	# Thses 4 are issues, they have split dexes
-	# https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Kalos_Pok%C3%A9dex_number
-	# CeKdex ndex Pokémon    CoKdex MoKdex game  dex
-	# https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Alola_Pok%C3%A9dex_number_(Sun_and_Moon)
-	# Adex  Melemele Akala `Ula'ula` Poni  Ndex  Pokémon    game         dex
-	# Adex  Melemele Akala `Ula'ula` Poni  Ndex  Pokémon    game                     dex
-	# https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Hisui_Pok%C3%A9dex_number
-	# LAdex ObsidianFieldlands CrimsonMirelands CobaltCoastlands CoronetHighlands AlabasterIcelands Ndex  Pokémon    game  dex > Drop odd dexes
-
 
 	if(write)save_data("regionalDex", root, file)
 	regionalDex

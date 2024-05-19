@@ -5,7 +5,7 @@
 \alias{stats}
 \title{Pokemon Stats}
 \format{
-A data frame with 11 variables:
+A data frame with 14 variables:
 \describe{
 \item{\code{ndex}}{\code{integer} National Pokédex number. This is the unique identifier for each Pokémon in the National Pokédex.}
 \item{\code{name}}{\code{character} Pokémon name. This is the common name used to identify a particular Pokémon.}
@@ -19,6 +19,10 @@ A data frame with 11 variables:
 \item{\code{Gen}}{\code{factor} Generation. This indicates the generation of games in which the Pokémon was introduced.}
 \item{\code{SpAttack}}{\code{integer} Special Attack strength. This determines how much damage a Pokémon can deal with special moves. This stat is not applicable for Generation I as 'Special' stat is used instead.}
 \item{\code{SpDefense}}{\code{integer} Special Defense strength. This determines how much damage a Pokémon can resist from special moves. This stat is not applicable for Generation I as 'Special' stat is used instead.}
+\item{\code{Mega}}{\code{character} The Mega form. These are special forms that certain Pokémon can take.}
+\item{\code{MegaOrPrimal}}{\code{factor} Indicates if the Pokémon is in a Mega or Primal form. These are special forms that certain Pokémon can take.}
+\item{\code{regional}}{\code{factor} The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.}
+\item{\code{form}}{\code{character} Form of the Pokemon. This refers to the different physical forms that Pokémon can take. NA if the Pokemon does not have a special form.}
 }
 }
 \source{

@@ -16,9 +16,9 @@ A data frame with the following variables:
 \item{\code{transition}}{\code{character} The transition stage of the Pokemon. This refers to any intermediate stages that occur during the Pokémon's evolution.}
 \item{\code{first}}{\code{character} The first form of the Pokemon. This is the initial form of the Pokémon before any evolutions.}
 \item{\code{firstForm}}{\code{character} The specific first form of the Pokemon. This refers to the specific form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a special form at the initial stage.}
-\item{\code{regional}}{\code{character} The regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form.}
-\item{\code{evoRegional}}{\code{character} The regional evolved form of the Pokemon. This refers to the regional form that the Pokémon takes after evolution. NA if the Pokemon does not change form upon evolution in a specific region.}
-\item{\code{firstRegional}}{\code{character} The regional first form of the Pokemon. This refers to the regional form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a regional form at the initial stage.}
+\item{\code{regional}}{\code{factor} The regional form of the Pokemon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions. NA if the Pokemon does not have a regional form.}
+\item{\code{evoRegional}}{\code{factor} The regional evolved form of the Pokemon. This refers to the regional form that the Pokémon takes after evolution. NA if the Pokemon does not change form upon evolution in a specific region.}
+\item{\code{firstRegional}}{\code{factor} The regional first form of the Pokemon. This refers to the regional form that the Pokémon takes in its initial stage. NA if the Pokemon does not have a regional form at the initial stage.}
 }
 }
 \source{

@@ -7,12 +7,16 @@
 regionalForm(re = FALSE, ext = FALSE)
 }
 \arguments{
-\item{re}{A logical value. If TRUE, the function returns a regex pattern. If FALSE, it returns a list. Default is FALSE.}
+\item{re}{A logical value. If TRUE, the function returns a regex pattern.
+If FALSE, it returns a list. Default is FALSE.}
 
-\item{ext}{A logical value. If TRUE, the function includes extended regional forms in the output. Default is FALSE.}
+\item{ext}{A logical value. If TRUE, the function includes extended regional
+forms in the output. Default is FALSE.}
 }
 \value{
-If re is TRUE, a character string representing a regex pattern of Pokémon regional forms. If re is FALSE, a character vector of Pokémon regional forms.
+If re is TRUE, a character string representing a regex pattern of
+Pokémon regional forms. If re is FALSE, a character vector of Pokémon
+regional forms.
 }
 \description{
 This function provides a list or a regex pattern of Pokémon regional forms.

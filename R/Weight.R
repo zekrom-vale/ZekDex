@@ -41,10 +41,10 @@ gen_weight = function(write = FALSE, root = "data/", file = "PokemonWeight"){
 			lightest = as.integer(row_number()),
 			heaveiest = max(lightest) - lightest + 1L,
 			regional = str_extract(name, regionalForm(re=TRUE)),
-			regional = if_else(regional == "", NA_character_, regional),
+			regional = factor(if_else(regional == "", NA_character_, regional)),
 			name = str_trim(str_remove_all(name, regionalForm(re=TRUE))),
 			MegaOrPrimal = str_trim(str_extract(name, "Mega|Primal")),
-			MegaOrPrimal = if_else(MegaOrPrimal == "", NA_character_, MegaOrPrimal, NA_character_),
+			MegaOrPrimal = factor(if_else(MegaOrPrimal == "", NA_character_, MegaOrPrimal, NA_character_)),
 			name = str_trim(str_remove(name, "Mega|Primal"))
 		)
 	if(write)save_data("weight", root, file)

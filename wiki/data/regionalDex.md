@@ -9,15 +9,15 @@ If the data is missing, it is represented as `NA`.
   - ndex: (`integer`) The National Pokédex number of the Pokémon.
   - name: (`character`) The name of the Pokémon.
   - form: (`character`) The form of the Pokémon. This refers to the different physical forms that Pokémon can take.
-  - regional: (`character`) The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.
-  - type: (`character`) The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.
-  - type2: (`character`) The secondary type of the Pokémon. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses.
+  - regional: (`factor`) The regional form of the Pokémon. This refers to the variations of Pokémon that appear differently and have different attributes compared to their counterparts in other regions.
+  - type: (`factor`) The primary type of the Pokémon. Each Pokémon has a primary type which determines the Pokémon's strengths and weaknesses.
+  - type2: (`factor`) The secondary type of the Pokémon. Some Pokémon may have a secondary type, which further influences the Pokémon's strengths and weaknesses.
   - generation: (`integer`) The generation of the Pokémon. This refers to the generation of games in which the Pokémon was first introduced.
   - isLegendary: (`logical`) A boolean indicating if the Pokémon is Legendary. Legendary Pokémon are a group of incredibly rare and often very powerful Pokémon.
   - isMythical: (`logical`) A boolean indicating if the Pokémon is Mythical. Mythical Pokémon are a related but separate group of Pokémon, which are usually event-exclusive.
   - isUltraBeast: (`logical`) A boolean indicating if the Pokémon is an Ultra Beast. Ultra Beasts is a term introduced in Generation VII to classify seven known Pokémon.
-  - family: (`character`) The family of the Pokémon. This refers to the group or lineage the Pokémon belongs to, often based on common themes or characteristics among the Pokémon.
-  - size: (`character`) The size of the Pokémon. This refers to the height and weight of the Pokémon.
+  - family: (`factor`) Legendary / Mythical family group of the Pokemon. This refers to the group or lineage the Legendary or Mythical Pokémon belongs to. NA if the Pokemon does not belong to a family group.
+  - size: (`factor`) Legendary / Mythical family size. This refers to the size of the Legendary or Mythical family group the Pokémon belongs to. NA if the Pokemon does not belong to a family group.
   - NA_Kanto_Kdex: (`integer`) The Kanto Pokédex number. This is the number assigned to the Pokémon in the Kanto Regional Pokédex.
   - NA_Johto_Jdex: (`integer`) The Johto Pokédex number. This is the number assigned to the Pokémon in the Johto Regional Pokédex.
   - GenerationIII_Hoenn_Hdex: (`integer`) The Hoenn Pokédex number in Generation III. This is the number assigned to the Pokémon in the Hoenn Regional Pokédex in Generation III games.
@@ -32,12 +32,12 @@ If the data is missing, it is represented as `NA`.
   - SunandMoon_Alola_Adex: (`integer`) The Alola Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Alola Regional Pokédex in Pokémon Sun and Moon.
   - SunandMoon_Alola_Melemele: (`integer`) The Melemele Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Melemele Regional Pokédex in Pokémon Sun and Moon.
   - SunandMoon_Alola_Akala: (`integer`) The Akala Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Akala Regional Pokédex in Pokémon Sun and Moon.
-  - SunandMoon_Alola_Ula'ula: (`integer`) The Ula'ula Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Sun and Moon.
+  - SunandMoon_Alola_Ulaula: (`integer`) The Ula'ula Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Sun and Moon.
   - SunandMoon_Alola_Poni: (`integer`) The Poni Pokédex number in Sun and Moon. This is the number assigned to the Pokémon in the Poni Regional Pokédex in Pokémon Sun and Moon.
   - UltraSunandUltraMoon_Alola_Adex: (`integer`) The Alola Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Alola Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.
   - UltraSunandUltraMoon_Alola_Melemele: (`integer`) The Melemele Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Melemele Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.
   - UltraSunandUltraMoon_Alola_Akala: (`integer`) The Akala Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Akala Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.
-  - UltraSunandUltraMoon_Alola_Ula'ula: (`integer`) The Ula'ula Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.
+  - UltraSunandUltraMoon_Alola_Ulaula: (`integer`) The Ula'ula Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Ula'ula Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.
   - UltraSunandUltraMoon_Alola_Poni: (`integer`) The Poni Pokédex number in Ultra Sun and Ultra Moon. This is the number assigned to the Pokémon in the Poni Regional Pokédex in Pokémon Ultra Sun and Ultra Moon.
   - NA_Galar_Gdex: (`integer`) The Galar Pokédex number. This is the number assigned to the Pokémon in the Galar Regional Pokédex.
   - NA_IsleofArmor_IoAdex: (`integer`) The Isle of Armor Pokédex number. This is the number assigned to the Pokémon in the Isle of Armor Regional Pokédex.

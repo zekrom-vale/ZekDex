@@ -75,12 +75,11 @@ scrape_pokemon = function(path = "E:\\html\\"){
 #' # > {html_node}
 #' # > <div>
 #' }
-relevel_matched_node <- function(lst, level = 1){
+relevel_matched_node <- function(lst, level = 1, tags = c("h2", "h3", "h4")){
 	if(pkgload::is_loading()) return()
-	tags <- c("h2", "h3", "h4")
 	# If it's a node return as is
 	if (inherits(lst, "xml_node")) return(lst)
-	if (level <= length(tags) && any(purrr::map_lgl(lst, function(x) check_h(x, tags[level])))) {
+	if (level <= length(tags) && any(purrr::map_lgl(lst, ~check_h(.x, tags[level])))) {
 		# Pluck the node
 		both <- pluck_matched_node(lst, tags[level])
 		# Other elements here
@@ -88,18 +87,19 @@ relevel_matched_node <- function(lst, level = 1){
 		# Matched element here
 		matched_elements <- both$matched_elements
 		# Recurce, may not be necessary
-		return(c(matched_elements, purrr::map(other_elements, relevel_matched_node, level)))
+		return(c(matched_elements, purrr::map(other_elements, ~relevel_matched_node(.x, level, tags))))
 	} else {
 		# Check if an element is an xml_node or xml_nodeset before recurcing
-		purrr::map(lst, function(x) {
+		purrr::map(lst, ~{
 			# If it's a node return as is
-			if(inherits(x, "xml_node"))
-				return(x)
+			if(inherits(.x, "xml_node"))
+				return(.x)
 			# If it's a list or a nodeset recurce
-			return(purrr::map(x, relevel_matched_node, level))
+			return(purrr::map(.x, ~relevel_matched_node(.x, level, tags)))
 		})
 	}
 }
+
 
 #' Checks if a given xml_node type of tag exists
 #'

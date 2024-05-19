@@ -7,6 +7,9 @@
 pokemon_damage(..., .gen = "V")
 }
 \arguments{
+\item{...}{Additional arguments to be passed to the generation-specific
+damage function.}
+
 \item{.gen}{The generation to use for calculating damage. Default is "V".}
 }
 \value{
@@ -16,5 +19,7 @@ The calculated damage.
 This function calculates the damage for a Pokemon based on the generation.
 }
 \seealso{
-\code{\link{pokemon_damage_V}}, \code{\link{pokemon_damage_IV}}, \code{\link{pokemon_damage_III}}, \code{\link{pokemon_damage_II}}, \code{\link{pokemon_damage_I}} for the generation specific damage functions.
+\code{\link{pokemon_damage_V}}, \code{\link{pokemon_damage_IV}},
+\code{\link{pokemon_damage_III}}, \code{\link{pokemon_damage_II}},
+\code{\link{pokemon_damage_I}} for the generation specific damage functions.
 }

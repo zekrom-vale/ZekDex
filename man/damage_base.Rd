@@ -15,7 +15,8 @@ damage_base(level, power, attackStat, defenseStat, .round = floor)
 
 \item{defenseStat}{The effective Defense stat of the target Pokemon.}
 
-\item{.round}{The rounding function to use. Gen I-IV uses \code{floor()} (truncated) and Gen V+ uses \code{round()} (.5 and under is truncated, above is rounded up).}
+\item{.round}{The rounding function to use. Gen I-IV uses \code{floor()}
+and Gen V+ uses \code{round()} (.5 and under is truncated, above is rounded up).}
 }
 \value{
 The base damage.

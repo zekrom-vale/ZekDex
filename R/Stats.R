@@ -3,11 +3,10 @@
 #' This function scrapes Pokemon statistics from Bulbapedia and returns a list of two data frames: one in long format and one in wide format. If `write = TRUE`, it also writes these data frames to csv files.
 #'
 #' @param write Logical, if `TRUE`, writes the data frames to csv files. Default is `FALSE`.
-#' @param path The path where the csv file will be written if `write = TRUE`. Default is `system.file("data/PokemonStats.csv", package = "ZekDex")`.
-#' @param pathWide The path where the wide format csv file will be written if `write = TRUE`. Default is `system.file("data/PokemonStatsWide.csv", package = "ZekDex")`.
+#' @param root The root directory where the csv file will be written if `write = TRUE`. Default is "data/".
+#' @param file The name of the csv file to be written if `write = TRUE`. Default is "PokemonStats".
+#' @param fileWide The name of the wide format csv file to be written if `write = TRUE`. Default is "PokemonStatsWide".
 #' @return A list of two data frames: PokemonStats (long format) and PokemonStatsWide (wide format).
-#' @export
-#'
 #' @importFrom purrr map map2 reduce
 #' @importFrom dplyr select rename mutate bind_rows
 #' @importFrom tidyr pivot_wider
@@ -15,6 +14,7 @@
 #' @importFrom stringr str_extract
 #' @importFrom magrittr "%>%"
 #' @importFrom pkgload is_loading
+#' @export
 gen_stats = function(
 		write = FALSE,
 		root = "data/",
@@ -60,28 +60,37 @@ gen_stats = function(
 	# TODO regenerate nationalDex data
 	# Extract subset data stats = ZekDex::stats
 	stats = stats|>
+		# Rename the 'name' column to 'form'
 		rename(form = name)|>
-		# Join by ndex
+		# Join the 'stats' and 'pokemon' datasets by 'ndex'
 		left_join(pokemon, by = "ndex")|>
-		# Extract the mega / primal information
+		# Extract the 'form', 'MegaOrPrimal', and 'Mega' information from the 'form' column
 		extract(form, into = c("form", "MegaOrPrimal", "Mega"), regex = "^(.*?)(?:(?= (Mega|Primal) )(.*))?$")|>
 		mutate(
+			# Extract the regional form from the 'form' column and trim any leading/trailing whitespace
+			regional = str_trim(str_extract(form, regionalForm(re=TRUE))),
+			# Remove the regional form and Pokémon name from the 'form' column
+			form = str_remove(form, paste0(regionalForm(re=TRUE), "\\s*", name)),
+			# If 'form' contains parentheses, extract the text within the parentheses; otherwise, keep 'form' as is
+			form = if_else(str_detect(form, "\\([^()]+\\)"), str_extract(form, "\\(([^()]+)\\)", group = 1), form, NA_character_),
+			# Remove the Pokémon name from the 'form' column and trim any leading/trailing whitespace
 			form = str_trim(str_remove(form, name)),
-			# For form, MegaOrPrimal, Mega
+			# For 'form', 'MegaOrPrimal', and 'Mega' columns
 			across(
-				c(form, MegaOrPrimal, Mega),
-				# trim and blank is set to NA
-				.fns = ~if_else(str_trim(.) == "", NA_character_, str_trim(.))
-			)
+				c(form, MegaOrPrimal, Mega, regional),
+				# Trim any leading/trailing whitespace and replace empty strings with NA
+				.fns = ~if_else(str_trim(.) == "", NA_character_, str_trim(.), NA_character_)
+			),
+			across(c(MegaOrPrimal, Gen), factor)
 		)|>
+		# Rename the 'Sp. Attack' and 'Sp. Defense' columns to 'SpAttack' and 'SpDefense', respectively
 		rename(SpAttack = `Sp. Attack`, SpDefense = `Sp. Defense`)|>
-		# Reorder
-		select(ndex, name, everything())
-
+		# Reorder the columns
+		select(ndex, name, form, regional, everything())
 
 	statsWide = stats|>
-		pivot_wider(names_from = "Gen", values_from = c("HP", "Attack", "Defense", "Speed", "Special", "Total", "Average", "SpAttack", "SpDefense"))
-
+		pivot_wider(names_from = "Gen", values_from = c("HP", "Attack", "Defense", "Speed", "Special", "Total", "Average", "SpAttack", "SpDefense"))|>
+		drop_na_columns()
 
 	if(write){
 		save_data("stats", root, file)

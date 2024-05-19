@@ -7,11 +7,18 @@
 recursive_wrap(str, .open = "(", .close = ")?")
 }
 \arguments{
-\item{str}{A vector of strings to be wrapped}
+\item{str}{A vector of strings to be wrapped.}
+
+\item{.open}{The opening character(s) for wrapping. Default is "(".}
+
+\item{.close}{The closing character(s) for wrapping. Default is ")?".}
 }
 \value{
-A vector of strings that are recursively wrapped with the specified opening and closing characters
+A vector of strings that are recursively wrapped with the specified opening and closing characters.
 }
 \description{
-Vectorized version of the .recursive_wrap function
+This function is a vectorized version of the .recursive_wrap function. It applies the .recursive_wrap function to each element of a vector of strings.
+}
+\examples{
+ZekDex:::recursive_wrap(c("Zekrom", "Reshiram"))
 }

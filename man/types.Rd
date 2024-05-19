@@ -7,7 +7,7 @@
 \format{
 A data frame with one column:
 \describe{
-\item{\code{types}}{\code{character} The types of Pokemon. Possible types include \code{Grass}, \code{Fire}, \code{Water}, \code{Bug}, \code{Normal}, \code{Dark}, \code{Poison}, \code{Electric}, \code{Ground}, \code{Ice}, \code{Fairy}, \code{Steel}, \code{Fighting}, \code{Psychic}, \code{Rock}, \code{Ghost}, \code{Dragon}, \code{Flying}.}
+\item{\code{types}}{\code{factor} The types of Pokemon. Possible types include \code{Grass}, \code{Fire}, \code{Water}, \code{Bug}, \code{Normal}, \code{Dark}, \code{Poison}, \code{Electric}, \code{Ground}, \code{Ice}, \code{Fairy}, \code{Steel}, \code{Fighting}, \code{Psychic}, \code{Rock}, \code{Ghost}, \code{Dragon}, \code{Flying}.}
 }
 }
 \source{

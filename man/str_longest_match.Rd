@@ -10,6 +10,12 @@ str_longest_match(str, test, ..., .open = "(", .close = ")?")
 \item{str}{The string to resize.}
 
 \item{test}{The string to test.}
+
+\item{...}{Additional arguments to be passed to the \code{regex} function.}
+
+\item{.open}{The opening character(s) for wrapping in the .recursive_wrap function. Default is "(".}
+
+\item{.close}{The closing character(s) for wrapping in the .recursive_wrap function. Default is ")?".}
 }
 \value{
 The shortest string not matching test.
@@ -18,5 +24,5 @@ The shortest string not matching test.
 This function returns the shortest string not matching a test string. It uses a recursive wrap function to match the strings.
 }
 \examples{
-str_longest_match("Zekrom", "Zek")
+ZekDex:::str_longest_match("Zekrom", "Zek")
 }

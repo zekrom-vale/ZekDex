@@ -16,7 +16,8 @@ recursive_xml_map2(lst, fn, level = 1)
     return: A modified list chunk used in the next recursions and returned by recursive_xml_map2
 }\if{html}{\out{</div>}}}
 
-\item{level}{How deep recursion is currently, starts at 1 by default.  Increments every recursion}
+\item{level}{How deep recursion is currently, starts at 1 by default.
+Increments every recursion}
 }
 \value{
 The modified lst

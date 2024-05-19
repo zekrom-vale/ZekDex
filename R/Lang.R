@@ -1,10 +1,11 @@
 #' Generate the National Dex with Other Language Data
 #'
-#' @param write Logical, if `TRUE`, writes the tibble to a csv file. Default is `FALSE`.
-#' @param path The path where the csv file will be written if `write = TRUE`. Default is `system.file("data/PokemonLang.csv", package = "ZekDex")`.
-#' @return A tibble of the National Dex with language information.
-#' @export
+#' This function generates a tibble of the National Dex with language information.
 #'
+#' @param write Logical, if `TRUE`, writes the tibble to a csv file. Default is `FALSE`.
+#' @param root The root directory where the csv file will be written if `write = TRUE`. Default is "data/".
+#' @param file The name of the csv file to be written if `write = TRUE`. Default is "PokemonLang".
+#' @return A tibble of the National Dex with language information.
 #' @importFrom purrr map map2 reduce
 #' @importFrom dplyr select left_join group_by group_modify mutate across bind_rows rename filter
 #' @importFrom readr read_csv write_csv
@@ -16,6 +17,7 @@
 #' @importFrom magrittr "%>%"
 #' @importFrom tibble as_tibble
 #' @importFrom pkgload is_loading
+#' @export
 gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
 	if(pkgload::is_loading()) return()
 	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
@@ -48,7 +50,7 @@ gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
 			name_from_row(1, prepend = lang)|>
 			bind_rows()|>
 			# Discard junk columns
-			select(!matches(glue::glue("^{lang}(by National Pokédex|\\.{3}\\d+|X\\d+|by National|MS|English \\u2022 Japanese)")))|>
+			select(!matches(glue::glue("^{lang}(by National Pok\u00e9dex|\\.{3}\\d+|X\\d+|by National|MS|English \\u2022 Japanese)")))|>
 			# Drop all columns that are NA as some tables are not wanted
 			drop_all_na()|>
 			# Drop all na columns
@@ -76,14 +78,24 @@ gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
 			if(dim(x)[1]==1) return(x)
 			# Otherwise, filter out rows where 'Hindi_Romanization' is NA
 			x|>
-				filter(!is.na(Hindi_Romanization ))
+				filter(!is.na(Hindi_Romanization))
 		})|>
 		mutate(across(
 			where(is.character),
 			~ if_else(.=="", NA_character_, ., NA_character_)
 		))|>
+		# Remove speaces
 		# Fix the redundant names
-		rename_with(.fn = ~ str_replace(., regex("^(.*)_\\1$", ignore_case = TRUE), "\\1"), .cols = matches("^[A-Z]"))
+		rename_with(
+			.fn = function(.){
+				removeA(.)|>
+					str_replace_all("\\s+", "_")|>
+					str_replace(
+						regex("^(.*)_\\1$", ignore_case = TRUE), "\\1"
+					)
+			},
+			.cols = matches("^[A-Z]")
+		)
 
 	if(write)save_data("languages", root, file)
 	languages

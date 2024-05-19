@@ -7,11 +7,11 @@
 \format{
 A data frame with 5 variables:
 \describe{
-\item{\code{Ndex}}{\code{integer} The National Pokédex number of the Pokémon. This is the unique identifier for each Pokémon in the National Pokédex.}
+\item{\code{ndex}}{\code{integer} The National Pokédex number of the Pokémon. This is the unique identifier for each Pokémon in the National Pokédex.}
 \item{\code{name}}{\code{character} The name of the Pokémon. This is the common name used to identify a particular Pokémon.}
 \item{\code{catchRate}}{\code{integer} The catch rate of the Pokémon. This is a value that represents the probability of capturing the Pokémon. Higher values indicate a higher probability of capture.}
 \item{\code{note}}{\code{character} Additional notes about the catch rate of the Pokémon. This may include information about specific conditions or factors that can influence the catch rate.}
-\item{\code{Hdex}}{\code{integer} The Pokémon Legends: Arceus Pokédex number. This is the unique identifier for each Pokémon in the Pokémon Legends: Arceus Pokédex.}
+\item{\code{hdex}}{\code{integer} The Pokémon Legends: Arceus Pokédex number. This is the unique identifier for each Pokémon in the Pokémon Legends: Arceus Pokédex.}
 }
 }
 \source{
