@@ -4,6 +4,8 @@
 #'
 #' The National PokeDex is a comprehensive database that records information on all Pokémon known to exist,
 #' instead of just ones native in a particular region.
+#'
+#' @description
 #' This dataset provides information about Pokémon as per the National Pokédex,
 #' which includes Pokémon from the Kanto region first, followed by those from Johto,
 #' Hoenn, Sinnoh, Unova, Kalos, Alola, Galar, Hisui, and Paldea.
@@ -33,6 +35,8 @@
 #'
 #' This dataset contains information about Legendary and Mythical Pokémon,
 #' which are a special group of Pokémon that are incredibly rare and often very powerful.
+#'
+#' @description
 #' These Pokémon are categorized by their family groupings and sizes.
 #' Family groupings are often based on common themes or characteristics among the Pokémon.
 #' 
@@ -58,7 +62,14 @@
 "groups"
 #' Pokemon Stats (Wide Format)
 #'
-#' This dataset is a wide format version of the `stats` dataset. It contains the base stats of Pokémon, including various forms and sizes of Pokémon, across different generations. Base stats are an important defining characteristic of each Pokémon species. They determine the potential of each Pokémon in terms of their HP (Hit Points), Attack, Defense, Speed, and Special abilities. These stats can be influenced by other factors such as level, nature, and effort values.
+#' This dataset is a wide format version of the `stats` dataset.
+#'
+#' @description
+#' It contains the base stats of Pokémon, including various forms and sizes of Pokémon, across different generations.
+#' Base stats are an important defining characteristic of each Pokémon species.
+#' They determine the potential of each Pokémon in terms of their HP (Hit Points),
+#' Attack, Defense, Speed, and Special abilities.
+#' These stats can be influenced by other factors such as level, nature, and effort values.
 #' @format A data frame with 49 variables:
 #' \describe{
 #'	\item{`ndex`}{`integer` National Pokédex number. This is the unique identifier for each Pokémon in the National Pokédex.}
@@ -129,7 +140,12 @@
 "statsWide"
 #' Pokemon Stats
 #'
-#' This dataset contains the base stats of Pokémon, including various forms and sizes of Pokémon. Base stats are an important defining characteristic of each Pokémon species. They determine the potential of each Pokémon in terms of their HP (Hit Points), Attack, Defense, Speed, and Special abilities. These stats can be influenced by other factors such as level, nature, and effort values.
+#' This dataset contains the base stats of Pokémon, including various forms and sizes of Pokémon.
+#'
+#' @description
+#' Base stats are an important defining characteristic of each Pokémon species.
+#' They determine the potential of each Pokémon in terms of their HP (Hit Points), Attack, Defense, Speed,
+#' and Special abilities. These stats can be influenced by other factors such as level, nature, and effort values.
 #' @format A data frame with 14 variables:
 #' \describe{
 #'	\item{`ndex`}{`integer` National Pokédex number. This is the unique identifier for each Pokémon in the National Pokédex.}
@@ -164,6 +180,8 @@
 #' Pokemon Evolution Dataset
 #'
 #' This dataset contains information about Pokémon evolution and family groupings.
+#'
+#' @description
 #' It provides a comprehensive view of the evolution tree of each Pokémon,
 #' making it an excellent resource for understanding how different Pokémon are related to each other and how they evolve.
 #' The dataset includes Pokémon from all generations and covers various forms and regional variants.
@@ -191,7 +209,12 @@
 "family"
 #' Extended Pokemon Evolution Dataset
 #'
-#' This dataset contains detailed information about Pokémon evolution and family groupings. It provides a comprehensive view of the evolution tree of each Pokémon, making it an excellent resource for understanding how different Pokémon are related to each other and how they evolve. The dataset includes Pokémon from all generations and covers various forms and regional variants.
+#' This dataset contains detailed information about Pokémon evolution and family groupings.
+#'
+#' @description
+#' It provides a comprehensive view of the evolution tree of each Pokémon, making
+#' it an excellent resource for understanding how different Pokémon are related to each other and how they evolve.
+#' The dataset includes Pokémon from all generations and covers various forms and regional variants.
 #' 
 #' While this dataset loses the hierarchical structure of the evolution tree, it is particularly useful for identifying which Pokémon belong to each family. It provides a flat structure that can be easily filtered and sorted to find specific Pokémon and their families.
 #' 
@@ -220,6 +243,8 @@
 #' Pokémon National Dex information in multiple languages
 #'
 #' This dataset contains the names of Pokémon in various languages.
+#'
+#' @description
 #' Each Pokémon has a unique name in each language, and these names often reflect the culture and
 #' language patterns of their respective regions. The dataset includes names in multiple languages,
 #' including but not limited to English, Japanese, German, French, Spanish, Italian, Korean, Chinese,
@@ -287,6 +312,8 @@
 #' Pokémon Information from the Regional Dex
 #'
 #' This dataset contains information about Pokémon as per the Regional Pokédex.
+#'
+#' @description
 #' The regionalDex columns are in the format of `<Game>_<Region>_<DexName>`.
 #' If the data is missing, it is represented as `NA`.
 #' @format A data frame with the following variables:
@@ -358,6 +385,9 @@
 #' Pokemon Types Dataset
 #'
 #' This dataset contains information about various Pokemon types.
+#'
+#' @description
+#' This data is organized according to the order of the newer games.
 #' @format A data frame with one column:
 #' \describe{
 #'	\item{`types`}{`factor` The types of Pokemon. Possible types include `Grass`, `Fire`, `Water`, `Bug`, `Normal`, `Dark`, `Poison`, `Electric`, `Ground`, `Ice`, `Fairy`, `Steel`, `Fighting`, `Psychic`, `Rock`, `Ghost`, `Dragon`, `Flying`.}
@@ -372,6 +402,8 @@
 #' Pokémon Type Effectiveness Dataset
 #'
 #' This dataset provides a matrix of effectiveness multipliers for different types of Pokémon attacks.
+#'
+#' @description
 #' Each Pokémon has a type, such as Fire, Water, Grass, etc., and each type has different effectiveness against other types.
 #' This effectiveness is represented by a multiplier that is applied to the attack's damage.
 #' 
@@ -409,8 +441,10 @@
 #' Extended Pokémon Type Effectiveness Dataset
 #'
 #' This dataset provides detailed effectiveness values for attacks between different Pokémon types.
-#' 
-#' It is structured in a long format, with each row representing an interaction between an attacking type and a defending type.
+#'
+#' @description
+#' It is structured in a long format, with each row representing an interaction between an
+#' attacking type and a defending type.
 #' The 'Effectiveness' column provides the multiplier for the effectiveness of the attack.
 #' @format A data frame with 3 variables:
 #' \describe{
@@ -428,8 +462,11 @@
 #' Pokemon Weight Dataset
 #'
 #' This dataset contains information about the weight of various Pokémon.
+#'
+#' @description
 #' Each Pokémon's weight is recorded in both pounds (lbs) and kilograms (kg), providing flexibility for different uses.
-#' The dataset also includes details about the lightest and heaviest Pokémon, their regional forms, and whether they have a Mega or Primal form.
+#' The dataset also includes details about the lightest and heaviest Pokémon,
+#' their regional forms, and whether they have a Mega or Primal form.
 #' This can be useful for a variety of analyses, such as studying the distribution of Pokémon weights,
 #' identifying trends and patterns, or informing game strategies.
 #' @format A data frame with 8 variables:
@@ -453,9 +490,12 @@
 #' Height Dataset
 #'
 #' This dataset contains information about the height of different Pokémon forms.
+#'
+#' @description
 #' The height is represented in different units such as feet (ft), meters (m), and inches (inch),
 #' providing flexibility for different uses.
-#' It also includes the ranking of each Pokémon form from smallest to biggest, and information about regional forms and Mega or Primal forms.
+#' It also includes the ranking of each Pokémon form from smallest to biggest, and information about
+#' regional forms and Mega or Primal forms.
 #' This can be useful for a variety of analyses, such as studying the distribution of Pokémon heights,
 #' identifying trends and patterns, or informing game strategies.
 #' @format A data frame with 8 variables:
@@ -481,6 +521,8 @@
 #'
 #' This dataset provides a comprehensive overview of the physical attributes of Pokémon, including their type,
 #' generation, weight, height, and other characteristics.
+#'
+#' @description
 #' It includes information about each Pokémon's National Pokédex number, name, regional variant,
 #' primary and secondary types, generation, legendary status, mythical status, ultra beast status,
 #' family, size, form, weight in pounds and kilograms, lightest and heaviest weight rankings in the Pokédex,
@@ -525,6 +567,8 @@
 #' Catch Rate Dataset
 #'
 #' This dataset provides information about the catch rate of each Pokémon.
+#'
+#' @description
 #' The catch rate is a statistic that determines the probability of capturing a Pokémon.
 #' A higher catch rate means that the Pokémon is easier to catch.
 #' 
@@ -547,8 +591,10 @@
 "catchRate"
 #' Pokémon Mega Evolution and Primal Reversion
 #'
-#' This dataset contains information about Pokémon that can undergo Mega Evolution and Primal Reversion,
-#' which are special forms of evolution that Pokémon can undergo during battle to become more powerful.
+#' This dataset contains information about Pokémon that can undergo Mega Evolution and Primal Reversion.
+#'
+#' @description
+#' These are special forms of evolution that Pokémon can undergo during battle to become more powerful.
 #' These Pokémon are categorized by their National Pokédex number, name, type before and after evolution, ability before and after evolution, and the stone required for the evolution.
 #' 
 #' For example, ‘Rayquaza’ is a Dragon/Flying type Pokémon with the ability ‘Air Lock’ that can undergo

@@ -28,10 +28,12 @@ A data frame with the following variables:
 family
 }
 \description{
-This dataset contains information about Pokémon evolution and family groupings.
 It provides a comprehensive view of the evolution tree of each Pokémon,
 making it an excellent resource for understanding how different Pokémon are related to each other and how they evolve.
 The dataset includes Pokémon from all generations and covers various forms and regional variants.
+}
+\details{
+This dataset contains information about Pokémon evolution and family groupings.
 }
 \examples{
 data(family)

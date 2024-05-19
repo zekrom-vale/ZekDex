@@ -1,6 +1,8 @@
 # Catch Rate Dataset (`catchRate`)
 
 This dataset provides information about the catch rate of each Pokémon.
+
+
 The catch rate is a statistic that determines the probability of capturing a Pokémon.
 A higher catch rate means that the Pokémon is easier to catch.
 

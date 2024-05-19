@@ -35,13 +35,14 @@ A data frame with 19 variables (1 for the attacking type and 18 for each defendi
 typeChartWide
 }
 \description{
-This dataset provides a matrix of effectiveness multipliers for different types of Pokémon attacks.
 Each Pokémon has a type, such as Fire, Water, Grass, etc., and each type has different effectiveness against other types.
 This effectiveness is represented by a multiplier that is applied to the attack's damage.
-}
-\details{
+
 The dataset is structured as a wide format, with each column representing a defending Pokémon's type and
 each row representing an attacking Pokémon's type.
+}
+\details{
+This dataset provides a matrix of effectiveness multipliers for different types of Pokémon attacks.
 }
 \examples{
 data(typeChartWide)

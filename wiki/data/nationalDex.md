@@ -2,6 +2,8 @@
 
 The National PokeDex is a comprehensive database that records information on all Pokémon known to exist,
 instead of just ones native in a particular region.
+
+
 This dataset provides information about Pokémon as per the National Pokédex,
 which includes Pokémon from the Kanto region first, followed by those from Johto,
 Hoenn, Sinnoh, Unova, Kalos, Alola, Galar, Hisui, and Paldea.

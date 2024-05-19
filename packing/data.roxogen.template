@@ -1,6 +1,9 @@
 #' {name}
 #'
 #' {description}
+#'
+#' @description
+#' {extended}
 #' @format {format}:
 #' \describe{{
 {variables}

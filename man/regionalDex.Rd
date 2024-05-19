@@ -72,9 +72,11 @@ A data frame with the following variables:
 regionalDex
 }
 \description{
-This dataset contains information about Pokémon as per the Regional Pokédex.
 The regionalDex columns are in the format of \verb{<Game>_<Region>_<DexName>}.
 If the data is missing, it is represented as \code{NA}.
+}
+\details{
+This dataset contains information about Pokémon as per the Regional Pokédex.
 }
 \examples{
 data(regionalDex)

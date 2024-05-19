@@ -19,12 +19,9 @@ A data frame with 3 variables:
 groups
 }
 \description{
-This dataset contains information about Legendary and Mythical Pokémon,
-which are a special group of Pokémon that are incredibly rare and often very powerful.
 These Pokémon are categorized by their family groupings and sizes.
 Family groupings are often based on common themes or characteristics among the Pokémon.
-}
-\details{
+
 For example, the 'Tao trio' refers to Reshiram, Zekrom, and Kyurem,
 which are associated with the concept of yin, yang, and wuji.
 
@@ -32,6 +29,10 @@ The 'Super-ancient Pokémon' refers to Kyogre, Groudon, and Rayquaza,
 which are ancient Pokémon with powerful weather abilities.
 
 The 'Paradox duo' refers to Koraidon and Miraidon, which are associated with different timelines.
+}
+\details{
+This dataset contains information about Legendary and Mythical Pokémon,
+which are a special group of Pokémon that are incredibly rare and often very powerful.
 }
 \examples{
 data(groups)

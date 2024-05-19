@@ -3,6 +3,9 @@
 This dataset contains information about various Pokemon types.
 
 
+This data is organized according to the order of the newer games.
+
+
 ## Columns
   - types: (`factor`) The types of Pokemon. Possible types include `Grass`, `Fire`, `Water`, `Bug`, `Normal`, `Dark`, `Poison`, `Electric`, `Ground`, `Ice`, `Fairy`, `Steel`, `Fighting`, `Psychic`, `Rock`, `Ghost`, `Dragon`, `Flying`.
 

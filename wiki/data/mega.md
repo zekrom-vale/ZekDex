@@ -1,7 +1,9 @@
 # Pokémon Mega Evolution and Primal Reversion (`mega`)
 
-This dataset contains information about Pokémon that can undergo Mega Evolution and Primal Reversion,
-which are special forms of evolution that Pokémon can undergo during battle to become more powerful.
+This dataset contains information about Pokémon that can undergo Mega Evolution and Primal Reversion.
+
+
+These are special forms of evolution that Pokémon can undergo during battle to become more powerful.
 These Pokémon are categorized by their National Pokédex number, name, type before and after evolution, ability before and after evolution, and the stone required for the evolution.
 
 For example, ‘Rayquaza’ is a Dragon/Flying type Pokémon with the ability ‘Air Lock’ that can undergo

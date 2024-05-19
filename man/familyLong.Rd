@@ -27,12 +27,16 @@ A data frame with the following variables:
 familyLong
 }
 \description{
-This dataset contains detailed information about Pokémon evolution and family groupings. It provides a comprehensive view of the evolution tree of each Pokémon, making it an excellent resource for understanding how different Pokémon are related to each other and how they evolve. The dataset includes Pokémon from all generations and covers various forms and regional variants.
-}
-\details{
+It provides a comprehensive view of the evolution tree of each Pokémon, making
+it an excellent resource for understanding how different Pokémon are related to each other and how they evolve.
+The dataset includes Pokémon from all generations and covers various forms and regional variants.
+
 While this dataset loses the hierarchical structure of the evolution tree, it is particularly useful for identifying which Pokémon belong to each family. It provides a flat structure that can be easily filtered and sorted to find specific Pokémon and their families.
 
 Note: The \code{family.x} and \code{family.y} variables need to be reconciled to ensure consistency across the dataset.
+}
+\details{
+This dataset contains detailed information about Pokémon evolution and family groupings.
 }
 \examples{
 data(familyLong)

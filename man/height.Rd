@@ -25,12 +25,15 @@ A data frame with 8 variables:
 height
 }
 \description{
-This dataset contains information about the height of different Pokémon forms.
 The height is represented in different units such as feet (ft), meters (m), and inches (inch),
 providing flexibility for different uses.
-It also includes the ranking of each Pokémon form from smallest to biggest, and information about regional forms and Mega or Primal forms.
+It also includes the ranking of each Pokémon form from smallest to biggest, and information about
+regional forms and Mega or Primal forms.
 This can be useful for a variety of analyses, such as studying the distribution of Pokémon heights,
 identifying trends and patterns, or informing game strategies.
+}
+\details{
+This dataset contains information about the height of different Pokémon forms.
 }
 \examples{
 data(height)

@@ -1,6 +1,8 @@
 # Pokémon Type Effectiveness Dataset (`typeChartWide`)
 
 This dataset provides a matrix of effectiveness multipliers for different types of Pokémon attacks.
+
+
 Each Pokémon has a type, such as Fire, Water, Grass, etc., and each type has different effectiveness against other types.
 This effectiveness is represented by a multiplier that is applied to the attack's damage.
 

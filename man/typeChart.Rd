@@ -19,11 +19,12 @@ A data frame with 3 variables:
 typeChart
 }
 \description{
-This dataset provides detailed effectiveness values for attacks between different Pokémon types.
+It is structured in a long format, with each row representing an interaction between an
+attacking type and a defending type.
+The 'Effectiveness' column provides the multiplier for the effectiveness of the attack.
 }
 \details{
-It is structured in a long format, with each row representing an interaction between an attacking type and a defending type.
-The 'Effectiveness' column provides the multiplier for the effectiveness of the attack.
+This dataset provides detailed effectiveness values for attacks between different Pokémon types.
 }
 \examples{
 data(typeChart)

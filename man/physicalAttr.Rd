@@ -39,17 +39,18 @@ A data frame with 22 variables:
 physicalAttr
 }
 \description{
-This dataset provides a comprehensive overview of the physical attributes of Pokémon, including their type,
-generation, weight, height, and other characteristics.
 It includes information about each Pokémon's National Pokédex number, name, regional variant,
 primary and secondary types, generation, legendary status, mythical status, ultra beast status,
 family, size, form, weight in pounds and kilograms, lightest and heaviest weight rankings in the Pokédex,
 Mega or Primal form status, height in feet, meters, and inches, and smallest and
 biggest height rankings in the Pokédex.
-}
-\details{
+
 This dataset can be useful for a variety of analyses, such as studying the distribution of Pokémon
 weights and heights, identifying trends and patterns, or informing game strategies.
+}
+\details{
+This dataset provides a comprehensive overview of the physical attributes of Pokémon, including their type,
+generation, weight, height, and other characteristics.
 }
 \examples{
 data(physicalAttr)

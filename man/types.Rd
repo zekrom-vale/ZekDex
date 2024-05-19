@@ -17,6 +17,9 @@ A data frame with one column:
 types
 }
 \description{
+This data is organized according to the order of the newer games.
+}
+\details{
 This dataset contains information about various Pokemon types.
 }
 \examples{

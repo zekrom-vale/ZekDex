@@ -28,11 +28,9 @@ A data frame with 9 variables:
 mega
 }
 \description{
-This dataset contains information about Pokémon that can undergo Mega Evolution and Primal Reversion,
-which are special forms of evolution that Pokémon can undergo during battle to become more powerful.
+These are special forms of evolution that Pokémon can undergo during battle to become more powerful.
 These Pokémon are categorized by their National Pokédex number, name, type before and after evolution, ability before and after evolution, and the stone required for the evolution.
-}
-\details{
+
 For example, ‘Rayquaza’ is a Dragon/Flying type Pokémon with the ability ‘Air Lock’ that can undergo
 Mega Evolution to remain a Dragon/Flying type but with the ability ‘Delta Stream’. Unlike other Pokémon,
 Rayquaza does not require a Mega Stone to undergo Mega Evolution. Instead, Rayquaza must swallow the
@@ -43,6 +41,9 @@ which are ancient Pokémon that revert to their primal forms with the Blue Orb a
 changing their abilities to 'Primordial Sea' and 'Desolate Land'.
 
 Note that there exist Primal Dialga, hovever this appears to be different from Primal Reversion.
+}
+\details{
+This dataset contains information about Pokémon that can undergo Mega Evolution and Primal Reversion.
 }
 \examples{
 data(mega)

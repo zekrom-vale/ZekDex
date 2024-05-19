@@ -1,6 +1,8 @@
 # Pokémon Information from the Regional Dex (`regionalDex`)
 
 This dataset contains information about Pokémon as per the Regional Pokédex.
+
+
 The regionalDex columns are in the format of `<Game>_<Region>_<DexName>`.
 If the data is missing, it is represented as `NA`.
 

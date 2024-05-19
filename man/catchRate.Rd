@@ -21,13 +21,14 @@ A data frame with 5 variables:
 catchRate
 }
 \description{
-This dataset provides information about the catch rate of each Pokémon.
 The catch rate is a statistic that determines the probability of capturing a Pokémon.
 A higher catch rate means that the Pokémon is easier to catch.
-}
-\details{
+
 In the context of Pokémon Legends: Arceus, many Pokémon were given heightened catch rates to facilitate catching them
 outside of battle.
+}
+\details{
+This dataset provides information about the catch rate of each Pokémon.
 }
 \examples{
 data(catchRate)

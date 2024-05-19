@@ -65,12 +65,14 @@ A data frame with 37 variables:
 languages
 }
 \description{
-This dataset contains the names of Pokémon in various languages.
 Each Pokémon has a unique name in each language, and these names often reflect the culture and
 language patterns of their respective regions. The dataset includes names in multiple languages,
 including but not limited to English, Japanese, German, French, Spanish, Italian, Korean, Chinese,
 Brazilian Portuguese, Turkish, Russian, Thai, and Hindi. The language columns are in the format of
 \verb{<Language>_<language subset>}. If there is no subset, it's \verb{<Language>}.
+}
+\details{
+This dataset contains the names of Pokémon in various languages.
 }
 \examples{
 data(languages)

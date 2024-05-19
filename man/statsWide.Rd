@@ -74,7 +74,14 @@ A data frame with 49 variables:
 statsWide
 }
 \description{
-This dataset is a wide format version of the \code{stats} dataset. It contains the base stats of Pokémon, including various forms and sizes of Pokémon, across different generations. Base stats are an important defining characteristic of each Pokémon species. They determine the potential of each Pokémon in terms of their HP (Hit Points), Attack, Defense, Speed, and Special abilities. These stats can be influenced by other factors such as level, nature, and effort values.
+It contains the base stats of Pokémon, including various forms and sizes of Pokémon, across different generations.
+Base stats are an important defining characteristic of each Pokémon species.
+They determine the potential of each Pokémon in terms of their HP (Hit Points),
+Attack, Defense, Speed, and Special abilities.
+These stats can be influenced by other factors such as level, nature, and effort values.
+}
+\details{
+This dataset is a wide format version of the \code{stats} dataset.
 }
 \examples{
 data(statsWide)

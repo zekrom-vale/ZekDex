@@ -1,6 +1,8 @@
 # Pokémon National Dex information in multiple languages (`languages`)
 
 This dataset contains the names of Pokémon in various languages.
+
+
 Each Pokémon has a unique name in each language, and these names often reflect the culture and
 language patterns of their respective regions. The dataset includes names in multiple languages,
 including but not limited to English, Japanese, German, French, Spanish, Italian, Korean, Chinese,

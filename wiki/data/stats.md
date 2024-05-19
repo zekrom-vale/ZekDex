@@ -1,6 +1,11 @@
 # Pokemon Stats (`stats`)
 
-This dataset contains the base stats of Pokémon, including various forms and sizes of Pokémon. Base stats are an important defining characteristic of each Pokémon species. They determine the potential of each Pokémon in terms of their HP (Hit Points), Attack, Defense, Speed, and Special abilities. These stats can be influenced by other factors such as level, nature, and effort values.
+This dataset contains the base stats of Pokémon, including various forms and sizes of Pokémon.
+
+
+Base stats are an important defining characteristic of each Pokémon species.
+They determine the potential of each Pokémon in terms of their HP (Hit Points), Attack, Defense, Speed,
+and Special abilities. These stats can be influenced by other factors such as level, nature, and effort values.
 
 
 ## Columns
