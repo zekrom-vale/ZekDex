@@ -124,6 +124,11 @@ This dataset provides information about the catch rate of each Pokémon.
 ### Pokémon Mega Evolution and Primal Reversion (`mega`)
 This dataset contains information about Pokémon that can undergo Mega Evolution and Primal Reversion.
 
+
+### Pokémon Effort Value Yields (`evYield`)
+A dataset about Pokémon effort value yields per generation.
+When a Pokémon is defeated in battle, it will give effort values to the Pokémon that participated in the battle against it. The values shown below are the effort points that a Pokémon will give in.
+
 
 
 You can load any dataset with the `data()` function. For example, `data(nationalDex)`.

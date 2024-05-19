@@ -589,10 +589,13 @@ read_data = function(data, root, ns = asNamespace("ZekDex"), one = TRUE, g=NULL)
 #' regionalForm(re = TRUE, ext = TRUE)
 #' regionalForm(re = FALSE, ext = FALSE)
 #'
-regionalForm = function(re = FALSE, ext = FALSE){
+regionalForm = function(re = FALSE, ext = FALSE, wrap = TRUE){
 	L = c("Alolan","Galarian","Hisuian","Paldean")
 	if(ext) L = c(L, "Kantonian","Hoennian","Unovan","Kalosian")
-	if(re) return(paste(L, collapse = "|"))
+	if(re){
+		L = paste(L, collapse = "|")
+		if(wrap) L = paste0("(?:", L, ")")
+	}
 	L
 }
 

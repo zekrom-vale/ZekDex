@@ -4,7 +4,7 @@
 \alias{regionalForm}
 \title{Regional Form Function}
 \usage{
-regionalForm(re = FALSE, ext = FALSE)
+regionalForm(re = FALSE, ext = FALSE, wrap = TRUE)
 }
 \arguments{
 \item{re}{A logical value. If TRUE, the function returns a regex pattern.

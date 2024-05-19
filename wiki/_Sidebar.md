@@ -4,6 +4,7 @@
 
 data
 - [catchRate](https://github.com/zekrom-vale/ZekDex/wiki/catchRate)
+- [evYield](https://github.com/zekrom-vale/ZekDex/wiki/evYield)
 - [family](https://github.com/zekrom-vale/ZekDex/wiki/family)
 - [familyLong](https://github.com/zekrom-vale/ZekDex/wiki/familyLong)
 - [groups](https://github.com/zekrom-vale/ZekDex/wiki/groups)
