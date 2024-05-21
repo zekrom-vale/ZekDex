@@ -88,3 +88,43 @@ p = ZekDex::catchRate|>
 # Convert the ggplot object to a plotly object to make it interactive
 plotly::ggplotly(p)
 
+
+# Fix names and things for these examples:
+
+expPoints|>
+	filter(to == "To next level")|>
+	ggplot(aes(x = level, y = value, color = expType))+
+	geom_line(size = 1)
+
+expPoints|>
+	filter(to == "Total experience")|>
+	mutate(
+		calc = case_when(
+			expType == "Erratic" ~exp$erratic(level),
+			expType == "Fast" ~exp$fast(level),
+			expType == "Medium Fast" ~exp$medium_fast(level),
+			expType == "Medium Slow" ~exp$medium_slow(level),
+			expType == "Slow" ~exp$slow(level),
+			expType == "Fluctuating" ~exp$fluctuating(level)
+		)
+	)|>
+	pivot_longer(c(value, calc))|>
+	ggplot(aes(x = level, y = value, color = expType))+
+	facet_wrap(~name)+
+	geom_smooth(size = 1, se = FALSE)
+
+expPoints|>
+	filter(to == "Total experience")|>
+	mutate(
+		calc = case_when(
+			expType == "Erratic" ~exp$erratic(level),
+			expType == "Fast" ~exp$fast(level),
+			expType == "Medium Fast" ~exp$medium_fast(level),
+			expType == "Medium Slow" ~exp$medium_slow(level),
+			expType == "Slow" ~exp$slow(level),
+			expType == "Fluctuating" ~exp$fluctuating(level)
+		),
+		error = calc - value
+	)|>
+	ggplot(aes(x = level, y = error, color = expType))+
+	geom_point(size = 1)

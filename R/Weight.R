@@ -168,3 +168,38 @@ gen_physicalAttr = function(write = FALSE, root = "data/", file = "PokemonPhysic
 	if(write)save_data("physicalAttr", root, file)
 	height
 }
+
+gen_exp_list = function(){
+	URL = "https://bulbapedia.bulbagarden.net/wiki/Experience"
+	HTML = rvest::read_html(URL)
+	rvest::html_table(HTML)[[1]]|>
+		filter(!str_detect(Description, "unused"))|>
+		mutate(Description = str_remove(Description, "Gen.+$"))|>
+		pull(Description)
+}
+
+gen_exp_type = function(){
+	URL = "https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_experience_type"
+	HTML = rvest::read_html(URL)
+	rvest::html_table(HTML)[[1]]|>
+		select(-MS)|>
+		rename(ndex = `#`, expType = `Experience type`)|>
+		rename_pokemon()|>
+		mutate(expType = factor(expType, levels = gen_exp_list()))
+}
+
+
+
+gen_exp_points = function(){
+	URL = "https://bulbapedia.bulbagarden.net/wiki/Experience"
+	HTML = rvest::read_html(URL)
+	rvest::html_table(HTML)[[3]]|>
+		.name_from_row(sep = "_")|>
+		pivot_longer(-Level, names_sep = "_", names_to = c("expType", "to"))|>
+		rename(level = Level)|>
+		mutate(
+			value = as.integer(str_remove_all(value, "[^\\d]")),
+			level = as.integer(level),
+			expType = factor(str_remove(expType, "[^\\w ]"), levels = gen_exp_list())
+		)
+}
