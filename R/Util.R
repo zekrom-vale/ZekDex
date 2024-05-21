@@ -219,7 +219,7 @@ paste_non_unique  = function(vec1, vec2, sep = ""){
 #' # 2 #0001 ""    Bulbasaur  フシギダネ Fushigidane Fushigidane
 #' # 3 #0002 ""    Ivysaur    フシギソウ Fushigisō   Fushigisou
 #' # 4 #0003 ""    Venusaur   フシギバナ Fushigibana Fushigibana
-.name_from_row = function(df, row_number = 1, prepend = "", postpend = "", test = TRUE, bind = TRUE){
+.name_from_row = function(df, row_number = 1, prepend = "", postpend = "", test = TRUE, bind = TRUE, sep = " "){
 	# If the input dataframe is NULL, return NULL
 	if(is.null(df))return(NULL)
 	# Store the original column names of the dataframe
@@ -256,7 +256,7 @@ paste_non_unique  = function(vec1, vec2, sep = ""){
 			return(df)
 		}
 		# Create a named vector for renaming the columns, handling duplicate values
-		names_vector = setNames(names(df), paste_non_unique(row_data, oldNames))
+		names_vector = setNames(names(df), paste_non_unique(row_data, oldNames, sep = sep))
 	}
 
 	# Rename the columns of the dataframe using the named vector and remove the specified row
@@ -662,3 +662,17 @@ factor_type <- function(x) {
 	factor(x, levels = types$types)
 }
 
+#' Rename Pokémon column to name
+#'
+#' This function renames the column "Pokémon" in a given dataframe to "name".
+#'
+#' @param df A dataframe that contains a column named "Pokémon".
+#' @return A dataframe with the "Pokémon" column renamed to "name".
+#' @importFrom dplyr rename_with
+#' @importFrom tidyselect matches
+#' @examples
+#' df <- tibble("Pokémon" = c("Pikachu", "Charizard", "Bulbasaur"))
+#' ZekDex:::rename_pokemon(df)
+rename_pokemon = function(df){
+	rename_with(df, ~"name", matches("Pok\u00e9mon"))
+}

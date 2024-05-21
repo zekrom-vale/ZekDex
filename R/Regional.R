@@ -72,7 +72,7 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 				ndex = as.integer(str_remove_all(ndex, "[^\\d]"))
 			)|>
 			select(!matches("^(MS|Image|ObsidianFieldlands|CrimsonMirelands|CobaltCoastlands|CoronetHighlands|AlabasterIcelands)$"))|>
-			rename_with(matches("Pok\u00e9mon"), ~"name")|>
+			rename_pokemon()|>
 			rename_with(!c(ndex, name, starts_with("type")), .fn = function(.){
 				game = str_remove_all(dex$game, "_")
 				dex = str_remove_all(dex$dexes, "_")
