@@ -37,6 +37,7 @@ weights and heights, identifying trends and patterns, or informing game strategi
   - inch: (`integer`) The height of the Pokémon in inches.
   - smallest: (`integer`) The ranking of the Pokémon from smallest to biggest.
   - bigest: (`integer`) The ranking of the Pokémon from biggest to smallest.
+  - expType: (`factor`) The exp classification of the pokemon used to determine level up.
 
 ## Sourced from
   - [Bulbapedia Weight](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_weight)

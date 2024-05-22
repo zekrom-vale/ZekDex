@@ -150,7 +150,9 @@ gen_physicalAttr = function(write = FALSE, root = "data/", file = "PokemonPhysic
 			form.y = NULL
 		)|>
 		# Rename 'form.x' to 'form'
-		rename(form = form.x)
+		rename(form = form.x)|>
+		# Join exp types
+		left_join(gen_exp_type(), by = c("ndex", "name"))
 
 	# Combine 'attr1' and 'attr2' into a single data frame
 	physicalAttr = bind_rows(attr1, attr2)
@@ -169,6 +171,13 @@ gen_physicalAttr = function(write = FALSE, root = "data/", file = "PokemonPhysic
 	height
 }
 
+#' @title Scrapes the experience types from Bulbapedia
+#' @description This function scrapes the experience types from the Bulbapedia website.
+#' @return A vector of experience types.
+#' @importFrom rvest read_html html_table
+#' @importFrom dplyr filter mutate pull
+#' @importFrom stringr str_detect str_remove
+#' @export
 gen_exp_list = function(){
 	URL = "https://bulbapedia.bulbagarden.net/wiki/Experience"
 	HTML = rvest::read_html(URL)
@@ -178,6 +187,12 @@ gen_exp_list = function(){
 		pull(Description)
 }
 
+#' @title Scrapes the Pokémon by experience type table from Bulbapedia
+#' @description This function scrapes the Pokémon by experience type table from the Bulbapedia website.
+#' @return A data frame of Pokémon and their experience types.
+#' @importFrom rvest read_html html_table
+#' @importFrom dplyr select rename mutate
+#' @export
 gen_exp_type = function(){
 	URL = "https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_experience_type"
 	HTML = rvest::read_html(URL)
@@ -190,6 +205,13 @@ gen_exp_type = function(){
 
 
 
+#' @title Scrapes the experience total table from Bulbapedia
+#' @description This function scrapes the experience total table from the Bulbapedia website.
+#' @return A data frame of experience totals by level and experience type.
+#' @importFrom rvest read_html html_table
+#' @importFrom dplyr rename mutate
+#' @importFrom tidyr pivot_longer
+#' @export
 gen_exp_points = function(){
 	URL = "https://bulbapedia.bulbagarden.net/wiki/Experience"
 	HTML = rvest::read_html(URL)

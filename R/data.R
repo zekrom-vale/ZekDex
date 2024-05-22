@@ -555,6 +555,7 @@
 #'	\item{`inch`}{`integer` The height of the Pokémon in inches.}
 #'	\item{`smallest`}{`integer` The ranking of the Pokémon from smallest to biggest.}
 #'	\item{`bigest`}{`integer` The ranking of the Pokémon from biggest to smallest.}
+#'	\item{`expType`}{`factor` The exp classification of the pokemon used to determine level up.}
 #' }
 #' @source [Bulbapedia Weight](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_weight)
 #' [Bulbapedia Height](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_height)
