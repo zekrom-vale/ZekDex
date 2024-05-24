@@ -61,7 +61,7 @@ exp$erratic <- function(n, flux = FALSE) {
 #' @export
 level$erratic <- function(e, flux = FALSE) {
 	ranges <- list(c(0, 50), c(50, 68), c(68, 98), c(98, 110), c(110, 10^256))
-	level_calculator(e, exp$erratic, ranges, flux = flux)
+	level_calculator(e, mem_erratic, ranges, flux = flux)
 }
 
 # Fast
@@ -132,7 +132,7 @@ exp$medium_slow <- function(n){
 #' @export
 level$medium_slow <- function(e) {
 	ranges <- list(c(0, 2), c(2, 10^256))
-	level_calculator(e, exp$medium_slow, ranges)
+	level_calculator(e, mem_medium_slow, ranges)
 }
 
 # Slow
@@ -190,7 +190,7 @@ exp$fluctuating <- function(n, flux = FALSE) {
 #' @export
 level$fluctuating <- function(e, flux = FALSE) {
 	ranges <- list(c(0, 15), c(15, 36), c(36, 100), c(100, 10^256))
-	level_calculator(e, exp$fluctuating, ranges, flux = flux)
+	level_calculator(e, mem_fluctuating, ranges, flux = flux)
 }
 
 
@@ -241,6 +241,17 @@ level$up = function(
 	new_lvl = inv(cur_exp+e)
 	rem_exp = cur_exp+e - fun(new_lvl)
 	list(level = new_lvl, exp = rem_exp)
+}
+
+if (requireNamespace("memoise", quietly = TRUE)) {
+	mem_medium_slow = memoise::memoise(exp$medium_slow)
+	mem_erratic = memoise::memoise(exp$erratic)
+	mem_fluctuating = memoise::memoise(exp$fluctuating)
+} else {
+	warning("`level$medium_slow`, `level$erratic`, and `level$fluctuating` may run slower.  Install memoise for a faster experience.  `install.packages('memoise')`")
+	mem_medium_slow = exp$medium_slow
+	mem_erratic = exp$erratic
+	mem_fluctuating = exp$fluctuating
 }
 
 # Lock the environment
