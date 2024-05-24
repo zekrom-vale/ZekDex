@@ -17,7 +17,7 @@ gen_type = function(write = FALSE, root = "data/", file = "PokemonTypes"){
 	if(is_loading()) return()
 
 	URL = "https://bulbapedia.bulbagarden.net/wiki/Type"
-	HTML = rvest::read_html(URL)
+	HTML = scrape_page(URL)
 	types = rvest::html_table(HTML)[[1]]|>
 		.name_from_row()|>
 		select(last_col())|>
@@ -56,7 +56,7 @@ gen_type = function(write = FALSE, root = "data/", file = "PokemonTypes"){
 #' @export
 #' @return A list containing two data frames: 'typeChart' and 'typeChartWide'.
 gen_type_chart = function(write = FALSE, root = "data/", file = "PokemonTypeChart", fileWide = "PokemonTypeChartWide"){
-	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/Type")
+	HTML = scrape_page("https://bulbapedia.bulbagarden.net/wiki/Type")
 	# Columns are Defending type
 	# Rows are Attacking type
 	typeChartWide = rvest::html_table(HTML)[[2]]|>

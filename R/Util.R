@@ -749,3 +749,14 @@ check_rvest = function(){
 		stop("Something is broken")
 	}
 }
+
+
+scrape_page = function(url) {
+	check_rvest()
+	# Use rvest to scrape the webpage
+	scrape_page(url)
+}
+
+if (requireNamespace("memoise", quietly = TRUE)) {
+	scrape_page = memoise::memoise(scrape_page, cache = memoise::cache_filesystem(".tmp"))
+}

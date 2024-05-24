@@ -11,7 +11,7 @@
 #' @importFrom stringr str_trim str_remove str_extract
 #' @importFrom tibble tibble
 gen_weight = function(write = FALSE, root = "data/", file = "PokemonWeight"){
-	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_weight")
+	HTML = scrape_page("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_weight")
 	divs = rvest::html_elements(HTML, css = 'div[style^="clear:both; display: grid; grid-template-columns:"]')
 
 	weight = map(divs, function(div){
@@ -66,7 +66,7 @@ gen_weight = function(write = FALSE, root = "data/", file = "PokemonWeight"){
 #' @importFrom stringr str_trim str_remove str_extract
 #' @importFrom tibble tibble
 gen_height = function(write = FALSE, root = "data/", file = "PokemonHeight"){
-	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_height")
+	HTML = scrape_page("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_height")
 	# Emulation of parent_of(rvest::html_elements(HTML, css = 'div[style^="clear:both; display: grid; grid-template-columns:"]'))
 	divs = rvest::html_elements(HTML, xpath = '//div[starts-with(@style, "clear:both; display: grid; grid-template-columns:")]/..')
 
@@ -178,7 +178,7 @@ gen_physicalAttr = function(write = FALSE, root = "data/", file = "PokemonPhysic
 #' @importFrom stringr str_detect str_remove
 #' @export
 gen_exp_list = function(){
-	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/Experience")
+	HTML = scrape_page("https://bulbapedia.bulbagarden.net/wiki/Experience")
 	rvest::html_table(HTML)[[1]]|>
 		filter(!str_detect(Description, "unused"))|>
 		mutate(Description = str_remove(Description, "Gen.+$"))|>
@@ -192,7 +192,7 @@ gen_exp_list = function(){
 #' @importFrom dplyr select rename mutate
 #' @export
 gen_exp_type = function(){
-	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_experience_type")
+	HTML = scrape_page("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_experience_type")
 	rvest::html_table(HTML)[[1]]|>
 		select(-MS)|>
 		rename(ndex = `#`, expType = `Experience type`)|>
@@ -210,7 +210,7 @@ gen_exp_type = function(){
 #' @importFrom tidyr pivot_longer
 #' @export
 gen_exp_points = function(){
-	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/Experience")
+	HTML = scrape_page("https://bulbapedia.bulbagarden.net/wiki/Experience")
 	rvest::html_table(HTML)[[3]]|>
 		.name_from_row(sep = "_")|>
 		pivot_longer(-Level, names_sep = "_", names_to = c("expType", "to"))|>

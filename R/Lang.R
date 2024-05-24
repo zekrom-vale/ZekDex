@@ -25,7 +25,7 @@ gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
 	national = read_data("PokemonNational", root, g="nationalDex")
 
 	# Extract HTML table data
-	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")
+	HTML = scrape_page("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")
 
 	# Extract language links
 	URLS = rvest::html_elements(HTML, css = 'table tr:nth-of-type(2) [href^="/wiki/List_of_"]')|>
@@ -34,7 +34,7 @@ gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
 
 	# Read the HTML pages
 	HTMLS = URLS|>
-		map(rvest::read_html)
+		map(scrape_page)
 
 	# Compute the languages
 	langs = paste0(

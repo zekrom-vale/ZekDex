@@ -17,7 +17,7 @@ gen_evYield = function(write = FALSE, root = "data/", file = "PokemonEVYield"){
 	if(is_loading()) return()
 	check_rvest()
 	URL = "https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_effort_value_yield_(Generation_V-VI)"
-	HTML = rvest::read_html(URL)
+	HTML = scrape_page(URL)
 
 	URLS = rvest::html_elements(HTML, 'a[title^="List of Pokémon by effort value yield"]')|>
 		rvest::html_attr("href")|>
@@ -26,7 +26,7 @@ gen_evYield = function(write = FALSE, root = "data/", file = "PokemonEVYield"){
 		paste0("https://bulbapedia.bulbagarden.net", b=_)|>
 		c(URL)
 
-	HTMLS = map(URLS, rvest::read_html)
+	HTMLS = map(URLS, scrape_page)
 
 	evYield = map2(HTMLS, URLS, function(HTML, URL){
 		Gen = str_extract(URL, "\\((?:Generation_?)?([^()]+)\\)", group = 1)

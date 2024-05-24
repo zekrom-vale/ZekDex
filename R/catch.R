@@ -16,7 +16,7 @@ gen_catch = function(write = FALSE, root = "data/", file = "PokemonCatch"){
 	check_rvest()
 
 	# Read and parse the HTML from the URL
-	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_catch_rate")
+	HTML = scrape_page("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_catch_rate")
 
 	# Find all 'span.explain' elements in the HTML
 	spans = HTML|>

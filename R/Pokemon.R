@@ -13,7 +13,7 @@
 scrape_pokemon = function(path = "E:\\html\\"){
 	if(is_loading()) return()
 	check_rvest()
-	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")
+	HTML = scrape_page("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")
 
 	URLS = rvest::html_elements(HTML, css = 'a[href$="_(Pok%C3%A9mon)"]')|>
 		rvest::html_attr("href")|>
@@ -22,7 +22,7 @@ scrape_pokemon = function(path = "E:\\html\\"){
 
 	map(URLS, function(URL){
 		Sys.sleep(sample(1:10, 1))
-		HTML = rvest::read_html(URL)
+		HTML = scrape_page(URL)
 		write_rds(as.character(HTML), paste0(path, str_extract(URL, "wiki/(.*)_\\(Pok\\%C3\\%A9mon\\)", group = 1), ".rds"))
 	})
 }

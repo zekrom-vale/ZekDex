@@ -26,7 +26,7 @@ gen_mega = function(write = FALSE, root = "data/", file = "PokemonMega"){
 	# Use the 'map' function from the 'purrr' package to apply a function to each URL
 	mega = map(URLS, function(URL){
 		# URL = "https://bulbapedia.bulbagarden.net/wiki/Mega_Evolution"
-		HTML = rvest::read_html(URL) # Read the HTML content of the URL
+		HTML = scrape_page(URL) # Read the HTML content of the URL
 
 		# Extract the table from the HTML content
 		table = rvest::html_table(rvest::html_elements(HTML, '[align="center"]'))

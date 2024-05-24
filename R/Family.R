@@ -21,7 +21,7 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonFamily", fileL
 
 	# Add Evolution family
 
-	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_evolution_family")
+	HTML = scrape_page("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_evolution_family")
 
 	famTable = rvest::html_table(HTML, header = FALSE)
 	# Discard the end tables

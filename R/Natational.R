@@ -21,7 +21,7 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational")
 	if(!requireNamespace("janitor", quietly = TRUE))stop("janitor required.  Use install.packages(\"janitor\")")
 
 	# Read the HTML content from the specified URL
-	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")
+	HTML = scrape_page("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")
 
 	# Extract the tables from the HTML content
 	i = 0
@@ -107,7 +107,7 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational")
 		rename(name = "pokemon", regional = "form2")
 
 	# Add is legendary
-	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/Zekrom_(Pok%C3%A9mon)")
+	HTML = scrape_page("https://bulbapedia.bulbagarden.net/wiki/Zekrom_(Pok%C3%A9mon)")
 	legendary = HTML|>
 		rvest::html_element(css = 'div[class="roundy"]:last-of-type')|>
 		rvest::html_elements(css = 'a')|>
@@ -115,7 +115,7 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational")
 		discard(~ str_detect(., "Legendary|Generation|Mythical|Ultra Beast"))
 
 	# Add is mythical
-	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/Zeraora_(Pok%C3%A9mon)")
+	HTML = scrape_page("https://bulbapedia.bulbagarden.net/wiki/Zeraora_(Pok%C3%A9mon)")
 	mythical = HTML|>
 		rvest::html_element(css = 'div[class="roundy"]:last-of-type')|>
 		rvest::html_elements(css = 'a')|>
@@ -123,7 +123,7 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational")
 		discard(~ str_detect(., "Legendary|Generation|Mythical|Ultra Beast"))
 	# Add is Ultra Beast
 
-	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/Nihilego_(Pok%C3%A9mon)")
+	HTML = scrape_page("https://bulbapedia.bulbagarden.net/wiki/Nihilego_(Pok%C3%A9mon)")
 	ultraBeast = HTML|>
 		rvest::html_element(css = 'div[class="roundy"]:last-of-type')|>
 		rvest::html_elements(css = ':not(small)>a')|>

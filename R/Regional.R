@@ -22,7 +22,7 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 	national = read_data("PokemonNational", root, g="nationalDex")
 
 	# Read the HTML of the webpage containing the list of Pokemon by National Pokedex number
-	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")
+	HTML = scrape_page("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")
 
 	# Extract the URLs of the regional Pokedex pages from the HTML
 	URLS = rvest::html_elements(HTML, css = 'table tbody tbody tbody [href^="/wiki/List_of_Pok%C3%A9mon_by_"][href*="Pok%C3%A9dex_number"]')|>
@@ -41,7 +41,7 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 
 	# Read the HTML of each regional Pokedex page
 	HTMLS = URLS|>
-		map(rvest::read_html)
+		map(scrape_page)
 
 	regionalDex = map2(HTMLS, dexes, function(HTML, dex){
 		# HTML = HTMLS[[11]]; dex = dexes[[11]]

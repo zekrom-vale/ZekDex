@@ -26,7 +26,7 @@ gen_stats = function(
 
 	# Stats
 	URL = "https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_II-V)"
-	HTML = rvest::read_html(URL)
+	HTML = scrape_page(URL)
 	URLS = rvest::html_elements(HTML, css = 'table')[[1]]|>
 		rvest::html_elements('a[title^="List of Pok\u00E9mon by base stats"]')|>
 		rvest::html_attr(name="href")|>
@@ -34,7 +34,7 @@ gen_stats = function(
 		c(URL)
 
 	HTMLS = URLS|>
-		map(rvest::read_html)
+		map(scrape_page)
 
 	gens = str_extract(URLS, "\\(Generation_(.*)\\)", group = 1)
 	stats = map2(HTMLS, gens, function(HTML, gen){
