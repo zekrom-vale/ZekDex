@@ -1,3 +1,26 @@
+#' @title Level Calculator
+#' @description This function calculates the level for a given amount of experience points.
+#' @param e The amount of experience points.
+#' @param exp_func The experience function to use for calculation.
+#' @param ranges The ranges for each piece of the function.
+#' @param ... Additional arguments to pass to the experience function.
+#' @return The calculated level.
+#' @importFrom stats uniroot
+level_calculator <- function(e, exp_func, ranges, ...) {
+	# Find the range where e falls
+	for (range in ranges) {
+		if (e >= exp_func(range[1], ...) && e <= exp_func(range[2], ...)) {
+			# Use uniroot to find the root of the function exp_func(n) - e
+			root <- uniroot(function(n) exp_func(n, ...) - e, range)
+			return(floor(root$root))
+		}
+	}
+	# Return NA if no solution was found
+	return(NA)
+}
+
+
+
 # https://www.desmos.com/calculator/sbya2gb5pi
 #' @export
 exp = new.env()
@@ -37,20 +60,8 @@ exp$erratic <- function(n, flux = FALSE) {
 #' @importFrom stats uniroot
 #' @export
 level$erratic <- function(e, flux = FALSE) {
-	# Define the ranges for each piece of the function
 	ranges <- list(c(0, 50), c(50, 68), c(68, 98), c(98, 110), c(110, 10^256))
-
-	# Find the range where e falls
-	for (range in ranges) {
-		if (e >= exp$erratic(range[1], flux) && e <= exp$erratic(range[2], flux)) {
-			# Use uniroot to find the root of the function erratic(n) - e
-			root <- uniroot(function(n) exp$erratic(n, flux) - e, range)
-			return(floor(root$root))
-		}
-	}
-
-	# Return NA if no solution was found
-	return(NA)
+	level_calculator(e, exp$erratic, ranges, flux = flux)
 }
 
 # Fast
@@ -120,20 +131,8 @@ exp$medium_slow <- function(n){
 #' @importFrom stats uniroot
 #' @export
 level$medium_slow <- function(e) {
-	# Define the ranges for each piece of the function
 	ranges <- list(c(0, 2), c(2, 10^256))
-
-	# Find the range where e falls
-	for (range in ranges) {
-		if (e >= exp$medium_slow(range[1]) && e <= exp$medium_slow(range[2])) {
-			# Use uniroot to find the root of the function medium_slow(n) - e
-			root <- uniroot(function(n) exp$medium_slow(n) - e, range)
-			return(floor(root$root))
-		}
-	}
-
-	# Return NA if no solution was found
-	return(NA)
+	level_calculator(e, exp$medium_slow, ranges)
 }
 
 # Slow
@@ -190,20 +189,8 @@ exp$fluctuating <- function(n, flux = FALSE) {
 #' @importFrom stats uniroot
 #' @export
 level$fluctuating <- function(e, flux = FALSE) {
-	# Define the ranges for each piece of the function
 	ranges <- list(c(0, 15), c(15, 36), c(36, 100), c(100, 10^256))
-
-	# Find the range where e falls
-	for (range in ranges) {
-		if (e >= exp$fluctuating(range[1], flux) && e <= exp$fluctuating(range[2], flux)) {
-			# Use uniroot to find the root of the function fluctuating(n) - e
-			root <- uniroot(function(n) exp$fluctuating(n, flux) - e, range)
-			return(floor(root$root))
-		}
-	}
-
-	# Return NA if no solution was found
-	return(NA)
+	level_calculator(e, exp$fluctuating, ranges, flux = flux)
 }
 
 
