@@ -16,14 +16,14 @@
 #' @importFrom pkgload is_loading
 #' @export
 gen_evos = function(write = FALSE, root = "data/", file = "PokemonFamily", fileLong = "PokemonFamilyLong"){
-	if(pkgload::is_loading()) return()
-	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
+	if(is_loading()) return()
+	check_rvest()
 
 	# Add Evolution family
 
-	evHTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_evolution_family")
+	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_evolution_family")
 
-	famTable = rvest::html_table(evHTML, header = FALSE)
+	famTable = rvest::html_table(HTML, header = FALSE)
 	# Discard the end tables
 	famTable = famTable[1:(length(famTable)-3)]
 
@@ -77,6 +77,7 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonFamily", fileL
 
 	REGIONAL_REGEX = regionalForm(re = TRUE, ext = TRUE)
 	REMOVE_REGEX = glue("[\\s,]*{REGIONAL_REGEX}[\\s,]*")
+	EXTRACT_REGEX = "([^()]+)(?:\\(([^()]+)\\))?"
 
 	# Fix unknown
 	family = bind_rows(
@@ -110,17 +111,17 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonFamily", fileL
 		extract(
 			base,
 			into = c("base", "form"),
-			regex = "([^()]+)(?:\\(([^()]+)\\))?"
+			regex = EXTRACT_REGEX
 		)|>
 		extract(
 			evo,
 			into = c("evo", "form2"),
-			regex = "([^()]+)(?:\\(([^()]+)\\))?"
+			regex = EXTRACT_REGEX
 		)|>
 		extract(
 			first,
 			into = c("first", "firstForm"),
-			regex = "([^()]+)(?:\\(([^()]+)\\))?"
+			regex = EXTRACT_REGEX
 		)|>
 		mutate(
 			# Extract the reginal form
@@ -137,15 +138,10 @@ gen_evos = function(write = FALSE, root = "data/", file = "PokemonFamily", fileL
 			# Trim
 			base = str_trim(base),
 			evo = str_trim(evo),
-			first = str_trim(first),
-
-			# Trim form and change "" to NA
-			form = if_else(form == "", NA_character_, str_trim(form), form),
-			# Trim form2 and change "" to NA
-			form2 = if_else(form2 == "", NA_character_, str_trim(form2), NA_character_),
-			# Trim firstForm and change "" to NA
-			firstForm = if_else(firstForm == "", NA_character_, str_trim(firstForm), NA_character_),
-
+			first = str_trim(first)
+		)|>
+		blank_to_na(form, form2, firstForm)|>
+		mutate(
 			# Overwrite form with evoForm if it exists
 			form = if_else(is.na(evoForm), form, evoForm, form),
 			# Overwrite firstForm with evoForm if it exists

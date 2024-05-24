@@ -21,8 +21,8 @@ gen_stats = function(
 		file = "PokemonStats",
 		fileWide = "PokemonStatsWide"
 	){
-	if(pkgload::is_loading()) return()
-	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
+	if(is_loading()) return()
+	check_rvest()
 
 	# Stats
 	URL = "https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_II-V)"
@@ -39,21 +39,19 @@ gen_stats = function(
 	gens = str_extract(URLS, "\\(Generation_(.*)\\)", group = 1)
 	stats = map2(HTMLS, gens, function(HTML, gen){
 		# HTML = HTMLS[[6]]; gen = "II-V"
-		table = rvest::html_table(HTML)
-		table = table[[(length(table)-3)]]|>
+		table = rvest::html_table(HTML)|>
+			table[[(length(table)-3)]]|>
 			select(-2)|>
 			rename(ndex=1, name = "Pok\u00E9mon")|>
 			mutate(
 				# Fix ndex to int
-				ndex = as.integer(str_remove_all(ndex, "[^\\d]")),
+				ndex = as_int(ndex),
 				Gen = gen
 			)
 	})|>
 		bind_rows()
 
-	national = read_data("PokemonNational", root, g="nationalDex")
-
-	pokemon = national|>
+	pokemon = read_data("PokemonNational", root, g="nationalDex")|>
 		select(ndex, name)|>
 		distinct()
 

@@ -15,9 +15,8 @@
 #' @importFrom stringr str_detect str_replace str_extract str_remove str_to_lower
 #' @importFrom tidyr separate_wider_delim
 gen_mega = function(write = FALSE, root = "data/", file = "PokemonMega"){
-	if(pkgload::is_loading()) return() # If the package 'pkgload' is loading, exit the function
-	# Check if the 'rvest' package is installed. If not, stop the function and prompt the user to install it
-	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
+	if(is_loading()) return() # If the package 'pkgload' is loading, exit the function
+	check_rvest()
 
 	# Define the URLs to scrape data from
 	URLS = c("https://bulbapedia.bulbagarden.net/wiki/Mega_Evolution", "https://bulbapedia.bulbagarden.net/wiki/Primal_Reversion")
@@ -46,7 +45,8 @@ gen_mega = function(write = FALSE, root = "data/", file = "PokemonMega"){
 			map2(
 				HTML|>
 					rvest::html_elements('h3 [id^="Introduced_in_"] a')|>
-					rvest::html_text()|>str_remove("^Pok\u00e9mon "),
+					rvest::html_text()|>
+						str_remove("^Pok\u00e9mon "),
 				function(x,y)mutate(x, introduced = y)
 			)
 		else if(mega == "Primal")
@@ -78,7 +78,7 @@ gen_mega = function(write = FALSE, root = "data/", file = "PokemonMega"){
 			) |>
 			rename_with(~str_remove(.,"2")|>str_replace("type", "type2"), matches("type.*2")) |> # Remove '2' from the column names and replace 'type' with 'type2' for columns that match 'type.*2'
 			mutate(
-				ndex = as.integer(str_extract(ndex, "\\d+")), # Extract the numeric part from 'ndex' and convert it to an integer
+				ndex = as_int(ndex), # Extract the numeric part from 'ndex' and convert it to an integer
 				MegaOrPrimal = mega # Add a new column 'MegaOrPrimal' with the value of 'mega'
 			)
 	})|>

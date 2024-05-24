@@ -14,7 +14,7 @@
 #' @importFrom tibble tibble
 #' @importFrom pkgload is_loading
 gen_type = function(write = FALSE, root = "data/", file = "PokemonTypes"){
-	if(pkgload::is_loading()) return()
+	if(is_loading()) return()
 
 	URL = "https://bulbapedia.bulbagarden.net/wiki/Type"
 	HTML = rvest::read_html(URL)
@@ -67,7 +67,7 @@ gen_type_chart = function(write = FALSE, root = "data/", file = "PokemonTypeChar
 		mutate(
 			across(starts_with("Defending_"), function(x){
 				# Find "½×" set to .5 else remove non digits and cast to numeric
-				if_else(x == "\u00BD\u00D7", .5, as.numeric(str_remove_all(x, "[^\\d.]")), NA_character_)
+				if_else(x == "\u00BD\u00D7", .5, as_int(x), NA_character_)
 			})
 		)|>
 		filter(!is.na(Defending_Dragon))

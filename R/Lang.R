@@ -19,8 +19,8 @@
 #' @importFrom pkgload is_loading
 #' @export
 gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
-	if(pkgload::is_loading()) return()
-	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
+	if(is_loading()) return()
+	check_rvest()
 
 	national = read_data("PokemonNational", root, g="nationalDex")
 
@@ -59,7 +59,7 @@ gen_lang = function(write = FALSE, root = "data/", file = "PokemonLang"){
 			rename(ndex = 1, name = 2)|>
 			# Fix ndex to int
 			mutate(
-				ndex = as.integer(str_remove_all(ndex, "[^\\d]"))
+				ndex = as_int(ndex)
 			)
 	})
 

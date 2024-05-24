@@ -14,9 +14,8 @@
 #' @importFrom tidyr separate_wider_delim
 #' @export
 gen_evYield = function(write = FALSE, root = "data/", file = "PokemonEVYield"){
-	if(pkgload::is_loading()) return()
-	# Import the required package 'rvest' for web scraping
-	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
+	if(is_loading()) return()
+	check_rvest()
 	URL = "https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_effort_value_yield_(Generation_V-VI)"
 	HTML = rvest::read_html(URL)
 
@@ -48,7 +47,7 @@ gen_evYield = function(write = FALSE, root = "data/", file = "PokemonEVYield"){
 			as_tibble(.name_repair = "unique")|>
 			rename(ndex = `#`)|>
 			select(-`...2`)|>
-			rename_with(~"form", matches("Pok\u00e9mon"))|>
+			rename_pokemon("form")|>
 			rename_with(~str_remove_all(., "[.\\s]"), everything())|>
 			separate_wider_delim(Exp, delim = ":!:", names = c("Exp", "note"), too_few = "align_start")|>
 			mutate(Gen = Gen, Exp = as.integer(Exp))

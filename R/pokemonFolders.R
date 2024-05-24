@@ -17,7 +17,7 @@
 #' @export
 function(dir = "Pokemon", link = TRUE){
 	# Letters
-	purrr::map(LETTERS, function(x){
+	map(LETTERS, function(x){
 		dir.create(glue::glue("{dir}\\Letters\\{x}"), recursive = TRUE)
 	})
 
@@ -35,15 +35,13 @@ function(dir = "Pokemon", link = TRUE){
 	# Pokemon sub folders
 	pokemon|>
 		pull(folder)|>
-		purrr::map(
-			dir.create
-		)
+		map(dir.create)
 	if(requireNamespace("rvest", quietly = TRUE)&&link){
 		# Create typing links
 		# This takes a while
 		pokemon|>
 			group_by(name, folder, type, type2)|>
-			dplyr::group_map(function(x){
+			group_map(function(x){
 				name = x$name[[1]]
 				folder = x$folder[[1]]
 				type = x$type[[1]]

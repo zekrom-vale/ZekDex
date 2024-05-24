@@ -16,9 +16,8 @@
 #' @importFrom pkgload is_loading
 #' @export
 gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
-	if(pkgload::is_loading()) return()
-	# Check if the 'rvest' package is installed. If not, stop the function and ask the user to install it.
-	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
+	if(is_loading()) return()
+	check_rvest()
 
 	national = read_data("PokemonNational", root, g="nationalDex")
 
@@ -69,7 +68,7 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 				type2 = factor_type(if_else(type == type2, NA_character_, type2)),
 				type = factor_type(type),
 				# Fix ndex to int
-				ndex = as.integer(str_remove_all(ndex, "[^\\d]"))
+				ndex = as_int(ndex)
 			)|>
 			select(!matches("^(MS|Image|ObsidianFieldlands|CrimsonMirelands|CobaltCoastlands|CoronetHighlands|AlabasterIcelands)$"))|>
 			rename_pokemon()|>
@@ -91,7 +90,7 @@ gen_reginal = function(write = FALSE, root = "data/", file = "PokemonRegional"){
 		mutate(
 			across(
 				-names(national),
-				~ as.integer(str_remove_all(., "[^\\d]"))
+				as_int
 			),
 			across(c(regional, family, size), factor),
 			generation = as.integer(generation)

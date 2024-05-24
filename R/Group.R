@@ -12,9 +12,8 @@
 #' @importFrom pkgload is_loading
 #' @export
 gen_groups = function(write = FALSE, root = "data/", file = "PokemonGroups"){
-	if(pkgload::is_loading()) return()
-	# Import the required package 'rvest' for web scraping
-	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
+	if(is_loading()) return()
+	check_rvest()
 	# Check if the 'janitor' package is installed. If not, stop the function and ask the user to install it.
 	if(!requireNamespace("janitor", quietly = TRUE))stop("janitor required.  Use install.packages(\"janitor\")")
 	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/Groups_of_Legendary_and_Mythical_Pok%C3%A9mon")

@@ -144,7 +144,7 @@ filterByType = function(
 		)
 		# If both argType and argType2 are not "ANY", filter the data where type equals argType and type2 equals argType2
 		if(argType != ANY && argType2 != ANY){
-			data =  data|> filter(
+			data = data|> filter(
 				type == argType & type2 == argType2
 				|
 					type == argType2 & type2 == argType
@@ -152,27 +152,28 @@ filterByType = function(
 		}
 		# If only argType is not "ANY", filter the data where type equals argType
 		else if(argType != ANY){
-			data =  data|> filter(
-				type == argType | type2 == argType
-			)
+			data = data|>
+				filter(type == argType | type2 == argType)
 		}
 		# If only argType2 is not "ANY", filter the data where type equals argType2
 		else if(argType2 != ANY){
-			data =  data|> filter(
-				type == argType2 | type2 == argType2
-			)
+			data = data|>
+				filter(type == argType2 | type2 == argType2)
 		}
 	}
 	# If swap is FALSE
 	else{
 		# If argType is not "ANY", filter the data where type equals argType
 		if(argType != ANY){
-			data =  data|> filter(type == argType)
+			data = data|>
+				filter(type == argType)
 		}
 		# If argType2 is not "ANY", filter the data where type2 equals argType2
 		if(argType2 != ANY){
-			if(is.na(argType2)) data =  data|> filter(is.na(type2))
-			else  data =  data|>filter(type2 == argType2)
+			if(is.na(argType2)) data =  data|>
+					filter(is.na(type2))
+			else  data = data|>
+					filter(type2 == argType2)
 		}
 	}
 	# Pull the specified column from the data, remove duplicates, and store it in data
@@ -269,7 +270,7 @@ randomPokemonGen = function(
 		replace = FALSE,
 		size = 1
 ){
-	if(pkgload::is_loading()) return()
+	if(is_loading()) return()
 	if(!requireNamespace("coro", quietly = TRUE))stop("coro required.  Use install.packages(\"coro\")")
 	# enquo to capture the expression for later evaluation
 	p=dplyr::enquo(p)
@@ -287,8 +288,8 @@ randomPokemonGen = function(
 	}
 
 	# Pull the specified column from the data, remove duplicates, and store it in data
-	data = data |>
-		dplyr::pull(!!p) |>
+	data = data|>
+		dplyr::pull(!!p)|>
 		unique()
 
 	# If data is empty, return an empty character vector
@@ -301,7 +302,8 @@ randomPokemonGen = function(
 				yield(sample(data, size = size, prob = prob))
 			}
 		})()
-	} else {
+	}
+	else{
 		coro::generator(function(){
 			while(length(data) > size){
 				item = sample(data, size = size, prob = prob)

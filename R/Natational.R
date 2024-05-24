@@ -15,9 +15,8 @@
 #' @importFrom stringr str_remove_all str_detect
 #' @importFrom pkgload is_loading
 gen_national = function(write = FALSE, root = "data/", file = "PokemonNational"){
-	if(pkgload::is_loading()) return()
-	# Import the required package 'rvest' for web scraping
-	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
+	if(is_loading()) return()
+	check_rvest()
 	# Check if the 'janitor' package is installed. If not, stop the function and ask the user to install it.
 	if(!requireNamespace("janitor", quietly = TRUE))stop("janitor required.  Use install.packages(\"janitor\")")
 
@@ -77,8 +76,10 @@ gen_national = function(write = FALSE, root = "data/", file = "PokemonNational")
 		mutate(
 			type2 = factor_type(if_else(type == type2, NA_character_, type2, missing = type2)),
 			type = factor_type(type),
-			ndex = as.integer(str_remove_all(ndex, "[^\\d]")),
-			form2 = if_else(form2 == "", NA_character_, form2, NA_character_),
+			ndex = as_int(ndex)
+		)|>
+		blank_to_na(form2)|>
+		mutate(
 			# Arceus technically not correct
 			# Koraidon and Miraidon forms are incomplete
 			# Furfrou does not have the trimed forms

@@ -11,12 +11,10 @@
 #' @importFrom stringr str_trim str_remove str_extract
 #' @importFrom tibble tibble
 gen_weight = function(write = FALSE, root = "data/", file = "PokemonWeight"){
-	URL = "https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_weight"
-	HTML = rvest::read_html(URL)
+	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_weight")
 	divs = rvest::html_elements(HTML, css = 'div[style^="clear:both; display: grid; grid-template-columns:"]')
 
 	weight = map(divs, function(div){
-		# div = divs[[14]]
 		tibble(
 			name = div|>
 				rvest::html_elements(css = 'div[class="roundy"]>div b')|>
@@ -35,17 +33,21 @@ gen_weight = function(write = FALSE, root = "data/", file = "PokemonWeight"){
 		bind_rows()|>
 		mutate(
 			form = str_trim(str_remove(form, name)),
-			form = if_else(form == "", NA_character_, form),
-			lbs = as.numeric(str_extract(lbs, "[\\d.]+")),
-			kg = as.numeric(str_extract(kg, "[\\d.]+")),
+			across(
+				c(lbs, kg),
+				as_num
+			),
 			lightest = as.integer(row_number()),
 			heaveiest = max(lightest) - lightest + 1L,
 			regional = str_extract(name, regionalForm(re=TRUE)),
-			regional = factor(if_else(regional == "", NA_character_, regional)),
 			name = str_trim(str_remove_all(name, regionalForm(re=TRUE))),
 			MegaOrPrimal = str_trim(str_extract(name, "Mega|Primal")),
-			MegaOrPrimal = factor(if_else(MegaOrPrimal == "", NA_character_, MegaOrPrimal, NA_character_)),
 			name = str_trim(str_remove(name, "Mega|Primal"))
+		)|>
+		blank_to_na(form, MegaOrPrimal, regional)|>
+		mutate(
+			MegaOrPrimal = factor(MegaOrPrimal),
+			regional = factor(regional)
 		)
 	if(write)save_data("weight", root, file)
 	weight
@@ -64,8 +66,7 @@ gen_weight = function(write = FALSE, root = "data/", file = "PokemonWeight"){
 #' @importFrom stringr str_trim str_remove str_extract
 #' @importFrom tibble tibble
 gen_height = function(write = FALSE, root = "data/", file = "PokemonHeight"){
-	URL = "https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_height"
-	HTML = rvest::read_html(URL)
+	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_height")
 	# Emulation of parent_of(rvest::html_elements(HTML, css = 'div[style^="clear:both; display: grid; grid-template-columns:"]'))
 	divs = rvest::html_elements(HTML, xpath = '//div[starts-with(@style, "clear:both; display: grid; grid-template-columns:")]/..')
 
@@ -89,18 +90,17 @@ gen_height = function(write = FALSE, root = "data/", file = "PokemonHeight"){
 		bind_rows()|>
 		mutate(
 			form = str_trim(str_remove(form, name)),
-			form = if_else(form == "", NA_character_, form),
 			inch = as.integer(str_extract(ft, "[\\d.]+(?=\")")) + as.integer(str_extract(ft, "[\\d.]+(?=')")) * 12,
-			m = as.numeric(str_extract(m, "[\\d.]+")),
+			m = as_num(m),
 			smallest = as.integer(row_number()),
 			bigest = max(smallest) - smallest + 1L,
 			regional = str_extract(name, regionalForm(re=TRUE)),
-			regional = if_else(regional == "", NA_character_, regional),
 			name = str_trim(str_remove_all(name, regionalForm(re=TRUE))),
 			MegaOrPrimal = str_trim(str_extract(name, "Mega|Primal")),
-			MegaOrPrimal = if_else(MegaOrPrimal == "", NA_character_, MegaOrPrimal, NA_character_),
 			name = str_trim(str_remove(name, "Mega|Primal"))
-		)
+		)|>
+		blank_to_na(MegaOrPrimal, regional, form)|>
+		mutate(MegaOrPrimal = factor(MegaOrPrimal))
 	if(write)save_data("height", root, file)
 	height
 }
@@ -140,17 +140,16 @@ gen_physicalAttr = function(write = FALSE, root = "data/", file = "PokemonPhysic
 		inner_join(
 			height,
 			by = c("name", "regional", "MegaOrPrimal"),
-			relationship = "many-to-many"
+			relationship = "many-to-many",
+			suffix = c("", ".y")
 		)|>
-		# Filter out rows where both 'form.x' and 'form.y' are NA or both are not NA
-		filter(xor(is.na(form.x), is.na(form.y)))|>
-		# Replace NA values in 'form.x' with corresponding values from 'form.y', and remove 'form.y'
+		# Filter out rows where both 'form' and 'form.y' are NA or both are not NA
+		filter(xor(is.na(form), is.na(form.y)))|>
+		# Replace NA values in 'form' with corresponding values from 'form.y', and remove 'form.y'
 		mutate(
-			form.x = coalesce(form.x, form.y),
+			form = coalesce(form, form.y),
 			form.y = NULL
 		)|>
-		# Rename 'form.x' to 'form'
-		rename(form = form.x)|>
 		# Join exp types
 		left_join(gen_exp_type(), by = c("ndex", "name"))
 
@@ -179,8 +178,7 @@ gen_physicalAttr = function(write = FALSE, root = "data/", file = "PokemonPhysic
 #' @importFrom stringr str_detect str_remove
 #' @export
 gen_exp_list = function(){
-	URL = "https://bulbapedia.bulbagarden.net/wiki/Experience"
-	HTML = rvest::read_html(URL)
+	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/Experience")
 	rvest::html_table(HTML)[[1]]|>
 		filter(!str_detect(Description, "unused"))|>
 		mutate(Description = str_remove(Description, "Gen.+$"))|>
@@ -194,8 +192,7 @@ gen_exp_list = function(){
 #' @importFrom dplyr select rename mutate
 #' @export
 gen_exp_type = function(){
-	URL = "https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_experience_type"
-	HTML = rvest::read_html(URL)
+	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_experience_type")
 	rvest::html_table(HTML)[[1]]|>
 		select(-MS)|>
 		rename(ndex = `#`, expType = `Experience type`)|>
@@ -213,14 +210,13 @@ gen_exp_type = function(){
 #' @importFrom tidyr pivot_longer
 #' @export
 gen_exp_points = function(){
-	URL = "https://bulbapedia.bulbagarden.net/wiki/Experience"
-	HTML = rvest::read_html(URL)
+	HTML = rvest::read_html("https://bulbapedia.bulbagarden.net/wiki/Experience")
 	rvest::html_table(HTML)[[3]]|>
 		.name_from_row(sep = "_")|>
 		pivot_longer(-Level, names_sep = "_", names_to = c("expType", "to"))|>
 		rename(level = Level)|>
 		mutate(
-			value = as.integer(str_remove_all(value, "[^\\d]")),
+			value = as_int(value),
 			level = as.integer(level),
 			expType = factor(str_remove(expType, "[^\\w ]"), levels = gen_exp_list())
 		)

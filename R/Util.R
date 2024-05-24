@@ -530,7 +530,7 @@ save_data = function(
 		file = stop("'file' must be specified"),
 		csv = TRUE, rda = TRUE
 ){
-	if(pkgload::is_loading()) return()
+	if(is_loading()) return()
 	if(rda)save(list = sym, file = glue("{root}/{file}.rda"), envir = parent.frame(), compress = "xz")
 	if(csv)write_csv(get(sym, envir = parent.frame()), glue("{root}/{file}.csv"), quote = "all")
 	if(!csv&&!rda)warning("Nothing saved")
@@ -551,7 +551,7 @@ save_data = function(
 #' @importFrom pkgload is_loading
 #' @export
 read_data = function(data, root, ns = asNamespace("ZekDex"), one = TRUE, g=NULL){
-	if(pkgload::is_loading()) return()
+	if(is_loading()) return()
 	if(!is.null(root)){
 		if(file.exists(glue("{root}{data}.rda"))){
 			e = new.env()
@@ -673,6 +673,79 @@ factor_type <- function(x) {
 #' @examples
 #' df <- tibble("Pokémon" = c("Pikachu", "Charizard", "Bulbasaur"))
 #' ZekDex:::rename_pokemon(df)
-rename_pokemon = function(df){
-	rename_with(df, ~"name", matches("Pok\u00e9mon"))
+rename_pokemon = function(df, name = "name"){
+	rename_with(df, ~ name, .cols = matches("^(Name|Pok\u00e9mon)$"))
+}
+
+
+#' As integer
+#'
+#' Converts strings to ints
+#'
+#' @param x A vector or a list of ints or strings
+#'
+#' @return A list of ints
+#'
+#' @examples
+#' ZekDex:::as_int(list("12", 1L))
+as_int = function(x){
+	coalesce(as.integer(str_extract(str_remove_all(x, ","), "\\d+")), suppressWarnings(as.integer(x)))
+}
+
+#' As numeric
+#'
+#' Converts strings to numerics
+#'
+#' @param x A vector or a list of numerics or strings
+#'
+#' @return A list of numerics
+#'
+#' @examples
+#' ZekDex:::as_num(list("12.23", 1.2))
+as_num = function(x){
+	coalesce(as.double(str_extract(str_remove_all(x, ","), "[\\d.]+")), suppressWarnings(as.double(x)))
+}
+
+
+#' Converts empty strings to NA_character
+#'
+#' @param df The dataframe
+#' @param ... Columns to modify as a tidyselect statment or `where(is.character)`
+#' if not used
+#'
+#' @return The modified dfataframe
+blank_to_na = function(df, ...) {
+	cols = enquos(...)
+
+	if(length(cols)==0)return(
+		df|>
+			mutate(across(
+				where(is.character),
+				function(x){
+					x = str_trim(x)
+					if_else(x=="", NA_character_, x, NA_character_)
+				}
+			))
+	)
+
+	df|>
+		mutate(across(
+			!!!cols,
+			function(x){
+				x = str_trim(x)
+				if_else(x=="", NA_character_, x, NA_character_)
+			}
+		))
+}
+
+
+check_rvest = function(){
+	# Import the required package 'rvest' for web scraping
+	if(!requireNamespace("rvest", quietly = TRUE))stop("rvest required.  Use install.packages(\"rvest\")")
+	# Import the required package 'rvest' for web scraping
+	if(!requireNamespace("xml2", quietly = TRUE)){
+		warning("xml2 required.  Use install.packages(\"xml2\")")
+		warning("You may need to reinstall rvest.  Use install.packages(\"rvest\")")
+		stop("Something is broken")
+	}
 }
