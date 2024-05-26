@@ -761,6 +761,7 @@ check_rvest = function(){
 #' @param url The URL of the webpage to scrape.
 #' @return An xml_document object containing the scraped webpage content.
 #' @importFrom readr read_file write_file
+#' @importFrom stringr str_to_lower
 #' @importFrom glue glue
 scrape_page = function(url){
 	check_rvest()
@@ -770,7 +771,7 @@ scrape_page = function(url){
 	}
 
 	# Create a unique filename based on the URL
-	filename = glue(".tmp/{digest::digest(url)}.html")
+	filename = glue(".tmp/{digest::digest(str_to_lower(url))}.html")
 
 	if(!file.exists(filename)){
 		# Read the URL
