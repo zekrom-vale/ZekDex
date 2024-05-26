@@ -754,9 +754,11 @@ check_rvest = function(){
 
 #' Scrape a webpage and cache the result
 #'
-#' This function scrapes a webpage using rvest, and caches the result in a temporary file.
+#' This function scrapes a webpage using rvest and httr, and caches the result in a temporary file.
 #' The file name is based on a hash of the URL. If the function is called again with the same URL,
-#' it reads the HTML content from the cache file instead of scraping the webpage again.
+#' it checks if the webpage content has been modified since the last request using the HTTP 304 Not Modified response code.
+#' If the content has not been modified, it reads the HTML content from the cache file instead of scraping the webpage again.
+#' If the content has been modified, it updates the cache file with the new content and returns the new content.
 #'
 #' @param url The URL of the webpage to scrape.
 #' @return An xml_document object containing the scraped webpage content.
@@ -769,19 +771,36 @@ scrape_page = function(url){
 	if (!requireNamespace("digest", quietly = TRUE)) {
 		stop("The digest package is required for this function. Please install it using `install.packages('digest')`")
 	}
+	# Check if httr is installed, if not throw an error
+	if (!requireNamespace("httr", quietly = TRUE)) {
+		stop("The httr package is required for this function. Please install it using `install.packages('httr')`")
+	}
 
 	# Create a unique filename based on the URL
 	filename = glue(".tmp/{digest::digest(str_to_lower(url))}.html")
 
-	if(!file.exists(filename)){
-		# Read the URL
-		webpage = rvest::read_html(url)
-		# Write the characters to a file
-		write_file(as.character(webpage), file = filename)
-		return(webpage)
+	# If the file exists, get its last modification time
+	if(file.exists(filename)){
+		last_modified = file.info(filename)$mtime|>
+			format("%a, %d %b %Y %H:%M:%S GMT")
+	} else {
+		last_modified = NULL
 	}
-	filename|>
-		read_file()|>
-		rvest::read_html()
-}
 
+	# Send a GET request with the If-Modified-Since header
+	response = httr::GET(url, httr::add_headers(`If-Modified-Since` = last_modified))
+
+	# If the status code is 304 (Not Modified), read the cached file
+	if(response$status_code == 304){
+		return(
+			filename|>
+				read_file()|>
+				rvest::read_html()
+		)
+	}
+
+	# Otherwise, write the new content to the cache and return it
+	new_content = httr::content(response, as = "text", encoding = "UTF-8")
+	write_file(new_content, file = filename)
+	return(rvest::read_html(new_content))
+}
