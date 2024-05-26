@@ -751,12 +751,36 @@ check_rvest = function(){
 }
 
 
-scrape_page = function(url) {
+
+#' Scrape a webpage and cache the result
+#'
+#' This function scrapes a webpage using rvest, and caches the result in a temporary file.
+#' The file name is based on a hash of the URL. If the function is called again with the same URL,
+#' it reads the HTML content from the cache file instead of scraping the webpage again.
+#'
+#' @param url The URL of the webpage to scrape.
+#' @return An xml_document object containing the scraped webpage content.
+#' @importFrom readr read_file write_file
+#' @importFrom glue glue
+scrape_page = function(url){
 	check_rvest()
-	# Use rvest to scrape the webpage
-	scrape_page(url)
+	# Check if digest is installed, if not throw an error
+	if (!requireNamespace("digest", quietly = TRUE)) {
+		stop("The digest package is required for this function. Please install it using `install.packages('digest')`")
+	}
+
+	# Create a unique filename based on the URL
+	filename = glue(".tmp/{digest::digest(url)}.html")
+
+	if(!file.exists(filename)){
+		# Read the URL
+		webpage = rvest::read_html(url)
+		# Write the characters to a file
+		write_file(as.character(webpage), file = filename)
+		return(webpage)
+	}
+	filename|>
+		read_file()|>
+		rvest::read_html()
 }
 
-if (requireNamespace("memoise", quietly = TRUE)) {
-	scrape_page = memoise::memoise(scrape_page, cache = memoise::cache_filesystem(".tmp"))
-}
