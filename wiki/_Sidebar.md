@@ -1,3 +1,5 @@
+[_Footer](https://github.com/zekrom-vale/ZekDex/wiki/_Footer)
+
 [Data](https://github.com/zekrom-vale/ZekDex/wiki/Data)
 
 [Home](https://github.com/zekrom-vale/ZekDex/wiki/Home)

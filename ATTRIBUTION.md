@@ -13,6 +13,6 @@ The data is licensed under the [Creative Commons Attribution-NonCommercial-Share
 ### Acknowledgements
 
 We would like to express our gratitude to the contributors of [Bulbagarden](https://bulbagarden.net/home/) for collecting and maintaining the Pokémon data that we use in this project.
-Under no circumstance should anyone use rvest to attack or slowdown the site.  All `gen_*()` functions are intended to be used only for when major updates occur on Bulbagarden.
+All `gen_*()` functions caches the HTML and only request changed content from Bulbagarden.
 
 Please note that this project is not affiliated with, endorsed by, or directly associated with Bulbagarden or the official Pokémon franchise.
