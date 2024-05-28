@@ -39,11 +39,13 @@ To cater to this need, we also provide the data in the universally recognized `.
 These `.csv` files can be easily imported into various data analysis software and programming languages,
 offering users the flexibility to work with the data in an environment of their choice.
 
-You can locate these `.csv` files in the `/data` directory of the package.
-This directory has been structured to ensure easy navigation and quick access to the required datasets.
+In addition to the `.rda` and `.csv` formats, we also provide the data in compressed formats,
+namely `.zip` and `.tar.gz`. These compressed files are located in the `/data` directory of
+the package and are named `data.zip` and `data.tar.gz` respectively. These formats are
+particularly useful for non-R programs and for efficient storage and transfer of data.
 
-In summary, whether you're working within the R ecosystem or venturing outside it,
-we've got you covered with our dual data format availability. Happy data exploring!
+You can locate these files in the `/data` directory of the package.
+This directory has been structured to ensure easy navigation and quick access to the required datasets.
 
 
 ## Installation
@@ -65,82 +67,63 @@ devtools::install_github("zekrom-vale/ZekDex", ref = "main")
 devtools::install_github("zekrom-vale/ZekDex", ref = "v0.1.3-beta")
 ```
 
+## Download and Extract
+
+Here's how you can download and extract these files using Python, Command Prompt (cmd), and Shell:
+
+### Python
+
+You can use the `requests` and `zipfile` libraries in Python to download and extract the zip file:
+
+```python
+import requests, zipfile, io
+
+url = "https://raw.githubusercontent.com/zekrom-vale/ZekDex/stable/data/data.zip"
+response = requests.get(url)
+zip_file = zipfile.ZipFile(io.BytesIO(response.content))
+zip_file.extractall("data") # path to the extraction directory
+```
+
+### Command Prompt (cmd)
+
+In Windows, you can use `curl` to download the file and `tar` to extract it:
+
+```cmd
+curl -L -o data.tar.gz "https://raw.githubusercontent.com/zekrom-vale/ZekDex/stable/data/data.tar.gz"
+tar -xvzf data.tar.gz -C "data" :: path to the extraction directory
+```
+
+### Shell
+
+In Unix-based systems, you can use `wget` to download the file and `tar` to extract it:
+
+```bash
+wget "https://raw.githubusercontent.com/zekrom-vale/ZekDex/stable/data/data.tar.gz"
+tar -xvzf data.tar.gz -C "data" # path to the extraction directory
+```
+
 ## Datasets
 
 The package includes the following datasets:
-### National PokeDex (`nationalDex`)
-The National PokeDex is a comprehensive database that records information on all Pokémon known to exist,
-instead of just ones native in a particular region.
+-  National PokeDex (`nationalDex`)
+-  Legendary and Mythical Pokémon Groupings (`groups`)
+-  Pokemon Stats (Wide Format) (`statsWide`)
+-  Pokemon Stats (`stats`)
+-  Pokemon Evolution Dataset (`family`)
+-  Extended Pokemon Evolution Dataset (`familyLong`)
+-  Pokémon National Dex information in multiple languages (`languages`)
+-  Pokémon Information from the Regional Dex (`regionalDex`)
+-  Pokemon Types Dataset (`types`)
+-  Pokémon Type Effectiveness Dataset (`typeChartWide`)
+-  Extended Pokémon Type Effectiveness Dataset (`typeChart`)
+-  Pokemon Weight Dataset (`weight`)
+-  Height Dataset (`height`)
+-  Physical Attributes of Pokémon (`physicalAttr`)
+-  Catch Rate Dataset (`catchRate`)
+-  Pokémon Mega Evolution and Primal Reversion (`mega`)
+-  Pokémon Effort Value Yields (`evYield`)
 
-
-### Legendary and Mythical Pokémon Groupings (`groups`)
-This dataset contains information about Legendary and Mythical Pokémon,
-which are a special group of Pokémon that are incredibly rare and often very powerful.
-
-
-### Pokemon Stats (Wide Format) (`statsWide`)
-This dataset is a wide format version of the `stats` dataset.
-
-
-### Pokemon Stats (`stats`)
-This dataset contains the base stats of Pokémon, including various forms and sizes of Pokémon.
-
-
-### Pokemon Evolution Dataset (`family`)
-This dataset contains information about Pokémon evolution and family groupings.
-
-
-### Extended Pokemon Evolution Dataset (`familyLong`)
-This dataset contains detailed information about Pokémon evolution and family groupings.
-
-
-### Pokémon National Dex information in multiple languages (`languages`)
-This dataset contains the names of Pokémon in various languages.
-
-
-### Pokémon Information from the Regional Dex (`regionalDex`)
-This dataset contains information about Pokémon as per the Regional Pokédex.
-
-
-### Pokemon Types Dataset (`types`)
-This dataset contains information about various Pokemon types.
-
-
-### Pokémon Type Effectiveness Dataset (`typeChartWide`)
-This dataset provides a matrix of effectiveness multipliers for different types of Pokémon attacks.
-
-
-### Extended Pokémon Type Effectiveness Dataset (`typeChart`)
-This dataset provides detailed effectiveness values for attacks between different Pokémon types.
-
-
-### Pokemon Weight Dataset (`weight`)
-This dataset contains information about the weight of various Pokémon.
-
-
-### Height Dataset (`height`)
-This dataset contains information about the height of different Pokémon forms.
-
-
-### Physical Attributes of Pokémon (`physicalAttr`)
-This dataset provides a comprehensive overview of the physical attributes of Pokémon, including their type,
-generation, weight, height, and other characteristics.
-
-
-### Catch Rate Dataset (`catchRate`)
-This dataset provides information about the catch rate of each Pokémon.
-
-
-### Pokémon Mega Evolution and Primal Reversion (`mega`)
-This dataset contains information about Pokémon that can undergo Mega Evolution and Primal Reversion.
-
-
-### Pokémon Effort Value Yields (`evYield`)
-A dataset about Pokémon effort value yields per generation.
-When a Pokémon is defeated in battle, it will give effort values to the Pokémon that participated in the battle against it. The values shown below are the effort points that a Pokémon will give in.
-
-
-
+For more details about each dataset, please visit the [ZekDex Wiki](https://github.com/zekrom-vale/ZekDex/wiki).
 
 ### Loading data
 Data can be loaded in different ways
@@ -152,7 +135,7 @@ data(nationalDex, package = "ZekDex")
 library(ZekDex)
 nationalDex
 
-# Use :: opperatior
+# Use the `::` opperatior
 ZekDex::nationalDex
 ```
 

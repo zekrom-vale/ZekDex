@@ -5,10 +5,34 @@ devtools::clean_dll()
 rm(list = ls(all.names = TRUE))
 
 # Generate docs
+library(glue)
+library(tidyverse)
+library(yaml)
+l = list()
+l$ATTRIBUTION = read_file("ATTRIBUTION.md")
+l$INSTALL = read_file("packing/INSTALL.md")
+
+source("packing/util.R")
+
+# DATA ROXOGEN
 source("packing/gen_roxogen.R")
-source("packing/gen_readme.R")
-source("packing/gen_md.R")
+
+# README
+l$DATASETS = shortDescription("packing/data.readme.template")
+glue_data(l, renmoveComments(read_file("packing/README.src.md")))|>
+	write_file("README.md")
+
+# WIKI HOME
+l$DATASETS = shortDescription("packing/data.home.template")
+glue_data(l, renmoveComments(read_file("packing/home.src.md")))|>
+	write_file("wiki/Home.md")
+
+# WIKI DATA
+genWikiData()
+
 source("packing/sidebar.R")
+
+
 devtools::document()
 devtools::install() # Or clean and install in Build
 # (Required if some data chaged, will cause data coruption issues on the compiled package)

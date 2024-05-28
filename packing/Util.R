@@ -1,8 +1,24 @@
-library(glue)
-library(tidyverse)
-library(yaml)
+shortDescription = function(template){
 
-longDescription = function(){
+	# Read the template from a filetemplate = read_file(template)
+	YAML = read_yaml("packing/data.yaml")
+
+	template = read_file(template)
+
+	imap(YAML, function(yaml_data, dataset_name){
+		yaml_data$dataset_name = dataset_name
+
+		# Concatenate all values into a single string
+		yaml_data = map(yaml_data, ~str_trim(paste(.x, collapse = "\n")))
+
+		# Use glue to fill in the template
+		glue_data(yaml_data, template, .sep = "")
+	})|>
+		paste(collapse = "\n")
+}
+
+
+genWikiData = function(){
 	YAML = read_yaml("packing/data.yaml")
 
 	iwalk(YAML, function(yaml_data, dataset_name){
@@ -46,4 +62,6 @@ longDescription = function(){
 	})
 }
 
-longDescription()
+renmoveComments = function(str){
+	str_remove_all(str, regex("\\s*--.*", multiline = TRUE))
+}

@@ -39,31 +39,16 @@ To cater to this need, we also provide the data in the universally recognized `.
 These `.csv` files can be easily imported into various data analysis software and programming languages,
 offering users the flexibility to work with the data in an environment of their choice.
 
-You can locate these `.csv` files in the `/data` directory of the package.
+In addition to the `.rda` and `.csv` formats, we also provide the data in compressed formats,
+namely `.zip` and `.tar.gz`. These compressed files are located in the `/data` directory of
+the package and are named `data.zip` and `data.tar.gz` respectively. These formats are
+particularly useful for non-R programs and for efficient storage and transfer of data.
+
+You can locate these files in the `/data` directory of the package.
 This directory has been structured to ensure easy navigation and quick access to the required datasets.
 
-In summary, whether you're working within the R ecosystem or venturing outside it,
-we've got you covered with our dual data format availability. Happy data exploring!
 
-
-## Installation
-
-You can install the package from GitHub with:
-
-```r
-# If devtools is not installed:
-install.packages("devtools")
-
-# Install the stable branch of the package ZekDex (recommended)
-devtools::install_github("zekrom-vale/ZekDex")
-
-# Or, install the main branch of the package ZekDex (May be in an unusable state)
-devtools::install_github("zekrom-vale/ZekDex", ref = "main")
-
-# Or, install a specific version of the package ZekDex using a tag
-# For example, to install version v0.1.3-beta:
-devtools::install_github("zekrom-vale/ZekDex", ref = "v0.1.3-beta")
-```
+{INSTALL}
 
 ## Datasets
 
@@ -71,6 +56,7 @@ The package includes the following datasets:
 -- Perhaspse it is best to split this into another file
 {DATASETS} -- To be replaced with the datasets in R/data.R
 
+For more details about each dataset, please visit the [ZekDex Wiki](https://github.com/zekrom-vale/ZekDex/wiki).
 
 ### Loading data
 Data can be loaded in different ways
@@ -82,7 +68,7 @@ data(nationalDex, package = "ZekDex")
 library(ZekDex)
 nationalDex
 
-# Use :: opperatior
+# Use the `::` opperatior
 ZekDex::nationalDex
 ```
 
