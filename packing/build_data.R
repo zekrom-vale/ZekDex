@@ -37,3 +37,14 @@ gen_lang(write = TRUE) # takes a bit
 gen_reginal(write = TRUE)
 gen_physicalAttr(write = TRUE)
 gen_mega(write = TRUE)
+
+
+library(utils)
+# Get the list of csv files in the data directory
+csv_files = list.files("data", pattern = "\\.csv$", full.names = TRUE)
+
+# Create a zip file of all csv files
+zip(zipfile = "data/data.zip", files = csv_files)
+
+# Create a tar.gz file of all csv files
+tar(tarfile = "data/data.tar.gz", files = csv_files)

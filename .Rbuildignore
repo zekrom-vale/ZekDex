@@ -5,3 +5,5 @@
 ^wiki$
 ^\.git
 ^\.tmp$
+^data/.*\.zip$
+^data/.*\.tar\.gz$
