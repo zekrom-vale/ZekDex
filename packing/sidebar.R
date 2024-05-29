@@ -1,18 +1,6 @@
 library(tidyverse)
 library(glue)
 
-# Get a list of all .md files in the "wiki" directory and its subdirectories
-files <- list.files("wiki", pattern = ".md", recursive = TRUE)
-
-# Remove the .md extension from each file
-files <- str_remove(files, ".md")
-
-# Exclude the _Sidebar file
-files <- files[files != "_Sidebar"]
-
-# Split the file paths to get nested directories
-split_files <- str_split(files, "/")
-
 # Recursive function to build a nested list
 build_nested_list <- function(paths, lst) {
   if (length(paths) == 0) {
@@ -34,8 +22,6 @@ build_nested_list <- function(paths, lst) {
   return(build_nested_list(paths, lst))
 }
 
-# Build the nested list
-nested_list <- build_nested_list(split_files, list())
 
 # Function to generate Markdown for a list
 generate_markdown <- function(x, name = NULL, level = 0) {
@@ -59,6 +45,21 @@ generate_markdown <- function(x, name = NULL, level = 0) {
     return(glue("{strrep('  ', level)}- [{x}](https://github.com/zekrom-vale/ZekDex/wiki/{x})"))
   }
 }
+
+# Get a list of all .md files in the "wiki" directory and its subdirectories
+files <- list.files("wiki", pattern = ".md", recursive = TRUE)
+
+# Remove the .md extension from each file
+files <- str_remove(files, ".md")
+
+# Exclude the _ files
+files <- files[str_starts(files, "_")]
+
+# Split the file paths to get nested directories
+split_files <- str_split(files, "/")
+
+# Build the nested list
+nested_list <- build_nested_list(split_files, list())
 
 # Generate Markdown for each file
 markdown <- generate_markdown(nested_list)
