@@ -39,8 +39,9 @@ gen_stats = function(
 	gens = str_extract(URLS, "\\(Generation_(.*)\\)", group = 1)
 	stats = map2(HTMLS, gens, function(HTML, gen){
 		# HTML = HTMLS[[6]]; gen = "II-V"
-		table = rvest::html_table(HTML)|>
-			table[[(length(table)-3)]]|>
+		table = rvest::html_table(HTML)
+
+		table[[(length(table)-3)]]|>
 			select(-2)|>
 			rename(ndex=1, name = "Pok\u00E9mon")|>
 			mutate(

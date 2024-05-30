@@ -1,6 +1,8 @@
 #' Generate the National Dex
 #'
-#' This function generates a tibble of the National Dex by reading the 'PokemonNational.csv' file and scraping data from Bulbapedia. It extracts the tables from the HTML content, cleans the column names of the dataframe, and combines all dataframes into one. If `write = TRUE`, it also writes the tibble to a csv file.
+#' This function generates a tibble of the National Dex by reading the 'PokemonNational.csv' file and scraping data from Bulbapedia.
+#' It extracts the tables from the HTML content, cleans the column names of the dataframe, and combines all dataframes into one.
+#' If `write = TRUE`, it also writes the tibble to a csv file.
 #'
 #' @param write Logical, if `TRUE`, writes the tibble to a csv file. Default is `FALSE`.
 #' @param root The root directory where the file will be written if `write = TRUE`. Default is "data/".
