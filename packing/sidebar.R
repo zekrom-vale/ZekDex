@@ -37,6 +37,7 @@ generate_markdown <- function(x, name = NULL, level = 0) {
     inner_md <- paste(inner_md, collapse = "\n")
 
     if (!is.null(name)) {
+    	if(level == 1)return(glue("# {name}\n{inner_md}\n\n"))
       return(glue("{strrep('  ', level-1)}{name}\n{inner_md}\n\n"))
     } else {
       return(inner_md)
@@ -53,7 +54,7 @@ files <- list.files("wiki", pattern = ".md", recursive = TRUE)
 files <- str_remove(files, ".md")
 
 # Exclude the _ files
-files <- files[str_starts(files, "_")]
+files <- files[!str_starts(files, "_")]
 
 # Split the file paths to get nested directories
 split_files <- str_split(files, "/")
@@ -65,4 +66,4 @@ nested_list <- build_nested_list(split_files, list())
 markdown <- generate_markdown(nested_list)
 
 # Write the Markdown to the _Sidebar.md file
-write_file(markdown, "wiki/_Sidebar.md")
+write_file(glue("# root\n{markdown}"), "wiki/_Sidebar.md")

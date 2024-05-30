@@ -8,6 +8,8 @@ rm(list = ls(all.names = TRUE))
 library(glue)
 library(tidyverse)
 library(yaml)
+library(roxygen2)
+
 l = list()
 l$ATTRIBUTION = read_file("ATTRIBUTION.md")
 l$INSTALL = read_file("packing/INSTALL.md")
@@ -30,8 +32,30 @@ glue_data(l, renmoveComments(read_file("packing/home.src.md")))|>
 # WIKI DATA
 genWikiData()
 
+# FUNCTION DATA
+files = list.files("R", full.names = TRUE, pattern = "\\.[Rr]$")|>
+	discard(~.=="R/data.R")
+
+names(files) <- str_remove_all(files, "R/|\\.R")
+
+md = map(files, function(file){
+	extract_roxygen(file, read_file("packing/function.wiki.md"))
+})
+
+md|>
+	imap(function(cluster, folder){
+		dir.create(glue("wiki/functions/{folder}"), showWarnings = FALSE, recursive = TRUE)
+		cluster|>
+			imap(function(rox, file){
+				write_file(rox, glue("wiki/functions/{folder}/{file}.md"))
+			})
+	})
+remove_empty_dirs("wiki/functions")
+
+# WIKI SIDEBAR
 source("packing/sidebar.R")
 
+# DOCUMENT DATA
 
 devtools::document()
 devtools::install() # Or clean and install in Build
@@ -40,6 +64,7 @@ devtools::install() # Or clean and install in Build
 
 dir.create("data", showWarnings = FALSE)
 
+# GENERATE DATA
 
 gen_type(write = TRUE) # Note may need to restart if this changes
 
