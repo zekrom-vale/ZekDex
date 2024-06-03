@@ -435,6 +435,36 @@ split_at = function(lst, condition) {
 	ret
 }
 
+# Recursive helper function to find the tag in a list or xml node
+find_tag_in_list <- function(x, tag, level = 0) {
+	if (!inherits(x, "xml_node") && !inherits(x, "xml_node_set")) {
+		# If x is a list, apply the function recursively to each element
+		el <- purrr::map_chr(x, ~find_tag_in_list(., tag, level+1))
+		# If no tag is found in any element, return NA
+		if (all(is.na(el))) {
+			el <- NA
+		} else {
+			# Otherwise, return the first non-NA tag found
+			el <- el[!is.na(el)][1]
+		}
+	} else {
+		# If x is an xml node, find the tag
+		if(rvest::html_name(x) == tag) el <- x
+		else el <- rvest::html_nodes(x, tag)
+		if(length(el) > 0) {
+			el <- rvest::html_text(el)
+			# Check if the result is of length 0
+			if (length(el) == 0) {
+				el <- NA
+			}
+		} else {
+			el <- NA
+		}
+	}
+	return(el)
+}
+
+
 #' Splits a list at each specified tag
 #'
 #' This function splits a list at each specified tag. It returns a list of
@@ -450,17 +480,31 @@ split_at = function(lst, condition) {
 #' \dontrun{
 #' ZekDex:::split_each(list("h1", "h2", "h3", "h4"), c("h2", "h3", "h4"))
 #' }
+# Recursive helper function to find the tag in a list or xml node
 split_each = function(lst, tags = c("h2", "h3", "h4")) {
 	# If it has external pointers as a type just return it as it is
 	if (length(tags) == 1) {
 		cur = split_at(lst, ~ rvest::html_name(.) == tags[1])
+		# Name the list entries with the text of the xml_node or "root" if none is found
+		names(cur) <- purrr::map_chr(cur, function(x) {
+			el <- find_tag_in_list(x, tags[1])
+			if(is.na(el)) return("root")
+			else return(el)
+		})
 		return(cur)
 	}
 	tag = tags[1]; tags = tags[-1]
 	cur = lst|>
 		split_at(~rvest::html_name(.) == tag)
-	cur = cur%>%
+	# Recurce for each element
+	cur = cur|>
 		map(~ split_each(., tags))
+	# Name the list entries with the text of the xml_node or "root" if none is found
+	names(cur) <- purrr::map_chr(cur, function(x) {
+		el <- find_tag_in_list(x, tag)
+		if(is.na(el)) return("root")
+		else return(el)
+	})
 	return(cur)
 }
 
