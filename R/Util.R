@@ -435,35 +435,45 @@ split_at = function(lst, condition) {
 	ret
 }
 
-# Recursive helper function to find the tag in a list or xml node
+# Recursive helper function to find the tag in a list or xml node and remove it
 find_tag_in_list <- function(x, tag, level = 0) {
 	if (!inherits(x, "xml_node") && !inherits(x, "xml_node_set")) {
 		# If x is a list, apply the function recursively to each element
-		el <- purrr::map_chr(x, ~find_tag_in_list(., tag, level+1))
+		el <- purrr::map(x, ~find_tag_in_list(., tag, level+1))
+		# Extract the tags and the lists without the tags
+		tags <- purrr::map_chr(el, "tag")
+		lists_without_tag <- purrr::map(el, "list_without_tag")
 		# If no tag is found in any element, return NA
-		if (all(is.na(el))) {
-			el <- NA
+		if (all(is.na(tags))) {
+			tag <- NA
 		} else {
 			# Otherwise, return the first non-NA tag found
-			el <- el[!is.na(el)][1]
+			tag <- tags[!is.na(tags)][1]
 		}
+		# Return the tag and the list without the tag
+		return(list(tag = tag, list_without_tag = lists_without_tag))
 	} else {
 		# If x is an xml node, find the tag
-		if(rvest::html_name(x) == tag) el <- x
-		else el <- rvest::html_nodes(x, tag)
+		if(rvest::html_name(x) == tag) {
+			el <- x
+			# Remove the element from the list
+			x <- list()
+		} else {
+			el <- rvest::html_nodes(x, tag)
+		}
 		if(length(el) > 0) {
-			el <- rvest::html_text(el)
+			tag <- rvest::html_text(el)
 			# Check if the result is of length 0
-			if (length(el) == 0) {
-				el <- NA
+			if (length(tag) == 0) {
+				tag <- NA
 			}
 		} else {
-			el <- NA
+			tag <- NA
 		}
+		# Return the tag and the list without the tag
+		return(list(tag = tag, list_without_tag = x))
 	}
-	return(el)
 }
-
 
 #' Splits a list at each specified tag
 #'
@@ -488,9 +498,16 @@ split_each = function(lst, tags = c("h2", "h3", "h4")) {
 		# Name the list entries with the text of the xml_node or "root" if none is found
 		names(cur) <- purrr::map_chr(cur, function(x) {
 			el <- find_tag_in_list(x, tags[1])
-			if(is.na(el)) return("root")
-			else return(el)
+			if(is.na(el$tag)) return("root")
+			else {
+				x <- el$list_without_tag
+				return(el$tag)
+			}
 		})
+		# If the length of the list is 1, return the first element of the list
+		if(length(cur) == 1) {
+			cur <- cur[[1]]
+		}
 		return(cur)
 	}
 	tag = tags[1]; tags = tags[-1]
@@ -502,9 +519,16 @@ split_each = function(lst, tags = c("h2", "h3", "h4")) {
 	# Name the list entries with the text of the xml_node or "root" if none is found
 	names(cur) <- purrr::map_chr(cur, function(x) {
 		el <- find_tag_in_list(x, tag)
-		if(is.na(el)) return("root")
-		else return(el)
+		if(is.na(el$tag)) return("root")
+		else {
+			x <- el$list_without_tag
+			return(el$tag)
+		}
 	})
+	# If the length of the list is 1, return the first element of the list
+	if(length(cur) == 1) {
+		cur <- cur[[1]]
+	}
 	return(cur)
 }
 
